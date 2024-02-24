@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# DéRosa Doces
 
-`CURSO`
+`Analise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de um Sistema Sociotécnico Inovador`
 
-`SEMESTRE`
+`5º Semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Desenviolvimento de uma aplicação para a DéRosa Doces onde ela possa inserir os produtos que são vendidos, com fotos, descrição, valor e o que mais for necessário para uma melhor viabilidade do seu negócio.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Alex Vinicius Dutra Berton
+* Eduardo Ramos da Silva
+* Erick Machado Reis
+* Fernando Maia Torres Alves
+* Jhody Mike Possidonio Da Silva
+* Leticia Isabela Teodoro Campos
 
 ## Orientador
 
-* Nome completo do professor 1
+* José Wilson da Costa
 
 ## Instruções de utilização
 
