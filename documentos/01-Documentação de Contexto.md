@@ -1,13 +1,12 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Nos últimos anos, o modo de como empresas expõem os seus produtos e serviços mudou. Hoje em dia, grande parte das empresas utilizam os meios digitais para mostrar os seus produtos e serviços para os consumidores, como mídias sociais, aplicativos e/ou websites.
+
+Por causa dessas mudanças, algumas empresas, principalmente as pequenas, não mais necessitam de um ponto físico nem de um catálogo para que os seus produtos possam ficar a amostra dos clientes. Elas utilizam o meio digital para mostrar fotos, descrição, valores e o que mais for necessário para apresentar seus produtos e serviços, além de aceitar pedidos e pagamento.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+As empresas que não possuem um meio digital consolidado para seu negócio, pode perder clientes por falta de informações de seus produtos e serviços. Isso pode atrapalhar o crescimento, ou até mesmo inviabilizar, o negócio da empresa por falta de clientes.
+A falta de recursos, tempo ou até mesmo de conhecimento do que deve ser feito faz com que algumas empresas não invistam em mais de uma plataforma digital para promover o seu negócio.
 
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
@@ -16,18 +15,22 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo desse projeto é desenvolver uma aplicação onde os produtos de uma doceria possam ser mostrados de uma maneira mais clara, com mais detalhes sobre os produtos e com uma facilidade maior para encontrar todos os produtos ofertados. Isso facilitaria aos possíveis clientes a verificarem todos os produtos e serviços feitos por essa empresa, e ajudar a empresa a receber pedidos e pagamentos de seus clientes.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+### Objetivos específicos
+
+- Criar uma aplicação com informações da doceira;
+- Descrever os tipos dos produtos vendidos com fotos, valores e parte dos ingredientes;
+- Auxiliar no gerenciamento dos pedidos feitos pelos clientes.
  
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+A diversificação dos meios sociais em que uma empresa possui melhora a percepção da marca, fazendo com que ela tenha uma melhor visibilidade e que os seus clientes possam ter um contato maior com que a empresa oferece.
+A criação desta aplicação irá facilitar que os visitantes da página possam ver todos os produtos, levando a um possível aumento nas vendas.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
 
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
