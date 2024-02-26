@@ -25,6 +25,8 @@ Para este projeto, optamos pelas seguintes tecnologias e arquitetura:
 
 Colocar a imagem do modelo construído apresentando a proposta de solução.
 
+<img src="img/projectmodelcanvas.jpg">
+
 > **Links Úteis**:
 > Disponíveis em material de apoio do projeto
 
