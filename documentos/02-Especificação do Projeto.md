@@ -8,8 +8,19 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Arquitetura e Tecnologias
 
-o	Descreva brevemente a arquitetura definida para o projeto e as tecnologias a serem utilizadas. Sugere-se a criação de um diagrama de componentes da solução.
+Para este projeto, optamos pelas seguintes tecnologias e arquitetura:
 
+### Tecnlogias: 
+- Linguagem de Programação: C#
+- Framework: ASP.NET
+- Banco de Dados: SQL Server
+
+### Arquitetura:
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/assets/63081926/14a991ad-71b0-4d6b-aac0-c126975be3b5)
+
+
+  
 ## Project Model Canvas
 
 Colocar a imagem do modelo construído apresentando a proposta de solução.
