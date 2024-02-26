@@ -41,4 +41,8 @@ Relacionar a situação-problema da organização com o impacto social esperado 
 
 ## Descrição do Parceiro
 
-Apresente uma descrição resumida sobre a organização onde o projeto será desenvolvido para que possa ser compreendido o cenário sistema sociotécnico.
+A DéRosa é uma doceria idealizada por Júlia Junqueira, apaixonada pela confeitaria. O conceito central desse empreendimento é oferecer produtos sob encomenda, garantindo qualidade e personalização para cada cliente. O objetivo principal é criar momentos especiais através de seus bolos, tortas, doces e bombons, transformando celebrações, momentos especiais e até o dia a dia dos clientes, em experiências inesquecíveis.  
+
+A DéRosa se destaca por sua dedicação aos detalhes e pelo uso de ingredientes frescos e selecionados. Cada item é elaborado com amor e cuidado, garantindo sabor e texturas excepcionais.
+
+Além disso, a DéRosa tem planos ambiciosos de expandir cada vez mais sua marca, alcançando cada vez mais clientes com a visibilidade das redes sociais e com um site onde seus clientes atuais e futuros possam conhecer melhor seus produtos e fazer pedidos de forma prática e rápida. Com essa visão, busca não apenas fornecer doces, mas também criar laços e tornar-se parte de momentos especiais na vida de seus clientes. 
