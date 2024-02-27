@@ -55,8 +55,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| A aplicação web deve ser responsiva | MÉDIA | 
+|RNF-002| A aplicação deve registrar eventos importantes, erros e atividades críticas para fins de auditoria, solução de problemas e segurança.| Alta | 
+|RNF-003| A aplicação deve ser capaz de lidar com um aumento repentino no tráfego, especialmente durante períodos de alta demanda, como feriados ou promoções especiais. | Alta |
+|RNF-004| A aplicação deve implementar autenticação baseada em tokens JWT (JSON Web Tokens) | Média |
+|RNF-005| A aplicação deve implemementar autorização com base no serviço do EntityFramework Identity |  Média | 
+|RNF-006| A aplicação deve ser compatível com os principais navegadores web (Chrome, Firefox, Safari, Edge) | Média |
+|RNF-007| A aplicação deve ter uma interface intuitiva e de fácil utilização | Alta |
+|RNF-008| Deve ser implementado um processo eficiente de atualizações e manutenção da produtos, garantindo que novos produtos sejam implementadas de forma segura e sem impactar a disponibilidade da aplicação. | Média |
+|RNF-009| A aplicação deve ser eficiente em termos de consumo de recursos, como CPU, memória e largura de banda, para otimizar os custos de hospedagem na Azure. | Alta |
+
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
