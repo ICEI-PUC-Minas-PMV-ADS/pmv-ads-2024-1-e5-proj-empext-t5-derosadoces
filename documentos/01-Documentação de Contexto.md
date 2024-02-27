@@ -5,8 +5,13 @@ Nos últimos anos, o modo de como empresas expõem os seus produtos e serviços 
 Por causa dessas mudanças, algumas empresas, principalmente as pequenas, não mais necessitam de um ponto físico nem de um catálogo para que os seus produtos possam ficar a amostra dos clientes. Elas utilizam o meio digital para mostrar fotos, descrição, valores e o que mais for necessário para apresentar seus produtos e serviços, além de aceitar pedidos e pagamento.
 
 ## Problema
-As empresas que não possuem um meio digital consolidado para seu negócio, pode perder clientes por falta de informações de seus produtos e serviços. Isso pode atrapalhar o crescimento, ou até mesmo inviabilizar, o negócio da empresa por falta de clientes.
-A falta de recursos, tempo ou até mesmo de conhecimento do que deve ser feito faz com que algumas empresas não invistam em mais de uma plataforma digital para promover o seu negócio.
+
+As empresas que não possuem um meio digital consolidado para seu negócio, pode perder clientes por falta de informações de seus produtos e serviços. Isso pode atrapalhar o crescimento, ou até mesmo inviabilizar, o negócio da empresa por falta desses clientes.
+
+Uma vez que uma parcela significativa da população já faz uma primeira busca de uma empresa que possua o produto ou serviço que seu interesse, o não investimento em diferentes plataformas digitais, seja por falta de recursos, tempo ou até mesmo de conhecimento, leva a uma visibilidade menor da empresa.
+
+E, mesmo possuindo plataformas digitais, a falta de informações sobre os produtos e serviços levam essas pessoas a procurarem outro local onde elas sintam mais seguras em saber o que as empresas estão oferecendo a elas.
+
 
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
@@ -15,21 +20,22 @@ A falta de recursos, tempo ou até mesmo de conhecimento do que deve ser feito f
 
 ## Objetivos
 
-O objetivo desse projeto é desenvolver uma aplicação onde os produtos de uma doceria possam ser mostrados de uma maneira mais clara, com mais detalhes sobre os produtos e com uma facilidade maior para encontrar todos os produtos ofertados. Isso facilitaria aos possíveis clientes a verificarem todos os produtos e serviços feitos por essa empresa, e ajudar a empresa a receber pedidos e pagamentos de seus clientes.
+O objetivo desse projeto é desenvolver uma aplicação onde os produtos de uma doceria possam ser mostrados de uma maneira mais clara, com mais detalhes sobre os produtos e com uma facilidade maior para encontrar todos os produtos ofertados, além de poder fazer o pedido e o pagamento dos itens comprados. Isso facilitaria aos possíveis clientes a verificarem todos os produtos e serviços feitos por essa empresa, e ajudar a empresa a receber pedidos e pagamentos de seus clientes.
 
 ### Objetivos específicos
 
-- Criar uma aplicação com informações da doceira;
-- Descrever os tipos dos produtos vendidos com fotos, valores e parte dos ingredientes;
-- Auxiliar no gerenciamento dos pedidos feitos pelos clientes.
+- Criar uma aplicação com informações da doceira
+- Descrever os tipos dos produtos vendidos com fotos, valores e parte dos ingredientes
+- Auxiliar no gerenciamento dos pedidos feitos pelos clientes
  
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-A diversificação dos meios sociais em que uma empresa possui melhora a percepção da marca, fazendo com que ela tenha uma melhor visibilidade e que os seus clientes possam ter um contato maior com que a empresa oferece.
-A criação desta aplicação irá facilitar que os visitantes da página possam ver todos os produtos, levando a um possível aumento nas vendas.
+A diversificação dos meios digitais em que uma empresa possui melhora a percepção da marca, fazendo com que ela tenha uma melhor visibilidade e que os seus clientes possam ter um contato maior com que a empresa oferece.
+
+A criação dessa aplicação irá facilitar que os clientes possam ver todos os produtos, levando a um possível aumento nas vendas, expandindo todo o conteúdo já inserido no Instagram da DéRosa Doces.
 
 
 > **Links Úteis**:
@@ -37,7 +43,9 @@ A criação desta aplicação irá facilitar que os visitantes da página possam
 
 ## Relação com a Extensão Universitária
 
-Relacionar a situação-problema da organização com o impacto social esperado com a implantação do sistema sociotécnico.
+A implantação deste sistema sociotécnico na DéRosa terá um impacto positivo para a empresa. Ele melhorará a apresentação dos produtos, que contará com mais detalhes do que a empresa disponibiliza atualmente, mostrando fotos, detalhes e valores atualizados. Além de aprimorar a maneira de se fazer um pedido, com a eliminação da conversa do cliente com a empresa para saber a disponibilidade dos dias que o pedido pode ser entregue, além de outras funcionalidades.
+
+A aplicação deixará os funcionários da empresa mais focado na produção do que respondendo os clientes sobre atualização de valores e possibilidade de atender o seu pedido para um dia específico. Isso melhorará a produtividade e evitará que a empresa perca clientes por demora nas respostas que eles possam ter sobre os produtos e prazo de entrega. 
 
 ## Descrição do Parceiro
 
