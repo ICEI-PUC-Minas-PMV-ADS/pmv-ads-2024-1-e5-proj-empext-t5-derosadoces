@@ -38,8 +38,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| A aplicação deve permitir o usuário se cadastrar. | ALTA | 
+|RF-002| A aplicação deve permitir o usuário realizar login.   | ALTA |
+|RF-003| A aplicação deve permitir ao usuário EDITAR dados pessoais.   | MÉDIA |
+|RF-004| A aplicação deve permitir ao usuária navegar pelas páginas.  | ALTA |
+|RF-005| A aplicação deve permitir ao usuário realizar BUSCAS de produtos.  | BAIXA |
+|RF-006| A aplicação deve permitir o usuário selecionar produtos.  | ALTA |
+|RF-007| A aplicação deve permitir o usuário adicionar produtos ao carrinho.   | ALTA |
+|RF-008| A aplicação deve permitir ao usuário finalizar a compra de um ou mais produtos.  | ALTA |
+|RF-009| A aplicação deve permitir ao usuário acessar os pedidos realizados.  | MÉDIA |
+|RF-010| A aplicação deve possuir filtro de categoria.   | MÉDIA |
+
+
 
 ### Requisitos não Funcionais
 
