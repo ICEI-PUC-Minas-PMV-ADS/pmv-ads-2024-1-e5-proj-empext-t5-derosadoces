@@ -38,16 +38,17 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A aplicação deve permitir o usuário se cadastrar. | ALTA | 
-|RF-002| A aplicação deve permitir o usuário realizar login.   | ALTA |
-|RF-003| A aplicação deve permitir ao usuário EDITAR dados pessoais.   | MÉDIA |
-|RF-004| A aplicação deve permitir ao usuária navegar pelas páginas.  | ALTA |
-|RF-005| A aplicação deve permitir ao usuário realizar BUSCAS de produtos.  | BAIXA |
-|RF-006| A aplicação deve permitir o usuário selecionar produtos.  | ALTA |
-|RF-007| A aplicação deve permitir o usuário adicionar produtos ao carrinho.   | ALTA |
-|RF-008| A aplicação deve permitir ao usuário finalizar a compra de um ou mais produtos.  | ALTA |
-|RF-009| A aplicação deve permitir ao usuário acessar os pedidos realizados.  | MÉDIA |
-|RF-010| A aplicação deve possuir filtro de categoria.   | MÉDIA |
+|RF-001| A aplicação deve permitir o usuário se cadastrar. | Alta | 
+|RF-002| A aplicação deve permitir o usuário realizar login.   | Alta |
+|RF-003| A aplicação deve permitir ao usuário EDITAR dados pessoais.   | Média |
+|RF-004| A aplicação deve permitir ao usuária navegar pelas páginas.  | Alta |
+|RF-005| A aplicação deve permitir ao usuário realizar BUSCAS de produtos.  | Baixa |
+|RF-006| A aplicação deve permitir o usuário selecionar produtos.  | Alta |
+|RF-007| A aplicação deve permitir o usuário adicionar produtos ao carrinho.   | Alta |
+|RF-008| A aplicação deve permitir ao usuário finalizar a compra de um ou mais produtos.  | Alta |
+|RF-009| A aplicação deve permitir ao usuário acessar os pedidos realizados.  | Média |
+|RF-010| A aplicação deve possuir filtro de categoria.   | Média |
+|RF-011| A aplicação deve ter um mecanismo que verifica se o pedido é possível, considerando a data e a quantidade desejada.   | Alta |
 
 
 
@@ -55,7 +56,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| A aplicação web deve ser responsiva | MÉDIA | 
+|RNF-001| A aplicação web deve ser responsiva | Média | 
 |RNF-002| A aplicação deve registrar eventos importantes, erros e atividades críticas para fins de auditoria, solução de problemas e segurança.| Alta | 
 |RNF-003| A aplicação deve ser capaz de lidar com um aumento repentino no tráfego, especialmente durante períodos de alta demanda, como feriados ou promoções especiais. | Alta |
 |RNF-004| A aplicação deve implementar autenticação baseada em tokens JWT (JSON Web Tokens) | Média |
@@ -87,8 +88,12 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+| RE-01	| O projeto deverá ser entregue no final do semestre letivo. | 
+| RE-02	| A equipe não pode subcontratar o desenvolvimento do trabalho. |
+| RE-03	| A aplicação só poderá ser lançada se os requisitos de funcionalidade e acessibilidade quando forem atendidas. |
+| RE-04 | Não é permitido a remuneração financeira para a equipe durante a execução deste trabalho acadêmico. |
+| RE-05 | As tecnologias ou software utilizados no projeto devem estar em conformidade com licenças específicas (por exemplo, licenças de código aberto) e não podem infringir direitos autorais ou licenças. |
+
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
