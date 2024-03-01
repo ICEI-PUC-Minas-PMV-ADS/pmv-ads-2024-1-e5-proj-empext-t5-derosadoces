@@ -104,9 +104,8 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 ## Diagrama de Casos de Uso
 
 O diagrama de casos de uso é um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores.
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/assets/104038811/b678e90d-c3e6-4245-a384-f53842565f59)
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/assets/104038811/c0f27733-1cc2-4a47-8afa-0098f9b575ba)
+<img src="img/casodeuso.jpg">
 
 
 
