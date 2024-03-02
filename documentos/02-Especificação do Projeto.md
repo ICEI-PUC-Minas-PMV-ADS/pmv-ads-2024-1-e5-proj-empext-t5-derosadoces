@@ -41,12 +41,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-001| A aplicação deve permitir o usuário se cadastrar. | Alta | 
 |RF-002| A aplicação deve permitir o usuário realizar login.   | Alta |
 |RF-003| A aplicação deve permitir ao usuário EDITAR dados pessoais.   | Média |
-|RF-004| A aplicação deve permitir ao usuária navegar pelas páginas.  | Alta |
+|RF-004| A aplicação deve permitir ao usuário navegar pelas páginas.  | Alta |
 |RF-005| A aplicação deve permitir ao usuário realizar BUSCAS de produtos.  | Baixa |
 |RF-006| A aplicação deve permitir o usuário selecionar produtos.  | Alta |
 |RF-007| A aplicação deve permitir o usuário adicionar produtos ao carrinho.   | Alta |
 |RF-008| A aplicação deve permitir ao usuário finalizar a compra de um ou mais produtos.  | Alta |
-|RF-009| A aplicação deve permitir ao usuário acessar os pedidos realizados.  | Média |
+|RF-009| A aplicação deve permitir ao usuário acessar os pedidos realizados por ele.  | Média |
 |RF-010| A aplicação deve possuir filtro de categoria.   | Média |
 |RF-011| A aplicação deve ter um mecanismo que verifica se o pedido é possível, considerando a data e a quantidade desejada.   | Alta |
 |RF-012| A aplicação deve permitir somente ao administrador do site adicionar produtos para venda | Alta |
@@ -54,11 +54,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-014| A aplicação deve permitir somente ao administrador do site excluir produtos ou indisponibilizá-los | Alta |
 |RF-015| A aplicação deve permitir somente ao administrador do site adicionar categorias de produtos | Alta |
 |RF-016| A aplicação deve permitir somente ao administrador do site editar categorias de produtos | Alta |
-|RF-016| A aplicação deve permitir somente ao administrador do site excluir categorias de produtos | Alta |
-|RF-017| A aplicação deve permitir somente ao administrador do site visualizar as informações de todos os seu clientes | Média |
-|RF-018| A aplicação deve permitir somente ao administrador do site relatar que um pedido já foi entregue ou concluído | Alta |
-|RF-019| A aplicação deve notificar o usuário que o pedido está a caminho | Baixa |
-|RF-020| A aplicação deve permitir o usuário recuperar sua senha | Baixa |
+|RF-017| A aplicação deve permitir somente ao administrador do site excluir categorias de produtos | Alta |
+|RF-018| A aplicação deve permitir somente ao administrador do site visualizar as informações de todos os seu clientes | Média |
+|RF-019| A aplicação deve permitir somente ao administrador do site relatar que um pedido já foi entregue ou concluído | Alta |
+|RF-020| A aplicação deve notificar o usuário que o pedido está a caminho | Baixa |
+|RF-021| A aplicação deve permitir o usuário recuperar sua senha | Baixa |
 
 
 
