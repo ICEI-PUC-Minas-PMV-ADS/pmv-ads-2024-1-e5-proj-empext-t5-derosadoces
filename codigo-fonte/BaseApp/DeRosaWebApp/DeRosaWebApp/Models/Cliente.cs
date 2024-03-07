@@ -30,7 +30,7 @@ namespace DeRosaWebApp.Models
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Data de nascimento")]
         public DateTime DateNasc { get; set; }
-        public string IdCarrinho { get; set; }
+        
         public virtual Carrinho _Carrinho { get; set; }
        
     }
