@@ -30,8 +30,8 @@ namespace DeRosaWebApp.Controllers
             {
                 var user = new IdentityUser()
                 {
-                    UserName = usuario.Nome,
-                    NormalizedUserName = usuario.Nome.ToUpper(),
+                    UserName = usuario.NomeUsuario,
+                    NormalizedUserName = usuario.NomeUsuario.ToUpper(),
                     Email = usuario.Email,
                     NormalizedEmail = usuario.Email.ToUpper(),
                     PhoneNumber = usuario.Telefone
@@ -47,7 +47,7 @@ namespace DeRosaWebApp.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", result.Errors.ToString());
+                    ModelState.AddModelError("",result.ToString());
                 }
             }
             return View(usuario);

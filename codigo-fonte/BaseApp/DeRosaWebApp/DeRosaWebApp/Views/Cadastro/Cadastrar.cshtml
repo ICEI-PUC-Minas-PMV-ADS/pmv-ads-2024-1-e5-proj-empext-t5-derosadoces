@@ -11,7 +11,12 @@
                             <div asp-validation-summary="All" class="text-danger"></div>
 
                             <div class="col-md-6">
-                                <label asp-for="Nome"></label>
+                                <label>Digite o nome de seu Usuário</label>
+                                <input class="form-control" asp-for="NomeUsuario" />
+                                <span asp-validation-for="NomeUsuario"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Nome completo</label>
                                 <input class="form-control" asp-for="Nome" />
                                 <span asp-validation-for="Nome"></span>
                             </div>

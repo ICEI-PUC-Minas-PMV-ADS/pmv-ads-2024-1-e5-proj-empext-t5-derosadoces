@@ -10,8 +10,10 @@ namespace DeRosaWebApp.Models
         public int Cod_Cliente { get; set; }
         [Required(ErrorMessage = "O nome é obrigatório!")]
         [StringLength(100, ErrorMessage = "O nome só permite 100 caracteres")]
-        [DisplayName("Usuário")]
+        [DisplayName("Nome completo")]
         public string Nome { get; set; }
+        [Required(ErrorMessage = " O usuário é obrigatório!")]
+        public string NomeUsuario { get; set; } 
         [Required(ErrorMessage = "O número de telefone é obrigatório!")]
         public string Telefone { get; set; }
         [Required(ErrorMessage = "O CPF é obrigatório!")]
@@ -30,6 +32,7 @@ namespace DeRosaWebApp.Models
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Data de nascimento")]
         public DateTime DateNasc { get; set; }
+        public List<Pedido> _Pedidos { get; set; }
         
         public virtual Carrinho _Carrinho { get; set; }
        
