@@ -1,4 +1,7 @@
 using DeRosaWebApp.Context;
+using DeRosaWebApp.Models;
+using DeRosaWebApp.Repository.Interfaces;
+using DeRosaWebApp.Repository.Services;
 using Microsoft.AspNetCore.Identity;
 using ReflectionIT.Mvc.Paging;
 
@@ -7,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddScoped<ISeedRoleInitial, SeedUserRoleInitial>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sp => Carrinho.GetCarrinho(sp));
 
 builder.Services.AddAuthorization(options =>
 {
@@ -57,11 +63,26 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+CriarPerfisUsuarios(app);
+app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+void CriarPerfisUsuarios(WebApplication app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<ISeedRoleInitial>();
+        service.SeedRoles();
+        service.SeedUsers();
+    }
+}

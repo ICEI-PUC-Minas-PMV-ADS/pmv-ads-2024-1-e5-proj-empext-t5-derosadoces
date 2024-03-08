@@ -1,0 +1,53 @@
+﻿@model Cliente
+<div class="containerf">
+    <table class="table">
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12" style="color: white;">
+                        <h4 id="titulo">Registrar usuário</h4>
+                        <form asp-controller="Cadastro" asp-action="Cadastrar" method="post">
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Nome"></label>
+                                <input class="form-control" asp-for="Nome" />
+                                <span asp-validation-for="Nome"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Email"></label>
+                                <input class="form-control" asp-for="Email" />
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="DateNasc"></label>
+                                <input class="form-control" asp-for="DateNasc" />
+                                <span asp-validation-for="DateNasc"></span>
+                            </div>
+                            <div class="col-md-8">
+                                <label asp-for="CPF"></label>
+                                <input class="form-control" asp-for="CPF" />
+                                <span asp-validation-for="CPF"></span>
+                            </div>
+                            <div class="col-md-8">
+                                <label asp-for="Senha"></label>
+                                <input class="form-control" asp-for="Senha" />
+                                <span asp-validation-for="Senha"></span>
+                            </div>
+                            <div class="col-md-8">
+                                <label asp-for="Telefone"></label>
+                                <input class="form-control" asp-for="Telefone" />
+                                <span asp-validation-for="Telefone"></span>
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-success" type="submit" value="Cadastrar" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+    </table>
+</div>
