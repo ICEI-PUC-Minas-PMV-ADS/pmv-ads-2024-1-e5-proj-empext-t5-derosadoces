@@ -1,0 +1,12 @@
+﻿@using DeRosaWebApp.ViewModel;
+@model CarrinhoViewModel
+@if (Model.CarrinhoCompra.ListItemCarrinho.Count > 0)
+{
+    <a asp-controller="Carrinho" asp-action="Index">
+        <span><img width="40" height="40" src="~/Imagens/carrinho.png" /></span>
+        <span style="color:red; font-size:larger">
+            @Model.CarrinhoCompra.ListItemCarrinho.Count
+        </span>
+    </a>
+
+}

@@ -1,0 +1,28 @@
+﻿@using DeRosaWebApp.Models;
+@model ActionResult<Produto>
+
+<div class="product-details-container">
+    <div class="product-image">
+        @if (Model.Value.ImagemUrl.Contains("www"))
+        {
+            <img style="width: 560px; height: 560px" src='@Model.Value.ImagemUrl' />
+        }
+        else
+        {
+            <input class="img-loja" type="image" style="width: 560px; height: 560px" src='~/Imagens/@Model.Value.ImagemUrl' />
+        }
+        
+    </div>
+    <div class="product-details">
+        <h1 class="nome-item">@Model.Value.Nome</h1>
+        <p>@Model.Value.DescricaoCurta</p>
+
+        <h2 id="product-price">R$@Model.Value.Preco</h2>
+
+        <p style="color: yellow; font-size:smaller;"> Preço promocional: R$@Model.Value.PrecoSecundario</p>
+
+        <div class="text-box">
+            <a class="productbtn" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_produto="@Model.Value.Cod_Produto">Adicionar @Model.Value.Nome ao carrinho</a>
+        </div>
+    </div>
+</div>

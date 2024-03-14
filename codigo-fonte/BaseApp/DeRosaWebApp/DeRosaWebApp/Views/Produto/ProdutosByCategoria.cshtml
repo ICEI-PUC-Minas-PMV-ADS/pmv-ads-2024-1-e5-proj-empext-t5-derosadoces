@@ -1,0 +1,34 @@
+﻿﻿@using DeRosaWebApp.ViewModel;
+@model ProdutoViewModel;
+
+
+<section>
+    <div class="container">
+            @foreach (var produto in Model.Produtos)
+            {
+                <div class="card-deck">
+                    <div class="card" id="titulos" style="width: 18rem; height: 800px; margin-top: 10px;font-family:'Franklin Gothic Medium', 'Arial Narrow' , Arial, sans-serif;">
+                        @if (@produto.ImagemUrl.Contains("www"))
+                        {
+                            <img class="card-img-top" src='@produto.ImagemUrl' width="200" height="250" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src='~/Imagens/@produto.ImagemUrl' width="200px" height="250px" alt="Card image cap">
+                        }
+
+                        <div class="card-body">
+                            <h5 class="card-title">@produto.Nome</h5>
+                            <p class="card-text">@produto.DescricaoCurta</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" id="groupitem"><span id="focoItem">R$@produto.Preco</span></li>
+                        </ul>
+                        <div class="text-box">
+                            <a class="btn btn-outline-success" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-id="@produto.Cod_Produto" role="button">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            }
+    </div>
+</section>

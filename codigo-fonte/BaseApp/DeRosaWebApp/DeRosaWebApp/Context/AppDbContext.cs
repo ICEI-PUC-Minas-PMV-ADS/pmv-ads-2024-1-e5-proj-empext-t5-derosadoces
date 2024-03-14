@@ -19,7 +19,7 @@ namespace DeRosaWebApp.Context
         public DbSet<Admin> Administradores { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Data Source=NENDS;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
         }                   // exemplo: connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True"
     }
 }

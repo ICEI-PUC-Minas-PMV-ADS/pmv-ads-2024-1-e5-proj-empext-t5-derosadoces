@@ -1,0 +1,68 @@
+﻿@using DeRosaWebApp.ViewModel;
+@model CarrinhoViewModel
+
+<div class="container">
+    <div class="row">
+        <div>
+            <img src="~/Imagens/shopping-cart_3144456.png" alt="IconeCarrinho" />
+            <h4>Seu carrinho de compras : </h4>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr style="color: white;">
+                    <th>Quantidade</th>
+                    <th>Nome</th>
+                    <th>Produto</th>
+                    <th class="text-right">Preço</th>
+                    <th class="text-right">Subtotal</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CarrinhoCompra.ListItemCarrinho)
+                {
+                    <tr style="color: black;">
+                        <td class="text-center">@item.QntProduto</td>
+                        <td class="text-left">@item.Produto.Nome</td>
+                        <td class="text-center">
+                            @if (item.Produto.ImagemUrl.Contains("www"))
+                            {
+                                <img width="100" height="100" src='@item.Produto.ImagemUrl' alt="imagemProduto"/>
+                            }
+                            else
+                            {
+                                <img src="~/Imagens/@item.Produto.ImagemUrl"
+                                     alt="thumbLanche" width="50" height="40" />
+                            }
+                           
+                        </td>
+                        <td class="text-right"> @item.Produto.Preco.ToString("c")</td>
+                        <td class="text-right">
+                            @((item.QntProduto * item.Produto.Preco).ToString("c"))
+                        </td>
+                        <td class="text-center">
+                            <a asp-controller="Carrinho" asp-action="RemoverItemNoCarrinhoCompra"
+                               asp-route-cod_produto="@item.Produto.Cod_Produto">
+                                <img src="~/Imagens/lixeira.png" alt="IconeLixeira" width="36" height="36" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total: </td>
+                    <td class="text-right">@Model.CarrinhoCompraTotal.ToString("c")</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="text-right">
+            <div class="btn-group">
+                <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Continuar comprando</a>
+            </div>
+        </div>
+
+    </div>
+</div>

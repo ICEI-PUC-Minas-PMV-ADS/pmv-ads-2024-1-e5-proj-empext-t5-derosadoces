@@ -1,0 +1,29 @@
+﻿@model Pedido
+<form asp-action="Checkout" asp-controller="Pedido" method="post" class="form-horizontal" role="form">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Rua" class="control-label"></label>
+                <input asp-for="Rua" class="form-control" />
+                <span asp-validation-for="Rua" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <input class="btn btn-success" type="submit" role="button" asp-action="Checkout" asp-controller="Pedido" value="Realizar pedido" />
+        </div>
+    </div>
+</form> 

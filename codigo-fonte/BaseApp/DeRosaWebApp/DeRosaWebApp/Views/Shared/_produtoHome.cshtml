@@ -1,0 +1,27 @@
+﻿@using DeRosaWebApp.Models;
+@model Produto
+
+<link rel="stylesheet" href="~/css/Variaveis.css" />
+<div class="card" id="titulos" style="width: 18rem; height: 800px; margin-top: 10px;font-family:'Franklin Gothic Medium', 'Arial Narrow' , Arial, sans-serif;">
+    @if (Model.ImagemUrl.Contains("www"))
+    {
+        <img class="card-img-top" src='@Model.ImagemUrl' width="200" height="250" alt="Card image cap">
+    }
+    else
+    {
+        <img class="card-img-top" src='~/Imagens/@Model.ImagemUrl' width="200px" height="250px" alt="Card image cap">
+    }
+    
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nome</h5>
+        <p class="card-text">@Model.DescricaoCurta</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" id="groupitem"><span id="antigoPreco">R$@Model.Preco</span></li>
+        <li class="list-group-item" id="backgroundcartao"><span id="danger">Preço promocional  R$@Model.PrecoSecundario</span></></li>
+    </ul>
+  
+    <div class="text-box">
+        <a class="btn btn-outline-success" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-cod_produto="@Model.Cod_Produto" role="button">Detalhes</a>
+    </div>
+</div>

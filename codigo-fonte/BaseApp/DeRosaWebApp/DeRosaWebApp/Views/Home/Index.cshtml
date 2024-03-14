@@ -1,9 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
+﻿@using DeRosaWebApp.ViewModel;
+@model ReflectionIT.Mvc.Paging.PagingList<Produto>
 <div class="text-center">
     <h1 class="display-4">DéRosa Doceria</h1>
     <br />
     <p>Descubra o prazer com nossas receitas simples e deliciosas com sobremesas irresistíveis. Surpreenda-se com os nossos doces feitos com amor e delicie-se com cada pedacinho de felicidade que eles proporcionam.</a>.</p>
+</div>
+<div class="container">
+
+    <div class="container-lg" style="background-color:antiquewhite">
+
+        @foreach (var produto in Model)
+        {
+            <div class="card-deck">
+                <partial name="_produtoHome" for="@produto" />
+            </div>
+        }
+    </div>
 </div>

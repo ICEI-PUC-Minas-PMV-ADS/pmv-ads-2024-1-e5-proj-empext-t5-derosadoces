@@ -22,7 +22,7 @@ namespace DeRosaWebApp.Models
         {
             ISession session = service.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
             var context = service.GetService<AppDbContext>();
-            string codCarrinho = session.GetString("IdCarrinho") ?? Guid.NewGuid().ToString();
+            string codCarrinho = session.GetString("Cod_Carrinho") ?? Guid.NewGuid().ToString();
             session.SetString("Cod_Carrinho", codCarrinho);
             return new Carrinho(context)
             {
