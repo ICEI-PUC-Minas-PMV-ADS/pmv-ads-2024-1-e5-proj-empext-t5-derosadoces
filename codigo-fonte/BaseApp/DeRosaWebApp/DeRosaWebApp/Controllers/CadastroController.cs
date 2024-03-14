@@ -1,9 +1,9 @@
-﻿using DeRosaWebApp.Models;
+﻿using DeRosaWebApp.Context;
+using DeRosaWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Operations;
-using System.ComponentModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeRosaWebApp.Controllers
 {
@@ -12,11 +12,12 @@ namespace DeRosaWebApp.Controllers
     public class CadastroController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly AppDbContext _context;
 
-        public CadastroController(UserManager<IdentityUser> userManager)
+        public CadastroController(UserManager<IdentityUser> userManager, AppDbContext context)
         {
-
             _userManager = userManager;
+            _context = context;
         }
 
         [HttpGet]
@@ -24,6 +25,7 @@ namespace DeRosaWebApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Cadastrar(Cliente usuario)
@@ -45,15 +47,30 @@ namespace DeRosaWebApp.Controllers
                 {
                     await _userManager.AddToRoleAsync(user, "Member");
 
+
+                    var cliente = new Cliente
+                    {
+                        Id_User = user.Id,
+                        Nome = usuario.Nome,
+                        NomeUsuario = usuario.NomeUsuario,
+                        Telefone = usuario.Telefone,
+                        CPF = usuario.CPF,
+                        Email = usuario.Email,
+                        DateNasc = usuario.DateNasc,
+                        Senha = user.PasswordHash
+
+                    };
+                    _context.Clientes.Add(cliente);
+                    await _context.SaveChangesAsync();
+
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    ModelState.AddModelError("",result.ToString());
+                    ModelState.AddModelError("", result.ToString());
                 }
             }
             return View(usuario);
-
         }
     }
 }

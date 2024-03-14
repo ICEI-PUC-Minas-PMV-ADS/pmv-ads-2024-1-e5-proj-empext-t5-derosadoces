@@ -8,6 +8,7 @@ namespace DeRosaWebApp.Models
 
         [Key]
         public int Cod_Cliente { get; set; }
+        public string Id_User { get; set; }
         [Required(ErrorMessage = "O nome é obrigatório!")]
         [StringLength(100, ErrorMessage = "O nome só permite 100 caracteres")]
         [DisplayName("Nome completo")]
