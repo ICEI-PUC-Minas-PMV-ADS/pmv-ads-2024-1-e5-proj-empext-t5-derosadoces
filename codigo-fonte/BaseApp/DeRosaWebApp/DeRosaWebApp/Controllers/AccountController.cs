@@ -1,5 +1,6 @@
 ﻿using Azure.Identity;
 using DeRosaWebApp.Context;
+using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -13,14 +14,14 @@ namespace DeRosaWebApp.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly AppDbContext _context;
+        private readonly IClienteService _clienteService;
 
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, AppDbContext context)
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IClienteService clienteService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-            _context = context;
+            _clienteService = clienteService;
         }   
 
         public IActionResult Login(string returnUrl)
@@ -53,7 +54,7 @@ namespace DeRosaWebApp.Controllers
 
         }
 
-
+        [HttpGet]
         [Authorize]
         public async Task<IActionResult> Edit()
         {
@@ -66,7 +67,7 @@ namespace DeRosaWebApp.Controllers
             var userId = user.Id;
 
 
-            var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Id_User == userId);
+            var cliente = await _clienteService.GetClienteByIdAsync(userId);
 
             if (cliente == null)
             {
@@ -107,7 +108,7 @@ namespace DeRosaWebApp.Controllers
 
                 var userId = user.Id;
 
-                var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Id_User == userId);
+                var cliente = await _clienteService.GetClienteByIdAsync(userId);
 
                 if (cliente == null)
                 {
@@ -120,8 +121,7 @@ namespace DeRosaWebApp.Controllers
                 cliente.Telefone = clienteEditViewModel.Telefone;
                 cliente.DateNasc = clienteEditViewModel.DateNasc;
 
-                _context.Update(cliente);
-                await _context.SaveChangesAsync();
+                await _clienteService.UpdateClienteAsync(cliente);
 
                 return RedirectToAction("Index", "Home");
             }
