@@ -1,0 +1,104 @@
+﻿@using DeRosaWebApp.Models;
+@model IEnumerable<Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Visão geral</h1>
+
+<table class="table table-light font-monospace" style="color: black; font-size:small">
+    <thead class="table-success">
+        <tr class="d-xl-table-row">
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th class="d-lg-table-cell border-1">
+            <th>
+                @Html.DisplayNameFor(model => model.DataPedido)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Rua)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.TotalItensPedido)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.TotalPedido)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Entregue)
+            </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Concluido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="d-lg-table-row">
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.DataPedido)
+                </td>
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.Rua)
+                </td>
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.TotalItensPedido)
+                </td>
+                <td class="d-print-table-cell border-1">
+                    R$@Html.DisplayFor(modelItem => item.TotalPedido)
+                </td>
+                @if(item.Entregue)
+                {
+                    <td class="form-check-label border-1" style="background-color: green;">
+                        @Html.DisplayFor(modelItem => item.Entregue)
+                    </td>
+
+                }
+                else
+                {
+                    <td class="form-check-label border-1" style="background-color: red;">
+                        @Html.DisplayFor(modelItem => item.Entregue)
+                    </td>
+                }
+                @if (item.Concluido)
+                {
+                    <td class="form-check-label border-1" style="background-color: green;">
+                        @Html.DisplayFor(modelItem => item.Concluido)
+                    </td>
+                }
+                else
+                {
+                  
+                    <td class="form-check-label border-1" style="background-color: red;">
+                        @Html.DisplayFor(modelItem => item.Concluido)
+                    </td>
+                }
+                
+                
+                <td style="font-size:small">
+                    <a class="btn" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Edit" asp-route-id="@item.Cod_Pedido">Editar</a> 
+                    <a class="btn" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Details" asp-route-id="@item.Cod_Pedido">Detalhes</a> 
+                    <a class="btn" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;"asp-action="Delete" asp-route-id="@item.Cod_Pedido">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

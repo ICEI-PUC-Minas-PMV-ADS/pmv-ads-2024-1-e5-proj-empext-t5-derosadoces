@@ -75,10 +75,18 @@ app.UseAuthorization();
 
 
 
-app.MapControllerRoute(
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(
+        name: "acessdenied",
+        pattern: "{controller=Account}/{action=AccessDenied}");
+});
 app.Run();
 void CriarPerfisUsuarios(WebApplication app)
 {

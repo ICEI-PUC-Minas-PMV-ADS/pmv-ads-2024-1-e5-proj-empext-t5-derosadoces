@@ -1,9 +1,7 @@
 ﻿@using DeRosaWebApp.ViewModel;
 
 @model ReflectionIT.Mvc.Paging.PagingList<Produto>
-<script>
-    alert(ViewBag.Logout)
-</script>
+
 <div class="text-center">
     <h1 class="display-4">DéRosa Doceria</h1>
     <br />
@@ -21,3 +19,11 @@
         }
     </div>
 </div>
+<script>
+    window.onload = function () {
+        var message = '@TempData["LogoutMessage"]'
+        if (message) {
+            alert(message);
+        }
+    };
+</script>

@@ -1,0 +1,72 @@
+﻿@using DeRosaWebApp.Models;
+@model Pedido
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Pedido</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-area="Admin" method="post" asp-action="Edit" asp-controller="AdminPedidos" asp-route-id="@Model.Cod_Pedido">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.Cod_Pedido" />
+            <div class="form-group">
+                <label asp-for="@Model.Nome" class="control-label"></label>
+                <input asp-for="@Model.Nome" class="form-control" />
+                <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DataPedido" class="control-label"></label>
+                <input asp-for="@Model.DataPedido" class="form-control" />
+                <span asp-validation-for="@Model.DataPedido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Rua" class="control-label"></label>
+                <input asp-for="@Model.Rua" class="form-control" />
+                <span asp-validation-for="@Model.Rua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Numero" class="control-label"></label>
+                <input asp-for="@Model.Numero" class="form-control" />
+                <span asp-validation-for="@Model.Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Telefone" class="control-label"></label>
+                <input asp-for="@Model.Telefone" class="form-control" />
+                <span asp-validation-for="@Model.Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.TotalItensPedido" class="control-label"></label>
+                <input asp-for="@Model.TotalItensPedido" class="form-control" />
+                <span asp-validation-for="@Model.TotalItensPedido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.TotalPedido" class="control-label"></label>
+                <input asp-for="@Model.TotalPedido" class="form-control" />
+                <span asp-validation-for="@Model.TotalPedido" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <label asp-for="@Model.Entregue" class="form-check-label"></label>
+                <input asp-for="@Model.Entregue" class="form-check-input" />
+                <span asp-validation-for="@Model.Entregue" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <label asp-for="@Model.Concluido" class="form-check-label"></label>
+                <input asp-for="@Model.Concluido" class="form-check-input" />
+                <span asp-validation-for="@Model.Concluido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar"  class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>

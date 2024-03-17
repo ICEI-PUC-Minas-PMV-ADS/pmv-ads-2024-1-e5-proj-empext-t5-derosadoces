@@ -1,0 +1,106 @@
+﻿
+@model ReflectionIT.Mvc.Paging.PagingList<DeRosaWebApp.Models.Produto>
+
+@{
+    ViewData["Title"] = "Lista de produtos";
+}
+
+<h1>Inicio</h1>
+<p>
+    <a asp-action="Create">Criar novo produto</a>
+</p>
+<div class="center">
+    <div style="margin-left: 15px; margin-right: 15px">
+        <form method="get" class="form-inline">
+            <input name="filter" class="form-control" style="width: 40%" placeholder="Pesquise um produto..." value="@Model.RouteValue["Filter"]" />
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
+            </button>
+        </form>
+
+        Total de produtos : @Model.TotalRecordCount
+        <div>
+            <vc:pager paging-list="@Model"></vc:pager>
+        </div>
+
+    </div>
+   
+
+</div>
+
+
+<div class="container-fluid" style="font-size:small">
+  
+    <table class="table table-light font-monospace" style="color: black;">
+        <thead class="table-success">
+            <tr class="d-xl-table-row">
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.ImagemUrl)
+                </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.DescricaoCurta)
+                </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.PrecoSecundario)
+                </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.IdCategoria)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="d-lg-table-row">
+                    <td class="d-print-table-cell border-1">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td class="d-print-table-cell border-1">
+                        R$@Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td class="d-print-table-cell border-1">
+                        @Html.DisplayFor(modelItem => item.Quantidade)
+                    </td>
+                    <td class="d-print-table-cell border-1">
+                        @if (item.ImagemUrl.Contains("www"))
+                        {
+                            <img src="@Html.DisplayFor(modelItem => item.ImagemUrl)" width="95" height="95">
+                        }
+                        else
+                        {
+                            <img style="border: 1px ridge white; background-color: white;" src="~/Imagens/@Html.DisplayFor(modelItem => item.ImagemUrl)" width="95" height="95">
+                        }
+                        
+                    </td>
+                    <td class="d-print-table-cell border-1">
+                        @Html.DisplayFor(modelItem => item.DescricaoCurta)
+                    </td>
+                    
+                    <td class="d-print-table-cell border-1">
+                        R$@Html.DisplayFor(modelItem => item.PrecoSecundario)
+                    </td>
+                 
+                    <td class="d-print-table-cell border-1">
+                        @Html.DisplayFor(modelItem => item.IdCategoria)
+                    </td>
+                    <td class="flex-column border-1">
+                        <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Edit" asp-route-id="@item.Cod_Produto">Editar</a>
+                        <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Details" asp-route-id="@item.Cod_Produto">Detalhes</a>
+                        <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Delete" asp-route-id="@item.Cod_Produto">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

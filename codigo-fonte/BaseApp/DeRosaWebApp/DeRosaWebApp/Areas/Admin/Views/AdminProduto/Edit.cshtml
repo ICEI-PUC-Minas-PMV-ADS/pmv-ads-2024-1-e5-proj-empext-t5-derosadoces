@@ -1,0 +1,62 @@
+﻿@model Produto
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-area="Admin" asp-controller="AdminProduto" asp-action="Edit" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.Nome" class="control-label"></label>
+                <input asp-for="@Model.Nome" class="form-control" />
+                <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Preco" class="control-label"></label>
+                <input asp-for="@Model.Preco" class="form-control" />
+                <span asp-validation-for="@Model.Preco" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="@Model.Quantidade" class="control-label"></label>
+                <input asp-for="@Model.Quantidade" class="form-control" />
+                <span asp-validation-for="@Model.Quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ImagemUrl" class="control-label"></label>
+                <input asp-for="@Model.ImagemUrl" class="form-control" />
+                <span asp-validation-for="@Model.ImagemUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DescricaoCurta" class="control-label"></label>
+                <input asp-for="@Model.DescricaoCurta" class="form-control" />
+                <span asp-validation-for="@Model.DescricaoCurta" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="@Model.PrecoSecundario" class="control-label"></label>
+                <input asp-for="@Model.PrecoSecundario" class="form-control" />
+                <span asp-validation-for="@Model.PrecoSecundario" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="@Model.IdCategoria" class="control-label"></label>
+                <input asp-for="@Model.IdCategoria" class="form-control" />
+                <span asp-validation-for="@Model.IdCategoria class="text-danger"></span>
+            </div>
+       
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>

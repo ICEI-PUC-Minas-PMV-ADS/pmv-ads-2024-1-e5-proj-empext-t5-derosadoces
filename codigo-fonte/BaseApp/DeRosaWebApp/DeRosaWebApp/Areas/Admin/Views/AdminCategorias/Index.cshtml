@@ -1,0 +1,52 @@
+﻿@using DeRosaWebApp.Models;
+@model ReflectionIT.Mvc.Paging.PagingList<Categoria>
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1>Inicio</h1>
+
+<p>
+    <a asp-action="Create">Criar nova categoria </a>
+</p>
+<div class="center">
+    <div style="margin-left: 15px; margin-right: 15px">
+        <form method="get" class="form-inline">
+            <input name="filter" class="form-control" style="width: 40%" placeholder="Pesquise um produto..." value="@Model.RouteValue["Filter"]" />
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
+            </button>
+        </form>
+
+        Total de categorias : @Model.TotalRecordCount
+        <div>
+            <vc:pager paging-list="@Model"></vc:pager>
+        </div>
+
+    </div>
+</div>
+<table class="table table-light font-monospace" style="color: black;">
+    <thead class="table-success">
+        <tr class="d-xl-table-row">
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.CategoriaNome)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.CategoriaNome)
+                </td>
+                <td class="border-1">
+                    <a class="btn" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Edit" asp-route-id="@item.IdCategoria">Editar</a>
+                    <a class="btn" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Details" asp-route-id="@item.IdCategoria">Detalhes</a>
+                    <a  class="btn" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Delete" asp-route-id="@item.IdCategoria">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

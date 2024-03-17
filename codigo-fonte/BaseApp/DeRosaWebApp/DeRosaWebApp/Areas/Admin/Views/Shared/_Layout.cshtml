@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @RenderSection("scripts", required: false)
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg  custom-navbar">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">DéRosa</a>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="Home">Página inicial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminPedidos">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminProduto">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminCategorias">Categorias</a>
+                        </li>
+                    </ul>
+                </div>
+                @await Html.PartialAsync("_LoginPartial")
+                @await Html.PartialAsync("_AdmPartial")
+            </div>
+        </nav>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderBody()
+    </div>
+</body>
+</html>

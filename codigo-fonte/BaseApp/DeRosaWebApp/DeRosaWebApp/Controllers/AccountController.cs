@@ -154,7 +154,7 @@ namespace DeRosaWebApp.Controllers
             HttpContext.Session.Clear();
             HttpContext.User = null;
             await _signInManager.SignOutAsync();
-            ViewBag.Logout = "Sessão finalizada!";
+            TempData["LogoutMessage"] = "Sessao finalizada";
             return RedirectToAction("Index", "Home");
         }
         #endregion

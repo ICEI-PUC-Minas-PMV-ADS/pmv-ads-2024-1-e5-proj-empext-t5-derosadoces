@@ -1,0 +1,9 @@
+﻿﻿@using Microsoft.AspNetCore.Identity;
+@if (User.IsInRole("Admin"))
+{
+    <ul class="nav navbar-nav navbar-left">
+        <li class="nav-link">
+            <a style="color:orange;" asp-area="Admin" asp-action="Index" asp-controller="Admin">Área de Administração</a>
+        </li>
+    </ul>
+}
