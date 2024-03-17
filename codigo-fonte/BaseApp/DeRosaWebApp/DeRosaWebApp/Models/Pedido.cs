@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Text.Json.Serialization;
+using System.Runtime.Serialization;
 
 namespace DeRosaWebApp.Models
 {
@@ -28,6 +30,9 @@ namespace DeRosaWebApp.Models
         public double TotalPedido { get; set; }
         public bool Concluido { get; set; }
         public bool Entregue { get; set; }
+        public string Id_User { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember]
         public List<PedidoDetalhe> _PedidoDetalhes { get; set; }
 
     }

@@ -1,17 +1,18 @@
-﻿using Azure.Identity;
+﻿
 using DeRosaWebApp.Context;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace DeRosaWebApp.Controllers
 {
     [AllowAnonymous]
     public class AccountController : Controller
     {
+        #region Construtor, propriedades e injeção de dependência
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IClienteService _clienteService;
@@ -22,7 +23,9 @@ namespace DeRosaWebApp.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
             _clienteService = clienteService;
-        }   
+        }
+        #endregion
+        #region Login
 
         public IActionResult Login(string returnUrl)
         {
@@ -32,6 +35,8 @@ namespace DeRosaWebApp.Controllers
             };
             return View(usuarioViewModel);
         }
+        #endregion
+        #region Login (HTTPPOST)
 
         [HttpPost]
         public async Task<IActionResult> Login(UsuarioViewModel usuarioViewModel)
@@ -53,6 +58,8 @@ namespace DeRosaWebApp.Controllers
             return View(usuarioViewModel);
 
         }
+        #endregion
+        #region Edit usuário
 
         [HttpGet]
         [Authorize]
@@ -85,6 +92,8 @@ namespace DeRosaWebApp.Controllers
 
             return View(clienteEditViewModel);
         }
+        #endregion
+        #region Edit usuário (HTTPPOST)
 
         [Authorize]
         [HttpPost]
@@ -127,13 +136,16 @@ namespace DeRosaWebApp.Controllers
             }
             return View(clienteEditViewModel);
         }
-
+        #endregion
+        #region AccessDenied
 
         public IActionResult AccessDenied()
         {
 
             return View();
         }
+        #endregion
+        #region Logout
 
         [Authorize]
         [HttpPost]
@@ -144,5 +156,6 @@ namespace DeRosaWebApp.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        #endregion
     }
 }

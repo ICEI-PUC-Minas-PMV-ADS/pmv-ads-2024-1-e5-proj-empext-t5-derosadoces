@@ -9,6 +9,7 @@ namespace DeRosaWebApp.Controllers
     [Authorize]
     public class CarrinhoController : Controller
     {
+        #region Construtor, propriedades e injeção de dependência
         private readonly Carrinho _carrinhoCompra;
         private readonly IProductService _productService;
         public CarrinhoController(Carrinho carrinhoCompra, IProductService productService)
@@ -16,6 +17,8 @@ namespace DeRosaWebApp.Controllers
             _carrinhoCompra = carrinhoCompra;
             _productService = productService;
         }
+        #endregion
+        #region Index
         [Authorize]
         public IActionResult Index()
         {
@@ -29,7 +32,8 @@ namespace DeRosaWebApp.Controllers
             return View(carrinhoViewModel);
 
         }
-
+        #endregion
+        #region Adicionar no carinho
         public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto)
         {
             if (User.Identity.IsAuthenticated)
@@ -53,8 +57,9 @@ namespace DeRosaWebApp.Controllers
 
 
         }
+        #endregion
+        #region Remover item no carrinho
         [Authorize]
-
         public async Task<IActionResult> RemoverItemNoCarrinhoCompra(int cod_produto)
         {
             var produtoSelecionado = await _productService.GetById(cod_produto);
@@ -68,6 +73,8 @@ namespace DeRosaWebApp.Controllers
                 return produtoSelecionado.Result;
             }
         }
+        #endregion
+        #region Limpar carrinho
         [Authorize]
 
         public IActionResult LimparCarrinho()
@@ -75,5 +82,6 @@ namespace DeRosaWebApp.Controllers
             _carrinhoCompra.LimparCarrinho();
             return RedirectToAction("Index");
         }
+        #endregion
     }
 }

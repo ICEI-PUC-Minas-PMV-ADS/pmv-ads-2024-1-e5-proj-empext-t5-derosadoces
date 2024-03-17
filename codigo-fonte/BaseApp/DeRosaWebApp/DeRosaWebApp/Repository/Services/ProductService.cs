@@ -8,21 +8,28 @@ namespace DeRosaWebApp.Repository.Services
 {
     public class ProductService : IProductService
     {
+        #region Propriedades, Construtor e injeção de dependência
         private readonly AppDbContext _context;
         public ProductService(AppDbContext context)
         {
             _context = context;
         }
+        #endregion
+        #region Get Any Produto existente (bool)
         public async Task<bool> Any(int id)
         {
             var produto = _context.Produtos.Any(p => p.Cod_Produto == id);
             return produto;
         }
+        #endregion
+        #region Verificar a quantidade de produtos existentes
         public int VerifyQnt()
         {
             var QntProdutosExistentes = _context.Produtos.Count();
             return QntProdutosExistentes;
         }
+        #endregion
+        #region Adicionar um produto teste
         public async Task<ActionResult<Produto>> AddTestProduct(Produto produto)
         {
             _context.Produtos.Add(produto);
@@ -30,7 +37,8 @@ namespace DeRosaWebApp.Repository.Services
 
             return new OkObjectResult(produto);
         }
-
+        #endregion
+        #region Criar um produto
         public async Task<IActionResult> Create(Produto produto)
         {
             if (produto is not null)
@@ -44,6 +52,8 @@ namespace DeRosaWebApp.Repository.Services
                 return new BadRequestObjectResult(produto);
             }
         }
+        #endregion
+        #region Deletar produto pelo ID
 
         public async Task<IActionResult> Delete(int id)
         {
@@ -59,19 +69,23 @@ namespace DeRosaWebApp.Repository.Services
                 return new BadRequestObjectResult(produto);
             }
         }
+        #endregion
+        #region Produtos em Query para paginação
         public IQueryable<Produto> PaginationProduct()
         {
             var result = _context.Produtos.AsNoTracking().AsQueryable();
             return result;
         }
-
+        #endregion
+        #region Get todos os produtos
         public async Task<ActionResult<IEnumerable<Produto>>> GetAll()
         {
             var produtos = await _context.Produtos.ToListAsync();
             return produtos;
 
         }
-
+        #endregion
+        #region Get produto pelo ID
         public async Task<ActionResult<Produto>> GetById(int id)
         {
             var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.Cod_Produto == id);
@@ -82,7 +96,8 @@ namespace DeRosaWebApp.Repository.Services
 
             return new NotFoundObjectResult("Produto não encontrado!");
         }
-
+        #endregion
+        #region Atualizar produto
         public async Task<IActionResult> Update(Produto produto, int id)
         {
             var productExist = await _context.Produtos.FirstOrDefaultAsync(p => p.Cod_Produto == id);
@@ -108,7 +123,8 @@ namespace DeRosaWebApp.Repository.Services
             }
         }
 
-
+        #endregion
+        #region Get produto pelo Nome
         public async Task<IEnumerable<Produto>> GetByName(string searchString)
         {
             var find = await GetAll();
@@ -128,6 +144,8 @@ namespace DeRosaWebApp.Repository.Services
             }
             return listNameEmpty;
         }
+        #endregion
+        #region Metodo de pesquisa, comparar uma string com outra
         public bool Compare(string search, string nameProd)
         {
             string[] wordsProdName = nameProd.Split(" ");  // todas as palavras do nome do produto em um vetor
@@ -160,12 +178,15 @@ namespace DeRosaWebApp.Repository.Services
             return false;
 
         }
+        #endregion
+        #region Get produto pela categoria
         public async Task<IEnumerable<Produto>> GetByCategoria(int categoriaId)
         {
             var produto = await _context.Produtos.Where(p => p.IdCategoria == categoriaId).ToListAsync();
             return produto;
         }
-
+        #endregion
+        #region Atualizar quantidade de produto
         public async Task<IActionResult> PatchQnt(Produto produto)
         {
             var dbProd = await _context.Produtos.FirstOrDefaultAsync(p => p.Cod_Produto == produto.Cod_Produto);
@@ -181,5 +202,6 @@ namespace DeRosaWebApp.Repository.Services
                 return new NotFoundObjectResult(dbProd);
             }
         }
+        #endregion
     }
 }

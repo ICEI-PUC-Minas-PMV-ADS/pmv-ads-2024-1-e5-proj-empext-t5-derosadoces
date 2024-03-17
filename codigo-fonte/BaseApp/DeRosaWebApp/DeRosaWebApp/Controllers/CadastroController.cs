@@ -11,6 +11,7 @@ namespace DeRosaWebApp.Controllers
     [AllowAnonymous]
     public class CadastroController : Controller
     {
+        #region Construtor, propriedades e injeção de dependência
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppDbContext _context;
 
@@ -19,13 +20,15 @@ namespace DeRosaWebApp.Controllers
             _userManager = userManager;
             _context = context;
         }
-
+        #endregion
+        #region Cadastrar
         [HttpGet]
         public IActionResult Cadastrar()
         {
             return View();
         }
-
+        #endregion
+        #region Cadastrar (HTTPPOST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Cadastrar(Cliente usuario)
@@ -72,5 +75,6 @@ namespace DeRosaWebApp.Controllers
             }
             return View(usuario);
         }
+        #endregion
     }
 }

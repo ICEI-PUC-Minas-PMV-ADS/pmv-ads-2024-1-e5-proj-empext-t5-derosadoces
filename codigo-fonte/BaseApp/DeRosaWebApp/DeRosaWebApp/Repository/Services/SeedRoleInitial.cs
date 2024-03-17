@@ -5,6 +5,7 @@ namespace DeRosaWebApp.Repository.Services
 {
     public class SeedUserRoleInitial : ISeedRoleInitial
     {
+        #region Construtor, injeção de dependência e propriedades
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         public SeedUserRoleInitial(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
@@ -12,6 +13,8 @@ namespace DeRosaWebApp.Repository.Services
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        #endregion
+        #region Adicionando roles MEMBER , ADMIN
 
         public void SeedRoles()
         {
@@ -30,6 +33,8 @@ namespace DeRosaWebApp.Repository.Services
                 IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
             }
         }
+        #endregion
+        #region Adicionando um usuário ADMIN
 
         public void SeedUsers()
         {
@@ -70,4 +75,5 @@ namespace DeRosaWebApp.Repository.Services
             }
         }
     }
+    #endregion
 }

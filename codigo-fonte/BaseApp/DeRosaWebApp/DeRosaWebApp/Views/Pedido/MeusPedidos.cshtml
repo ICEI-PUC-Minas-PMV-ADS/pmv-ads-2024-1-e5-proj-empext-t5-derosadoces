@@ -1,0 +1,45 @@
+﻿@using DeRosaWebApp.ViewModel;
+@using Microsoft.AspNetCore.Identity;
+@model MeusPedidosViewModel;
+
+
+<div class="container">
+    <div class="flex-column">
+        <div class="table-bordered">
+            @foreach (var pedido in Model.Pedidos)
+            {
+                <div class="d-table-cell">
+                    <div class="form-group">
+                        <label>Código do pedido @pedido.Cod_Pedido</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Data do pedido @pedido.DataPedido</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Endereço @pedido.Rua @pedido.Numero</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Nome @pedido.Nome</label>
+                    </div>
+                    @foreach(var pedidodetalhe in pedido._PedidoDetalhes)
+                    {
+                        <span> Preço total : @pedidodetalhe.Preco</span>
+                        <span> Quantidade total: @pedidodetalhe.Quantidade</span>
+                    }
+
+                    <h3>Produtos: </h3>
+                    @foreach (var produto in Model.ProdutosPedido)
+                    {
+                        <h1>@produto.Nome</h1>
+                        <p>@produto.DescricaoCurta</p>
+                        <span>@produto.Preco</span>
+                        <img src='@produto.ImagemUrl' alt="imagemProduto">
+                    }
+
+                </div>
+
+            }
+        </div>
+
+    </div>
+</div>

@@ -1,6 +1,8 @@
 ﻿using DeRosaWebApp.Context;
 using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
+using DeRosaWebApp.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,18 +10,68 @@ namespace DeRosaWebApp.Repository.Services
 {
     public class PedidoService : IPedidoService
     {
+        #region Injeção de dependecia, Construtor e propriedades
         private readonly AppDbContext _context;
         private readonly Carrinho _carrinho;
-        public PedidoService(AppDbContext context, Carrinho carrinho)
+        private readonly IProductService _productService;
+        private readonly UserManager<IdentityUser> UserManager;
+        public PedidoService(AppDbContext context, Carrinho carrinho, IProductService productService, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _carrinho = carrinho;
+            UserManager = userManager;
+            _productService = productService;
         }
+        #endregion
+        #region GetPedidos
+        public async Task<MeusPedidosViewModel> GetMeusPedidos(string user_id)
+        {
+            var meusPedidos = _context.Pedidos.Where(mp => mp.Id_User == user_id).ToList();
+            List<Produto> meusProdutos = new List<Produto>();
+            foreach (var pedido in meusPedidos)
+            {
+                var items = await GetMeusProdutos(pedido.Cod_Pedido); // Chama GetMeusProdutos passando o Id do pedido
+                foreach (Produto item in items)
+                {
+                    if (!meusProdutos.Any(p => p.Cod_Produto == item.Cod_Produto)) // Verifica se o produto já foi adicionado
+                    {
+                        meusProdutos.Add(item);
+                    }
+                }
+            }
+            MeusPedidosViewModel meusPedidosViewModel = new MeusPedidosViewModel()
+            {
+                ProdutosPedido = meusProdutos,
+                Pedidos = meusPedidos
+            };
+            return meusPedidosViewModel;
+        }
+        #endregion
+        #region GetProdutos
+        public async Task<IEnumerable<Produto>> GetMeusProdutos(int cod_pedido)
+        {
+            var meuPedidoDetalhe = _context.PedidoDetalhes.FirstOrDefault(mp => mp.Cod_Pedido == cod_pedido);
+            string[] Ids = meuPedidoDetalhe.Conjunto_Pedidos.Split(',');
+            List<Produto> ProdutosEmPedido = new();
+
+            for (int i = 0; i < Ids.Length; i++)
+            {
+                int idGet = Convert.ToInt32(Ids[i]);
+                var item = await _productService.GetById(idGet);
+                ProdutosEmPedido.Add(item.Value);
+            }
+
+            return ProdutosEmPedido;
+        }
+        #endregion
+        #region Get Todos os produtos
         public async Task<ActionResult<IEnumerable<Pedido>>> GetAll()
         {
             var pedidos = await _context.Pedidos.ToListAsync();
             return pedidos;
         }
+        #endregion
+        #region Delete pedido
         public async Task<ActionResult<Pedido>> Delete(int id)
         {
             var pedido = await GetById(id);
@@ -31,6 +83,8 @@ namespace DeRosaWebApp.Repository.Services
             }
             return new NotFoundObjectResult("O pedido não foi encontrado!");
         }
+        #endregion
+        #region Get pedido pelo Id
         public async Task<ActionResult<Pedido>> GetById(int id)
         {
             var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.Cod_Pedido == id);
@@ -43,6 +97,8 @@ namespace DeRosaWebApp.Repository.Services
                 return new NotFoundObjectResult($"O pedido não foi encontrado, verifique o ID:{id}");
             }
         }
+        #endregion
+        #region Atualizar pedido
         public async Task<ActionResult<Pedido>> Update(int id, Pedido pedido)
         {
             if (pedido is not null)
@@ -70,7 +126,9 @@ namespace DeRosaWebApp.Repository.Services
             }
             return new BadRequestObjectResult("O Pedido é nulo!");
         }
-        public async Task<ActionResult> CriarPedido(Pedido pedido)
+        #endregion
+        #region Criar pedido
+        public async Task<ActionResult> CriarPedido(Pedido pedido, string user_id)
         {
             if (pedido is not null)
             {
@@ -90,19 +148,22 @@ namespace DeRosaWebApp.Repository.Services
                 }
                 result = result.TrimEnd(',');
 
-
                 foreach (var item in carrinhoItems)
                 {
 
                     PedidoDetalhe pedidoDetalhe = new PedidoDetalhe
                     {
-                        Cod_PedidoDetalhe = pedido.Cod_Pedido,
+                        Cod_Pedido = pedido.Cod_Pedido,
                         Cod_Produto = item.Produto.Cod_Produto,
                         Quantidade = item.QntProduto,
                         Preco = (decimal)(item.Produto.Preco * item.QntProduto),
                         Produto = item.Produto,
                         Conjunto_Pedidos = result,
+                        Pedido = pedido,
+                        Id_User = user_id,
+                        
                     };
+
                     _context.PedidoDetalhes.Add(pedidoDetalhe);
                 }
                 await _context.SaveChangesAsync();
@@ -110,11 +171,15 @@ namespace DeRosaWebApp.Repository.Services
             }
             return new NotFoundObjectResult("O Pedido é nulo!");
         }
+        #endregion
+        #region Verificar Pedido
 
         public async Task<ActionResult> VerificarPedido(int id)
         {
             throw new NotImplementedException();
         }
+        #endregion
+        #region Get Pedido Detalhe pelo ID
         public PedidoDetalhe DetalhePedido(int id)
         {
             var detalhe = _context.PedidoDetalhes.FirstOrDefault(p => p.Cod_Pedido == id);
@@ -125,10 +190,13 @@ namespace DeRosaWebApp.Repository.Services
             }
             return detalhe;
         }
+        #endregion
+        #region Produtos do pedido pelo ID pedido
         public List<Produto> ProdutosPedido(int id)
         {
             var produtosPedido = _context.Produtos.Where(p => p.Cod_Produto == id).ToList();
             return produtosPedido;
         }
+        #endregion
     }
 }

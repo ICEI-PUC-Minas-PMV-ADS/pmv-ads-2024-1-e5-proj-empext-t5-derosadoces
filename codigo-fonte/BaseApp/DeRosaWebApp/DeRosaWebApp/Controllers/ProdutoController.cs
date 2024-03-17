@@ -6,6 +6,7 @@ namespace DeRosaWebApp.Controllers
 {
     public class ProdutoController : Controller
     {
+        #region Construtor, propriedades e injeção de dependência
         private readonly IProductService _produtos;
         private readonly ICategoriaService _categorias;
         public ProdutoController(IProductService produtos, ICategoriaService categorias)
@@ -13,12 +14,16 @@ namespace DeRosaWebApp.Controllers
             _produtos = produtos;
             _categorias = categorias;
         }
+        #endregion
+        #region Produto Detalhe
         [HttpGet]
         public async Task<IActionResult> ProdutoDetalhe(int cod_produto)
         {
             var produto = await _produtos.GetById(cod_produto);
             return View(produto);
         }
+        #endregion
+        #region Produto pela categoria
         public async Task<IActionResult> ProdutosByCategoria(int idCategoria)
         {
             var prodCatg = await _categorias.GetByCategoria(idCategoria);
@@ -33,4 +38,5 @@ namespace DeRosaWebApp.Controllers
             return View(produtoViewModel);
         }
     }
+    #endregion
 }

@@ -171,6 +171,9 @@ namespace DeRosaWebApp.Migrations
                     b.Property<bool>("Entregue")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Id_User")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -214,6 +217,9 @@ namespace DeRosaWebApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Conjunto_Pedidos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PedidoCod_Pedido")

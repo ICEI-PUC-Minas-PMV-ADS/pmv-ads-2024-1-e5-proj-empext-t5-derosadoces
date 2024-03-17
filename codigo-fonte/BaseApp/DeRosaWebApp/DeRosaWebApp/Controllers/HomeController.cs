@@ -10,12 +10,14 @@ namespace DeRosaWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        #region Construtor, propriedades e injeção de dependência
         private readonly IProductService _produtos;
         public HomeController(IProductService produtos)
         {
             _produtos = produtos;
         }
-
+        #endregion
+        #region Index
         public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
         {
             var list = _produtos.PaginationProduct();
@@ -44,4 +46,5 @@ namespace DeRosaWebApp.Controllers
 
         }
     }
+    #endregion
 }
