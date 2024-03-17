@@ -24,11 +24,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                      
+                    </ul>
+                    <ul class="nav navbar-nav navbar-left">
                         <li class="nav-item ">
                             @if (User.Identity.IsAuthenticated)
                             {
                                 @inject UserManager<IdentityUser> UserManager
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
+                                <a class="nav-link" style="color: lightgray;" asp-area="" asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
                             }
                         </li>
                     </ul>
