@@ -1,45 +1,38 @@
 ﻿@using DeRosaWebApp.ViewModel;
-@using Microsoft.AspNetCore.Identity;
-@model MeusPedidosViewModel;
-
+@model MeusPedidosViewModel
 
 <div class="container">
-    <div class="flex-column">
-        <div class="table-bordered">
-            @foreach (var pedido in Model.Pedidos)
-            {
-                <div class="d-table-cell">
-                    <div class="form-group">
-                        <label>Código do pedido @pedido.Cod_Pedido</label>
+    <div class="row">
+        @foreach (var pedido in Model.Pedidos)
+        {
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Pedido: @pedido.Cod_Pedido</h5>
+                        <p class="card-text">Data do Pedido: @pedido.DataPedido</p>
+                        <p class="card-text">Endereço: @pedido.Rua @pedido.Numero</p>
+                        <p class="card-text">Nome: @pedido.Nome</p>
+                        <h6>Detalhes do Pedido:</h6>
+                        @foreach (var pedidodetalhe in pedido._PedidoDetalhes)
+                        {
+                            <p>Preço total: @pedidodetalhe.Preco</p>
+                            <p>Quantidade total: @pedidodetalhe.Quantidade</p>
+                        }
+                        <h6>Produtos:</h6>
+                        @foreach (var produto in Model.ProdutosPedido)
+                        {
+                            <div class="media">
+                                <img src="@produto.ImagemUrl" class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
+                                <div class="media-body">
+                                    <h5 class="mt-0">@produto.Nome</h5>
+                                    <p>@produto.DescricaoCurta</p>
+                                    <p>Preço: @produto.Preco</p>
+                                </div>
+                            </div>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label>Data do pedido @pedido.DataPedido</label>
-                    </div>
-                    <div class="form-group">
-                        <label>Endereço @pedido.Rua @pedido.Numero</label>
-                    </div>
-                    <div class="form-group">
-                        <label>Nome @pedido.Nome</label>
-                    </div>
-                    @foreach(var pedidodetalhe in pedido._PedidoDetalhes)
-                    {
-                        <span> Preço total : @pedidodetalhe.Preco</span>
-                        <span> Quantidade total: @pedidodetalhe.Quantidade</span>
-                    }
-
-                    <h3>Produtos: </h3>
-                    @foreach (var produto in Model.ProdutosPedido)
-                    {
-                        <h1>@produto.Nome</h1>
-                        <p>@produto.DescricaoCurta</p>
-                        <span>@produto.Preco</span>
-                        <img src='@produto.ImagemUrl' alt="imagemProduto">
-                    }
-
                 </div>
-
-            }
-        </div>
-
+            </div>
+        }
     </div>
 </div>
