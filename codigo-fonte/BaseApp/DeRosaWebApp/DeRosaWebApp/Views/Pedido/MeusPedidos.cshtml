@@ -16,14 +16,15 @@
                         <p class="card-text">Data do Pedido: @pedido.DataPedido</p>
                         <p class="card-text">Endereço: @pedido.Rua @pedido.Numero</p>
                         <p class="card-text">Nome: @pedido.Nome</p>
-                        <h3>Status: 
+                        <p>
+                            <strong>Status:  </strong>
                             @if (pedido.Concluido)
                             {
                                 <span> Seu pedido já foi preparado! </span>
                             }
                             else
                             {
-                                <span> Seu pedido já foi recebido e está sendo preparado!</span>
+                                <span> Seu pedido já foi recebido!</span>
                             }
                             
                             @if (pedido.Entregue)
@@ -36,9 +37,10 @@
                             }
                             else
                             {
-                                <span>Seu pedido ainda não saiu para a entrega.</span>
+                                <span>Mas ainda não saiu para a entrega.</span>
                             }
-                        </h3>
+                           
+                        </p>
                         <h6>Detalhes do Pedido:</h6>
                         @foreach (var pedidodetalhe in pedido._PedidoDetalhes)
                         {
@@ -53,7 +55,7 @@
                                 <div class="media-body">
                                     <h5 class="mt-0">@produto.Nome</h5>
                                     <p>@produto.DescricaoCurta</p>
-                                    <p>Preço: @produto.Preco</p>
+                                    <p>Preço: R$@produto.Preco</p>
                                 </div>
                             </div>
                         }
