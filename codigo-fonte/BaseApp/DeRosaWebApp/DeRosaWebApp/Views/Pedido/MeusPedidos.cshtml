@@ -1,5 +1,9 @@
 ﻿@using DeRosaWebApp.ViewModel;
 @model MeusPedidosViewModel
+@if(Model.Pedidos.Count() == 0)
+{
+    <h1 class="text-center">Você ainda não realizou nenhum pedido</h1>
+}
 
 <div class="container">
     <div class="row">
