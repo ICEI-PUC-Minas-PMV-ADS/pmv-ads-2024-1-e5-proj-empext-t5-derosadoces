@@ -15,11 +15,22 @@ namespace DeRosaWebApp.Models
         public string Nome { get; set; }
         [DisplayName("Data do pedido")]
         public DateTime DataPedido { get; set; } = DateTime.Now;
+        [Required(ErrorMessage = "O pedido deve conter o cep!")]
+        // [MaxLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
+        // [MinLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
+        public int Cep { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o endereço!")]
         public string Rua { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o número da residência!")]
         [Range(1, 999, ErrorMessage = "O número deve ser entre 1 e 999")]
         public int Numero { get; set; }
+        public string Complemento { get; set; }
+        [Required(ErrorMessage = "O pedido deve conter o bairro!")]
+        public string Bairro { get; set; }
+        [Required(ErrorMessage = "O pedido deve conter a cidade!")]
+        public string Cidade { get; set; }
+        [Required(ErrorMessage = "O pedido deve conter o estado!")]
+        public string Estado { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o telefone!")]
         public string Telefone { get; set; }
         public List<ItemCarrinho> ProdutosPedido { get; set; }
