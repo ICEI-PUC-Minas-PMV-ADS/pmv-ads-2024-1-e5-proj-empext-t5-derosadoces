@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DeRosaWebApp.Repository.Services
 {
     public class PedidoService : IPedidoService
@@ -26,22 +27,17 @@ namespace DeRosaWebApp.Repository.Services
         #region GetPedidos
         public async Task<MeusPedidosViewModel> GetMeusPedidos(string user_id)
         {
-            var meusPedidos = _context.Pedidos.Where(mp => mp.Id_User == user_id).ToList();
-            List<Produto> meusProdutos = new List<Produto>();
-            foreach (var pedido in meusPedidos)
+            var meusPedidos = await _context.Pedidos.Where(p => p.Id_User == user_id).ToListAsync();
+
+            foreach (Pedido pedido in meusPedidos)
             {
-                var items = await GetMeusProdutos(pedido.Cod_Pedido); // Chama GetMeusProdutos passando o Id do pedido
-                foreach (Produto item in items)
-                {
-                    if (!meusProdutos.Any(p => p.Cod_Produto == item.Cod_Produto)) // Verifica se o produto já foi adicionado
-                    {
-                        meusProdutos.Add(item);
-                    }
-                }
+                // Criar uma nova lista de detalhes do pedido para cada pedido
+                var pedidoDetalhes = DetalhePedidoList(pedido.Cod_Pedido);
+                pedido._PedidoDetalhes = pedidoDetalhes; // Definir a lista de detalhes do pedido para o pedido atual
             }
+
             MeusPedidosViewModel meusPedidosViewModel = new MeusPedidosViewModel()
             {
-                ProdutosPedido = meusProdutos,
                 Pedidos = meusPedidos
             };
             return meusPedidosViewModel;
@@ -50,8 +46,8 @@ namespace DeRosaWebApp.Repository.Services
         #region GetProdutos
         public async Task<IEnumerable<Produto>> GetMeusProdutos(int cod_pedido)
         {
-            var meuPedidoDetalhe = _context.PedidoDetalhes.FirstOrDefault(mp => mp.Cod_Pedido == cod_pedido);
-            string[] Ids = meuPedidoDetalhe.Conjunto_Pedidos.Split(',');
+            var meuPedido = _context.Pedidos.FirstOrDefault(mp => mp.Cod_Pedido == cod_pedido);
+            string[] Ids = meuPedido.Conjunto_IdProdutos.Split(',');
             List<Produto> ProdutosEmPedido = new();
 
             for (int i = 0; i < Ids.Length; i++)
@@ -63,6 +59,14 @@ namespace DeRosaWebApp.Repository.Services
 
             return ProdutosEmPedido;
         }
+        #region Lista pedido detalhes
+        public List<PedidoDetalhe> DetalhePedidoList(int id)
+        {
+            var detalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == id).ToList();
+
+            return detalhe;
+        }
+        #endregion
         #endregion
         #region Get Todos os produtos
         public async Task<ActionResult<IEnumerable<Pedido>>> GetAll()
@@ -132,8 +136,6 @@ namespace DeRosaWebApp.Repository.Services
         {
             if (pedido is not null)
             {
-                await _context.Pedidos.AddAsync(pedido);
-                await _context.SaveChangesAsync();
                 var carrinhoItems = _carrinho.ListItemCarrinho;
                 List<string> strList = new List<string>();
                 string result = "";
@@ -147,7 +149,12 @@ namespace DeRosaWebApp.Repository.Services
                     result += produtoIdString + ",";
                 }
                 result = result.TrimEnd(',');
+                pedido.Conjunto_IdProdutos = result;
 
+                await _context.Pedidos.AddAsync(pedido);
+                await _context.SaveChangesAsync();
+               
+               
                 foreach (var item in carrinhoItems)
                 {
 

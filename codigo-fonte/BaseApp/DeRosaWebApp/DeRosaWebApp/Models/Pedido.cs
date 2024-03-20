@@ -41,6 +41,7 @@ namespace DeRosaWebApp.Models
         public double TotalPedido { get; set; }
         public bool Concluido { get; set; }
         public bool Entregue { get; set; }
+        public string Conjunto_IdProdutos { get; set; }
         public string Id_User { get; set; }
         [JsonIgnore]
         [IgnoreDataMember]
