@@ -8,7 +8,7 @@
 
 <h1>Detalhes</h1>
 
-<div style="color:white;">
+<div style="color:black;">
     <h4>Pedido</h4>
     <hr />
     <dl class="row">
@@ -58,7 +58,7 @@
     <h3>Produto</h3>
     @foreach (Produto Produtos in Model._ProdutosPedido)
     {
-        <dl class="row" style="color:white;">
+        <dl class="row" style="color:black;">
 
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => Produtos.Nome)
@@ -78,9 +78,19 @@
             <dt class="col-sm-2">
                 Imagem
             </dt>
-            <dd class="col-sm-2">
-                <img src="~/Imagens/@Produtos.ImagemUrl" alt="imagem_produto_comprado: @Produtos.Nome" width="200" height="200">
-            </dd>
+            @if (Produtos.ImagemUrl.Contains("www"))
+            {
+                <dd class="col-sm-2">
+                    <img src='@Produtos.ImagemUrl' alt="imagem_produto_comprado: @Produtos.Nome" width="200" height="200">
+                </dd>
+            }
+            else
+            {
+                <dd class="col-sm-2">
+                    <img src="~/Imagens/@Produtos.ImagemUrl" alt="imagem_produto_comprado: @Produtos.Nome" width="200" height="200">
+                </dd>
+            }
+            
         </dl>
     }
 

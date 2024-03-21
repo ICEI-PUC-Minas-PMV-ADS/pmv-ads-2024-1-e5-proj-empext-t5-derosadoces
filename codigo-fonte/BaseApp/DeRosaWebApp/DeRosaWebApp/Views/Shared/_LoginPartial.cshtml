@@ -2,11 +2,15 @@
 @inject SignInManager<IdentityUser> SignManager
 @if (SignManager.IsSignedIn(User))
 {
-    <ul class="nav navbar-nav navbar-left">
-        <li class="nav-item">
-            <a class="nav-link" style="color: lightgray;" asp-controller="Account" asp-action="Edit">Minha Conta</a>
-        </li>
-    </ul>
+    @if (User.IsInRole("Member"))
+    {
+        <ul class="nav navbar-nav navbar-left">
+            <li class="nav-item">
+                <a class="nav-link" style="color: lightgray;" asp-controller="Account" asp-action="Edit">Minha Conta</a>
+            </li>
+        </ul>
+    }
+    
     <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-left">
         <ul class="nav navbar-nav navbar-left">
             <button type="submit" style="width:auto" class="nav-link btn btn-link py-0">
