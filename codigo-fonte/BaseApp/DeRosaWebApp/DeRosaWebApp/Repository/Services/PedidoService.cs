@@ -2,6 +2,7 @@
 using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,39 @@ namespace DeRosaWebApp.Repository.Services
             _carrinho = carrinho;
             UserManager = userManager;
             _productService = productService;
+        }
+        #endregion
+
+
+
+        #region Remover pedido
+        public async Task<ActionResult<Pedido>> Remove(Pedido pedido)
+        {
+            var _pedidoExist = await _context.Pedidos.FirstOrDefaultAsync(p => p.Cod_Pedido == pedido.Cod_Pedido);
+            if (_pedidoExist is not null)
+            {
+                _context.Remove(_pedidoExist);
+                await _context.SaveChangesAsync();
+            }
+            return new NotFoundObjectResult("Não foi possivel remover o pedido");
+        }
+        #endregion
+        #region Update somente pagamento
+        public async Task<ActionResult<Pedido>> UpdatePayment(int cod_pedido, bool pago)
+        {
+            var pedido = await _context.Pedidos.FindAsync(cod_pedido);
+
+            if (pedido == null)
+            {
+                return new NotFoundObjectResult("Pedido não encontrado");
+            }
+
+            pedido.Pago = pago;
+            _context.Entry(pedido).Property(x => x.Pago).IsModified = true;
+            await _context.SaveChangesAsync();
+
+            return new OkObjectResult($"O pedido foi pago com sucesso! alterações feitas no banco de dados. " +
+                $"ID PEDIDO: {pedido.Cod_Pedido} | PAGO : {pedido.Pago}");
         }
         #endregion
         #region GetPedidos
@@ -54,9 +88,10 @@ namespace DeRosaWebApp.Repository.Services
             {
                 int idGet = Convert.ToInt32(Ids[i]);
                 var item = await _productService.GetById(idGet);
+                
                 ProdutosEmPedido.Add(item.Value);
             }
-
+            await Task.Delay(1000);
             return ProdutosEmPedido;
         }
         #region Lista pedido detalhes
@@ -68,10 +103,11 @@ namespace DeRosaWebApp.Repository.Services
         }
         #endregion
         #endregion
-        #region Get Todos os produtos
+        #region Get Todos os pedidos
         public async Task<ActionResult<IEnumerable<Pedido>>> GetAll()
         {
-            var pedidos = await _context.Pedidos.ToListAsync();
+            var pedidos = await _context.Pedidos.Where(p => p.Pago == true).ToListAsync();
+            await Task.Delay(1000);
             return pedidos;
         }
         #endregion
@@ -120,6 +156,7 @@ namespace DeRosaWebApp.Repository.Services
                     pedidoExist.TotalPedido = pedido.TotalPedido;
                     pedidoExist.Entregue = pedido.Entregue;
                     pedidoExist.Concluido = pedido.Concluido;
+                    pedidoExist.Pago = pedido.Pago;
 
                     _context.Pedidos.Update(pedidoExist);
                     await _context.SaveChangesAsync();
@@ -151,10 +188,12 @@ namespace DeRosaWebApp.Repository.Services
                 result = result.TrimEnd(',');
                 pedido.Conjunto_IdProdutos = result;
 
+                pedido.Pago = false;  // importante para definir o pedido temporario..
+
                 await _context.Pedidos.AddAsync(pedido);
                 await _context.SaveChangesAsync();
-               
-               
+
+
                 foreach (var item in carrinhoItems)
                 {
 
@@ -168,7 +207,7 @@ namespace DeRosaWebApp.Repository.Services
                         Conjunto_Pedidos = result,
                         Pedido = pedido,
                         Id_User = user_id,
-                        
+
                     };
 
                     _context.PedidoDetalhes.Add(pedidoDetalhe);
@@ -179,11 +218,39 @@ namespace DeRosaWebApp.Repository.Services
             return new NotFoundObjectResult("O Pedido é nulo!");
         }
         #endregion
-        #region Verificar Pedido
 
-        public async Task<ActionResult> VerificarPedido(int id)
+        #region Verificar Pedido expirados
+
+        public async Task<ActionResult<Pedido>> VerificarPedidosExpirados()
         {
-            throw new NotImplementedException();
+
+            var pedidosExpirados = _context.Pedidos.Where(p => p.DataExpiracao <= DateTime.Now).ToList();
+            foreach (var pedido in pedidosExpirados)
+            {
+                _context.Pedidos.Remove(pedido);
+                var produtoDetalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == pedido.Cod_Pedido).ToList();
+                if(produtoDetalhe is not null)
+                {
+                    foreach (var detail in produtoDetalhe)
+                    {
+                        _context.PedidoDetalhes.Remove(detail);
+                        
+                    }
+                }          
+            }
+            var listItemCarrinho = _carrinho.GetItemCarrinhos();
+            foreach(var item in listItemCarrinho)
+            {
+                if(item is not null)
+                {
+                    _context.ItemCarrinhos.Remove(item);
+                }
+              
+                
+            }
+            
+            await _context.SaveChangesAsync();
+            return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
         }
         #endregion
         #region Get Pedido Detalhe pelo ID
@@ -204,6 +271,8 @@ namespace DeRosaWebApp.Repository.Services
             var produtosPedido = _context.Produtos.Where(p => p.Cod_Produto == id).ToList();
             return produtosPedido;
         }
+
+
         #endregion
     }
 }

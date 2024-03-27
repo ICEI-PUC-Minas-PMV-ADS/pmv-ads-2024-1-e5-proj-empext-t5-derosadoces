@@ -7,7 +7,7 @@ namespace DeRosaWebApp.Repository.Interfaces
     public interface IPedidoService
     {
         Task<ActionResult> CriarPedido(Pedido pedido, string user_id);
-        Task<ActionResult> VerificarPedido(int id);
+        Task<ActionResult<Pedido>> VerificarPedidosExpirados();
         PedidoDetalhe DetalhePedido(int id);
         List<PedidoDetalhe> DetalhePedidoList(int id);
         List<Produto> ProdutosPedido(int id);
@@ -17,5 +17,9 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<ActionResult<IEnumerable<Pedido>>> GetAll();
         Task<MeusPedidosViewModel> GetMeusPedidos(string user_id);
         Task<IEnumerable<Produto>> GetMeusProdutos(int cod_pedido);
+        Task<ActionResult<Pedido>> UpdatePayment(int cod_pedido, bool pago);
+        Task<ActionResult<Pedido>> Remove(Pedido pedido);
+      
+        
     }
 }

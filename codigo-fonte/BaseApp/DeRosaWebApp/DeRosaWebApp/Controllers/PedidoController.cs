@@ -4,6 +4,7 @@ using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeRosaWebApp.Controllers
 {
@@ -14,12 +15,14 @@ namespace DeRosaWebApp.Controllers
         #region Construtor, propriedades e injeção de dependência
         private readonly Carrinho _carrinho;
         private readonly IPedidoService _pedidoService;
+        private readonly IProductService _productService;
         private readonly UserManager<IdentityUser> _userMananger;
-        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager)
+        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService)
         {
             _carrinho = carrinho;
             _pedidoService = pedidoService;
             _userMananger = userManager;
+            _productService = productService;
         }
         #endregion
         #region Meus pedidos
@@ -27,6 +30,8 @@ namespace DeRosaWebApp.Controllers
         public async Task<IActionResult> MeusPedidos(string user_id)
         {
             MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
+            await  _pedidoService.VerificarPedidosExpirados();
+            await Task.Delay(2000);
             return View(pedidos);
         }
         #endregion
@@ -37,6 +42,7 @@ namespace DeRosaWebApp.Controllers
             return View();
         }
         #endregion
+        
         #region Checkout completo
         [HttpPost]
         public async Task<IActionResult> Checkout(Pedido pedido)
@@ -52,23 +58,23 @@ namespace DeRosaWebApp.Controllers
             }
             if (_carrinho.ListItemCarrinho.Count == 0)
             {
-                ModelState.AddModelError("", "Seu carrinho está vazio, que tal incluir um pedido?");
+                ModelState.AddModelError("", "Resumo");
             }
-            pedido.TotalItensPedido = totalItemsPedido;
-            pedido.TotalPedido = precoTotalPedido;
+
             if (ModelState.IsValid)
             {
                 var user_id = _userMananger.GetUserId(User);
+                pedido.TotalItensPedido = totalItemsPedido;
+                pedido.TotalPedido = precoTotalPedido;
+                pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
                 pedido.Id_User = user_id;
                 var result = await _pedidoService.CriarPedido(pedido, user_id);
                 if (result is not null)
                 {
-                    ViewBag.CheckoutCompletoMensagem = "Obrigado pelo seu pedido ;)";
+                    ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
                     ViewBag.TotalPedido = _carrinho.GetTotalCarrinho();
                    
-                    _carrinho.LimparCarrinho();
-                    return View("~/Views/Pedido/Resumo.cshtml", pedido);
-
+                    return View("Resumo", pedido);
 
                 }
                 else
@@ -84,5 +90,81 @@ namespace DeRosaWebApp.Controllers
             }
         }
         #endregion
+        #region Resumo
+        public async Task<ActionResult<Pedido>> Resumo(Pedido pedido, int cod_pedido)
+        {
+            try
+            {
+                await _pedidoService.VerificarPedidosExpirados();
+                if (pedido._PedidoDetalhes is null || pedido is null)
+                {
+                    var getPedido = await _pedidoService.GetById(cod_pedido);
+                    pedido.Id_User = getPedido.Value.Id_User;
+                    pedido.Nome = getPedido.Value.Nome;
+                    pedido.DataPedido = getPedido.Value.DataPedido;
+                    pedido.DataExpiracao = getPedido.Value.DataExpiracao;
+                    pedido.Cep = getPedido.Value.Cep;
+                    pedido.Rua = getPedido.Value.Rua;
+                    pedido.Numero = getPedido.Value.Numero;
+                    pedido.Complemento = getPedido.Value.Complemento;
+                    pedido.Bairro = getPedido.Value.Bairro;
+                    pedido.Cidade = getPedido.Value.Cidade;
+                    pedido.Estado = getPedido.Value.Estado;
+                    pedido.Telefone = getPedido.Value.Telefone;
+                    pedido.ProdutosPedido = getPedido.Value.ProdutosPedido;
+                    pedido.TotalItensPedido = getPedido.Value.TotalItensPedido;
+                    pedido.TotalPedido = getPedido.Value.TotalPedido;
+                    pedido.Concluido = getPedido.Value.Concluido;
+                    pedido.Entregue = getPedido.Value.Entregue;
+                    pedido.Pago = getPedido.Value.Pago;
+                    pedido.Conjunto_IdProdutos = getPedido.Value.Conjunto_IdProdutos;
+
+                    var pedidoDetalhe = _pedidoService.DetalhePedidoList(cod_pedido);
+
+
+                    foreach (var item in pedidoDetalhe)
+                    {
+                        var produto = await _productService.GetById(item.Cod_Produto);
+                        item.Produto = produto.Value;
+                    }
+                    pedido._PedidoDetalhes = pedidoDetalhe;
+
+                    ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
+                    ViewBag.TotalPedido = pedido.TotalPedido;
+                    await Task.Delay(0500);
+                    return View(pedido);
+                }
+                return View(pedido);
+            }
+            catch(NullReferenceException)
+            {
+                ViewBag.Erro = "O pedido foi expirado.";
+                return View("Erro");
+            }
+            
+
+           
+        }
+        #endregion
+        #region Remover pedido
+        [HttpPost]
+        public async Task<ActionResult<Pedido>> RemovePedido(int cod_pedido)
+        {
+            var pedido =  await _pedidoService.GetById(cod_pedido);
+            if (pedido != null)
+            {
+               await  _pedidoService.Remove(pedido.Value);
+                return RedirectToAction("Index", "Home");
+            }
+            return new BadRequestObjectResult("Erro ao remover pedido");
+        }
+        #endregion
+        #region Erro
+        public IActionResult Erro()
+        {
+            return View();
+        }
+        #endregion
+
     }
 }

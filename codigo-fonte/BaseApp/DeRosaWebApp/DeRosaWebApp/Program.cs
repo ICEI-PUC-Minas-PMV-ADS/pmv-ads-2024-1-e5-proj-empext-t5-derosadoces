@@ -4,6 +4,9 @@ using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.Repository.Services;
 using Microsoft.AspNetCore.Identity;
 using ReflectionIT.Mvc.Paging;
+using Stripe;
+using ProductService = DeRosaWebApp.Repository.Services.ProductService;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,11 @@ builder.Services.AddScoped(sp => Carrinho.GetCarrinho(sp));
 builder.Services.AddScoped<ISeedRoleInitial, SeedUserRoleInitial>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+
+var stripeSettings = builder.Configuration.GetSection("Stripe");
+
+// Configura o Stripe com a chave secreta
+Stripe.StripeConfiguration.ApiKey = stripeSettings["SecretKey"];
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("Admin",          //adicionando a role Admin como principal
@@ -68,6 +76,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 CriarPerfisUsuarios(app);
+
 app.UseSession();
 
 app.UseAuthentication();
@@ -87,6 +96,9 @@ app.UseEndpoints(endpoints =>
         name: "acessdenied",
         pattern: "{controller=Account}/{action=AccessDenied}");
 });
+
+AutoVerificaPedidosExpirados(app);
+
 app.Run();
 void CriarPerfisUsuarios(WebApplication app)
 {
@@ -97,4 +109,21 @@ void CriarPerfisUsuarios(WebApplication app)
         service.SeedRoles();
         service.SeedUsers();
     }
+}
+void AutoVerificaPedidosExpirados(WebApplication app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    Task.Run(async () =>
+    {
+        while (true)
+        {
+            await Task.Delay(TimeSpan.FromMinutes(5));
+
+            using (var scope = scopedFactory.CreateScope())
+            {
+                var pedidoService = scope.ServiceProvider.GetService<IPedidoService>();
+                await pedidoService.VerificarPedidosExpirados();
+            }
+        }
+    });
 }

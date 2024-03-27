@@ -1,0 +1,78 @@
+@model Pedido
+
+@{
+    ViewData["Title"] = "Formulário de Pagamento";
+}
+<h1>Total : @Model.TotalPedido</h1>
+
+<h1>@ViewData["Title"]</h1>
+<!-- Formulário de pagamento -->
+<form id="payment-form" method="post" asp-action="ProcessPayment">
+    <input type="hidden" asp-for="Cod_Pedido" value="@Model.Cod_Pedido" /> 
+    <input type="hidden" asp-for="Nome" value="@Model.Nome" />
+    <input type="hidden" asp-for="DataPedido" value="@Model.DataPedido" />
+    <input type="hidden" asp-for="Cep" value="@Model.Cep" />
+    <input type="hidden" asp-for="Rua" value="@Model.Rua" />
+    <input type="hidden" asp-for="Numero" value="@Model.Numero" />
+    <input type="hidden" asp-for="Complemento" value="@Model.Complemento" />
+    <input type="hidden" asp-for="Bairro" value="@Model.Bairro" />
+    <input type="hidden" asp-for="Cidade" value="@Model.Cidade" />
+    <input type="hidden" asp-for="Estado" value="@Model.Estado" />
+    <input type="hidden" asp-for="Telefone" value="@Model.Telefone" />
+    <input type="hidden" asp-for="TotalItensPedido" value="@Model.TotalItensPedido" />
+    <input type="hidden" asp-for="TotalPedido" value="@Model.TotalPedido" />
+    <input type="hidden" asp-for="Concluido" value="@Model.Concluido" />
+    <input type="hidden" asp-for="Entregue" value="@Model.Entregue" />
+    <input type="hidden" asp-for="Pago" value="@Model.Pago" />
+    <input type="hidden" asp-for="Conjunto_IdProdutos" value="@Model.Conjunto_IdProdutos" />
+    <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
+    <!-- Campo para o usuário digitar o valor do pagamento -->
+    <div class="form-group">
+        <label for="paymentAmount">Valor do Pagamento (em centavos):</label>
+        <input type="number" id="paymentAmount" name="paymentAmount" class="form-control" min="1" placeholder="Insira o valor em centavos" required>
+    </div>
+
+    <!-- Onde o Stripe Elements irá inserir o formulário de cartão -->
+    <div id="card-element" class="form-group"></div>
+
+    <!-- Div para exibir mensagens de erro com aria-live para acessibilidade -->
+    <div id="card-errors" role="alert" aria-live="polite" class="alert alert-danger" style="display: none;"></div>
+
+    <button id="submit-button" class="btn btn-primary" type="submit">Efetuar Pagamento</button>
+</form>
+
+@section Scripts {
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('@ViewBag.StripePublishableKey');
+        var elements = stripe.elements();
+        var card = elements.create('card');
+        card.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        var cardErrors = document.getElementById('card-errors');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    // Mostra os erros na div apropriada e torna-a visível
+                    cardErrors.textContent = result.error.message;
+                    cardErrors.style.display = 'block';
+                } else {
+                    // Esconde a div de erros caso haja sucesso
+                    cardErrors.style.display = 'none';
+
+                    // Adiciona o token como um campo oculto no formulário
+                    var hiddenInputToken = document.createElement('input');
+                    hiddenInputToken.setAttribute('type', 'hidden');
+                    hiddenInputToken.setAttribute('name', 'stripeToken');
+                    hiddenInputToken.setAttribute('value', result.token.id);
+                    form.appendChild(hiddenInputToken);
+
+                    form.submit();
+                }
+            });
+        });
+    </script>
+}

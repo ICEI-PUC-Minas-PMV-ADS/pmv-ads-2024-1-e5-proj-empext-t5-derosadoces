@@ -1,6 +1,9 @@
 ﻿@using DeRosaWebApp.Repository.Interfaces;
 @using DeRosaWebApp.ViewModel;
 @model MeusPedidosViewModel
+@{
+    var DateTimes = new List<DateTime>();
+}
 @if (Model.Pedidos.Count() == 0)
 {
     <h1 class="text-center">Você ainda não realizou nenhum pedido</h1>
@@ -19,31 +22,42 @@
                         <p class="card-text">Nome: @pedido.Nome</p>
                         <p class="card-text">Preço total: R$@pedido.TotalPedido</p>
                         <p class="card-text">Total itens pedido: @pedido.TotalItensPedido</p>
-                        <p>
-                            <strong>Status:  </strong>
-                            @if (pedido.Concluido)
-                            {
-                                <span> Seu pedido já foi preparado! </span>
-                            }
-                            else
-                            {
-                                <span> Seu pedido já foi recebido!</span>
-                            }
+                        @if (pedido.Pago)
+                        {
+                            <p>
+                                <strong>Status:  </strong>
+                                @if (pedido.Concluido)
+                                {
+                                    <span> Seu pedido já foi preparado! </span>
+                                }
+                                else
+                                {
+                                    <span> Seu pedido já foi recebido!</span>
+                                }
 
-                            @if (pedido.Entregue)
-                            {
-                                <span> O Seu pedido já foi entregue :)</span>
-                            }
-                            else if (pedido.Concluido)
-                            {
-                                <span>Seu pedido já foi preparado e irá ser entregue em breve!</span>
-                            }
-                            else
-                            {
-                                <span>Mas ainda não saiu para a entrega.</span>
-                            }
+                                @if (pedido.Entregue)
+                                {
+                                    <span> O Seu pedido já foi entregue :)</span>
+                                }
+                                else if (pedido.Concluido)
+                                {
+                                    <span>Seu pedido já foi preparado e irá ser entregue em breve!</span>
+                                }
+                                else
+                                {
+                                    <span>Mas ainda não saiu para a entrega.</span>
+                                }
 
-                        </p>
+                            </p>
+
+                        }
+                        else
+                        {
+
+                            <a asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido"><p>Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy hh:mm:ss")</p></a>
+                            DateTimes.Add(pedido.DataExpiracao);
+                        }
+
                         <h6>Produtos:</h6>
                         @inject IPedidoService _pedidoService
                         @{
@@ -91,3 +105,27 @@
         }
     </div>
 </div>
+
+
+<script>
+    setInterval(function () {
+        var currentDate = new Date(); // Obtém a data e hora atuais
+        var dateTimes = [@Json.Serialize(DateTimes)]; // Converte a lista de DateTimes do modelo para JavaScript
+        var expiredIndexes = []; // Array para armazenar os índices dos pedidos expirados
+
+        // Verifica cada DateTime na lista
+        for (var i = 0; i < dateTimes.length; i++) {
+            var expirationDate = new Date(dateTimes[i]); // Cria um objeto Date para a data de expiração do pedido
+
+            // Verifica se a data de expiração é igual à data atual
+            if (expirationDate <= currentDate) {
+                expiredIndexes.push(i); // Adiciona o índice do pedido expirado ao array
+            }
+        }
+
+        // Se houver pedidos expirados, recarrega a página
+        if (expiredIndexes.length > 0) {
+            location.reload();
+        }
+    }, 30000); // Verifica a cada 30 segundos
+</script>

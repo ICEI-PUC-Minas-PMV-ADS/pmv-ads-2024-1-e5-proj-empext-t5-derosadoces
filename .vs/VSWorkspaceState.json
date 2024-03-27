@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\codigo-fonte",
+    "\\codigo-fonte\\BaseApp",
+    "\\codigo-fonte\\BaseApp\\DeRosaWebApp",
+    "\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp"
   ],
-  "SelectedNode": "\\DeRosaWebApp.sln",
+  "SelectedNode": "\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp",
   "PreviewInSolutionExplorer": false
 }

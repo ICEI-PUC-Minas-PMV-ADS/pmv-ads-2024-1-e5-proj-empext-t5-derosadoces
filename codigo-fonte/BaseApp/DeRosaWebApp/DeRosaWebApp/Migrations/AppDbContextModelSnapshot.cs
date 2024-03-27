@@ -32,7 +32,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasKey("Cod_Carrinho");
 
-                    b.ToTable("Carrinhos", (string)null);
+                    b.ToTable("Carrinhos");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.Categoria", b =>
@@ -48,7 +48,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasKey("IdCategoria");
 
-                    b.ToTable("Categorias", (string)null);
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.Cliente", b =>
@@ -98,7 +98,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasIndex("_CarrinhoCod_Carrinho");
 
-                    b.ToTable("Clientes", (string)null);
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.Entities.Admin", b =>
@@ -116,7 +116,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasKey("Cod_Admin");
 
-                    b.ToTable("Administradores", (string)null);
+                    b.ToTable("Administradores");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.ItemCarrinho", b =>
@@ -148,7 +148,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasIndex("ProdutoCod_Produto");
 
-                    b.ToTable("ItemCarrinhos", (string)null);
+                    b.ToTable("ItemCarrinhos");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.Pedido", b =>
@@ -159,8 +159,22 @@ namespace DeRosaWebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Cod_Pedido"));
 
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Cep")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("ClienteCod_Cliente")
                         .HasColumnType("int");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Concluido")
                         .HasColumnType("bit");
@@ -168,11 +182,18 @@ namespace DeRosaWebApp.Migrations
                     b.Property<string>("Conjunto_IdProdutos")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DataExpiracao")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DataPedido")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Entregue")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
@@ -183,6 +204,9 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Pago")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Rua")
                         .IsRequired()
@@ -202,7 +226,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasIndex("ClienteCod_Cliente");
 
-                    b.ToTable("Pedidos", (string)null);
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.PedidoDetalhe", b =>
@@ -243,7 +267,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasIndex("ProdutoCod_Produto");
 
-                    b.ToTable("PedidoDetalhes", (string)null);
+                    b.ToTable("PedidoDetalhes");
                 });
 
             modelBuilder.Entity("DeRosaWebApp.Models.Produto", b =>
@@ -281,7 +305,7 @@ namespace DeRosaWebApp.Migrations
 
                     b.HasKey("Cod_Produto");
 
-                    b.ToTable("Produtos", (string)null);
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -46,6 +46,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.11, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.11, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -71,6 +79,10 @@
             "ReflectionIT.Mvc.Paging": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[43.20.0, )"
             }
           },
           "imports": [

@@ -15,6 +15,7 @@ namespace DeRosaWebApp.Models
         public string Nome { get; set; }
         [DisplayName("Data do pedido")]
         public DateTime DataPedido { get; set; } = DateTime.Now;
+        public DateTime DataExpiracao { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o cep!")]
         // [MaxLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
         // [MinLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
@@ -41,6 +42,7 @@ namespace DeRosaWebApp.Models
         public double TotalPedido { get; set; }
         public bool Concluido { get; set; }
         public bool Entregue { get; set; }
+        public bool Pago { get; set; }
         public string Conjunto_IdProdutos { get; set; }
         public string Id_User { get; set; }
         [JsonIgnore]

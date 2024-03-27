@@ -1,38 +1,76 @@
 ﻿@model Pedido
 
-<div class="container" style="color: black;">
-    <div class="jumbotron">
-        <h2>@ViewBag.CheckoutCompletoMensagem</h2>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <p>Cliente : <strong>@Model.Nome</strong></p>
-            <p>Endereço : <strong>@Model.Rua</strong></p>
-       
-            <p>Número do pedido : <strong>@Model.Cod_Pedido</strong></p>
-            <table class="table">
-                <tr>
-                    <th>Imagem</th>
-                    <th>Quantidade</th>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                </tr>
-                @foreach (var item in Model._PedidoDetalhes)
-                {
+<form asp-action="Payment" asp-controller="Payment" method="post">
+    <div class="container" style="color: black;">
+        <div class="jumbotron">
+            <h2>@ViewBag.CheckoutCompletoMensagem</h2>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p>Cliente : <strong>@Model.Nome</strong></p>
+                <p>Endereço : <strong>@Model.Rua</strong></p>
+
+                <p>Número do pedido : <strong>@Model.Cod_Pedido</strong></p>
+                <table class="table">
                     <tr>
-                        <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
-                        <td>@item.Quantidade</td>
-                        <td>@item.Produto.Nome</td>
-                        <td>@item.Produto.Preco</td>
+                        <th>Imagem</th>
+                        <th>Quantidade</th>
+                        <th>Produto</th>
+                        <th>Preço</th>
                     </tr>
-                }
-            </table>
-            <h4>Valor Total do Pedido: <strong>@(((decimal)ViewBag.TotalPedido).ToString("C2"))</strong></h4>
-            <div class="form-group" style="text-align :center">
-                <h3>
-                    <a class="nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
-                </h3>
+                    @foreach (var item in Model._PedidoDetalhes)
+                    {
+                        <tr>
+                            <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
+                            <td>@item.Quantidade</td>
+                            <td>@item.Produto.Nome</td>
+                            <td>@item.Produto.Preco</td>
+                        </tr>
+                    }
+                </table>
+                <h4>Valor Total do Pedido: <strong>@(((decimal)ViewBag.TotalPedido).ToString("C2"))</strong></h4>
+                <div class="form-group" style="text-align :center">
+                    <h3>
+                        <a class="nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
+                    </h3>
+
+                </div>
             </div>
         </div>
+        <input type="hidden" asp-for="Cod_Pedido" value="@Model.Cod_Pedido" />
+        <input type="hidden" asp-for="Nome" value="@Model.Nome" />
+        <input type="hidden" asp-for="DataPedido" value="@Model.DataPedido" />
+        <input type="hidden" asp-for="DataExpiracao" value="@Model.DataExpiracao" />
+        <input type="hidden" asp-for="Cep" value="@Model.Cep" />
+        <input type="hidden" asp-for="Rua" value="@Model.Rua" />
+        <input type="hidden" asp-for="Numero" value="@Model.Numero" />
+        <input type="hidden" asp-for="Complemento" value="@Model.Complemento" />
+        <input type="hidden" asp-for="Bairro" value="@Model.Bairro" />
+        <input type="hidden" asp-for="Cidade" value="@Model.Cidade" />
+        <input type="hidden" asp-for="Estado" value="@Model.Estado" />
+        <input type="hidden" asp-for="Telefone" value="@Model.Telefone" />
+        <input type="hidden" asp-for="TotalItensPedido" value="@Model.TotalItensPedido" />
+        <input type="hidden" asp-for="TotalPedido" value="@Model.TotalPedido" />
+        <input type="hidden" asp-for="Concluido" value="@Model.Concluido" />
+        <input type="hidden" asp-for="Entregue" value="@Model.Entregue" />
+        <input type="hidden" asp-for="Pago" value="@Model.Pago" />
+        <input type="hidden" asp-for="Conjunto_IdProdutos" value="@Model.Conjunto_IdProdutos" />
+        <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
+
     </div>
-</div>
+    <p>Você tem até <strong>@Model.DataExpiracao </strong> para realizar o pagamento</p>
+    <div class="form-group">
+        <button type="submit" role="button" class="btn btn-primary" asp-action="Payment" asp-controller="Payment">Pagar</button>
+    </div>
+</form>
+<script>
+    setInterval(function () {
+        var dataExpiracao = new Date('@Model.DataExpiracao');
+        var dataAtual = new Date();
+
+        if (dataAtual.getTime() >= dataExpiracao.getTime()) {
+            alert("Tempo para pagar expirado!");
+            window.location.href = '@Url.Action("Index", "Home")'; // Redireciona para a página inicial
+        }
+    }, 6000); // 1 minuto em milissegundos
+</script>
