@@ -16,3 +16,64 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* TELA HOME */
+
+.banner{
+    text-align: center;
+    border: solid 1px;
+    width: 100%;
+}
+
+.title-home{
+    font-size: 200%;
+    font-style: italic;
+    text-align: center;
+}
+
+.title-about {
+    font-size: 200%;
+    font-style: italic;
+    text-align: initial;
+}
+
+.offers {
+    /*border: solid 2px green;*/
+    display: flex;
+    width: 100%;
+    height: 10%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.about {
+    /*border: solid 2px blue;*/
+    padding: 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.text-about{
+    /*border: solid 2px green;*/
+    width: 60%;
+}
+
+.more {
+    /*border: solid 2px grey;*/
+    padding: 10%
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+}
+
+.image-position {
+    font-size: 200%;
+    text-align: center;
+    padding: 1%;
+    /*border: solid 2px red;*/
+}
+
+/* FIM TELA HOME */
