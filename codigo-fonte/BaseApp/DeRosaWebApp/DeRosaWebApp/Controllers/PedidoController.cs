@@ -29,10 +29,19 @@ namespace DeRosaWebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> MeusPedidos(string user_id)
         {
-            MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
-            await  _pedidoService.VerificarPedidosExpirados();
-            await Task.Delay(2000);
-            return View(pedidos);
+            try
+            {
+                MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
+                await _pedidoService.VerificarPedidosExpirados();
+                await Task.Delay(1000);
+                return View(pedidos);
+            }
+            catch (NullReferenceException)
+            {
+                ViewBag.Erro = "Estamos listando os seus pedidos.. por favor, recarregue a página";
+                return View("Erro");
+            }
+           
         }
         #endregion
         #region Checkout
@@ -51,6 +60,7 @@ namespace DeRosaWebApp.Controllers
             double precoTotalPedido = 0.0;
             List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
             _carrinho.ListItemCarrinho = itemCarrinhos;
+
             foreach (var item in itemCarrinhos)
             {
                 totalItemsPedido += item.QntProduto;
@@ -63,6 +73,7 @@ namespace DeRosaWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+
                 var user_id = _userMananger.GetUserId(User);
                 pedido.TotalItensPedido = totalItemsPedido;
                 pedido.TotalPedido = precoTotalPedido;

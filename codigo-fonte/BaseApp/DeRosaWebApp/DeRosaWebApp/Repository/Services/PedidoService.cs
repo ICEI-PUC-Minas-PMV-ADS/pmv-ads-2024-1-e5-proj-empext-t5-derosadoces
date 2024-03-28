@@ -91,7 +91,7 @@ namespace DeRosaWebApp.Repository.Services
                 
                 ProdutosEmPedido.Add(item.Value);
             }
-            await Task.Delay(1000);
+            await Task.Delay(0500);
             return ProdutosEmPedido;
         }
         #region Lista pedido detalhes
@@ -107,7 +107,7 @@ namespace DeRosaWebApp.Repository.Services
         public async Task<ActionResult<IEnumerable<Pedido>>> GetAll()
         {
             var pedidos = await _context.Pedidos.Where(p => p.Pago == true).ToListAsync();
-            await Task.Delay(1000);
+            await Task.Delay(0500);
             return pedidos;
         }
         #endregion
@@ -233,21 +233,13 @@ namespace DeRosaWebApp.Repository.Services
                 {
                     foreach (var detail in produtoDetalhe)
                     {
+                        
                         _context.PedidoDetalhes.Remove(detail);
                         
                     }
                 }          
             }
-            var listItemCarrinho = _carrinho.GetItemCarrinhos();
-            foreach(var item in listItemCarrinho)
-            {
-                if(item is not null)
-                {
-                    _context.ItemCarrinhos.Remove(item);
-                }
-              
-                
-            }
+            
             
             await _context.SaveChangesAsync();
             return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
