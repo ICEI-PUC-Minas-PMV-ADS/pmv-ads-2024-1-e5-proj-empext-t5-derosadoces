@@ -1,15 +1,15 @@
-﻿@using DeRosaWebApp.ViewModel;
+@using DeRosaWebApp.ViewModel;
 
 @model ReflectionIT.Mvc.Paging.PagingList<Produto>
-
-<div class="text-center">
-    <h1 class="display-4">DéRosa Doceria</h1>
+<link rel="stylescheet" type="text/css" href="~/css/site.css"/>
+<div class="banner">
+    <h1 class ="title-home">DéRosa Doceria</h1>
     <br />
-    <p>Descubra o prazer com nossas receitas simples e deliciosas com sobremesas irresistíveis. Surpreenda-se com os nossos doces feitos com amor e delicie-se com cada pedacinho de felicidade que eles proporcionam.</p>
+    <p>IMAGEM DE BACKGROUND E LOGO</p>
 </div>
 <div class="container">
 
-    <div class="container-lg" style="background-color:antiquewhite">
+    <div class="offers" style="background-color:antiquewhite">
 
         @foreach (var produto in Model)
         {
@@ -17,7 +17,48 @@
                 <partial name="_produtoHome" for="@produto" />
             </div>
         }
+        @foreach (var produto in Model)
+        {
+            <div class="card-deck">
+                <partial name="_produtoHome" for="@produto" />
+            </div>
+        }
+        @foreach (var produto in Model)
+        {
+            <div class="card-deck">
+                <partial name="_produtoHome" for="@produto" />
+            </div>
+        }
     </div>
+
+    <div class="about">
+        <div class="text-about">
+            <h1 class="title-about">Nossa História</h1>
+            <br />
+            <p>
+                A DéRosa é uma doceria idealizada por Júlia Junqueira, apaixonada pela confeitaria e que pretende levar a memória afetiva da confeitaria através de seus doces.
+            </p>
+        </div>
+        <h1 class="image-position">IMAGEM</h1>
+    </div>
+
+    <div class="more">
+        <h1 class="title-home">Home Made</h1>
+        <br />
+        <p>
+            Descubra o prazer com nossas receitas simples e deliciosas com sobremesas irresistíveis. 
+            Surpreenda-se com os nossos doces feitos com amor e delicie-se com cada pedacinho de felicidade que eles proporcionam.
+        </p>
+    </div>
+
+    <div class="photos">
+        <h1 class="image-position">IMAGEM</h1>
+        <h1 class="image-position">IMAGEM</h1>
+        <h1 class="image-position">IMAGEM</h1>
+    </div>
+
+
+
 </div>
 <script>
     window.onload = function () {
