@@ -137,9 +137,9 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private async Task<bool> ProdutoExists(int id)
+        private bool ProdutoExists(int id)
         {
-            return await _productService.Any(id);
+            return  _productService.Any(id);
         }
     }
 }

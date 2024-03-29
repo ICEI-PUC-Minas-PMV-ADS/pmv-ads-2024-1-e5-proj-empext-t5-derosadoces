@@ -9,7 +9,7 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<ActionResult> CriarPedido(Pedido pedido, string user_id);
         Task<ActionResult<Pedido>> VerificarPedidosExpirados();
         PedidoDetalhe DetalhePedido(int id);
-        List<PedidoDetalhe> DetalhePedidoList(int id);
+        Task<List<PedidoDetalhe>> DetalhePedidoList(int id);
         List<Produto> ProdutosPedido(int id);
         Task<ActionResult<Pedido>> Update(int id, Pedido pedido);
         Task<ActionResult<Pedido>> GetById(int id);

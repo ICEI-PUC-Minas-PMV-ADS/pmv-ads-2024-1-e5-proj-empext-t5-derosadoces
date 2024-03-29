@@ -15,9 +15,9 @@ namespace DeRosaWebApp.Repository.Services
             _context = context;
         }
         #endregion
-      
+
         #region Get Any Produto existente (bool)
-        public async Task<bool> Any(int id)
+        public bool Any(int id)
         {
             var produto = _context.Produtos.Any(p => p.Cod_Produto == id);
             return produto;

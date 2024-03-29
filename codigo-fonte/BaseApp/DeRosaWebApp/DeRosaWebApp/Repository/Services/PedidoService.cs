@@ -61,43 +61,70 @@ namespace DeRosaWebApp.Repository.Services
         #region GetPedidos
         public async Task<MeusPedidosViewModel> GetMeusPedidos(string user_id)
         {
+
             var meusPedidos = await _context.Pedidos.Where(p => p.Id_User == user_id).ToListAsync();
-
-            foreach (Pedido pedido in meusPedidos)
+            if (meusPedidos is not null)
             {
-                // Criar uma nova lista de detalhes do pedido para cada pedido
-                var pedidoDetalhes = DetalhePedidoList(pedido.Cod_Pedido);
-                pedido._PedidoDetalhes = pedidoDetalhes; // Definir a lista de detalhes do pedido para o pedido atual
+                foreach (Pedido pedido in meusPedidos)
+                {
+                    // Criar uma nova lista de detalhes do pedido para cada pedido
+                    var pedidoDetalhes = await DetalhePedidoList(pedido.Cod_Pedido);
+                    pedido._PedidoDetalhes = pedidoDetalhes; // Definir a lista de detalhes do pedido para o pedido atual
+                }
+
+                MeusPedidosViewModel meusPedidosViewModel = new MeusPedidosViewModel()
+                {
+                    Pedidos = meusPedidos
+                };
+                return meusPedidosViewModel;
             }
-
-            MeusPedidosViewModel meusPedidosViewModel = new MeusPedidosViewModel()
+            MeusPedidosViewModel meusPedidosViewEmpty = new MeusPedidosViewModel()
             {
-                Pedidos = meusPedidos
+                Pedidos = Enumerable.Empty<Pedido>()
+
             };
-            return meusPedidosViewModel;
+            return meusPedidosViewEmpty;
+
         }
         #endregion
         #region GetProdutos
         public async Task<IEnumerable<Produto>> GetMeusProdutos(int cod_pedido)
         {
-            var meuPedido = _context.Pedidos.FirstOrDefault(mp => mp.Cod_Pedido == cod_pedido);
-            string[] Ids = meuPedido.Conjunto_IdProdutos.Split(',');
-            List<Produto> ProdutosEmPedido = new();
-
-            for (int i = 0; i < Ids.Length; i++)
+            try
             {
-                int idGet = Convert.ToInt32(Ids[i]);
-                var item = await _productService.GetById(idGet);
-                
-                ProdutosEmPedido.Add(item.Value);
+                var meuPedido = await _context.Pedidos.FirstOrDefaultAsync(mp => mp.Cod_Pedido == cod_pedido);
+                if (meuPedido is not null)
+                {
+                    string[] Ids = meuPedido.Conjunto_IdProdutos.Split(',');
+                    List<Produto> ProdutosEmPedido = new();
+
+                    for (int i = 0; i < Ids.Length; i++)
+                    {
+                        int idGet = Convert.ToInt32(Ids[i]);
+                        var item = await _productService.GetById(idGet);
+
+                        ProdutosEmPedido.Add(item.Value);
+                    }
+                    await Task.Delay(1000);
+                    return ProdutosEmPedido;
+                }
+                return Enumerable.Empty<Produto>();
+
             }
-            await Task.Delay(0500);
-            return ProdutosEmPedido;
+            catch (NullReferenceException)
+            {
+                throw new Exception("Listando os seus pedidos... Por favor, recarregue a página.");
+            }
+
         }
         #region Lista pedido detalhes
-        public List<PedidoDetalhe> DetalhePedidoList(int id)
+        public async Task<List<PedidoDetalhe>> DetalhePedidoList(int id)
         {
-            var detalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == id).ToList();
+            var detalhe = await _context.PedidoDetalhes.Where(p => p.Cod_Pedido == id).ToListAsync();
+            if(detalhe is null)
+            {
+                return new List<PedidoDetalhe>();
+            }
 
             return detalhe;
         }
@@ -229,18 +256,18 @@ namespace DeRosaWebApp.Repository.Services
             {
                 _context.Pedidos.Remove(pedido);
                 var produtoDetalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == pedido.Cod_Pedido).ToList();
-                if(produtoDetalhe is not null)
+                if (produtoDetalhe is not null)
                 {
                     foreach (var detail in produtoDetalhe)
                     {
-                        
+
                         _context.PedidoDetalhes.Remove(detail);
-                        
+
                     }
-                }          
+                }
             }
-            
-            
+
+
             await _context.SaveChangesAsync();
             return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
         }

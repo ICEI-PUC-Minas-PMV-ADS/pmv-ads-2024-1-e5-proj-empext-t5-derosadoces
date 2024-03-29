@@ -33,15 +33,15 @@ namespace DeRosaWebApp.Controllers
             {
                 MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
                 await _pedidoService.VerificarPedidosExpirados();
-                await Task.Delay(1000);
+                await Task.Delay(1000); 
                 return View(pedidos);
             }
-            catch (NullReferenceException)
+            catch (Exception ex)
             {
-                ViewBag.Erro = "Estamos listando os seus pedidos.. por favor, recarregue a página";
+                ViewBag.Erro = ex.Message;
                 return View("Erro");
             }
-           
+
         }
         #endregion
         #region Checkout
@@ -130,7 +130,7 @@ namespace DeRosaWebApp.Controllers
                     pedido.Pago = getPedido.Value.Pago;
                     pedido.Conjunto_IdProdutos = getPedido.Value.Conjunto_IdProdutos;
 
-                    var pedidoDetalhe = _pedidoService.DetalhePedidoList(cod_pedido);
+                    var pedidoDetalhe =  await _pedidoService.DetalhePedidoList(cod_pedido);
 
 
                     foreach (var item in pedidoDetalhe)
@@ -142,7 +142,7 @@ namespace DeRosaWebApp.Controllers
 
                     ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
                     ViewBag.TotalPedido = pedido.TotalPedido;
-                    await Task.Delay(0500);
+                    await Task.Delay(1000);
                     return View(pedido);
                 }
                 return View(pedido);
