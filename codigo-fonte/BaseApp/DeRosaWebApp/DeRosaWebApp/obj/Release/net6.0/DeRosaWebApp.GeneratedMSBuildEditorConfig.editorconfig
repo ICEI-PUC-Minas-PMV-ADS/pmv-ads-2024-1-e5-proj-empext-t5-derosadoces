@@ -128,6 +128,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENoZWNrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Erro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEVycm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/MeusPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXE1ldXNQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -166,6 +170,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/EmailRedefinicaoEnviado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFbWFpbFJlZGVmaW5pY2FvRW52aWFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/EsqueciSenha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFc3F1ZWNpU2VuaGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/RedefinirSenha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWRlZmluaXJTZW5oYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Eduardo/source/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/_ViewImports.cshtml]

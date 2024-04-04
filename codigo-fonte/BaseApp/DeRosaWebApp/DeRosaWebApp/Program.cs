@@ -20,6 +20,8 @@ builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped(sp => Carrinho.GetCarrinho(sp));
 builder.Services.AddScoped<ISeedRoleInitial, SeedUserRoleInitial>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<IEmailService,EmailService>();
+
 
 
 var stripeSettings = builder.Configuration.GetSection("Stripe");

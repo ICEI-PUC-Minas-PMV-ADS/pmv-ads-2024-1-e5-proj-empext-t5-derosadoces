@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using DeRosaWebApp.Extensions;
 using DeRosaWebApp.Models;
-using DeRosaWebApp.Services;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -21,24 +20,28 @@ namespace DeRosaWebApp.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IClienteService _clienteService;
-        private readonly UserManager<Cliente> _userManagerCliente;
-        private readonly RoleManager<IdentityRole<int>> _roleManager;
-        private readonly SignInManager<Cliente> _signInManagerCliente;
+        private readonly UserManager<IdentityUser> _userManagerCliente;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly SignInManager<IdentityUser> _signInManagerCliente;
         private readonly IEmailService _emailService;
 
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IClienteService clienteService,
-            UserManager<Cliente> userManagerCliente, IEmailService emailService,
-            SignInManager<Cliente> signInManagerCliente,
-            RoleManager<IdentityRole<int>> roleManager)
+        public AccountController(
+    SignInManager<IdentityUser> signInManager,
+    UserManager<IdentityUser> userManager,
+    IClienteService clienteService,
+    UserManager<IdentityUser> userManagerCliente,
+    IEmailService emailService,
+    SignInManager<IdentityUser> signInManagerCliente,
+    RoleManager<IdentityRole> roleManager) 
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _clienteService = clienteService;
-            this._userManagerCliente = userManagerCliente;
-            this._signInManagerCliente = signInManagerCliente;
-            this._roleManager = roleManager;
-            this._emailService = emailService;
+            _userManagerCliente = userManagerCliente;
+            _signInManagerCliente = signInManagerCliente;
+            _roleManager = roleManager; 
+            _emailService = emailService;
         }
         #endregion
         #region Login
@@ -175,7 +178,7 @@ namespace DeRosaWebApp.Controllers
         }
         #endregion
 
-         [HttpGet]
+        [HttpGet]
         public IActionResult EsqueciSenha()
         {
             return View();
@@ -190,9 +193,9 @@ namespace DeRosaWebApp.Controllers
                 {
                     var usuario = await _userManagerCliente.FindByEmailAsync(dados.Email);
                     var token = await _userManagerCliente.GeneratePasswordResetTokenAsync(usuario);
-                    var urlConfirmacao = Url.Action(nameof(RedefinirSenha), "Usuario", new { token }, Request.Scheme);
+                    var urlConfirmacao = Url.Action(nameof(RedefinirSenha), "UserName", new { token }, Request.Scheme);
                     var mensagem = new StringBuilder();
-                    mensagem.Append($"<p>Olá, {usuario.Nome}.</p>");
+                    mensagem.Append($"<p>Olá, {usuario.UserName}.</p>");
                     mensagem.Append("<p>Houve uma solicitação de redefinição de senha para seu usuário em nosso site. Se não foi você que fez a solicitação, ignore essa mensagem. Caso tenha sido você, clique no link abaixo para criar sua nova senha:</p>");
                     mensagem.Append($"<p><a href='{urlConfirmacao}'>Redefinir Senha</a></p>");
                     mensagem.Append("<p>Atenciosamente,<br>Equipe de Suporte</p>");
@@ -288,7 +291,8 @@ namespace DeRosaWebApp.Controllers
 
         private async Task EnviarLinkConfirmacaoEmailAsync(Cliente usuario)
         {
-            var token = await _userManagerCliente.GenerateEmailConfirmationTokenAsync(usuario);
+            var user = await _userManager.FindByNameAsync(usuario.Nome);
+            var token = await _userManagerCliente.GenerateEmailConfirmationTokenAsync(user);
             var urlConfirmacao = Url.Action("ConfirmarEmail",
                 "Usuario", new { email = usuario.Email, token }, Request.Scheme);
             var mensagem = new StringBuilder();

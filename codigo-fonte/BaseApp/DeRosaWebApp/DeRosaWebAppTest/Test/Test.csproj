@@ -19,7 +19,8 @@
 
 	<ItemGroup>
 		<!-- Referência ao projeto principal -->
-		<ProjectReference Include="C:\Users\letic\Documents\projeto\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp\DeRosaWebApp.csproj" />
+		<ProjectReference Include="..\..\DeRosaWebApp\DeRosaWebApp.csproj" />
+
 	</ItemGroup>
 
 </Project>
