@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp6.0</TargetFramework>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+		<PackageReference Include="NUnit" Version="4.1.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+		<PackageReference Include="Moq" Version="4.20.70" />
+		<!-- Outras referências necessárias para os testes -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Referência ao projeto principal -->
+		<ProjectReference Include="C:\Users\letic\Documents\projeto\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp\DeRosaWebApp.csproj" />
+	</ItemGroup>
+
+</Project>

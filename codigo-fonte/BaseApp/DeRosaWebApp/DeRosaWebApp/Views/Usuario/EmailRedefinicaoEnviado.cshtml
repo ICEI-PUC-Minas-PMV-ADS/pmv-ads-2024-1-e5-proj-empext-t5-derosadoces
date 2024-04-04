@@ -1,0 +1,15 @@
+@model EsqueciSenhaViewModel
+@{
+    ViewBag.Subtitulo = "E-mail de Redefinição de Senha Enviado";
+}
+
+<h1 class="text-primary">E-mail de Redefinição de Senha Enviado</h1>
+<hr>
+
+<p>Uma mensagem contendo o link para redefinição de sua senha foi enviado para seu e-mail. Acesse sua caixa de mensagens
+    e clique no link recebido para redefinir sua senha.</p>
+
+<p>Acesse sua caixa de mensagens e clique no link para dar continuidade ao processo de redefinição de senha. Se quiser
+    voltar à página principal, clique no botão abaixo.</p>
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary">Voltar à Página Principal</a>

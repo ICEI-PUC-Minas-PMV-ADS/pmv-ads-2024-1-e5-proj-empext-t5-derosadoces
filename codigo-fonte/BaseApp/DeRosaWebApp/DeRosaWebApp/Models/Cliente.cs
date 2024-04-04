@@ -1,9 +1,12 @@
-﻿using System.ComponentModel;
+﻿﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace DeRosaWebApp.Models
 {
-    public class Cliente
+    public class Cliente : IdentityUser<int>
     {
 
         [Key]

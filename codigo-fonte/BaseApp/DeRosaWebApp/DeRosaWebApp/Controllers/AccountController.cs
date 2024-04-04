@@ -5,6 +5,11 @@ using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
+using DeRosaWebApp.Extensions;
+using DeRosaWebApp.Models;
+using DeRosaWebApp.Services;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace DeRosaWebApp.Controllers
@@ -16,13 +21,24 @@ namespace DeRosaWebApp.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IClienteService _clienteService;
+        private readonly UserManager<Cliente> _userManagerCliente;
+        private readonly RoleManager<IdentityRole<int>> _roleManager;
+        private readonly SignInManager<Cliente> _signInManagerCliente;
+        private readonly IEmailService _emailService;
 
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IClienteService clienteService)
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IClienteService clienteService,
+            UserManager<Cliente> userManagerCliente, IEmailService emailService,
+            SignInManager<Cliente> signInManagerCliente,
+            RoleManager<IdentityRole<int>> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _clienteService = clienteService;
+            this._userManagerCliente = userManagerCliente;
+            this._signInManagerCliente = signInManagerCliente;
+            this._roleManager = roleManager;
+            this._emailService = emailService;
         }
         #endregion
         #region Login
@@ -158,5 +174,150 @@ namespace DeRosaWebApp.Controllers
             return RedirectToAction("Index", "Home");
         }
         #endregion
+
+         [HttpGet]
+        public IActionResult EsqueciSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EsqueciSenha([FromForm] EsqueciSenhaViewModel dados)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_userManager.Users.AsNoTracking().Any(u => u.NormalizedEmail == dados.Email.ToUpper().Trim()))
+                {
+                    var usuario = await _userManagerCliente.FindByEmailAsync(dados.Email);
+                    var token = await _userManagerCliente.GeneratePasswordResetTokenAsync(usuario);
+                    var urlConfirmacao = Url.Action(nameof(RedefinirSenha), "Usuario", new { token }, Request.Scheme);
+                    var mensagem = new StringBuilder();
+                    mensagem.Append($"<p>Olá, {usuario.Nome}.</p>");
+                    mensagem.Append("<p>Houve uma solicitação de redefinição de senha para seu usuário em nosso site. Se não foi você que fez a solicitação, ignore essa mensagem. Caso tenha sido você, clique no link abaixo para criar sua nova senha:</p>");
+                    mensagem.Append($"<p><a href='{urlConfirmacao}'>Redefinir Senha</a></p>");
+                    mensagem.Append("<p>Atenciosamente,<br>Equipe de Suporte</p>");
+                    await _emailService.SendEmailAsync(usuario.Email,
+                        "Redefinição de Senha", "", mensagem.ToString());
+                    return View(nameof(EmailRedefinicaoEnviado));
+                }
+                else
+                {
+                    this.MostrarMensagem(
+                            $"Usuário/e-mail <b>{dados.Email}</b> não encontrado.");
+                    return View();
+                }
+            }
+            else
+            {
+                return View(dados);
+            }
+        }
+
+        public IActionResult EmailRedefinicaoEnviado()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult RedefinirSenha(string token)
+        {
+            var modelo = new RedefinirSenhaViewModel();
+            modelo.Token = token;
+            return View(modelo);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RedefinirSenha([FromForm] RedefinirSenhaViewModel dados)
+        {
+            if (ModelState.IsValid)
+            {
+                var usuario = await _userManagerCliente.FindByEmailAsync(dados.Email);
+                var resultado = await _userManagerCliente.ResetPasswordAsync(
+                    usuario, dados.Token, dados.NovaSenha);
+                if (resultado.Succeeded)
+                {
+                    this.MostrarMensagem(
+                       $"Senha redefinida com sucesso! Agora você já pode fazer login com a nova senha.");
+                    return View(nameof(Login));
+                }
+                else
+                {
+                    this.MostrarMensagem(
+                        $"Não foi possível redefinir a senha. Verifique se preencheu a senha corretamente. Se o problema persistir, entre em contato com o suporte.");
+                    return View(dados);
+                }
+            }
+            else
+            {
+                return View(dados);
+            }
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult AlterarSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AlterarSenha([FromForm] AlterarSenhaViewModel dados)
+        {
+            if (ModelState.IsValid)
+            {
+                var usuario = await _userManagerCliente.FindByEmailAsync(HttpContext.User.Identity.Name);
+                var resultado = await _userManagerCliente.ChangePasswordAsync(usuario, dados.SenhaAtual, dados.NovaSenha);
+                if (resultado.Succeeded)
+                {
+                    this.MostrarMensagem(
+                        $"Sua senha foi alterada com sucesso. Identifique-se usando a nova senha.");
+                    await _signInManagerCliente.SignOutAsync();
+                    return RedirectToAction(nameof(Login), "Usuario");
+                }
+                else
+                {
+                    this.MostrarMensagem(
+                        $"Não foi possível alterar sua senha. Confira os dados informados e tente novamente.");
+                    return View(dados);
+                }
+            }
+            else
+            {
+                return View(dados);
+            }
+        }
+
+        private async Task EnviarLinkConfirmacaoEmailAsync(Cliente usuario)
+        {
+            var token = await _userManagerCliente.GenerateEmailConfirmationTokenAsync(usuario);
+            var urlConfirmacao = Url.Action("ConfirmarEmail",
+                "Usuario", new { email = usuario.Email, token }, Request.Scheme);
+            var mensagem = new StringBuilder();
+            mensagem.Append($"<p>Olá, {usuario.Nome}.</p>");
+            mensagem.Append("<p>Recebemos seu cadastro em nosso sistema. Para concluir o processo de cadastro, clique no link a seguir:</p>");
+            mensagem.Append($"<p><a href='{urlConfirmacao}'>Confirmar Cadastro</a></p>");
+            mensagem.Append("<p>Atenciosamente,<br>Equipe de Suporte</p>");
+            await _emailService.SendEmailAsync(usuario.Email,
+                "Confirmação de Cadastro", "", mensagem.ToString());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmarEmail(string email, string token)
+        {
+            var usuario = await _userManagerCliente.FindByEmailAsync(email);
+            if (usuario == null)
+            {
+                this.MostrarMensagem("Não foi possível confirmar o e-mail. Usuário não encontrado", true);
+            }
+            var resultado = await _userManagerCliente.ConfirmEmailAsync(usuario, token);
+            if (resultado.Succeeded)
+            {
+                this.MostrarMensagem("E-mail confirmado com sucesso! Agora você já está liberado para fazer o login.");
+            }
+            else
+            {
+                this.MostrarMensagem("Não foi possível validar seu e-mail. Tente novamente em alguns minutos. Se o problema persistir, entre em contato com o suporte.", true);
+            }
+            return View(nameof(Login));
+        }
     }
 }
