@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DeRosaWebApp.Models
 {
-    public class Cliente : IdentityUser<int>
+    public class Cliente 
     {
 
         [Key]
