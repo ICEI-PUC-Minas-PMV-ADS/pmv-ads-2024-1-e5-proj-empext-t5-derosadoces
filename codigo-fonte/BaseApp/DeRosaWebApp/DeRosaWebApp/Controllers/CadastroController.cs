@@ -60,7 +60,14 @@ namespace DeRosaWebApp.Controllers
                         CPF = usuario.CPF,
                         Email = usuario.Email,
                         DateNasc = usuario.DateNasc,
-                        Senha = user.PasswordHash
+                        Senha = user.PasswordHash,
+                        CEP = usuario.CEP,
+                        Logradouro = usuario.Logradouro,
+                        Numero = usuario.Numero,
+                        Complemento = usuario.Complemento,
+                        Bairro = usuario.Bairro,
+                        Cidade = usuario.Cidade,
+                        UF = usuario.UF
 
                     };
                     _context.Clientes.Add(cliente);

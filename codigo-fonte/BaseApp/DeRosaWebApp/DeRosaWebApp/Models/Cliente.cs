@@ -21,8 +21,8 @@ namespace DeRosaWebApp.Models
         [Required(ErrorMessage = "O número de telefone é obrigatório!")]
         public string Telefone { get; set; }
         [Required(ErrorMessage = "O CPF é obrigatório!")]
-        [MaxLength(14)]
-        [MinLength(14)]
+        [MaxLength(11)]
+        [MinLength(11)]
         public string CPF { get; set; }
         [Required(ErrorMessage = "A senha é obrigatória!")]
         [DataType(DataType.Password)]
@@ -36,6 +36,20 @@ namespace DeRosaWebApp.Models
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Data de nascimento")]
         public DateTime DateNasc { get; set; }
+
+        [Required(ErrorMessage = "Obrigatório informar o CEP!")]
+        [UIHint("_CepTemplate")]
+        public string CEP { get; set; }
+        [Required(ErrorMessage = "Obrigatório informar o logradouro!")]
+        public string Logradouro { get; set; }
+
+        [Required(ErrorMessage = "Obrigatório informar o Número!")]
+        public int Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string UF { get; set; }
+
         public List<Pedido> _Pedidos { get; set; }
         
         public virtual Carrinho _Carrinho { get; set; }
