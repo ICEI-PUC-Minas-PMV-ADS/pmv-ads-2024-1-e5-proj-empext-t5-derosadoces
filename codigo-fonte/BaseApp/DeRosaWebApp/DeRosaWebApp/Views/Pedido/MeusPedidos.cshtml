@@ -4,107 +4,117 @@
 @{
     var DateTimes = new List<DateTime>();
 }
-@if (Model.Pedidos.Count() == 0)
+@try
 {
-    <h1 class="text-center">Você ainda não realizou nenhum pedido</h1>
-}
-
-<div class="container">
-    <div class="row">
-        @foreach (var pedido in Model.Pedidos)
-        {
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <div class="card-body" style="background-color: gray">
-                        <h5 class="card-title">Pedido: @pedido.Cod_Pedido</h5>
-                        <p class="card-text">Data do Pedido: @pedido.DataPedido</p>
-                        <p class="card-text">Endereço: @pedido.Rua @pedido.Numero</p>
-                        <p class="card-text">Nome: @pedido.Nome</p>
-                        <p class="card-text">Preço total: R$@pedido.TotalPedido</p>
-                        <p class="card-text">Total itens pedido: @pedido.TotalItensPedido</p>
-                        @if (pedido.Pago)
-                        {
-                            <p>
-                                <strong>Status:  </strong>
-                                @if (pedido.Concluido)
-                                {
-                                    <span> Seu pedido já foi preparado! </span>
-                                }
-                                else
-                                {
-                                    <span> Seu pedido já foi recebido!</span>
-                                }
-
-                                @if (pedido.Entregue)
-                                {
-                                    <span> O Seu pedido já foi entregue :)</span>
-                                }
-                                else if (pedido.Concluido)
-                                {
-                                    <span>Seu pedido já foi preparado e irá ser entregue em breve!</span>
-                                }
-                                else
-                                {
-                                    <span>Mas ainda não saiu para a entrega.</span>
-                                }
-
-                            </p>
-
-                        }
-                        else
-                        {
-
-                            <a asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido"><p>Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy hh:mm:ss")</p></a>
-                            DateTimes.Add(pedido.DataExpiracao);
-                        }
-
-                        <h6>Produtos:</h6>
-                        @inject IPedidoService _pedidoService
-                        @{
-                            var produtosInPedidos = await _pedidoService.GetMeusProdutos(pedido.Cod_Pedido);
-
-                            foreach (var produto in produtosInPedidos)
+    @if (Model.Pedidos.Count() == 0)
+    {
+        <h1 class="text-center">Você ainda não realizou nenhum pedido</h1>
+    }
+    <div class="container">
+        <div class="row">
+            @foreach (var pedido in Model.Pedidos)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body" style="background-color: gray">
+                            <h5 class="card-title">Pedido: @pedido.Cod_Pedido</h5>
+                            <p class="card-text">Data do Pedido: @pedido.DataPedido</p>
+                            <p class="card-text">Endereço: @pedido.Rua @pedido.Numero</p>
+                            <p class="card-text">Nome: @pedido.Nome</p>
+                            <p class="card-text">Preço total: R$@pedido.TotalPedido</p>
+                            <p class="card-text">Total itens pedido: @pedido.TotalItensPedido</p>
+                            @if (pedido.Pago)
                             {
-
-                                <div class="media">
-                                    @if (produto.ImagemUrl.Contains("www"))
+                                <p>
+                                    <strong>Status:  </strong>
+                                    @if (pedido.Concluido)
                                     {
-                                        <img src='@produto.ImagemUrl' class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
+                                        <span> Seu pedido já foi preparado! </span>
                                     }
                                     else
                                     {
-                                        <img src="~/Imagens/@produto.ImagemUrl" class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
+                                        <span> Seu pedido já foi recebido!</span>
                                     }
-                                    
-                                    <div class="media-body">
-                                        <h5 class="mt-0">@produto.Nome</h5>
-                                        <p>@produto.DescricaoCurta</p>
-                                        <p>Preço do produto R$@produto.Preco</p>
-                                    </div>
-                                </div>
+
+                                    @if (pedido.Entregue)
+                                    {
+                                        <span> O Seu pedido já foi entregue :)</span>
+                                    }
+                                    else if (pedido.Concluido)
+                                    {
+                                        <span>Seu pedido já foi preparado e irá ser entregue em breve!</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Mas ainda não saiu para a entrega.</span>
+                                    }
+
+                                </p>
+
                             }
-                            @foreach (PedidoDetalhe p in pedido._PedidoDetalhes)
+                            else
                             {
-                                if (p.Quantidade > 1)
-                                {
-                                    <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vezes</strong></p>
 
-                                }
-                                else
+                                <a asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido"><p>Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy hh:mm:ss")</p></a>
+                                DateTimes.Add(pedido.DataExpiracao);
+                            }
+
+                            <h6>Produtos:</h6>
+                            @inject IPedidoService _pedidoService
+                            @{
+                                var produtosInPedidos = await _pedidoService.GetMeusProdutos(pedido.Cod_Pedido);
+
+                                foreach (var produto in produtosInPedidos)
                                 {
-                                    <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vez</strong></p>
+
+                                    <div class="media">
+                                        @if (produto.ImagemUrl.Contains("www"))
+                                        {
+                                            <img src='@produto.ImagemUrl' class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Imagens/@produto.ImagemUrl" class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
+                                        }
+
+                                        <div class="media-body">
+                                            <h5 class="mt-0">@produto.Nome</h5>
+                                            <p>@produto.DescricaoCurta</p>
+                                            <p>Preço do produto R$@produto.Preco</p>
+                                        </div>
+                                    </div>
+                                }
+                                @foreach (PedidoDetalhe p in pedido._PedidoDetalhes)
+                                {
+                                    if (p.Quantidade > 1)
+                                    {
+                                        <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vezes</strong></p>
+
+                                    }
+                                    else
+                                    {
+                                        <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vez</strong></p>
+
+                                    }
 
                                 }
 
                             }
-
-                        }
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
+}
+catch (NullReferenceException)
+{
+    <h2>Carregando... por favor, recarregue a página</h2>
+    <script>
+        window.location.reload();
+    </script>
+}
+
 
 
 <script>

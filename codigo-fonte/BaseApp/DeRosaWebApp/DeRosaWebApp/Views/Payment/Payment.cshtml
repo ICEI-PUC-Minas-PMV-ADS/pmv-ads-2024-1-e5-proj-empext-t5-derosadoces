@@ -8,25 +8,6 @@
 <h1>@ViewData["Title"]</h1>
 <!-- Formulário de pagamento -->
 <form id="payment-form" method="post" asp-action="ProcessPayment">
-    <input type="hidden" asp-for="Cod_Pedido" value="@Model.Cod_Pedido" /> 
-    <input type="hidden" asp-for="Nome" value="@Model.Nome" />
-    <input type="hidden" asp-for="DataPedido" value="@Model.DataPedido" />
-    <input type="hidden" asp-for="Cep" value="@Model.Cep" />
-    <input type="hidden" asp-for="Rua" value="@Model.Rua" />
-    <input type="hidden" asp-for="Numero" value="@Model.Numero" />
-    <input type="hidden" asp-for="Complemento" value="@Model.Complemento" />
-    <input type="hidden" asp-for="Bairro" value="@Model.Bairro" />
-    <input type="hidden" asp-for="Cidade" value="@Model.Cidade" />
-    <input type="hidden" asp-for="Estado" value="@Model.Estado" />
-    <input type="hidden" asp-for="Telefone" value="@Model.Telefone" />
-    <input type="hidden" asp-for="TotalItensPedido" value="@Model.TotalItensPedido" />
-    <input type="hidden" asp-for="TotalPedido" value="@Model.TotalPedido" />
-    <input type="hidden" asp-for="Concluido" value="@Model.Concluido" />
-    <input type="hidden" asp-for="Entregue" value="@Model.Entregue" />
-    <input type="hidden" asp-for="Pago" value="@Model.Pago" />
-    <input type="hidden" asp-for="Conjunto_IdProdutos" value="@Model.Conjunto_IdProdutos" />
-    <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
-    <!-- Campo para o usuário digitar o valor do pagamento -->
     <div class="form-group">
         <label for="paymentAmount">Valor do Pagamento (em centavos):</label>
         <input type="number" id="paymentAmount" name="paymentAmount" class="form-control" min="1" placeholder="Insira o valor em centavos" required>

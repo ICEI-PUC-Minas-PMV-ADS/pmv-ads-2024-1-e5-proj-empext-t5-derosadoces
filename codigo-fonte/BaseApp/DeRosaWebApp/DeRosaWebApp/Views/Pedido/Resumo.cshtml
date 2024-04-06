@@ -1,6 +1,5 @@
 ﻿@model Pedido
 
-<form asp-action="Payment" asp-controller="Payment" method="post">
     <div class="container" style="color: black;">
         <div class="jumbotron">
             <h2>@ViewBag.CheckoutCompletoMensagem</h2>
@@ -37,32 +36,11 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" asp-for="Cod_Pedido" value="@Model.Cod_Pedido" />
-        <input type="hidden" asp-for="Nome" value="@Model.Nome" />
-        <input type="hidden" asp-for="DataPedido" value="@Model.DataPedido" />
-        <input type="hidden" asp-for="DataExpiracao" value="@Model.DataExpiracao" />
-        <input type="hidden" asp-for="Cep" value="@Model.Cep" />
-        <input type="hidden" asp-for="Rua" value="@Model.Rua" />
-        <input type="hidden" asp-for="Numero" value="@Model.Numero" />
-        <input type="hidden" asp-for="Complemento" value="@Model.Complemento" />
-        <input type="hidden" asp-for="Bairro" value="@Model.Bairro" />
-        <input type="hidden" asp-for="Cidade" value="@Model.Cidade" />
-        <input type="hidden" asp-for="Estado" value="@Model.Estado" />
-        <input type="hidden" asp-for="Telefone" value="@Model.Telefone" />
-        <input type="hidden" asp-for="TotalItensPedido" value="@Model.TotalItensPedido" />
-        <input type="hidden" asp-for="TotalPedido" value="@Model.TotalPedido" />
-        <input type="hidden" asp-for="Concluido" value="@Model.Concluido" />
-        <input type="hidden" asp-for="Entregue" value="@Model.Entregue" />
-        <input type="hidden" asp-for="Pago" value="@Model.Pago" />
-        <input type="hidden" asp-for="Conjunto_IdProdutos" value="@Model.Conjunto_IdProdutos" />
-        <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
-
     </div>
     <p>Você tem até <strong>@Model.DataExpiracao </strong> para realizar o pagamento</p>
     <div class="form-group">
-        <button type="submit" role="button" class="btn btn-primary" asp-action="Payment" asp-controller="Payment">Pagar</button>
+        <a asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Pagar</a>
     </div>
-</form>
 <script>
     setInterval(function () {
         var dataExpiracao = new Date('@Model.DataExpiracao');

@@ -20,12 +20,14 @@ namespace DeRosaWebApp.Controllers
             _pedidoService = pedidoService;
             _carrinho = carrinho;
         }
-        [HttpPost]
-        public IActionResult Payment(Pedido pedido)
+        [HttpGet]
+        [Route("{controller}Payment/Payment")]
+        public async Task<IActionResult> Payment(int cod_pedido)
         {
-            //    Todas as informações do pedidos estão disponiveis através do parametro 'pedido' ex: pedido.TotalPedido 
+            var pedido = await _pedidoService.GetById(cod_pedido);
+            
             ViewBag.StripePublishableKey = _configuration["Stripe:PublicKey"];
-            return View(pedido);
+            return View(pedido.Value);
         }
 
         [HttpPost]
