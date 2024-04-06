@@ -35,10 +35,23 @@ Plano de Testes: Funcionalidade de Login
 
 |Caso de teste   | CT-03 - Teste de Login com Credenciais Inválidas:
 |------|-----------------------------------------|
-|Requisitos associados | RF-01​2  A aplicação deve permitir o usuário realizar login.
+|Requisitos associados | RF-0​2  A aplicação deve permitir o usuário realizar login.
 |Objetivo do teste | O sistema não permitir o acesso com credenciais inválidas. 
 |Passos | <ol><li> Acessar a página de login. </li> <li> Inserir um nome de usuário e senha inválidos. </li> <li> Clicar no botão de login. </li></ol>
 |Critérios de Êxito | <ul> <li>O sistema deve exibir uma mensagem de erro informando que as credenciais são inválidas. </li> 
+
+<br>
+
+Os testes unitários a serem realizados na aplicação são descritos a seguir.
+
+<br>
+
+|Caso de teste   | CT-04 - Teste de Login com Credenciais Inválidas:
+|------|-----------------------------------------|
+|Requisitos associados | RF-01​2  A aplicação deve permitir somente ao administrador do site adicionar produtos para venda
+|Objetivo do teste | O sistema deve permitir cadastro de novos produtos. 
+|Passos | <ol><li> Acessar a página de login. </li> <li> Inserir dados válidos dos produtos. </li> <li> executar o teste unitário. </li></ol>
+|Critérios de Êxito | <ul> <li>O sistema deve rodar o teste com êxito. </li> 
 
 <br>
  
@@ -52,7 +65,7 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi corrigido e o usuário foi cadastrado com sucesso
 ![Figura 1](img/erroregistrarUsuario.jpg)
 
-### CT-01 - CT-21 - Teste de Login com Credenciais Válidas
+### CT-02 - Teste de Login com Credenciais Válidas
 ![Figura 1](img/loginValido.jpg)
 
 ![Figura 1](img/loginValido2.jpg)
@@ -60,3 +73,5 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ### CT-03 - Teste de Login com Credenciais Inválidas
 ![Figura 1](img/loginInvalido.jpg)
 
+### CT-04 - Teste Unitário de Adição de Novo Produto
+![Figura 1](img/testeUnitario.jpg)
