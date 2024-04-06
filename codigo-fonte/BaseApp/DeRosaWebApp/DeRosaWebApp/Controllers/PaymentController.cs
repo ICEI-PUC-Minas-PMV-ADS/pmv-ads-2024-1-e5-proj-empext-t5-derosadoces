@@ -21,7 +21,7 @@ namespace DeRosaWebApp.Controllers
             _carrinho = carrinho;
         }
         [HttpGet]
-        [Route("{controller}Payment/Payment")]
+        [Route("Payment/Payment")]
         public async Task<IActionResult> Payment(int cod_pedido)
         {
             var pedido = await _pedidoService.GetById(cod_pedido);
@@ -31,9 +31,10 @@ namespace DeRosaWebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProcessPayment(string stripeToken, int paymentAmount, Pedido pedido)
+        public async Task<IActionResult> ProcessPayment(string stripeToken, int paymentAmount, int cod_pedido) 
         {
-            
+            var pedido = await _pedidoService.GetById(cod_pedido);
+
             if (string.IsNullOrEmpty(stripeToken))
             {
                 _logger.LogError("Stripe token está vazio.");
@@ -61,8 +62,8 @@ namespace DeRosaWebApp.Controllers
 
                 if (charge.Paid)
                 {
-                    pedido.Pago = true;
-                    var updatePayed = await _pedidoService.UpdatePayment(pedido.Cod_Pedido, pedido.Pago);
+                    pedido.Value.Pago = true;
+                    var updatePayed = await _pedidoService.UpdatePayment(pedido.Value.Cod_Pedido, pedido.Value.Pago);
                     _carrinho.LimparCarrinho();
                     return RedirectToAction("Success", updatePayed.Result);
                 }

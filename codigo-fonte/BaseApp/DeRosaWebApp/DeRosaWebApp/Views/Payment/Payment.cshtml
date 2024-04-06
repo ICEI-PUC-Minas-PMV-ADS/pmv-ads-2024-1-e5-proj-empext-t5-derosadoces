@@ -1,15 +1,16 @@
+@using System.Globalization;
 @model Pedido
 
 @{
     ViewData["Title"] = "Formulário de Pagamento";
 }
-<h1>Total : @Model.TotalPedido</h1>
+
 
 <h1>@ViewData["Title"]</h1>
 <!-- Formulário de pagamento -->
-<form id="payment-form" method="post" asp-action="ProcessPayment">
+<form id="payment-form" method="post" asp-action="ProcessPayment" asp-route-cod_pedido="@Model.Cod_Pedido">
     <div class="form-group">
-        <label for="paymentAmount">Valor do Pagamento (em centavos):</label>
+        <label for="paymentAmount">Valor do Pagamento:  <span style="color:lawngreen; font-weight: bold;">R$@Model.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)</span></label>
         <input type="number" id="paymentAmount" name="paymentAmount" class="form-control" min="1" placeholder="Insira o valor em centavos" required>
     </div>
 
