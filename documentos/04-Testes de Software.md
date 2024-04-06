@@ -46,7 +46,7 @@ Os testes unitários a serem realizados na aplicação são descritos a seguir.
 
 <br>
 
-|Caso de teste   | CT-04 - Teste de Login com Credenciais Inválidas:
+|Caso de teste   | CT-04 - Teste de Cadastro de Novos Produtos:
 |------|-----------------------------------------|
 |Requisitos associados | RF-01​2  A aplicação deve permitir somente ao administrador do site adicionar produtos para venda
 |Objetivo do teste | O sistema deve permitir cadastro de novos produtos. 
