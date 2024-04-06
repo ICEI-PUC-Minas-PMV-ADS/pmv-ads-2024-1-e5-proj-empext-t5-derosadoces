@@ -1,15 +1,21 @@
 @using DeRosaWebApp.ViewModel;
-
 @model ReflectionIT.Mvc.Paging.PagingList<Produto>
-<link rel="stylescheet" type="text/css" href="~/css/site.css"/>
-<div class="banner">
-    <h1 class ="title-home">DéRosa Doceria</h1>
-    <br />
-    <p>IMAGEM DE BACKGROUND E LOGO</p>
-</div>
-<div class="container">
+<link rel="stylescheet" type="text/css" href="~/css/site.css" />
 
-    <div class="offers" style="background-color:antiquewhite">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<div class="banner">
+    <h1 class="title-home">DéRosa Doceria</h1>
+    <br />
+    <button class="btn1">SOBRE</button>
+    <button class="btn2">LISTA</button>
+</div>
+<div class="container-home">
+
+    <div class="offers">
 
         @foreach (var produto in Model)
         {
@@ -34,27 +40,36 @@
     <div class="about">
         <div class="text-about">
             <h1 class="title-about">Nossa História</h1>
+            <div class="underline-about">
+                <div class="underline-about1"></div>
+            </div>
+            <br />
             <br />
             <p>
                 A DéRosa é uma doceria idealizada por Júlia Junqueira, apaixonada pela confeitaria e que pretende levar a memória afetiva da confeitaria através de seus doces.
             </p>
         </div>
-        <h1 class="image-position">IMAGEM</h1>
+        <img class="julia" src="~/Imagens/julia.png" width="20%" height="20%" />
     </div>
 
     <div class="more">
-        <h1 class="title-home">Home Made</h1>
-        <br />
-        <p>
-            Descubra o prazer com nossas receitas simples e deliciosas com sobremesas irresistíveis. 
-            Surpreenda-se com os nossos doces feitos com amor e delicie-se com cada pedacinho de felicidade que eles proporcionam.
-        </p>
+        <div class="more-text">
+            <h1 class="title-more">Home Made</h1>
+            <h1 class="subtitle-home">RECEITAS QUE CRIAM LAÇOS</h1>
+            <div class="more-underline">
+                <div class="more-underline1"></div>
+                <div class="more-underline2"></div>
+            </div>
+
+            <br />
+            <p>
+                Descubra o prazer com nossas receitas simples e deliciosas com sobremesas irresistíveis.
+                Surpreenda-se com os nossos doces feitos com amor e delicie-se com cada pedacinho de felicidade que eles proporcionam.
+            </p>
+        </div>
     </div>
 
     <div class="photos">
-        <h1 class="image-position">IMAGEM</h1>
-        <h1 class="image-position">IMAGEM</h1>
-        <h1 class="image-position">IMAGEM</h1>
     </div>
 
 

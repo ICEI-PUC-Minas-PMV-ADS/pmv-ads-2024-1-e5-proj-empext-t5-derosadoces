@@ -1,67 +1,242 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/*ALTERAÇÕES param NAVBAR*/
+.navbar-nav {
+    justify-content: center;
+    font-family: Montserrat;
+    letter-spacing: 0.1em;
+    font-size: 0.2rem;
+}
+
+.navbar-custom {
+    background-color: rgba(251, 246, 235, 1);
+}
+
+.nav-item {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+}
+
+.navbar-brand {
+    color: black;
+}
+
+    .navbar-brand:hover {
+        color: rgba(240, 206, 70, 1);
+    }
+
+.nav-link {
+    color: black;
+}
+
+    .nav-link:hover {
+        color: rgba(240, 206, 70, 1);
+    }
+
+.container-footer {
+    background-color: black;
+    color: rgba(193, 157, 86, 1);
+}
+
 
 /* TELA HOME */
-
-.banner{
-    text-align: center;
-    border: solid 1px;
+.container-home {
     width: 100%;
+    /*border: solid 2px red;*/
 }
 
-.title-home{
-    font-size: 200%;
-    font-style: italic;
+
+.banner {
     text-align: center;
+    /*border: solid 1px red;*/
+    background-size: cover;
+    background-image: url(../Imagens/banner.png);
+    background-repeat: no-repeat;
+    padding: 10%;
+    background-position: center;
+}
+
+.btn1 {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 4vh;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+    .btn1:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+.btn2 {
+    background-color: rgba(243, 243, 243, 1);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 4vh;
+    margin-right: 10px;
+}
+
+    .btn2:hover {
+        background-color: transparent;
+        color: rgb(225, 191, 56);
+        border: solid 1px rgb(225, 191, 56);
+    }
+
+.title-home {
+    font-size: 4rem;
+    text-align: center;
+    color: rgba(193, 157, 86, 1);
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+}
+
+.subtitle-home {
+    font-size: 1.5rem;
+    letter-spacing: 0.12rem;
+    text-align: center;
+    font-family: Montserrat;
+    padding: 2%;
 }
 
 .title-about {
-    font-size: 200%;
+    font-size: 3rem;
     font-style: italic;
     text-align: initial;
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+}
+
+.title-more {
+    font-size: 3rem;
+    text-align: center;
+    color: rgba(193, 157, 86, 1);
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+}
+
+p {
+    font-family: Montserrat;
+    font-size: 1.2em;
 }
 
 .offers {
     /*border: solid 2px green;*/
     display: flex;
     width: 100%;
-    height: 10%;
     flex-wrap: wrap;
+    padding: 10%;
     justify-content: space-around;
+    background-image: url(../Imagens/back-prod.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .about {
     /*border: solid 2px blue;*/
-    padding: 10%;
+    padding: 5%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    background-color: rgba(251, 246, 243, 1);
+    justify-content: center;
 }
 
-.text-about{
+.underline-about {
+    margin-top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(193, 157, 86, 1);
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.underline-about1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    background-color: rgba(193, 157, 86, 1);
+    transform-origin: left;
+    transform: rotate(315deg);
+    width: 10rem;
+}
+
+.text-about {
     /*border: solid 2px green;*/
-    width: 60%;
+    width: 75%;
+    align-content: center;
+    padding: 0px 5%;
+}
+
+.julia {
+    /*border: solid;*/
+    margin-left: 20px;
 }
 
 .more {
     /*border: solid 2px grey;*/
-    padding: 10%
+    padding: 10%;
+    justify-content: center;
+    display: flex;
+    background-image: url(../Imagens/back-more.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.more-text {
+    /*border: solid 2px grey;*/
+    width: 50vw;
+    justify-content: center;
+    text-align: center;
+}
+
+.more-underline {
+    /*border: solid 2px;*/
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-underline1 {
+    border: solid 2px rgba(193, 157, 86, 1);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(193, 157, 86, 1);
+    transform: rotate(315deg);
+    position: absolute;
+}
+
+.more-underline2 {
+    background-color: rgba(193, 157, 86, 1);
+    width: 200px;
+    height: 1px;
 }
 
 .photos {
@@ -75,5 +250,49 @@ body {
     padding: 1%;
     /*border: solid 2px red;*/
 }
+
+
+
+/*Produtos datalist Home*/
+.card-body {
+    /* border: solid 2px red; */
+    text-align: center;
+    font-family: Montserrat;
+    letter-spacing: 0.05rem;
+    padding: 1%;
+}
+
+.card-img-top {
+    /* border: solid 2px green; */
+}
+
+.card {
+    text-align: center;
+}
+
+.list-group {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1em;
+    letter-spacing: 0.05rem;
+}
+
+.btn {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 4vh;
+    border-radius: 0;
+}
+
+    .btn:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
 
 /* FIM TELA HOME */
