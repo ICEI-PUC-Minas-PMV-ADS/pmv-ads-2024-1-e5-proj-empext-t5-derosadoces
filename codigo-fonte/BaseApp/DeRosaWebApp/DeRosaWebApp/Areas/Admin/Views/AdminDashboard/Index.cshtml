@@ -1,0 +1,126 @@
+﻿@using DeRosaWebApp.Areas.Admin.ViewModel
+@using System.Globalization // Importar o namespace System.Globalization
+
+@{
+    // Definir a cultura brasileira
+    CultureInfo culture = CultureInfo.GetCultureInfo("pt-BR");
+}
+@model DashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        /* Estilo para o formulário de seleção de mês e ano */
+        #mes,
+        #ano {
+            margin-bottom: 10px;
+        }
+
+        /* Estilo para o botão de filtrar */
+        #filterButton{
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        /* Estilo para os resumos de vendas */
+        div {
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        /* Estilo para a tabela de vendas por produto */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+
+    <div>
+        <h4>Selecione o Mês:</h4>
+        <form asp-action="Index" asp-controller="AdminDashboard" method="get">
+            <select asp-for="MesSelecionado" class="form-control" id="mes" name="mes">
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+            <select asp-for="AnoSelecionado" class="form-control" id="ano" name="ano">
+                <option value="@Model.AnoSelecionado">Selecione o Ano</option>
+                @for (int i = DateTime.Now.Year; i >= 2000; i--)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <button id="filterButton" type="submit">Filtrar</button>
+        </form>
+    </div>
+
+    <div>
+        <h4>Resumo de Vendas</h4>
+        <p>Número de Pedidos: @Model.NumeroDePedidos</p>
+        <p>Total Vendido: @string.Format(culture, "{0:C}", Model.TotalVendido)</p>
+        <p>Número de Pedidos Concluídos: @Model.NumeroDePedidosEntregues</p>
+        <p>Número de Pedidos Pendentes: @Model.NumeroDePedidosPendentes</p>
+    </div>
+
+    <div>
+        <h4>Vendas por Produto</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade Vendida</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vendaPorProduto in Model.VendasPorProduto)
+                {
+                    <tr>
+                        <td>@vendaPorProduto.Key.Item2</td> <!-- Nome do Produto -->
+                        <td>@vendaPorProduto.Value</td> <!-- Quantidade Vendida -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
