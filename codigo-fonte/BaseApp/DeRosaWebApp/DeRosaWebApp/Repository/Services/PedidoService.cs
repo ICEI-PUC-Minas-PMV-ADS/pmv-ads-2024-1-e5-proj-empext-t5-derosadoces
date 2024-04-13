@@ -34,6 +34,9 @@ namespace DeRosaWebApp.Repository.Services
             var _pedidoExist = await _context.Pedidos.FirstOrDefaultAsync(p => p.Cod_Pedido == pedido.Cod_Pedido);
             if (_pedidoExist is not null)
             {
+                
+                var itensCarrinho = await _context.ItemCarrinhos.Where(p => p.Cod_Carrinho == _carrinho.Cod_Carrinho).ToListAsync();
+                _context.RemoveRange(itensCarrinho);
                 _context.Remove(_pedidoExist);
                 await _context.SaveChangesAsync();
             }
@@ -52,6 +55,8 @@ namespace DeRosaWebApp.Repository.Services
 
             pedido.Pago = pago;
             _context.Entry(pedido).Property(x => x.Pago).IsModified = true;
+            pedido.DataExpiracao.AddDays(9999);
+            _context.Entry(pedido).Property(x => x.DataExpiracao).IsModified = true;
             await _context.SaveChangesAsync();
 
             return new OkObjectResult($"O pedido foi pago com sucesso! alterações feitas no banco de dados. " +
@@ -239,6 +244,7 @@ namespace DeRosaWebApp.Repository.Services
 
                     _context.PedidoDetalhes.Add(pedidoDetalhe);
                 }
+                _carrinho.LimparCarrinho();
                 await _context.SaveChangesAsync();
                 return new OkObjectResult("Pedido criado com sucesso!");
             }
@@ -250,11 +256,12 @@ namespace DeRosaWebApp.Repository.Services
 
         public async Task<ActionResult<Pedido>> VerificarPedidosExpirados()
         {
-
+            _carrinho.LimparCarrinho();
             var pedidosExpirados = _context.Pedidos.Where(p => p.DataExpiracao <= DateTime.Now).ToList();
+            
             foreach (var pedido in pedidosExpirados)
             {
-                _context.Pedidos.Remove(pedido);
+
                 var produtoDetalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == pedido.Cod_Pedido).ToList();
                 if (produtoDetalhe is not null)
                 {

@@ -63,6 +63,7 @@ namespace DeRosaWebApp.Controllers
                 if (charge.Paid)
                 {
                     pedido.Value.Pago = true;
+                    
                     var updatePayed = await _pedidoService.UpdatePayment(pedido.Value.Cod_Pedido, pedido.Value.Pago);
                     _carrinho.LimparCarrinho();
                     return RedirectToAction("Success", updatePayed.Result);

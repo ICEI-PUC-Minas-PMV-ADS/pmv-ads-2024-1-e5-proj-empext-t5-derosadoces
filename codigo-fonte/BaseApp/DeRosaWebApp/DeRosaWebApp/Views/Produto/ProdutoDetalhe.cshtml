@@ -1,9 +1,10 @@
 ﻿@using DeRosaWebApp.Models;
+@using System.Globalization;
 @model ActionResult<Produto>
 
 <div class="product-details-container">
     <div class="product-image">
-        @if (Model.Value.ImagemUrl.Contains("www"))
+        @if (Model.Value.ImagemUrl.Contains("www") || Model.Value.ImagemUrl.Contains("https") || Model.Value.ImagemUrl.Contains("http"))
         {
             <img style="width: 560px; height: 560px" src='@Model.Value.ImagemUrl' />
         }
@@ -17,7 +18,7 @@
         <h1 class="nome-item">@Model.Value.Nome</h1>
         <p>@Model.Value.DescricaoCurta</p>
 
-        <h2 id="product-price">R$@Model.Value.Preco</h2>
+        <h2 id="product-price">R$@Model.Value.Preco.ToString("F2",@CultureInfo.InvariantCulture)</h2>
 
         <p style="color: yellow; font-size:smaller;"> Preço promocional: R$@Model.Value.PrecoSecundario</p>
 

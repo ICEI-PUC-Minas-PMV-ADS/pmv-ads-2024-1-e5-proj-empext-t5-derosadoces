@@ -8,5 +8,6 @@ namespace DeRosaWebApp.Repository.Interfaces
         IEnumerable<Categoria> GetAllCategorias();
         Task<ActionResult<IEnumerable<Produto>>> GetByCategoria(int id);
         IQueryable<Categoria> PaginationCategoria();
+        Task<Categoria> GetById(int id);
     }
 }

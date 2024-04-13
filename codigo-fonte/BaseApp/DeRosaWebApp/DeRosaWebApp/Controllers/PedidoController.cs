@@ -1,4 +1,6 @@
-﻿using DeRosaWebApp.Models;
+﻿using DeRosaWebApp.BusinessRules.Interfaces;
+using DeRosaWebApp.BusinessRules.Validations;
+using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
@@ -16,13 +18,17 @@ namespace DeRosaWebApp.Controllers
         private readonly Carrinho _carrinho;
         private readonly IPedidoService _pedidoService;
         private readonly IProductService _productService;
+        private readonly IPedidoRules _pedidoRules;
+        private readonly ICategoriaService _categoriaService;
         private readonly UserManager<IdentityUser> _userMananger;
-        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService)
+        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService, IPedidoRules pedidoRules, ICategoriaService categoriaService)
         {
             _carrinho = carrinho;
             _pedidoService = pedidoService;
             _userMananger = userManager;
             _productService = productService;
+            _pedidoRules = pedidoRules;
+            _categoriaService = categoriaService;
         }
         #endregion
         #region Meus pedidos
@@ -33,7 +39,7 @@ namespace DeRosaWebApp.Controllers
             {
                 MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
                 await _pedidoService.VerificarPedidosExpirados();
-                await Task.Delay(1000); 
+                await Task.Delay(1000);
                 return View(pedidos);
             }
             catch (Exception ex)
@@ -46,59 +52,90 @@ namespace DeRosaWebApp.Controllers
         #endregion
         #region Checkout
         [HttpGet]
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout()
         {
-            return View();
+            var items = _carrinho.GetItemCarrinhos();
+            PedidoCheckoutViewModel pedido = new();
+            foreach (var item in items)
+            {
+                var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);
+                if (categoria is not null && categoria.CategoriaNome.Equals("Comemorativos"))
+                {
+                    pedido.PedidosComemorativos.Add(item.Produto);
+                }
+            }
+
+            return View(pedido);
         }
         #endregion
-        
+
         #region Checkout completo
         [HttpPost]
-        public async Task<IActionResult> Checkout(Pedido pedido)
+        public async Task<IActionResult> Checkout(PedidoCheckoutViewModel pedido)
         {
-            int totalItemsPedido = 0;
-            double precoTotalPedido = 0.0;
-            List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
-            _carrinho.ListItemCarrinho = itemCarrinhos;
-
-            foreach (var item in itemCarrinhos)
+            try
             {
-                totalItemsPedido += item.QntProduto;
-                precoTotalPedido += item.QntProduto * item.Produto.Preco;
-            }
-            if (_carrinho.ListItemCarrinho.Count == 0)
-            {
-                ModelState.AddModelError("", "Resumo");
-            }
+                int totalItemsPedido = 0;
+                double precoTotalPedido = 0.0;
+                List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
+                _carrinho.ListItemCarrinho = itemCarrinhos;
 
-            if (ModelState.IsValid)
-            {
-
-                var user_id = _userMananger.GetUserId(User);
-                pedido.TotalItensPedido = totalItemsPedido;
-                pedido.TotalPedido = precoTotalPedido;
-                pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
-                pedido.Id_User = user_id;
-                var result = await _pedidoService.CriarPedido(pedido, user_id);
-                if (result is not null)
+                foreach (var item in itemCarrinhos)
                 {
-                    ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
-                    ViewBag.TotalPedido = _carrinho.GetTotalCarrinho();
-                   
-                    return View("Resumo", pedido);
+                    totalItemsPedido += item.QntProduto;
+                    precoTotalPedido += item.QntProduto * item.Produto.Preco;
+                    pedido._Pedido.ProdutosPedido.Add(item);
+                    var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);
+                    if (categoria is not null && categoria.CategoriaNome.Equals("Comemorativos"))
+                    {
+                        pedido.PedidosComemorativos.Add(item.Produto);
+                    }
 
+                }
+                if (_carrinho.ListItemCarrinho.Count == 0)
+                {
+                    ModelState.AddModelError("", "Resumo");
+                }
+
+                if (ModelState.IsValid)
+                {
+
+                    var user_id = _userMananger.GetUserId(User);
+                    pedido._Pedido.TotalItensPedido = totalItemsPedido;
+                    pedido._Pedido.TotalPedido = precoTotalPedido;
+                    pedido._Pedido.DataExpiracao = pedido._Pedido.DataPedido.AddMinutes(30);
+                    pedido._Pedido.Id_User = user_id;
+
+                    _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(pedido.PedidosComemorativos, pedido._Pedido.DataParaEntregar);
+
+
+                    var result = await _pedidoService.CriarPedido(pedido._Pedido, user_id);
+                    if (result is not null)
+                    {
+                        ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
+                        ViewBag.TotalPedido = _carrinho.GetTotalCarrinho();
+
+                        return View("Resumo", pedido._Pedido);
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Erro", "Erro ao realizar pedido!");
+                        return View(pedido);
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("Erro", "Erro ao realizar pedido!");
+                    ModelState.AddModelError("ErroDados", "Verifique todos os campos e tente novamente!");
                     return View(pedido);
                 }
             }
-            else
+            catch (PedidoExceptionValidation ex)
             {
-                ModelState.AddModelError("ErroDados", "Verifique todos os campos e tente novamente!");
+                ModelState.AddModelError("ErroDados", ex.Message);
                 return View(pedido);
             }
+
         }
         #endregion
         #region Resumo
@@ -107,6 +144,7 @@ namespace DeRosaWebApp.Controllers
             try
             {
                 await _pedidoService.VerificarPedidosExpirados();
+
                 if (pedido._PedidoDetalhes is null || pedido is null)
                 {
                     var getPedido = await _pedidoService.GetById(cod_pedido);
@@ -130,7 +168,7 @@ namespace DeRosaWebApp.Controllers
                     pedido.Pago = getPedido.Value.Pago;
                     pedido.Conjunto_IdProdutos = getPedido.Value.Conjunto_IdProdutos;
 
-                    var pedidoDetalhe =  await _pedidoService.DetalhePedidoList(cod_pedido);
+                    var pedidoDetalhe = await _pedidoService.DetalhePedidoList(cod_pedido);
 
 
                     foreach (var item in pedidoDetalhe)
@@ -143,36 +181,41 @@ namespace DeRosaWebApp.Controllers
                     ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
                     ViewBag.TotalPedido = pedido.TotalPedido;
                     await Task.Delay(1000);
+                   
                     return View(pedido);
                 }
                 return View(pedido);
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 ViewBag.Erro = "O pedido foi expirado.";
                 return View("Erro");
             }
-            
 
-           
+
+
         }
         #endregion
         #region Remover pedido
         [HttpPost]
         public async Task<ActionResult<Pedido>> RemovePedido(int cod_pedido)
         {
-            var pedido =  await _pedidoService.GetById(cod_pedido);
+            var pedido = await _pedidoService.GetById(cod_pedido);
             if (pedido != null)
             {
-               await  _pedidoService.Remove(pedido.Value);
+                await _pedidoService.Remove(pedido.Value);
                 return RedirectToAction("Index", "Home");
             }
             return new BadRequestObjectResult("Erro ao remover pedido");
         }
         #endregion
         #region Erro
-        public IActionResult Erro()
+        public IActionResult Erro(string message)
         {
+            if (message is not null)
+            {
+                ViewBag.Erro = message;
+            }
             return View();
         }
         #endregion

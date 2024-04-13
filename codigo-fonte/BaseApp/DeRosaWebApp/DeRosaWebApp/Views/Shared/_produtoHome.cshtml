@@ -1,8 +1,9 @@
 ﻿@using DeRosaWebApp.Models;
+@using System.Globalization;
 @model Produto
 
 <div class="card" id="titulos" style="width: 18rem; margin-top: 10px;">
-    @if (Model.ImagemUrl.Contains("www"))
+    @if (Model.ImagemUrl.Contains("www") || Model.ImagemUrl.Contains("https") ||  Model.ImagemUrl.Contains("http"))
     {
         <img class="card-img-top" src='@Model.ImagemUrl' width="200" height="250" alt="Card image cap">
     }
@@ -16,7 +17,7 @@
         @* <p class="card-text">@Model.DescricaoCurta</p> *@
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="groupitem"><span id="antigoPreco">R$@Model.Preco</span></li>
+        <li class="list-group-item" id="groupitem"><span id="antigoPreco">R$@Model.Preco.ToString("F2",@CultureInfo.InvariantCulture)</span></li>
         <li class="list-group-item" id="backgroundcartao"><span id="danger">Preço promocional  R$@Model.PrecoSecundario</span></></li>
     </ul>
 

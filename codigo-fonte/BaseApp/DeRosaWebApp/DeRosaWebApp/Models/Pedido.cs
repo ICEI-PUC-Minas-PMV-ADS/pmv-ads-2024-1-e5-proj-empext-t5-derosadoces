@@ -16,6 +16,8 @@ namespace DeRosaWebApp.Models
         [DisplayName("Data do pedido")]
         public DateTime DataPedido { get; set; } = DateTime.Now;
         public DateTime DataExpiracao { get; set; }
+        [DisplayName("Data para entrega (7 dias de antecedência)")]
+        public DateTime DataParaEntregar { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o cep!")]
         // [MaxLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
         // [MinLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
@@ -34,7 +36,7 @@ namespace DeRosaWebApp.Models
         public string Estado { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o telefone!")]
         public string Telefone { get; set; }
-        public List<ItemCarrinho> ProdutosPedido { get; set; }
+        public List<ItemCarrinho> ProdutosPedido { get; set; } = new();
         [Required]
         [DisplayName("Total de itens do pedido")]
         public int TotalItensPedido { get; set; }

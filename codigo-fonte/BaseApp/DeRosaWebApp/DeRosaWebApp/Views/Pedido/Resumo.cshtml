@@ -1,4 +1,5 @@
-﻿@model Pedido
+﻿@using System.Globalization;
+@model Pedido
 
     <div class="container" style="color: black;">
         <div class="jumbotron">
@@ -23,7 +24,7 @@
                             <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
                             <td>@item.Quantidade</td>
                             <td>@item.Produto.Nome</td>
-                            <td>@item.Produto.Preco</td>
+                            <td>@item.Produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</td>
                         </tr>
                     }
                 </table>

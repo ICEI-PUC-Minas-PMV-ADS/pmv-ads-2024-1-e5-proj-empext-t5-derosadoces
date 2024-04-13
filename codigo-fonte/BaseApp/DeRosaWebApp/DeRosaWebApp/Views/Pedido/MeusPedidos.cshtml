@@ -1,5 +1,6 @@
 ﻿@using DeRosaWebApp.Repository.Interfaces;
 @using DeRosaWebApp.ViewModel;
+@using System.Globalization;
 @model MeusPedidosViewModel
 @{
     var DateTimes = new List<DateTime>();
@@ -21,8 +22,9 @@
                             <p class="card-text">Data do Pedido: @pedido.DataPedido</p>
                             <p class="card-text">Endereço: @pedido.Rua @pedido.Numero</p>
                             <p class="card-text">Nome: @pedido.Nome</p>
-                            <p class="card-text">Preço total: R$@pedido.TotalPedido</p>
+                            <p class="card-text">Preço total: R$@pedido.TotalPedido.ToString("F2",@CultureInfo.InvariantCulture)</p>
                             <p class="card-text">Total itens pedido: @pedido.TotalItensPedido</p>
+                            <p class="card-text" style="color: yellow">Data aproximada da entrega: @pedido.DataParaEntregar.ToString("dd/MM/yyyy")</p>
                             @if (pedido.Pago)
                             {
                                 <p>
@@ -68,7 +70,7 @@
                                 {
 
                                     <div class="media">
-                                        @if (produto.ImagemUrl.Contains("www"))
+                                        @if (produto.ImagemUrl.Contains("www") || produto.ImagemUrl.Contains("https") || produto.ImagemUrl.Contains("http"))
                                         {
                                             <img src='@produto.ImagemUrl' class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
                                         }
@@ -80,7 +82,7 @@
                                         <div class="media-body">
                                             <h5 class="mt-0">@produto.Nome</h5>
                                             <p>@produto.DescricaoCurta</p>
-                                            <p>Preço do produto R$@produto.Preco</p>
+                                            <p>Preço do produto R$@produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</p>
                                         </div>
                                     </div>
                                 }

@@ -21,7 +21,7 @@ namespace DeRosaWebApp.Repository.Services
             return _context.Categorias.ToList();
         }
         #endregion
-        #region Get Categoria pelo id
+        #region Get List Categoria pelo id
 
         public async Task<ActionResult<IEnumerable<Produto>>> GetByCategoria(int idCategoria)
         {
@@ -38,6 +38,13 @@ namespace DeRosaWebApp.Repository.Services
         {
             var ctg = _context.Categorias.AsNoTracking().AsQueryable();
             return ctg;
+        }
+        #endregion
+        #region Get By Id
+        public async Task<Categoria> GetById(int id)
+        {
+            var categoria = await _context.Categorias.FirstOrDefaultAsync(p => p.IdCategoria == id);
+            return categoria;
         }
         #endregion
     }

@@ -7,6 +7,8 @@ using ReflectionIT.Mvc.Paging;
 using Stripe;
 using ProductService = DeRosaWebApp.Repository.Services.ProductService;
 using System.Configuration;
+using DeRosaWebApp.BusinessRules.Interfaces;
+using DeRosaWebApp.BusinessRules.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,7 @@ builder.Services.AddScoped(sp => Carrinho.GetCarrinho(sp));
 builder.Services.AddScoped<ISeedRoleInitial, SeedUserRoleInitial>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IEmailService,EmailService>();
+builder.Services.AddScoped<IPedidoRules, PedidoRules>();
 
 
 
