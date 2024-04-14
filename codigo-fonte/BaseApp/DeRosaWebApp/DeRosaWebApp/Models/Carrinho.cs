@@ -30,7 +30,7 @@ namespace DeRosaWebApp.Models
             };
 
         }
-        public void AdicionarNoCarrinho(Produto produto)
+        public void AdicionarNoCarrinho(Produto produto, int quantidadeAdicionar)
         {
             var itemCarrinho = _context.ItemCarrinhos.SingleOrDefault(p => p.Produto.Cod_Produto == produto.Cod_Produto
             && p.Cod_Carrinho == Cod_Carrinho);
@@ -41,17 +41,34 @@ namespace DeRosaWebApp.Models
             }
             else
             {
-
-                ItemCarrinho itemCompras = new ItemCarrinho()
+                if (quantidadeAdicionar > 1)
                 {
-                    Cod_ItemCarrinho = Guid.NewGuid().ToString(),
-                    Produto = produto,
-                    QntProduto = 1,
-                    Cod_Carrinho = Cod_Carrinho
+                    ItemCarrinho itemCompras = new ItemCarrinho()
+                    {
+                        Cod_ItemCarrinho = Guid.NewGuid().ToString(),
+                        Produto = produto,
+                        QntProduto = quantidadeAdicionar,
+                        Cod_Carrinho = Cod_Carrinho
 
-                };
-                _context.ItemCarrinhos.Add(itemCompras);
-                _context.SaveChanges();
+                    };
+                    _context.ItemCarrinhos.Add(itemCompras);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    ItemCarrinho itemCompras = new ItemCarrinho()
+                    {
+                        Cod_ItemCarrinho = Guid.NewGuid().ToString(),
+                        Produto = produto,
+                        QntProduto = 1,
+                        Cod_Carrinho = Cod_Carrinho
+
+                    };
+                    _context.ItemCarrinhos.Add(itemCompras);
+                    _context.SaveChanges();
+
+                }
+
             }
 
         }

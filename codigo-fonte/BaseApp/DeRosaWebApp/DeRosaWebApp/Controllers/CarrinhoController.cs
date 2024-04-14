@@ -34,14 +34,15 @@ namespace DeRosaWebApp.Controllers
         }
         #endregion
         #region Adicionar no carinho
-        public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto)
+        [Authorize]
+        public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto, int quantidadeAdicionar)
         {
             if (User.Identity.IsAuthenticated)
             {
                 var produtoSelecionado = await _productService.GetById(cod_produto);
                 if (produtoSelecionado is not null)
                 {
-                    _carrinhoCompra.AdicionarNoCarrinho(produtoSelecionado.Value);
+                    _carrinhoCompra.AdicionarNoCarrinho(produtoSelecionado.Value, quantidadeAdicionar);
                     return RedirectToAction("Index", "Carrinho");
                 }
                 else

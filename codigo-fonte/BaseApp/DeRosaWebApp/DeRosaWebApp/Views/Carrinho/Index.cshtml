@@ -31,8 +31,15 @@
                             }
                             else
                             {
-                                <img src="~/Imagens/@item.Produto.ImagemUrl"
-                                     alt="thumbLanche" width="50" height="40" />
+                                @if (item.Produto.ImagemUrl.Contains("www") || item.Produto.ImagemUrl.Contains("https") || item.Produto.ImagemUrl.Contains("http"))
+                                {
+                                    <img src='@item.Produto.ImagemUrl' class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
+                                }
+                                else
+                                {
+                                    <img src="~/Imagens/@item.Produto.ImagemUrl"
+                                         alt="thumbLanche" width="50" height="40" />
+                                }
                             }
                            
                         </td>
