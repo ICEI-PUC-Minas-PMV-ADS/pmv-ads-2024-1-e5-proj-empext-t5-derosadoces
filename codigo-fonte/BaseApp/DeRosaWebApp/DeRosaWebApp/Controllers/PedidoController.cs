@@ -67,42 +67,59 @@ namespace DeRosaWebApp.Controllers
         {
             try
             {
-                int totalItemsPedido = 0;
+                // Inicializando variáveis.  
+                int totalItemsPedido = 0;                                         
                 double precoTotalPedido = 0.0;
+                // Pegando todos os itens do carrinho.
                 List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
+
+                //Atribuindo á  lista de itens do carrinho á propriedade do carrinho.
                 _carrinho.ListItemCarrinho = itemCarrinhos;
 
-                foreach (var item in itemCarrinhos)
+                // Iterando sobre os itens do carrinho para calcular totalItemsPedido e precoTotalPedido
+                foreach (var item in itemCarrinhos)                                                
                 {
                     totalItemsPedido += item.QntProduto;
                     precoTotalPedido += item.QntProduto * item.Produto.Preco;
+                    // A propriedade pedido.ProdutosPedidos é inicialmente nula, então é adicionado os produtos do carrinho a propriedade.
+
                     pedido._Pedido.ProdutosPedido.Add(item);
-                    var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);
+
+                    // Pegando a categoria de cada produto. 
+                    var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);      
                     if (categoria is not null && categoria.CategoriaNome.Equals("Comemorativos"))
                     {
-                        pedido.PedidosComemorativos.Add(item.Produto);
+                        // Se ele for comemorativo, é adicionado em uma lista de produtos comemorativos.
+                        pedido.PedidosComemorativos.Add(item.Produto);                             
                     }
 
                 }
-                if (_carrinho.ListItemCarrinho.Count == 0)
+                // Se o carrinho for nulo, então retorna um erro ao modelo.
+                if (_carrinho.ListItemCarrinho.Count == 0)       
                 {
                     ModelState.AddModelError("", "Resumo");
                 }
-
-                if (ModelState.IsValid)
+                // Se todas as informações forem validas, continua o checkout.
+                if (ModelState.IsValid)                       
                 {
-
+                    // Pegando o user_id para manuseio do pedido.
                     var user_id = _userMananger.GetUserId(User);
-                    pedido._Pedido.TotalItensPedido = totalItemsPedido;
-                    pedido._Pedido.TotalPedido = precoTotalPedido;
-                    pedido._Pedido.DataExpiracao = pedido._Pedido.DataPedido.AddMinutes(30);
-                    pedido._Pedido.Id_User = user_id;
 
+                    //*{ Atribuindo todas as variaveis que foram somadas no codigo acima.
+                    pedido._Pedido.TotalItensPedido = totalItemsPedido;                              
+                    pedido._Pedido.TotalPedido = precoTotalPedido;
+                    pedido._Pedido.DataExpiracao = pedido._Pedido.DataPedido.AddMinutes(30);        
+                    pedido._Pedido.Id_User = user_id;
+                    //*} O cliente não pode fornecer essas informações, por isso são iniciadas aqui.
+
+                    // Aqui é feito uma verificação para regra de negocio,a verificação causa uma Exceção e o código para aqui caso a regra não seja valida, retornando um aviso ao usuário.
                     _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(pedido.PedidosComemorativos, pedido._Pedido.DataParaEntregar);
 
-
+                    // Caso o código não tenha a exceção ( ou seja, continue ), então ele cria o pedido.
                     var result = await _pedidoService.CriarPedido(pedido._Pedido, user_id);
-                    if (result is not null)
+
+                    // O result retorna ''OkObjectResult'' caso tenha sido sucedido, então ele retorna o resumo do pedido para o usuário
+                    if (result is not null)     
                     {
                         ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
                         ViewBag.TotalPedido = precoTotalPedido;
@@ -110,19 +127,22 @@ namespace DeRosaWebApp.Controllers
                         return View("Resumo", pedido._Pedido);
 
                     }
+                    // Se for nulo, retorna erro
                     else
                     {
                         ModelState.AddModelError("Erro", "Erro ao realizar pedido!");
                         return View(pedido);
                     }
                 }
+                // Se o usuário errou alguma informação no checkout, retorna um aviso.
                 else
                 {
                     ModelState.AddModelError("ErroDados", "Verifique todos os campos e tente novamente!");
                     return View(pedido);
                 }
             }
-            catch (PedidoExceptionValidation ex)
+            // Aqui que a regra de negocio funciona, a exceção é capturada e o código é pausado quando ela ocorre.
+            catch (PedidoExceptionValidation ex)     
             {
                 ModelState.AddModelError("ErroDados", ex.Message);
                 return View(pedido);
