@@ -4,6 +4,7 @@
 @model MeusPedidosViewModel
 @{
     var DateTimes = new List<DateTime>();
+    var dateTimeNull = new DateTime(1, 1, 1); ;
 }
 @try
 {
@@ -24,7 +25,10 @@
                             <p class="card-text">Nome: @pedido.Nome</p>
                             <p class="card-text">Preço total: R$@pedido.TotalPedido.ToString("F2",@CultureInfo.InvariantCulture)</p>
                             <p class="card-text">Total itens pedido: @pedido.TotalItensPedido</p>
-                            <p class="card-text" style="color: yellow">Data aproximada da entrega: @pedido.DataParaEntregar.ToString("dd/MM/yyyy")</p>
+                            @if(!pedido.DataParaEntregar.Equals(dateTimeNull))
+                            {
+                                <p class="card-text" style="color: yellow">Data aproximada da entrega de comemorativos: @pedido.DataParaEntregar.ToString("dd/MM/yyyy")</p>
+                            }
                             @if (pedido.Pago)
                             {
                                 <p>
@@ -57,7 +61,7 @@
                             else
                             {
 
-                                <a asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido"><p>Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy hh:mm:ss")</p></a>
+                                <a asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido"><p>Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy HH:mm:ss")</p></a>
                                 DateTimes.Add(pedido.DataExpiracao);
                             }
 

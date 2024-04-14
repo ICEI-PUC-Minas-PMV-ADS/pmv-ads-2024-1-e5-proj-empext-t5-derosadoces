@@ -1,47 +1,54 @@
 ﻿@using System.Globalization;
 @model Pedido
 
-    <div class="container" style="color: black;">
-        <div class="jumbotron">
-            <h2>@ViewBag.CheckoutCompletoMensagem</h2>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p>Cliente : <strong>@Model.Nome</strong></p>
-                <p>Endereço : <strong>@Model.Rua</strong></p>
+<div class="container" style="color: black;">
+    <div class="jumbotron">
+        <h2>@ViewBag.CheckoutCompletoMensagem</h2>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p>Cliente : <strong>@Model.Nome</strong></p>
+            <p>Endereço : <strong>@Model.Rua</strong></p>
 
-                <p>Número do pedido : <strong>@Model.Cod_Pedido</strong></p>
-                <table class="table">
+            <p>Número do pedido : <strong>@Model.Cod_Pedido</strong></p>
+            <table class="table">
+                <tr>
+                    <th>Imagem</th>
+                    <th>Quantidade</th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                </tr>
+                @foreach (var item in Model._PedidoDetalhes)
+                {
                     <tr>
-                        <th>Imagem</th>
-                        <th>Quantidade</th>
-                        <th>Produto</th>
-                        <th>Preço</th>
-                    </tr>
-                    @foreach (var item in Model._PedidoDetalhes)
-                    {
-                        <tr>
+                        @if (item.Produto.ImagemUrl.Contains("www") || item.Produto.ImagemUrl.Contains("https") || item.Produto.ImagemUrl.Contains("http"))
+                        {
+                            <td><img src="@item.Produto.ImagemUrl" width="40" height="40" /></td>
+                        }
+                        else
+                        {
                             <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
-                            <td>@item.Quantidade</td>
-                            <td>@item.Produto.Nome</td>
-                            <td>@item.Produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</td>
-                        </tr>
-                    }
-                </table>
-                <h4>Valor Total do Pedido: <strong style="color: red;">@(((decimal)ViewBag.TotalPedido).ToString("C2"))</strong></h4>
-                <div class="form-group" style="text-align :center">
-                    <h3>
-                        <a class="nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
-                    </h3>
+                        }
+                        <td>@item.Quantidade</td>
+                        <td>@item.Produto.Nome</td>
+                        <td>@item.Produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</td>
+                    </tr>
+                }
+            </table>
+            <h4>Valor Total do Pedido: <strong style="color: red;">@(((decimal)ViewBag.TotalPedido).ToString("C2"))</strong></h4>
+            <div class="form-group" style="text-align :center">
+                <h3>
+                    <a class="nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
+                </h3>
 
-                </div>
             </div>
         </div>
     </div>
-    <p>Você tem até <strong>@Model.DataExpiracao </strong> para realizar o pagamento</p>
-    <div class="form-group">
-        <a asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Pagar</a>
-    </div>
+</div>
+<p>Você tem até <strong>@Model.DataExpiracao </strong> para realizar o pagamento</p>
+<div class="form-group">
+    <a asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Pagar</a>
+</div>
 <script>
     setInterval(function () {
         var dataExpiracao = new Date('@Model.DataExpiracao');

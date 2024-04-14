@@ -1,11 +1,13 @@
 ﻿using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
 using System.Diagnostics;
 
 namespace DeRosaWebApp.Controllers
 {
+    [Authorize]
     public class PaymentController : Controller
     {
         private readonly ILogger<PaymentController> _logger;

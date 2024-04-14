@@ -34,7 +34,7 @@ namespace DeRosaWebApp.Repository.Services
             var _pedidoExist = await _context.Pedidos.FirstOrDefaultAsync(p => p.Cod_Pedido == pedido.Cod_Pedido);
             if (_pedidoExist is not null)
             {
-                
+
                 var itensCarrinho = await _context.ItemCarrinhos.Where(p => p.Cod_Carrinho == _carrinho.Cod_Carrinho).ToListAsync();
                 _context.RemoveRange(itensCarrinho);
                 _context.Remove(_pedidoExist);
@@ -126,7 +126,7 @@ namespace DeRosaWebApp.Repository.Services
         public async Task<List<PedidoDetalhe>> DetalhePedidoList(int id)
         {
             var detalhe = await _context.PedidoDetalhes.Where(p => p.Cod_Pedido == id).ToListAsync();
-            if(detalhe is null)
+            if (detalhe is null)
             {
                 return new List<PedidoDetalhe>();
             }
@@ -256,25 +256,33 @@ namespace DeRosaWebApp.Repository.Services
 
         public async Task<ActionResult<Pedido>> VerificarPedidosExpirados()
         {
-            _carrinho.LimparCarrinho();
+            var listItemCarrinho = _carrinho.GetItemCarrinhos();
+            foreach (var item in listItemCarrinho)
+            {
+                if (item is not null)
+                {
+                    _context.ItemCarrinhos.Remove(item);
+                    await _context.SaveChangesAsync();
+                }
+            }
             var pedidosExpirados = _context.Pedidos.Where(p => p.DataExpiracao <= DateTime.Now).ToList();
-            
-            foreach (var pedido in pedidosExpirados)
+            if(pedidosExpirados.Count > 0)
             {
 
+            }
+            foreach (var pedido in pedidosExpirados)
+            {
+                _context.Pedidos.Remove(pedido);
                 var produtoDetalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == pedido.Cod_Pedido).ToList();
                 if (produtoDetalhe is not null)
                 {
                     foreach (var detail in produtoDetalhe)
                     {
-
                         _context.PedidoDetalhes.Remove(detail);
 
                     }
                 }
             }
-
-
             await _context.SaveChangesAsync();
             return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
         }

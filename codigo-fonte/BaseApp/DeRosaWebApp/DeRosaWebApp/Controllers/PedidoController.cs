@@ -35,18 +35,10 @@ namespace DeRosaWebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> MeusPedidos(string user_id)
         {
-            try
-            {
-                MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
-                await _pedidoService.VerificarPedidosExpirados();
-                await Task.Delay(1000);
-                return View(pedidos);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Erro = ex.Message;
-                return View("Erro");
-            }
+
+            MeusPedidosViewModel pedidos = await _pedidoService.GetMeusPedidos(user_id);
+            await Task.Delay(1000);
+            return View(pedidos);
 
         }
         #endregion
@@ -113,7 +105,7 @@ namespace DeRosaWebApp.Controllers
                     if (result is not null)
                     {
                         ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
-                        ViewBag.TotalPedido = _carrinho.GetTotalCarrinho();
+                        ViewBag.TotalPedido = precoTotalPedido;
 
                         return View("Resumo", pedido._Pedido);
 
@@ -181,7 +173,7 @@ namespace DeRosaWebApp.Controllers
                     ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
                     ViewBag.TotalPedido = pedido.TotalPedido;
                     await Task.Delay(1000);
-                   
+
                     return View(pedido);
                 }
                 return View(pedido);
