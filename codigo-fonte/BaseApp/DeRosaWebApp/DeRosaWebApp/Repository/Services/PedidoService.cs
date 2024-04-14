@@ -1,4 +1,5 @@
-﻿using DeRosaWebApp.Context;
+﻿using DeRosaWebApp.BusinessRules.Validations;
+using DeRosaWebApp.Context;
 using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
@@ -122,6 +123,8 @@ namespace DeRosaWebApp.Repository.Services
             }
 
         }
+
+        #endregion
         #region Lista pedido detalhes
         public async Task<List<PedidoDetalhe>> DetalhePedidoList(int id)
         {
@@ -133,7 +136,6 @@ namespace DeRosaWebApp.Repository.Services
 
             return detalhe;
         }
-        #endregion
         #endregion
         #region Get Todos os pedidos
         public async Task<ActionResult<IEnumerable<Pedido>>> GetAll()
@@ -308,5 +310,17 @@ namespace DeRosaWebApp.Repository.Services
 
 
         #endregion
+        #region Verificar proprietario do pedido
+        public void VerificarProprietarioDoPedido(string id_user, int codPedidoAnalisar)
+        {
+            List<Pedido> pedidosDoProprietario = _context.Pedidos.Where(p => p.Id_User == id_user).ToList();
+            bool contemAlgumPedidoComEsseId = pedidosDoProprietario.Any(p => p.Cod_Pedido == codPedidoAnalisar);
+            if (!contemAlgumPedidoComEsseId)
+            {
+                throw new PedidoExceptionValidation("Esse pedido não está em seus pedidos ou foi expirado... verifique a url e tente novamente");
+            }
+        }
+        #endregion
+
     }
 }

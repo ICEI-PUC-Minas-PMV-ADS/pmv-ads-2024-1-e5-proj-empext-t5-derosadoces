@@ -155,6 +155,8 @@ namespace DeRosaWebApp.Controllers
         {
             try
             {
+                var id_user = _userMananger.GetUserId(User);
+                _pedidoService.VerificarProprietarioDoPedido(id_user, cod_pedido);   
                 await _pedidoService.VerificarPedidosExpirados();
 
                 if (pedido._PedidoDetalhes is null || pedido is null)
@@ -203,9 +205,11 @@ namespace DeRosaWebApp.Controllers
                 ViewBag.Erro = "O pedido foi expirado.";
                 return View("Erro");
             }
-
-
-
+            catch (PedidoExceptionValidation e)
+            {
+                ViewBag.Erro = e.Message;
+                return View("Erro");
+            }
         }
         #endregion
         #region Remover pedido

@@ -19,5 +19,6 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<IEnumerable<Produto>> GetMeusProdutos(int cod_pedido);
         Task<ActionResult<Pedido>> UpdatePayment(int cod_pedido, bool pago);
         Task<ActionResult<Pedido>> Remove(Pedido pedido);
+        void VerificarProprietarioDoPedido(string id_user, int codPedidoAnalisar);
     }
 }
