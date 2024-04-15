@@ -63,6 +63,7 @@ namespace DeRosaWebApp.Controllers
 
         #region Checkout completo
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Checkout(PedidoCheckoutViewModel pedido)
         {
             try
@@ -214,6 +215,7 @@ namespace DeRosaWebApp.Controllers
         #endregion
         #region Remover pedido
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult<Pedido>> RemovePedido(int cod_pedido)
         {
             var pedido = await _pedidoService.GetById(cod_pedido);

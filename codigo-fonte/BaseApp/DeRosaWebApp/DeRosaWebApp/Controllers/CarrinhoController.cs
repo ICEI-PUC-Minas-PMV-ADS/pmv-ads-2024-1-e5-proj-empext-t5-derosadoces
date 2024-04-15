@@ -35,6 +35,7 @@ namespace DeRosaWebApp.Controllers
         #endregion
         #region Adicionar no carinho
         [Authorize]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto, int quantidadeAdicionar)
         {
             if (User.Identity.IsAuthenticated)

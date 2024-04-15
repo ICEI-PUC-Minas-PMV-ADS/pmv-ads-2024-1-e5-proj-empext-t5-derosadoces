@@ -185,6 +185,7 @@ namespace DeRosaWebApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EsqueciSenha([FromForm] EsqueciSenhaViewModel dados)
         {
             if (ModelState.IsValid)
@@ -230,6 +231,7 @@ namespace DeRosaWebApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> RedefinirSenha([FromForm] RedefinirSenhaViewModel dados)
         {
             if (ModelState.IsValid)
@@ -263,6 +265,7 @@ namespace DeRosaWebApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AlterarSenha([FromForm] AlterarSenhaViewModel dados)
         {
             if (ModelState.IsValid)

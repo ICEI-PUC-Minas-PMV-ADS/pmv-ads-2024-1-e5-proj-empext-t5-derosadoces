@@ -31,7 +31,7 @@ namespace DeRosaWebApp.Controllers
             ViewBag.StripePublishableKey = _configuration["Stripe:PublicKey"];
             return View(pedido.Value);
         }
-
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> ProcessPayment(string stripeToken, int paymentAmount, int cod_pedido) 
         {

@@ -16,16 +16,29 @@
                         <input asp-for="Usuario" class="form-control" />
                         <span class="text-danger" asp-validation-for="Usuario"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Senha" class="control-label"></label>
-                        <input asp-for="Senha" class="form-control" />
-                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    <div class="input-group">
+                        <input type="password" asp-for="Senha" class="form-control" />
+                        <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility(this)">
+                            <img src="~/Imagens/olho.png" alt="password-show" width="25" height="25" />
+                        </button>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-success" asp-controller="Account" asp-action="Login" formmethod="post" type="submit" role="button" value="Login" />
+                        <input class="btn btn-success" asp-controller="Account" asp-action="EsqueciSenha" formmethod="post" type="submit" role="button" value="Esqueci a senha" />
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function togglePasswordVisibility(button) {
+        var input = button.previousElementSibling;
+        if (input.type === "password") {
+            input.type = "text";
+        } else {
+            input.type = "password";
+        }
+    }
+</script>

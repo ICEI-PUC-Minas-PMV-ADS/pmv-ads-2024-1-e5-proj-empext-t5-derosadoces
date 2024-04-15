@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gtsFdlrzFqHBOOnnCLCenUs8W4HFRGetpU1Q6a8ObIc=",
+  "Hash": "I1AIbbTcNPX96Yv5Vl0lfxKN6QfZKkg79UZsZUhtgGE=",
   "Source": "DeRosaWebApp",
   "BasePath": "_content/DeRosaWebApp",
   "Mode": "Default",
@@ -1222,6 +1222,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagens\\logo-derosa.png"
+    },
+    {
+      "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\olho.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/olho.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\olho.png"
     },
     {
       "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Rosa_DeRosa.png",
