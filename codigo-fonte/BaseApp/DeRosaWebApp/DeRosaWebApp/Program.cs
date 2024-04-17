@@ -24,6 +24,7 @@ builder.Services.AddScoped<ISeedRoleInitial, SeedUserRoleInitial>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IEmailService,EmailService>();
 builder.Services.AddScoped<IPedidoRules, PedidoRules>();
+builder.Services.AddScoped<IEnderecoService, EnderecoService>();
 
 
 

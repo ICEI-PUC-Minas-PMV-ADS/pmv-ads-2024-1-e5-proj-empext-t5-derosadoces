@@ -1,0 +1,14 @@
+﻿@model List<Endereco>
+<h1>@ViewBag.Erro</h1>
+
+    CRIE AQUI OS ENDEREÇOS QUE O USUARIO JÁ TEM, PODENDO ESCOLHER ALGUM DELES, faça uma especime de formulario tipo submit, 
+    que escolha o endereco e o mande para checkout:
+
+    <select>  ---- continuação do select de todos os endereços</select>
+   
+@foreach(var item in Model)
+{   // todos os endereços do usuario
+    <label for="@item.Numero"></label>
+}
+
+    <input type="submit" asp-action="Checkout" asp-controller="Pedido" asp-route-endereco="aqui voce vai colocar o id do endereço selecionado" />

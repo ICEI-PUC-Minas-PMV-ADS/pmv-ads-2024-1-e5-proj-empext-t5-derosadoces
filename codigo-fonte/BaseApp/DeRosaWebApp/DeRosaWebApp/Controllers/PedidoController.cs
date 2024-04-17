@@ -20,8 +20,10 @@ namespace DeRosaWebApp.Controllers
         private readonly IProductService _productService;
         private readonly IPedidoRules _pedidoRules;
         private readonly ICategoriaService _categoriaService;
+        private readonly IEnderecoService _enderecoService;
         private readonly UserManager<IdentityUser> _userMananger;
-        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService, IPedidoRules pedidoRules, ICategoriaService categoriaService)
+        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService, 
+            IPedidoRules pedidoRules, ICategoriaService categoriaService, IEnderecoService enderecoService)
         {
             _carrinho = carrinho;
             _pedidoService = pedidoService;
@@ -29,6 +31,7 @@ namespace DeRosaWebApp.Controllers
             _productService = productService;
             _pedidoRules = pedidoRules;
             _categoriaService = categoriaService;
+            _enderecoService = enderecoService; 
         }
         #endregion
         #region Meus pedidos
@@ -64,14 +67,26 @@ namespace DeRosaWebApp.Controllers
         #region Checkout completo
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Checkout(PedidoCheckoutViewModel pedido)
+        public async Task<IActionResult> Checkout(PedidoCheckoutViewModel pedido, int endereco)
         {
             try
             {
+                 var enderecoExato = await _enderecoService.GetEnderecoById(endereco);
+                if(enderecoExato is not null)
+                {
+
+                    pedido._Pedido.Bairro = enderecoExato.Bairro;
+                    pedido._Pedido.Cidade = enderecoExato.Cidade;
+
+                    ///continue
+
+
+                }
                 // Inicializando variáveis.  
                 int totalItemsPedido = 0;                                         
                 double precoTotalPedido = 0.0;
                 // Pegando todos os itens do carrinho.
+                
                 List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
 
                 //Atribuindo á  lista de itens do carrinho á propriedade do carrinho.
@@ -115,6 +130,7 @@ namespace DeRosaWebApp.Controllers
 
                     // Aqui é feito uma verificação para regra de negocio,a verificação causa uma Exceção e o código para aqui caso a regra não seja valida, retornando um aviso ao usuário.
                     _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(pedido.PedidosComemorativos, pedido._Pedido.DataParaEntregar);
+                    
 
                     // Caso o código não tenha a exceção ( ou seja, continue ), então ele cria o pedido.
                     var result = await _pedidoService.CriarPedido(pedido._Pedido, user_id);
@@ -150,6 +166,8 @@ namespace DeRosaWebApp.Controllers
             }
 
         }
+
+       
         #endregion
         #region Resumo
         public async Task<ActionResult<Pedido>> Resumo(Pedido pedido, int cod_pedido)
@@ -235,6 +253,33 @@ namespace DeRosaWebApp.Controllers
                 ViewBag.Erro = message;
             }
             return View();
+        }
+        #endregion
+        #region Escolha de endereço
+        [HttpGet]
+        public async Task<IActionResult> SeusEnderecos()
+        {
+            var Id_User = _userMananger.GetUserId(User);
+            List<Endereco> enderecosDoUsuario = await _enderecoService.GetListaEnderecoUsuario(Id_User);
+            if(enderecosDoUsuario is null)
+            {
+                ViewBag.Erro = "Você ainda não tem nenhum endereço adicionado :)";
+                return View();
+            }
+            return View(enderecosDoUsuario);        
+        }
+        [HttpPost]
+        //Aqui ele vai criar um novo
+        public async Task<IActionResult> CriarEndereco(Endereco endereco)
+        {
+            var Id_User = _userMananger.GetUserId(User);
+            var verificaEnderecoExiste = await _enderecoService.GetEnderecoById(endereco.Id);
+            if(verificaEnderecoExiste is null)
+            {
+                await _enderecoService.Create(endereco);
+            }
+            var listEnderecos = await _enderecoService.GetListaEnderecoUsuario(Id_User);
+            return View(listEnderecos);
         }
         #endregion
 

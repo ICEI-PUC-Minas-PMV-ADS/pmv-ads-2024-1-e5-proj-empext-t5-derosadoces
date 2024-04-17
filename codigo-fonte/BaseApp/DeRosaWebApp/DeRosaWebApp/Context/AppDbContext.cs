@@ -17,6 +17,7 @@ namespace DeRosaWebApp.Context
         public DbSet<ItemCarrinho> ItemCarrinhos { get; set; }
         public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
         public DbSet<Admin> Administradores { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");

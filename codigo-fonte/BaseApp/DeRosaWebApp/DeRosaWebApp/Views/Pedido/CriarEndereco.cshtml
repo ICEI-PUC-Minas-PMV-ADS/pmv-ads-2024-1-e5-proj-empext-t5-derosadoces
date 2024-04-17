@@ -1,0 +1,9 @@
+﻿@model List<Endereco>
+
+   CRIE AQUI UMA TABELA COM UMA LISTA DE ENDEREÇOS DO USUARIO
+@foreach(Endereco e in Model){
+
+    <label asp-for="@e.Bairro"></label>
+    <label asp-for="@e.CEP"></label>
+    // continue...
+}

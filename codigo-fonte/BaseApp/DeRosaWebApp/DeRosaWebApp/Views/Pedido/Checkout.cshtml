@@ -58,7 +58,7 @@
                         <span asp-validation-for="_Pedido.DataParaEntregar"></span>
                     </div>
                 }
-
+                <input class="btn btn-success" type="submit" role="button" asp-action="SeusEnderecos" asp-controller="Pedido" value="Escolher outro endereço" />
                 <input class="btn btn-success" type="submit" role="button" asp-action="Checkout" asp-controller="Pedido" value="Confirmar e escolher formas de pagamento" />
             </div>
         </div>
