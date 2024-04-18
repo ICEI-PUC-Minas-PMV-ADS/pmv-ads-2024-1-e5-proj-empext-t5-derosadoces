@@ -21,6 +21,14 @@ namespace DeRosaWebApp.Repository.Services
             }
             return endereco;
         }
+        public async Task Update(Endereco e)
+        {
+            if(e is not null)
+            {
+                _context.Enderecos.Update(e);
+                await _context.SaveChangesAsync();
+            }
+        }
 
         public async Task<Endereco> GetEnderecoById(int id)
         {

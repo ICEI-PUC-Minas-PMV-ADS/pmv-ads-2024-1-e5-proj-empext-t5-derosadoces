@@ -59,23 +59,10 @@ namespace DeRosaWebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Cod_Cliente"));
 
-                    b.Property<string>("Bairro")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CEP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CPF")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
-
-                    b.Property<string>("Cidade")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Complemento")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateNasc")
                         .HasColumnType("datetime2");
@@ -87,10 +74,6 @@ namespace DeRosaWebApp.Migrations
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Logradouro")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -100,18 +83,12 @@ namespace DeRosaWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
-
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UF")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("_CarrinhoCod_Carrinho")
@@ -142,6 +119,9 @@ namespace DeRosaWebApp.Migrations
                     b.Property<string>("Cidade")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ClienteCod_Cliente")
+                        .HasColumnType("int");
+
                     b.Property<string>("Complemento")
                         .HasColumnType("nvarchar(max)");
 
@@ -159,6 +139,8 @@ namespace DeRosaWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClienteCod_Cliente");
 
                     b.ToTable("Enderecos");
                 });
@@ -580,6 +562,13 @@ namespace DeRosaWebApp.Migrations
                     b.Navigation("_Carrinho");
                 });
 
+            modelBuilder.Entity("DeRosaWebApp.Models.Endereco", b =>
+                {
+                    b.HasOne("DeRosaWebApp.Models.Cliente", null)
+                        .WithMany("_Enderecos")
+                        .HasForeignKey("ClienteCod_Cliente");
+                });
+
             modelBuilder.Entity("DeRosaWebApp.Models.ItemCarrinho", b =>
                 {
                     b.HasOne("DeRosaWebApp.Models.Carrinho", null)
@@ -677,6 +666,8 @@ namespace DeRosaWebApp.Migrations
 
             modelBuilder.Entity("DeRosaWebApp.Models.Cliente", b =>
                 {
+                    b.Navigation("_Enderecos");
+
                     b.Navigation("_Pedidos");
                 });
 

@@ -1,4 +1,4 @@
-﻿@model Cliente
+﻿@model CadastroViewModel
 <div class="containerf">
     <table class="table">
         <tr>
@@ -12,74 +12,74 @@
 
                             <div class="col-md-6">
                                 <label>Digite o nome de seu Usuário</label>
-                                <input class="form-control" asp-for="NomeUsuario" />
-                                <span asp-validation-for="NomeUsuario"></span>
+                                <input class="form-control" asp-for="@Model._Cliente.NomeUsuario" />
+                                <span asp-validation-for="@Model._Cliente.NomeUsuario"></span>
                             </div>
                             <div class="col-md-6">
                                 <label>Nome completo</label>
-                                <input class="form-control" asp-for="Nome" />
-                                <span asp-validation-for="Nome"></span>
+                                <input class="form-control" asp-for="@Model._Cliente.Nome" />
+                                <span asp-validation-for="@Model._Cliente.Nome"></span>
                             </div>
                             <div class="col-md-6">
-                                <label asp-for="Email"></label>
-                                <input class="form-control" asp-for="Email" />
-                                <span asp-validation-for="Email"></span>
+                                <label asp-for="@Model._Cliente.Email"></label>
+                                <input class="form-control" asp-for="@Model._Cliente.Email" />
+                                <span asp-validation-for="@Model._Cliente.Email"></span>
                             </div>
                             <div class="col-md-6">
-                                <label asp-for="DateNasc"></label>
-                                <input class="form-control" asp-for="DateNasc" />
-                                <span asp-validation-for="DateNasc"></span>
+                                <label asp-for="@Model._Cliente.DateNasc"></label>
+                                <input class="form-control" asp-for="@Model._Cliente.DateNasc" />
+                                <span asp-validation-for="@Model._Cliente.DateNasc"></span>
                             </div>
                             <div class="col-md-8">
-                                <label asp-for="CPF"></label>
-                                <input class="form-control" asp-for="CPF" />
-                                <span asp-validation-for="CPF"></span>
+                                <label asp-for="@Model._Cliente.CPF"></label>
+                                <input class="form-control" asp-for="@Model._Cliente.CPF" />
+                                <span asp-validation-for="@Model._Cliente.CPF"></span>
                             </div>
                             <div class="col-md-8">
-                                <label asp-for="Senha"></label>
-                                <input class="form-control" asp-for="Senha" />
-                                <span asp-validation-for="Senha"></span>
+                                <label asp-for="@Model._Cliente.Senha"></label>
+                                <input class="form-control" asp-for="@Model._Cliente.Senha" />
+                                <span asp-validation-for="@Model._Cliente.Senha"></span>
                             </div>
                             <div class="col-md-8">
-                                <label asp-for="Telefone"></label>
-                                <input class="form-control" asp-for="Telefone" />
-                                <span asp-validation-for="Telefone"></span>
+                                <label asp-for="@Model._Cliente.Telefone"></label>
+                                <input class="form-control" asp-for="@Model._Cliente.Telefone" />
+                                <span asp-validation-for="@Model._Cliente.Telefone"></span>
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="CEP" class="control-label"></label>
-                                <input asp-for="CEP" id="cep" class="form-control" onblur="pesquisacep(this.value);" />
-                                <span asp-validation-for="CEP" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.CEP" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.CEP" id="cep" class="form-control" onblur="pesquisacep(this.value);" />
+                                <span asp-validation-for="@Model._Endereco.CEP" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Logradouro" class="control-label"></label>
-                                <input asp-for="Logradouro" id="rua" class="form-control" />
-                                <span asp-validation-for="Logradouro" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.Logradouro" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" />
+                                <span asp-validation-for="@Model._Endereco.Logradouro" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Numero" class="control-label"></label>
-                                <input asp-for="Numero" class="form-control" />
-                                <span asp-validation-for="Numero" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.Numero" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.Numero" class="form-control" />
+                                <span asp-validation-for="@Model._Endereco.Numero" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Complemento" class="control-label"></label>
-                                <input asp-for="Complemento" class="form-control" />
-                                <span asp-validation-for="Complemento" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.Complemento" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.Complemento" class="form-control" />
+                                <span asp-validation-for="@Model._Endereco.Complemento" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Bairro" class="control-label"></label>
-                                <input asp-for="Bairro" id="bairro" class="form-control" />
-                                <span asp-validation-for="Bairro" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.Bairro" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.Bairro" id="bairro" class="form-control" />
+                                <span asp-validation-for="@Model._Endereco.Bairro" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Cidade" class="control-label"></label>
-                                <input asp-for="Cidade" id="cidade" class="form-control" />
-                                <span asp-validation-for="Cidade" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.Cidade" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.Cidade" id="cidade" class="form-control" />
+                                <span asp-validation-for="@Model._Endereco.Cidade" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="UF" class="control-label"></label>
-                                <input asp-for="UF" id="uf" class="form-control" />
-                                <span asp-validation-for="UF" class="text-danger"></span>
+                                <label asp-for="@Model._Endereco.UF" class="control-label"></label>
+                                <input asp-for="@Model._Endereco.UF" id="uf" class="form-control" />
+                                <span asp-validation-for="@Model._Endereco.UF" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">

@@ -24,6 +24,7 @@ namespace DeRosaWebApp.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<IdentityUser> _signInManagerCliente;
         private readonly IEmailService _emailService;
+        private readonly IEnderecoService _enderecoService;
 
 
         public AccountController(
@@ -33,6 +34,7 @@ namespace DeRosaWebApp.Controllers
     UserManager<IdentityUser> userManagerCliente,
     IEmailService emailService,
     SignInManager<IdentityUser> signInManagerCliente,
+    IEnderecoService enderecoService,
     RoleManager<IdentityRole> roleManager) 
         {
             _signInManager = signInManager;
@@ -42,6 +44,7 @@ namespace DeRosaWebApp.Controllers
             _signInManagerCliente = signInManagerCliente;
             _roleManager = roleManager; 
             _emailService = emailService;
+            _enderecoService = enderecoService;
         }
         #endregion
         #region Login
@@ -95,6 +98,8 @@ namespace DeRosaWebApp.Controllers
 
             var cliente = await _clienteService.GetClienteByIdAsync(userId);
 
+            var enderecos = await _enderecoService.GetListaEnderecoUsuario(userId);
+
             if (cliente == null)
             {
                 return NotFound();
@@ -106,7 +111,8 @@ namespace DeRosaWebApp.Controllers
                 NomeUsuario = cliente.NomeUsuario,
                 Email = cliente.Email,
                 Telefone = cliente.Telefone,
-                DateNasc = cliente.DateNasc
+                DateNasc = cliente.DateNasc,
+                _Enderecos = enderecos,
             };
 
             return View(clienteEditViewModel);
@@ -148,6 +154,20 @@ namespace DeRosaWebApp.Controllers
                 cliente.Email = clienteEditViewModel.Email;
                 cliente.Telefone = clienteEditViewModel.Telefone;
                 cliente.DateNasc = clienteEditViewModel.DateNasc;
+
+                foreach (Endereco e in clienteEditViewModel._Enderecos)
+                {
+                    var endereco = await _enderecoService.GetEnderecoById(e.Id);
+                    endereco.Logradouro = e.Logradouro;
+                    endereco.Numero = e.Numero;
+                    endereco.Complemento = e.Complemento;
+                    endereco.Bairro = e.Bairro;
+                    endereco.Cidade = e.Cidade;
+                    endereco.UF = e.UF;
+                    endereco.CEP = e.CEP;
+
+                    await _enderecoService.Update(endereco);
+                }
 
                 await _clienteService.UpdateClienteAsync(cliente);
 

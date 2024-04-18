@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using DeRosaWebApp.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace DeRosaWebApp.ViewModel
@@ -22,6 +23,7 @@ namespace DeRosaWebApp.ViewModel
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Data de nascimento")]
         public DateTime DateNasc { get; set; }
+        public List<Endereco> _Enderecos { get; set; } = new List<Endereco>();
 
 
     }

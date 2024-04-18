@@ -37,18 +37,7 @@ namespace DeRosaWebApp.Models
         [DisplayName("Data de nascimento")]
         public DateTime DateNasc { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o CEP!")]
-        [UIHint("_CepTemplate")]
-        public string CEP { get; set; }
-        [Required(ErrorMessage = "Obrigatório informar o logradouro!")]
-        public string Logradouro { get; set; }
-
-        [Required(ErrorMessage = "Obrigatório informar o Número!")]
-        public int Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string UF { get; set; }
+        public List<Endereco> _Enderecos { get; set; } = new List<Endereco>();
 
         public List<Pedido> _Pedidos { get; set; }
         

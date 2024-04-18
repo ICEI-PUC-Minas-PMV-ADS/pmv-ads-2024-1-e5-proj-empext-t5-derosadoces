@@ -1,5 +1,6 @@
 ﻿using DeRosaWebApp.Context;
 using DeRosaWebApp.Models;
+using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -31,21 +32,21 @@ namespace DeRosaWebApp.Controllers
         #region Cadastrar (HTTPPOST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Cadastrar(Cliente usuario)
+        public async Task<IActionResult> Cadastrar(CadastroViewModel usuario)
         {
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser()
                 {
-                    UserName = usuario.NomeUsuario,
-                    NormalizedUserName = usuario.NomeUsuario.ToUpper(),
-                    Email = usuario.Email,
-                    NormalizedEmail = usuario.Email.ToUpper(),
-                    PhoneNumber = usuario.Telefone
+                    UserName = usuario._Cliente.NomeUsuario,
+                    NormalizedUserName = usuario._Cliente.NomeUsuario.ToUpper(),
+                    Email = usuario._Cliente.Email,
+                    NormalizedEmail = usuario._Cliente.Email.ToUpper(),
+                    PhoneNumber = usuario._Cliente.Telefone
 
                 };
 
-                var result = await _userManager.CreateAsync(user, usuario.Senha);
+                var result = await _userManager.CreateAsync(user, usuario._Cliente.Senha);
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "Member");
@@ -54,22 +55,28 @@ namespace DeRosaWebApp.Controllers
                     var cliente = new Cliente
                     {
                         Id_User = user.Id,
-                        Nome = usuario.Nome,
-                        NomeUsuario = usuario.NomeUsuario,
-                        Telefone = usuario.Telefone,
-                        CPF = usuario.CPF,
-                        Email = usuario.Email,
-                        DateNasc = usuario.DateNasc,
+                        Nome = usuario._Cliente.Nome,
+                        NomeUsuario = usuario._Cliente.NomeUsuario,
+                        Telefone = usuario._Cliente.Telefone,
+                        CPF = usuario._Cliente.CPF,
+                        Email = usuario._Cliente.Email,
+                        DateNasc = usuario._Cliente.DateNasc,
                         Senha = user.PasswordHash,
-                        CEP = usuario.CEP,
-                        Logradouro = usuario.Logradouro,
-                        Numero = usuario.Numero,
-                        Complemento = usuario.Complemento,
-                        Bairro = usuario.Bairro,
-                        Cidade = usuario.Cidade,
-                        UF = usuario.UF
-
+                       
                     };
+                    var endereco = new Endereco{
+                        Id_User = user.Id,
+                        Logradouro = usuario._Endereco.Logradouro,
+                        Cidade = usuario._Endereco.Cidade,
+                        UF = usuario._Endereco.UF,
+                        CEP = usuario._Endereco.CEP,
+                        Complemento = usuario._Endereco.Complemento,
+                        Numero = usuario._Endereco.Numero,
+                        Bairro = usuario._Endereco.Bairro,
+                    };
+                    cliente._Enderecos.Add(endereco);
+
+                    _context.Enderecos.Add(endereco);
                     _context.Clientes.Add(cliente);
                     await _context.SaveChangesAsync();
 
