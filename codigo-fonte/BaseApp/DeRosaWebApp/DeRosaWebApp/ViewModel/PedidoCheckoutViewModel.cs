@@ -4,7 +4,7 @@ namespace DeRosaWebApp.ViewModel
 {
     public class PedidoCheckoutViewModel
     {
-        public Pedido _Pedido { get; set; }
-        public List<Produto> PedidosComemorativos { get; set; } = new List<Produto>();
+        public List<Produto> ListProdutosComemorativos { get; set; } = new List<Produto>();
+        public DateTime DataEntrega { get; set; } = new DateTime();
     }
 }

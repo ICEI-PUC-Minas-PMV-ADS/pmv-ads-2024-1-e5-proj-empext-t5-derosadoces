@@ -1,6 +1,7 @@
 ﻿using DeRosaWebApp.Context;
 using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeRosaWebApp.Repository.Services
@@ -11,6 +12,7 @@ namespace DeRosaWebApp.Repository.Services
         public EnderecoService(AppDbContext context)
         {
             _context = context;
+            
         }
         public async Task<Endereco> Create(Endereco endereco)
         {
@@ -29,10 +31,20 @@ namespace DeRosaWebApp.Repository.Services
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<bool> Add(Endereco e)
+        {
+            if(e is not null)
+            {
+               await _context.Enderecos.AddAsync(e);
+               await _context.SaveChangesAsync();
+               return true;
+            }
+            return false;
+        }
 
         public async Task<Endereco> GetEnderecoById(int id)
         {
-            return await _context.Enderecos.FirstAsync(x => x.Id == id);      
+            return await _context.Enderecos.FirstOrDefaultAsync(p => p.Id == id); 
         }
 
         public async Task<Endereco> GetEnderecoByUser(string user)

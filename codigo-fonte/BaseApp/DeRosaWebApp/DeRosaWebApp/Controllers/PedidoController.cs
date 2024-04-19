@@ -21,9 +21,10 @@ namespace DeRosaWebApp.Controllers
         private readonly IPedidoRules _pedidoRules;
         private readonly ICategoriaService _categoriaService;
         private readonly IEnderecoService _enderecoService;
+        private readonly IClienteService _clienteService;
         private readonly UserManager<IdentityUser> _userMananger;
-        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService, 
-            IPedidoRules pedidoRules, ICategoriaService categoriaService, IEnderecoService enderecoService)
+        public PedidoController(Carrinho carrinho, IPedidoService pedidoService, UserManager<IdentityUser> userManager, IProductService productService,
+            IPedidoRules pedidoRules, ICategoriaService categoriaService, IEnderecoService enderecoService, IClienteService clienteService)
         {
             _carrinho = carrinho;
             _pedidoService = pedidoService;
@@ -31,7 +32,8 @@ namespace DeRosaWebApp.Controllers
             _productService = productService;
             _pedidoRules = pedidoRules;
             _categoriaService = categoriaService;
-            _enderecoService = enderecoService; 
+            _enderecoService = enderecoService;
+            _clienteService = clienteService;
         }
         #endregion
         #region Meus pedidos
@@ -47,127 +49,84 @@ namespace DeRosaWebApp.Controllers
         #endregion
         #region Checkout
         [HttpGet]
-        public async Task<IActionResult> Checkout()
+        public IActionResult Checkout()
         {
-            var items = _carrinho.GetItemCarrinhos();
-            PedidoCheckoutViewModel pedido = new();
-            foreach (var item in items)
-            {
-                var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);
-                if (categoria is not null && categoria.CategoriaNome.Equals("Comemorativos"))
-                {
-                    pedido.PedidosComemorativos.Add(item.Produto);
-                }
-            }
-
-            return View(pedido);
+            return View();
         }
         #endregion
 
         #region Checkout completo
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Checkout(PedidoCheckoutViewModel pedido, int endereco)
+        public async Task<IActionResult> Checkout(DateTime dataParaEntregar)
         {
             try
-            {
-                 var enderecoExato = await _enderecoService.GetEnderecoById(endereco);
-                if(enderecoExato is not null)
-                {
-
-                    pedido._Pedido.Bairro = enderecoExato.Bairro;
-                    pedido._Pedido.Cidade = enderecoExato.Cidade;
-
-                    ///continue
-
-
-                }
-                // Inicializando variáveis.  
-                int totalItemsPedido = 0;                                         
+            {  
+                int totalItemsPedido = 0;
                 double precoTotalPedido = 0.0;
-                // Pegando todos os itens do carrinho.
-                
+
+                Pedido pedido = new Pedido();
                 List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
-
-                //Atribuindo á  lista de itens do carrinho á propriedade do carrinho.
+                List<Produto> ProdutosComemorativos = new List<Produto>();
                 _carrinho.ListItemCarrinho = itemCarrinhos;
-
-                // Iterando sobre os itens do carrinho para calcular totalItemsPedido e precoTotalPedido
-                foreach (var item in itemCarrinhos)                                                
+                foreach (var item in itemCarrinhos)
                 {
                     totalItemsPedido += item.QntProduto;
                     precoTotalPedido += item.QntProduto * item.Produto.Preco;
-                    // A propriedade pedido.ProdutosPedidos é inicialmente nula, então é adicionado os produtos do carrinho a propriedade.
+                    pedido.ProdutosPedido.Add(item);
 
-                    pedido._Pedido.ProdutosPedido.Add(item);
-
-                    // Pegando a categoria de cada produto. 
-                    var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);      
+                    var categoria = await _categoriaService.GetById(item.Produto.IdCategoria);
                     if (categoria is not null && categoria.CategoriaNome.Equals("Comemorativos"))
                     {
-                        // Se ele for comemorativo, é adicionado em uma lista de produtos comemorativos.
-                        pedido.PedidosComemorativos.Add(item.Produto);                             
+                        ProdutosComemorativos.Add(item.Produto);
                     }
-
                 }
-                // Se o carrinho for nulo, então retorna um erro ao modelo.
-                if (_carrinho.ListItemCarrinho.Count == 0)       
+                if (_carrinho.ListItemCarrinho.Count == 0)
                 {
                     ModelState.AddModelError("", "Resumo");
                 }
-                // Se todas as informações forem validas, continua o checkout.
-                if (ModelState.IsValid)                       
+                var user_id = _userMananger.GetUserId(User);
+                var getCliente = await _clienteService.GetClienteByUserId(user_id);
+                var getEndereco = await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
+                
+
+                pedido.Bairro = getEndereco.Bairro;
+                pedido.Cep = getEndereco.CEP;
+                pedido.Cidade = getEndereco.Cidade;
+                pedido.Numero = getEndereco.Numero;
+                pedido.Complemento = getEndereco.Complemento;
+                pedido.Rua = getEndereco.Rua;
+                pedido.Estado = getEndereco.UF;
+                pedido.Nome = getCliente.Nome;
+                pedido.Telefone = getCliente.Telefone;
+                pedido.TotalItensPedido = totalItemsPedido;
+                pedido.TotalPedido = precoTotalPedido;
+                pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
+                pedido.Id_User = user_id;
+                pedido.DataParaEntregar = dataParaEntregar;
+
+                _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(ProdutosComemorativos, dataParaEntregar);
+                var result = await _pedidoService.CriarPedido(pedido, user_id);
+                if (result is not null)
                 {
-                    // Pegando o user_id para manuseio do pedido.
-                    var user_id = _userMananger.GetUserId(User);
+                    ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
+                    ViewBag.TotalPedido = precoTotalPedido;
 
-                    //*{ Atribuindo todas as variaveis que foram somadas no codigo acima.
-                    pedido._Pedido.TotalItensPedido = totalItemsPedido;                              
-                    pedido._Pedido.TotalPedido = precoTotalPedido;
-                    pedido._Pedido.DataExpiracao = pedido._Pedido.DataPedido.AddMinutes(30);        
-                    pedido._Pedido.Id_User = user_id;
-                    //*} O cliente não pode fornecer essas informações, por isso são iniciadas aqui.
-
-                    // Aqui é feito uma verificação para regra de negocio,a verificação causa uma Exceção e o código para aqui caso a regra não seja valida, retornando um aviso ao usuário.
-                    _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(pedido.PedidosComemorativos, pedido._Pedido.DataParaEntregar);
-                    
-
-                    // Caso o código não tenha a exceção ( ou seja, continue ), então ele cria o pedido.
-                    var result = await _pedidoService.CriarPedido(pedido._Pedido, user_id);
-
-                    // O result retorna ''OkObjectResult'' caso tenha sido sucedido, então ele retorna o resumo do pedido para o usuário
-                    if (result is not null)     
-                    {
-                        ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
-                        ViewBag.TotalPedido = precoTotalPedido;
-
-                        return View("Resumo", pedido._Pedido);
-
-                    }
-                    // Se for nulo, retorna erro
-                    else
-                    {
-                        ModelState.AddModelError("Erro", "Erro ao realizar pedido!");
-                        return View(pedido);
-                    }
+                    return View("Resumo", pedido);
                 }
-                // Se o usuário errou alguma informação no checkout, retorna um aviso.
                 else
                 {
-                    ModelState.AddModelError("ErroDados", "Verifique todos os campos e tente novamente!");
+                    ModelState.AddModelError("Erro", "Erro ao realizar pedido!");
                     return View(pedido);
                 }
             }
-            // Aqui que a regra de negocio funciona, a exceção é capturada e o código é pausado quando ela ocorre.
-            catch (PedidoExceptionValidation ex)     
+            catch (PedidoExceptionValidation ex)
             {
-                ModelState.AddModelError("ErroDados", ex.Message);
-                return View(pedido);
+                ViewBag.Erro = ex.Message;
+                return View();
             }
-
         }
 
-       
         #endregion
         #region Resumo
         public async Task<ActionResult<Pedido>> Resumo(Pedido pedido, int cod_pedido)
@@ -175,7 +134,7 @@ namespace DeRosaWebApp.Controllers
             try
             {
                 var id_user = _userMananger.GetUserId(User);
-                _pedidoService.VerificarProprietarioDoPedido(id_user, cod_pedido);   
+                _pedidoService.VerificarProprietarioDoPedido(id_user, cod_pedido);
                 await _pedidoService.VerificarPedidosExpirados();
 
                 if (pedido._PedidoDetalhes is null || pedido is null)
@@ -255,33 +214,7 @@ namespace DeRosaWebApp.Controllers
             return View();
         }
         #endregion
-        #region Escolha de endereço
-        [HttpGet]
-        public async Task<IActionResult> SeusEnderecos()
-        {
-            var Id_User = _userMananger.GetUserId(User);
-            List<Endereco> enderecosDoUsuario = await _enderecoService.GetListaEnderecoUsuario(Id_User);
-            if(enderecosDoUsuario is null)
-            {
-                ViewBag.Erro = "Você ainda não tem nenhum endereço adicionado :)";
-                return View();
-            }
-            return View(enderecosDoUsuario);        
-        }
-        [HttpPost]
-        //Aqui ele vai criar um novo
-        public async Task<IActionResult> CriarEndereco(Endereco endereco)
-        {
-            var Id_User = _userMananger.GetUserId(User);
-            var verificaEnderecoExiste = await _enderecoService.GetEnderecoById(endereco.Id);
-            if(verificaEnderecoExiste is null)
-            {
-                await _enderecoService.Create(endereco);
-            }
-            var listEnderecos = await _enderecoService.GetListaEnderecoUsuario(Id_User);
-            return View(listEnderecos);
-        }
-        #endregion
+
 
     }
 }

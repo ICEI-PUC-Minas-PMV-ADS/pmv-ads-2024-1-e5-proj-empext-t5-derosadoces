@@ -37,6 +37,9 @@ namespace DeRosaWebApp.Models
         [DisplayName("Data de nascimento")]
         public DateTime DateNasc { get; set; }
 
+        [ForeignKey(nameof(Endereco))]
+        public int IdEndereco { get; set; }
+
         public List<Endereco> _Enderecos { get; set; } = new List<Endereco>();
 
         public List<Pedido> _Pedidos { get; set; }

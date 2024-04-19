@@ -1,66 +1,16 @@
-﻿@model PedidoCheckoutViewModel
+﻿@model DateTime
 
-<form asp-action="Checkout" asp-controller="Pedido" method="post" class="form-horizontal" role="form">
-    <div asp-validation-summary="All"></div>
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Nome" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Nome" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Nome" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Cep" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Cep" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Cep" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Rua" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Rua" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Rua" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-4">
-                    <label asp-for="@Model._Pedido.Numero" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Numero" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Numero" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Complemento" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Complemento" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Complemento" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Bairro" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Bairro" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Bairro" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Cidade" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Cidade" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Cidade" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Estado" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Estado" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Estado" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="@Model._Pedido.Telefone" class="control-label"></label>
-                    <input asp-for="@Model._Pedido.Telefone" class="form-control" />
-                    <span asp-validation-for="@Model._Pedido.Telefone" class="text-danger"></span>
-                </div>
-                @if (Model.PedidosComemorativos.Count > 0)
-                {
-                    <div class="col-md-6">
-                        <label asp-for="_Pedido.DataParaEntregar"></label>
-                        <input class="form-control" asp-for="_Pedido.DataParaEntregar" type="date" />
-                        <span asp-validation-for="_Pedido.DataParaEntregar"></span>
-                    </div>
-                }
-                <input class="btn btn-success" type="submit" role="button" asp-action="SeusEnderecos" asp-controller="Pedido" value="Escolher outro endereço" />
-                <input class="btn btn-success" type="submit" role="button" asp-action="Checkout" asp-controller="Pedido" value="Confirmar e escolher formas de pagamento" />
-            </div>
-        </div>
+<h2>Checkout</h2>
+
+<form asp-action="Checkout" method="post">
+    <h6>@ViewBag.Erro</h6>
+    <div class="form-group">
+        <label for="dataParaEntregar">Data para entrega:</label>
+        <p style="color: gray; font-size: small">(A data para entrega depende da demanda e da disponibilidade da empresa, acompanhe o status do pedido em 'Meus pedidos' para ficar por dentro da data
+            da entrega)
+        </p>
+        <input type="datetime-local" id="dataParaEntregar" name="dataParaEntregar" class="form-control" required />
     </div>
+
+    <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
 </form>

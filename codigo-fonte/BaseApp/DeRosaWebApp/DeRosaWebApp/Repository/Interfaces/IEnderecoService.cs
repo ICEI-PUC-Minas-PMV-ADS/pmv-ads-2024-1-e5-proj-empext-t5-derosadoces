@@ -9,5 +9,6 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<Endereco> GetEnderecoByUser(string user);
         Task<List<Endereco>> GetListaEnderecoUsuario(string id_User);
         Task Update(Endereco e);
+        Task <bool> Add(Endereco e);
     }
 }

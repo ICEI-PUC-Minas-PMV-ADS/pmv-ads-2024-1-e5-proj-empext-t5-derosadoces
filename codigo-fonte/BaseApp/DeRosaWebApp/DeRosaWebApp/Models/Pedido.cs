@@ -21,7 +21,7 @@ namespace DeRosaWebApp.Models
         [Required(ErrorMessage = "O pedido deve conter o cep!")]
         // [MaxLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
         // [MinLength(8, ErrorMessage = "O Cep deve conter 8 números!")]
-        public int Cep { get; set; }
+        public string Cep { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o endereço!")]
         public string Rua { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o número da residência!")]
@@ -36,7 +36,8 @@ namespace DeRosaWebApp.Models
         public string Estado { get; set; }
         [Required(ErrorMessage = "O pedido deve conter o telefone!")]
         public string Telefone { get; set; }
-        public List<ItemCarrinho> ProdutosPedido { get; set; } = new();
+        public string Logradouro { get; set; }
+        public List<ItemCarrinho> ProdutosPedido { get; set; } = new List<ItemCarrinho>();
         [Required]
         [DisplayName("Total de itens do pedido")]
         public int TotalItensPedido { get; set; }

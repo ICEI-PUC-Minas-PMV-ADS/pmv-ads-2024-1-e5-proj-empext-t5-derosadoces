@@ -71,6 +71,9 @@ namespace DeRosaWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IdEndereco")
+                        .HasColumnType("int");
+
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
 
@@ -134,6 +137,9 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
+
+                    b.Property<string>("Rua")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UF")
                         .HasColumnType("nvarchar(max)");
@@ -207,8 +213,9 @@ namespace DeRosaWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Cep")
-                        .HasColumnType("int");
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
@@ -243,6 +250,9 @@ namespace DeRosaWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Id_User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Logradouro")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
