@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication2</title>
+    <title>@ViewData["Title"] - DéRosa Área de Administração</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     @RenderSection("scripts", required: false)
@@ -30,6 +30,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminDashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminImagens">Gerenciar Imagens</a>
                         </li>
                     </ul>
                 </div>

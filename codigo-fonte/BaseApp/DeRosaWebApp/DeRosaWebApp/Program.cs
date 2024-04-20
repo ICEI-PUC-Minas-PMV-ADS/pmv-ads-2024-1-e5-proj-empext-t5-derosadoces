@@ -9,6 +9,7 @@ using ProductService = DeRosaWebApp.Repository.Services.ProductService;
 using System.Configuration;
 using DeRosaWebApp.BusinessRules.Interfaces;
 using DeRosaWebApp.BusinessRules.Services;
+using DeRosaWebApp.Configuration.ConfigImages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IEmailService,EmailService>();
 builder.Services.AddScoped<IPedidoRules, PedidoRules>();
 builder.Services.AddScoped<IEnderecoService, EnderecoService>();
-
+builder.Services.Configure<ConfigurationImages>(builder.Configuration.GetSection("ConfigurationPastaImages"));
 
 
 var stripeSettings = builder.Configuration.GetSection("Stripe");

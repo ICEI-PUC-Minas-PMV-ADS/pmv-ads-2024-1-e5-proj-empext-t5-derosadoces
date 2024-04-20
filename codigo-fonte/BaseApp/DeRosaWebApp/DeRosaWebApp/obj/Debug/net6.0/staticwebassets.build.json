@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iERxjtLK/ldjwJ/gUoDVVvytMNwrWboPI1Okz4mRVW8=",
+  "Hash": "WcUeJWnxiwrW41lMfOR6wFP+jJllKsbkuUEYpktNet4=",
   "Source": "DeRosaWebApp",
   "BasePath": "_content/DeRosaWebApp",
   "Mode": "Default",
@@ -1258,6 +1258,23 @@
       "OriginalItemSpec": "wwwroot\\Imagens\\olho.png"
     },
     {
+      "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\botao-x.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/Produtos/botao-x.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\Produtos\\botao-x.png"
+    },
+    {
       "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Rosa_DeRosa.png",
       "SourceId": "DeRosaWebApp",
       "SourceType": "Discovered",
@@ -1290,6 +1307,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagens\\Rosa_DeRosa-black.png"
+    },
+    {
+      "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\search-engine-optimization.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/search-engine-optimization.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\search-engine-optimization.png"
+    },
+    {
+      "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\upload-na-nuvem.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/upload-na-nuvem.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\upload-na-nuvem.png"
     },
     {
       "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\js\\site.js",

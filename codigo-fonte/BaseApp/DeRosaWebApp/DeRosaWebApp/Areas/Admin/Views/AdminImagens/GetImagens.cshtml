@@ -1,0 +1,30 @@
+﻿@using DeRosaWebApp.Configuration.ConfigImages;
+@model FileManagerModel
+@{
+    ViewBag.Title = "Arquivos";
+}
+
+@if (Model.Files != null)
+{
+    <h3>Imagens:</h3>
+    <hr />
+    var caminho = Model.PathImagesProduto;
+    <div class="image-grid">
+        @if(Model.Files.Count() > 0)
+        {
+            @foreach (FileInfo file in Model.Files)
+            {
+                <div class="image-card">
+                    <p style="color: black">@file.Name</p>
+                    <img src="~/@caminho/@file.Name" alt="@file.Name">
+                    <a href="@Url.Action("DeleteFile","AdminImagens", new { fname=file.Name })" class="delete-button">Deletar</a>
+                </div>
+            }
+        }
+        else
+        {
+            <h1>Nenhum arquivo adicionado no servidor.</h1>
+        }
+
+    </div>
+}

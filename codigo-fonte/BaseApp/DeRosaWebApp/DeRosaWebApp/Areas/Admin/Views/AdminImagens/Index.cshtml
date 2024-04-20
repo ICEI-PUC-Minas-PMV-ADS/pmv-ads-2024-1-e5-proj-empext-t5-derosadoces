@@ -1,0 +1,39 @@
+﻿﻿<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="UploadFiles">
+                <div class="form-group">
+                    <img src="~/Imagens/upload-na-nuvem.png" alt="imagem-selecionar-arquivos" width="200" height="200" class="img-fluid" />
+                    <p><b>Selecione um ou mais arquivos para enviar:</b></p>
+                    <p>(Arquivos com o mesmo nome serão sobrescritos)</p>
+                    <input type="file" name="files" multiple class="form-control" />
+                </div>
+                <hr />
+                <div class="form-group">
+                    <input type="submit" value="Enviar Arquivo(s)" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="GetImagens">
+                <div class="form-group">
+                    <img src="~/Imagens/search-engine-optimization.png" alt="imagem-visualizar-arquivos" width="200" height="200" class="img-fluid" />
+                    <p><strong>Visualizar imagens na pasta do servidor:</strong></p>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <input type="submit" value="Visualizar arquivos no servidor" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    @if (ViewData["Deletado"] != null)
+    {
+        <ul>
+            <li>@ViewData["Deletado"]</li>
+        </ul>
+    }
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>

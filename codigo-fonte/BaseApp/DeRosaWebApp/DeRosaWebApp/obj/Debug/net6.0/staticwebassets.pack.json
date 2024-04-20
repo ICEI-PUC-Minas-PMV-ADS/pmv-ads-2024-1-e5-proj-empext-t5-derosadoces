@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Imagens\\Logo_Login.png"
     },
     {
+      "Id": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\botao-x.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\botao-x.png"
+    },
+    {
       "Id": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Rosa_DeRosa-black.png",
       "PackagePath": "staticwebassets\\Imagens\\Rosa_DeRosa-black.png"
     },
@@ -47,6 +51,14 @@
     {
       "Id": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\olho.png",
       "PackagePath": "staticwebassets\\Imagens\\olho.png"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\search-engine-optimization.png",
+      "PackagePath": "staticwebassets\\Imagens\\search-engine-optimization.png"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\upload-na-nuvem.png",
+      "PackagePath": "staticwebassets\\Imagens\\upload-na-nuvem.png"
     },
     {
       "Id": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
