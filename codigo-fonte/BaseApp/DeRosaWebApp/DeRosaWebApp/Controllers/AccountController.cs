@@ -114,6 +114,8 @@ namespace DeRosaWebApp.Controllers
                 DateNasc = cliente.DateNasc,
                 _Enderecos = enderecos,
             };
+            HttpContext.Session.SetString("AddEndereco", "MinhaConta");
+            HttpContext.Session.SetString("EditEndereco", "MinhaConta");
 
             return View(clienteEditViewModel);
         }

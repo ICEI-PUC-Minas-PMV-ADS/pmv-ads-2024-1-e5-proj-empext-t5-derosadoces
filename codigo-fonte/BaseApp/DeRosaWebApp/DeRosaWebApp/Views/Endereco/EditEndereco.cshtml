@@ -55,7 +55,7 @@
                <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
 
             <div class="form-group">
-                <button type="submit" onclick="msg()" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
         </form>
     </div>
@@ -66,8 +66,3 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-<script>
-   function msg(){
-       alert('Alterações salvas!');
-   }
-</script>

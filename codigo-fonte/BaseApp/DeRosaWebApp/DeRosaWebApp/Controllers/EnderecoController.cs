@@ -42,13 +42,26 @@ namespace DeRosaWebApp.Controllers
             await _enderecoService.Update(e);
             ViewBag.SucessoEdit = "Endereco atualizado com sucesso!";
             await Task.Delay(1000);
-            return RedirectToAction("Index", "Home");
+            string getSession = HttpContext.Session.GetString("EditEndereco");
+            if (string.Equals(getSession, "EscolhaEndereco"))
+            {
+                return RedirectToAction("EscolhaEndereco", "Endereco");
+            }
+            else if (string.Equals(getSession, "MinhaConta"))
+            {
+                return RedirectToAction("Edit", "Account");
+            }
+            return View(endereco);   
         }
         [HttpGet]
         public async Task<IActionResult> EscolhaEndereco()
         {
             var user_id = _userManager.GetUserId(User);
             List<Endereco> enderecos = await _enderecoService.GetListaEnderecoUsuario(user_id);
+            HttpContext.Session.SetString("AddEndereco", "EscolhaEndereco");
+            HttpContext.Session.SetString("EditEndereco", "EscolhaEndereco");
+
+
             return View(enderecos);
         }
         [HttpPost]
@@ -74,7 +87,6 @@ namespace DeRosaWebApp.Controllers
             }
             var cliente = await _clienteService.GetClienteByUserId(user_id);
             await _clienteService.UpdateOnlyEnderecoId(enderecoId, cliente.Cod_Cliente);
-
             return RedirectToAction("Checkout", "Pedido");
         }
         [HttpGet]
@@ -92,9 +104,16 @@ namespace DeRosaWebApp.Controllers
                 bool isSucess = await _enderecoService.Add(endereco);
                 if (isSucess)
                 {
-                    ViewBag.Sucesso = "Endereço adicionado com sucesso!";
-
-                    return RedirectToAction("Index", "Carrinho");
+                    string getSession = HttpContext.Session.GetString("AddEndereco");
+                    if (string.Equals(getSession, "MinhaConta"))
+                    {
+                        return RedirectToAction("Edit", "Account");
+                    }
+                    else if (string.Equals(getSession, "EscolhaEndereco"))
+                    {
+                        return RedirectToAction("EscolhaEndereco", "Endereco");
+                    }
+                    return View(endereco);
 
                 }
                 else
