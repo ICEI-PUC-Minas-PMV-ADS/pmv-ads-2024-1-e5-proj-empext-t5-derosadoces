@@ -7,6 +7,7 @@ namespace DeRosaWebApp.Models
 
         public int Id { get; set; }
 
+        [UIHint("_CepTemplate")]
         [Required(ErrorMessage = "Obrigatório informar o CEP!")]
         [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Formato de CEP inválido. Use o formato: 00000-000")]
         public string CEP { get; set; }

@@ -8,7 +8,10 @@
     <div class="card">
         <div class="card-body">
             <p>Cliente : <strong>@Model.Nome</strong></p>
-            <p>Endereço : <strong>@Model.Rua</strong></p>
+            <p>Endereço : <strong>@Model.Rua N.º @Model.Numero @Model.Bairro, @Model.Cidade / @Model.Estado  </strong></p> 
+            <p>CEP: @Model.Cep </p>
+            <p>Complemento: @Model.Complemento</p>
+            <p style="color: yellow">Data aproximada da entrega: @Model.DataParaEntregar</p> 
 
             <p>Número do pedido : <strong>@Model.Cod_Pedido</strong></p>
             <table class="table">

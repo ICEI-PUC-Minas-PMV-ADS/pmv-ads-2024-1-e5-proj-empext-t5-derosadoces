@@ -99,7 +99,7 @@ namespace DeRosaWebApp.Repository.Services
             try
             {
                 var meuPedido = await _context.Pedidos.FirstOrDefaultAsync(mp => mp.Cod_Pedido == cod_pedido);
-                if (meuPedido is not null)
+                if (meuPedido is not null && !string.IsNullOrEmpty(meuPedido.Conjunto_IdProdutos))
                 {
                     string[] Ids = meuPedido.Conjunto_IdProdutos.Split(',');
                     List<Produto> ProdutosEmPedido = new();
@@ -224,6 +224,7 @@ namespace DeRosaWebApp.Repository.Services
 
                 pedido.Pago = false;  // importante para definir o pedido temporario..
 
+               
                 await _context.Pedidos.AddAsync(pedido);
                 await _context.SaveChangesAsync();
 
