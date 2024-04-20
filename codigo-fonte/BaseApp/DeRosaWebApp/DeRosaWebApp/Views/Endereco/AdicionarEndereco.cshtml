@@ -51,6 +51,7 @@
                 <label asp-for="Rua" class="control-label"></label>
                 <input asp-for="Rua" class="form-control" />
             </div>
+            <input type="hidden" name="origem" value="@ViewBag.Origem" />
 
             <div class="form-group">
                 <input type="submit" value="Adicionar Endereço" class="btn btn-primary" />

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DeRosaWebApp.Repository.Services
 {
-    public class ClienteService: IClienteService
+    public class ClienteService : IClienteService
     {
         #region Propriedades, Construtor e injeção de dependencia
         private readonly AppDbContext _context;
@@ -14,6 +14,20 @@ namespace DeRosaWebApp.Repository.Services
         public ClienteService(AppDbContext context)
         {
             _context = context;
+        }
+        #endregion
+        #region Add
+        public async Task<bool> Add(Cliente cliente)
+        {
+            var clienteExist = _context.Clientes.Any(c => c.Cod_Cliente == cliente.Cod_Cliente || c.Id_User == cliente.Id_User);
+            if (!clienteExist)
+            {
+                await _context.Clientes.AddAsync(cliente);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+
         }
         #endregion
         #region Get Cliente pelo ID
@@ -47,7 +61,7 @@ namespace DeRosaWebApp.Repository.Services
             _context.Entry(cliente).Property(x => x.IdEndereco).IsModified = true;
 
             await _context.SaveChangesAsync();
-            return cliente;  
+            return cliente;
         }
         #endregion
     }

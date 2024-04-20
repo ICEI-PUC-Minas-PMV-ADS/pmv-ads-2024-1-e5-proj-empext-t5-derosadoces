@@ -8,5 +8,6 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<Cliente> UpdateClienteAsync(Cliente cliente);
         Task<Cliente> GetClienteByUserId(string userId);
         Task<Cliente> UpdateOnlyEnderecoId(int enderecoId, int clienteId);
+        Task<bool> Add(Cliente cliente);
     }
 }

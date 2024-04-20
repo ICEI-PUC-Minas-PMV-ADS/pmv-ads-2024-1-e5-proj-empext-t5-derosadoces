@@ -40,6 +40,8 @@ namespace DeRosaWebApp.Controllers
             e.Rua = endereco.Rua;
 
             await _enderecoService.Update(e);
+            ViewBag.SucessoEdit = "Endereco atualizado com sucesso!";
+            await Task.Delay(1000);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]
@@ -53,29 +55,46 @@ namespace DeRosaWebApp.Controllers
         public async Task<IActionResult> EscolhaEndereco(int enderecoId)
         {
             var user_id = _userManager.GetUserId(User);
+
+            if (User.IsInRole("Admin"))
+            {
+                Cliente adminToClient = new Cliente()
+                {
+                    Nome = "admin",
+                    NomeUsuario = "admin@localhost",
+                    Email = "admin@gmail.com",
+                    Id_User = user_id,
+                    IdEndereco = enderecoId,
+                    CPF = "00000000000",
+                    Telefone = "9999999999",
+                    Senha = "Hash",
+                    DateNasc = DateTime.Now.Date,
+                };
+               await _clienteService.Add(adminToClient);
+            }
             var cliente = await _clienteService.GetClienteByUserId(user_id);
             await _clienteService.UpdateOnlyEnderecoId(enderecoId, cliente.Cod_Cliente);
 
             return RedirectToAction("Checkout", "Pedido");
         }
         [HttpGet]
-        public IActionResult AdicionarEndereco()
+        public IActionResult AdicionarEndereco(string origem)
         {
-            return View();
+            return View(origem);
         }
         [HttpPost]
         public async Task<IActionResult> AdicionarEndereco(Endereco endereco)
         {
             if (ModelState.IsValid)
             {
-
                 var user_id = _userManager.GetUserId(User);
                 endereco.Id_User = user_id;
                 bool isSucess = await _enderecoService.Add(endereco);
                 if (isSucess)
                 {
                     ViewBag.Sucesso = "Endereço adicionado com sucesso!";
-                    return View(endereco);
+
+                    return RedirectToAction("Index", "Carrinho");
 
                 }
                 else
