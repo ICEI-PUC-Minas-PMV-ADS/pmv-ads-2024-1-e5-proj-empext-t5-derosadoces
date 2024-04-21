@@ -37,7 +37,6 @@ namespace DeRosaWebApp.Controllers
             e.Complemento = endereco.Complemento;
             e.Bairro = endereco.Bairro;
             e.Id_User = endereco.Id_User;
-            e.Rua = endereco.Rua;
 
             await _enderecoService.Update(e);
             ViewBag.SucessoEdit = "Endereco atualizado com sucesso!";

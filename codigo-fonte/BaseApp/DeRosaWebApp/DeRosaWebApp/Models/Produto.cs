@@ -8,30 +8,37 @@ namespace DeRosaWebApp.Models
     public class Produto
     {
         [Key]
-        [DisplayName("Código produto")]
+        [DisplayName("Código do Produto")]
         public int Cod_Produto { get; set; }
-        [Required(ErrorMessage = "O nome é obrigatório!")]
-        [StringLength(100, ErrorMessage = "O Tamanho máximo do nome é de 100 caractéres")]
+
+        [Required(ErrorMessage = "O nome do produto é obrigatório!")]
+        [StringLength(100, ErrorMessage = "O tamanho máximo do nome é de 100 caracteres.")]
         public string Nome { get; set; }
-        [Required(ErrorMessage = "O preço é requerido!")]
+
+        [Required(ErrorMessage = "O preço é obrigatório!")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "O preço deve ser maior que zero.")]
         [DisplayName("Preço")]
         public double Preco { get; set; }
-        [Required(ErrorMessage = " A quantidade de produtos não pode ser 0")]
-        public int Quantidade { get; set; }
-        [DisplayName("Imagem")]
+
+        [Range(0, 999,ErrorMessage ="O máximo de estoque é 999")]
+        public int EmEstoque { get; set; }
+
+        [DisplayName("Imagem do Produto")]
         public string ImagemUrl { get; set; }
-        [Required(ErrorMessage = " A descrição é obrigatória!")]
-        [MaxLength(208)]
-        [DisplayName("Descrição curta")]
+
+        [Required(ErrorMessage = "A descrição é obrigatória!")]
+        [MaxLength(208, ErrorMessage = "A descrição deve ter no máximo 208 caracteres.")]
+        [MinLength(20,ErrorMessage ="A descrição deve conter no mínimo 20 caracteres")]
+        [DisplayName("Descrição Curta")]
         public string DescricaoCurta { get; set; }
-        [Required(ErrorMessage = "Preço secundário é obrigatório!")]
+
         [Column(TypeName = "decimal(10,2)")]
-        [DisplayName("Preço secundario")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "O preço secundário deve ser no máximo 999")]
+        [DisplayName("Preço Secundário")]
         public decimal PrecoSecundario { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "A categoria do produto é obrigatória!")]
         [DisplayName("Categoria")]
         public int IdCategoria { get; set; }
-
-
     }
 }

@@ -9,7 +9,7 @@ using System.Text;
 using DeRosaWebApp.Extensions;
 using DeRosaWebApp.Models;
 using Microsoft.EntityFrameworkCore;
-
+using System.Globalization;
 
 namespace DeRosaWebApp.Controllers
 {
@@ -87,6 +87,9 @@ namespace DeRosaWebApp.Controllers
         [Authorize]
         public async Task<IActionResult> Edit()
         {
+            CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
+            CultureInfo.CurrentUICulture = new CultureInfo("pt-BR");
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -111,7 +114,7 @@ namespace DeRosaWebApp.Controllers
                 NomeUsuario = cliente.NomeUsuario,
                 Email = cliente.Email,
                 Telefone = cliente.Telefone,
-                DateNasc = cliente.DateNasc,
+                DateNasc = cliente.DateNasc.Date,
                 _Enderecos = enderecos,
             };
             HttpContext.Session.SetString("AddEndereco", "MinhaConta");
@@ -155,7 +158,7 @@ namespace DeRosaWebApp.Controllers
                 cliente.NomeUsuario = clienteEditViewModel.NomeUsuario;
                 cliente.Email = clienteEditViewModel.Email;
                 cliente.Telefone = clienteEditViewModel.Telefone;
-                cliente.DateNasc = clienteEditViewModel.DateNasc;
+                cliente.DateNasc = clienteEditViewModel.DateNasc.Date;
 
                 foreach (Endereco e in clienteEditViewModel._Enderecos)
                 {

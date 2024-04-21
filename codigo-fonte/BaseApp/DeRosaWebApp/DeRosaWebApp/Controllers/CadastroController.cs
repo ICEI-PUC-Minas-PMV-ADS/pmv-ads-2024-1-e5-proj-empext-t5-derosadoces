@@ -73,7 +73,6 @@ namespace DeRosaWebApp.Controllers
                         Complemento = usuario._Endereco.Complemento,
                         Numero = usuario._Endereco.Numero,
                         Bairro = usuario._Endereco.Bairro,
-                        Rua = usuario._Endereco.Rua,
                     };
                     cliente._Enderecos.Add(endereco);
 

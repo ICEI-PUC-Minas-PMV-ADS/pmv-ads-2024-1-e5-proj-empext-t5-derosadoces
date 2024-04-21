@@ -44,7 +44,9 @@ namespace DeRosaWebApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategoria"));
 
                     b.Property<string>("CategoriaNome")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("IdCategoria");
 
@@ -69,7 +71,8 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("IdEndereco")
                         .HasColumnType("int");
@@ -84,15 +87,18 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<string>("NomeUsuario")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
 
                     b.Property<string>("_CarrinhoCod_Carrinho")
                         .HasColumnType("nvarchar(450)");
@@ -113,36 +119,43 @@ namespace DeRosaWebApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Bairro")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CEP")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
 
                     b.Property<string>("Cidade")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<int?>("ClienteCod_Cliente")
                         .HasColumnType("int");
 
                     b.Property<string>("Complemento")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Logradouro")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
-                    b.Property<string>("Rua")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("UF")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
 
                     b.HasKey("Id");
 
@@ -211,7 +224,8 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<string>("Bairro")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Cep")
                         .IsRequired()
@@ -219,19 +233,22 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<string>("Cidade")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("ClienteCod_Cliente")
                         .HasColumnType("int");
 
                     b.Property<string>("Complemento")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("Concluido")
                         .HasColumnType("bit");
 
                     b.Property<string>("Conjunto_IdProdutos")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<DateTime>("DataExpiracao")
                         .HasColumnType("datetime2");
@@ -247,17 +264,20 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<string>("Estado")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
 
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Logradouro")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
@@ -265,13 +285,10 @@ namespace DeRosaWebApp.Migrations
                     b.Property<bool>("Pago")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Rua")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<int>("TotalItensPedido")
                         .HasColumnType("int");
@@ -340,6 +357,9 @@ namespace DeRosaWebApp.Migrations
                         .HasMaxLength(208)
                         .HasColumnType("nvarchar(208)");
 
+                    b.Property<int>("EmEstoque")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdCategoria")
                         .HasColumnType("int");
 
@@ -356,9 +376,6 @@ namespace DeRosaWebApp.Migrations
 
                     b.Property<decimal>("PrecoSecundario")
                         .HasColumnType("decimal(10,2)");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
 
                     b.HasKey("Cod_Produto");
 

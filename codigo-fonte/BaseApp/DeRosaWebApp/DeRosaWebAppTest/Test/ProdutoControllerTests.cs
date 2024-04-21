@@ -31,7 +31,7 @@ namespace DeRosaWebApp.Tests.Controllers
                 Cod_Produto = codProduto,
                 Nome = "Nome do Produto",
                 Preco = 9.99,
-                Quantidade = 2,
+                EmEstoque = 2,
                 DescricaoCurta = "Descrição",
                 PrecoSecundario = 10.00M,
             };

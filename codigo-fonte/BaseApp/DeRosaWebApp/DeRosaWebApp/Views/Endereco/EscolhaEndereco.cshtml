@@ -1,6 +1,4 @@
-﻿@model List<Endereco>
-
-@{
+﻿@{
     int enderecoIdSelecionado = 0;
     object funcEnderecoIdSelecionado(int id)
     {
@@ -16,25 +14,27 @@
                 <h4>Escolha um endereço:</h4>
                 <div class="card-body">
 
+
                     @foreach (Endereco endereco in Model)
                     {
-                        <h6>Endereço ID @endereco.Id</h6>
-                        <label asp-for="@endereco.Logradouro">@endereco.Logradouro</label>
-                        <label asp-for="@endereco.Numero">@endereco.Numero</label>
-                        <label asp-for="@endereco.Complemento">@endereco.Complemento</label>
-                        <label asp-for="@endereco.Bairro">@endereco.Bairro</label>
-                        <label asp-for="@endereco.Cidade">@endereco.Cidade</label>
-                        <label asp-for="@endereco.UF">@endereco.UF</label>
-                        <label asp-for="@endereco.CEP">@endereco.CEP</label>
-                        <label asp-for="@endereco.Rua">@endereco.Rua</label>
-                        <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
-                        <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="@funcEnderecoIdSelecionado(@endereco.Id)">
+                        <div class="container">
+
+                            <label asp-for="@endereco.Logradouro">@endereco.Logradouro</label>
+                            <label asp-for="@endereco.Numero">@endereco.Numero</label>
+                            <label asp-for="@endereco.Complemento">@endereco.Complemento</label>
+                            <label asp-for="@endereco.Bairro">@endereco.Bairro</label>
+                            <label asp-for="@endereco.Cidade">@endereco.Cidade</label>
+                            <label asp-for="@endereco.UF">@endereco.UF</label>
+                            <label asp-for="@endereco.CEP">@endereco.CEP</label>
+                            <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
+                            <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="@funcEnderecoIdSelecionado(@endereco.Id)">
+                        </div>
                     }
                 </div>
             </div>
         </div>
     </div>
-    @if(Model.Count > 0)
+    @if (Model.Count > 0)
     {
         <input class="btn btn-success" type="submit" role="button" asp-action="EscolhaEndereco" asp-controller="Endereco" asp-route-enderecoId="@enderecoIdSelecionado" value="Confirmar endereço" />
 

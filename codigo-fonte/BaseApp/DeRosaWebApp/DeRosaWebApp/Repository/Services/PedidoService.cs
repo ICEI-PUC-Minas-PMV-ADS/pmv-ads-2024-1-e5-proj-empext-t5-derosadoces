@@ -183,7 +183,7 @@ namespace DeRosaWebApp.Repository.Services
 
                     pedidoExist.Nome = pedido.Nome;
                     pedidoExist.DataPedido = pedido.DataPedido;
-                    pedidoExist.Rua = pedido.Rua;
+                    pedidoExist.Logradouro = pedido.Logradouro;
                     pedidoExist.Numero = pedido.Numero;
                     pedidoExist.Telefone = pedido.Telefone;
                     pedidoExist.TotalItensPedido = pedido.TotalItensPedido;

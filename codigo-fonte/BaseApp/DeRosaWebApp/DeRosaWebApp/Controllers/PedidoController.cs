@@ -95,7 +95,6 @@ namespace DeRosaWebApp.Controllers
                 pedido.Cidade = getEndereco.Cidade;
                 pedido.Numero = getEndereco.Numero;
                 pedido.Complemento = getEndereco.Complemento;
-                pedido.Rua = getEndereco.Rua;
                 pedido.Estado = getEndereco.UF;
                 pedido.Nome = getCliente.Nome;
                 pedido.Telefone = getCliente.Telefone;
@@ -125,6 +124,11 @@ namespace DeRosaWebApp.Controllers
                 ViewBag.Erro = ex.Message;
                 return View();
             }
+            catch(NullReferenceException)
+            {
+                ViewBag.Erro = "Volte a página anterior e selecione um endereço!";
+                return View();
+            }
         }
 
         #endregion
@@ -145,7 +149,6 @@ namespace DeRosaWebApp.Controllers
                     pedido.DataPedido = getPedido.Value.DataPedido;
                     pedido.DataExpiracao = getPedido.Value.DataExpiracao;
                     pedido.Cep = getPedido.Value.Cep;
-                    pedido.Rua = getPedido.Value.Rua;
                     pedido.Numero = getPedido.Value.Numero;
                     pedido.Complemento = getPedido.Value.Complemento;
                     pedido.Bairro = getPedido.Value.Bairro;

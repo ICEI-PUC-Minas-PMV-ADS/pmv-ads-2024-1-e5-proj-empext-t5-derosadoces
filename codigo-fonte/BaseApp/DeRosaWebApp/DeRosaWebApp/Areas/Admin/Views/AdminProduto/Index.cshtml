@@ -41,7 +41,7 @@
                     @Html.DisplayNameFor(model => model.Preco)
                 </th>
                 <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.Quantidade)
+                    @Html.DisplayNameFor(model => model.EmEstoque)
                 </th>
                 <th class="d-lg-table-cell border-1">
                     @Html.DisplayNameFor(model => model.ImagemUrl)
@@ -70,7 +70,7 @@
                         R$@Html.DisplayFor(modelItem => item.Preco)
                     </td>
                     <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.Quantidade)
+                        @Html.DisplayFor(modelItem => item.EmEstoque)
                     </td>
                     <td class="d-print-table-cell border-1">
                         @if (item.ImagemUrl.Contains("www"))

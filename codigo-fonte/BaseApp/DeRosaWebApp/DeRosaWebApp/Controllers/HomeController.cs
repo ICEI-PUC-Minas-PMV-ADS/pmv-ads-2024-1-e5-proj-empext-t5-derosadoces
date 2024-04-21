@@ -32,7 +32,7 @@ namespace DeRosaWebApp.Controllers
                     Preco = 24.50,
                     PrecoSecundario = 20.00M,
                     IdCategoria = 1,
-                    Quantidade = 20 
+                    EmEstoque = 20 
                 };
                 await _produtos.AddTestProduct(TesteProduto);
             }

@@ -105,7 +105,7 @@ namespace DeRosaWebApp.Repository.Services
             if (productExist is not null)
             {
                 productExist.Cod_Produto = id;
-                productExist.Quantidade = produto.Quantidade;
+                productExist.EmEstoque = produto.EmEstoque;
                 productExist.DescricaoCurta = produto.DescricaoCurta;
                 productExist.IdCategoria = produto.IdCategoria;
                 productExist.ImagemUrl = produto.ImagemUrl;
@@ -193,7 +193,7 @@ namespace DeRosaWebApp.Repository.Services
             var dbProd = await _context.Produtos.FirstOrDefaultAsync(p => p.Cod_Produto == produto.Cod_Produto);
             if (dbProd is not null)
             {
-                dbProd.Quantidade++;
+                dbProd.EmEstoque++;
                 _context.Produtos.Update(dbProd);
                 await _context.SaveChangesAsync();
                 return new OkObjectResult(produto);
