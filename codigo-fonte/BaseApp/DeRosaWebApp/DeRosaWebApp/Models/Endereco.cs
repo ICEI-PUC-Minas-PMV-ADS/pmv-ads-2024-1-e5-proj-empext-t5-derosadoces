@@ -20,7 +20,6 @@ namespace DeRosaWebApp.Models
 
         [Required(ErrorMessage = "Obrigatório informar o número!")]
         [Range(1, 9999, ErrorMessage = "O número deve ser entre 1 e 9999.")]
-        [MinLength(1, ErrorMessage = "O número deve conter no mínimo 1 número.")]
         public int Numero { get; set; }
 
         [Required(ErrorMessage = "O complemento é obrigatório!")]
@@ -35,7 +34,7 @@ namespace DeRosaWebApp.Models
 
         [Required(ErrorMessage = "Obrigatório informar a cidade!")]
         [StringLength(80, ErrorMessage = "A cidade deve ter no máximo 80 caracteres.")]
-        [MinLength(10, ErrorMessage = "A cidade deve ter no mínimo 10 caracteres.")]
+        [MinLength(4, ErrorMessage = "A cidade deve ter no mínimo 4 caracteres.")]
         public string Cidade { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a UF!")]

@@ -43,7 +43,7 @@ namespace DeRosaWebApp.Models
 
         [Required(ErrorMessage = "O pedido deve conter a cidade!")]
         [StringLength(100, ErrorMessage = "A cidade deve ter no máximo 100 caracteres.")]
-        [MinLength(3, ErrorMessage = "A cidade deve ter no mínimo 3 caracteres.")]
+        [MinLength(4, ErrorMessage = "A cidade deve ter no mínimo 4 caracteres.")]
         public string Cidade { get; set; }
 
         [Required(ErrorMessage = "O pedido deve conter o estado!")]

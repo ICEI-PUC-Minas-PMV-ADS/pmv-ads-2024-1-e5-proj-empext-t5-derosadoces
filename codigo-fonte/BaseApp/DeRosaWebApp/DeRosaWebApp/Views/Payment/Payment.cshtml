@@ -23,6 +23,9 @@
     <button id="submit-button" class="btn btn-primary" type="submit">Efetuar Pagamento</button>
 </form>
 
+
+<a asp-action="Pix" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Ou pague via pix</a>
+
 @section Scripts {
     <script src="https://js.stripe.com/v3/"></script>
     <script>

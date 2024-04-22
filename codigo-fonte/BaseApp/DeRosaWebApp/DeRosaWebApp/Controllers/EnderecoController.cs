@@ -64,7 +64,7 @@ namespace DeRosaWebApp.Controllers
             return View(enderecos);
         }
         [HttpPost]
-        public async Task<IActionResult> EscolhaEndereco(int enderecoId)
+        public async Task<IActionResult> EscolhaEndereco(int selectedAddressId)
         {
             var user_id = _userManager.GetUserId(User);
 
@@ -76,7 +76,7 @@ namespace DeRosaWebApp.Controllers
                     NomeUsuario = "admin@localhost",
                     Email = "admin@gmail.com",
                     Id_User = user_id,
-                    IdEndereco = enderecoId,
+                    IdEndereco = selectedAddressId,
                     CPF = "00000000000",
                     Telefone = "9999999999",
                     Senha = "Hash",
@@ -85,7 +85,7 @@ namespace DeRosaWebApp.Controllers
                await _clienteService.Add(adminToClient);
             }
             var cliente = await _clienteService.GetClienteByUserId(user_id);
-            await _clienteService.UpdateOnlyEnderecoId(enderecoId, cliente.Cod_Cliente);
+            await _clienteService.UpdateOnlyEnderecoId(selectedAddressId, cliente.Cod_Cliente);
             return RedirectToAction("Checkout", "Pedido");
         }
         [HttpGet]

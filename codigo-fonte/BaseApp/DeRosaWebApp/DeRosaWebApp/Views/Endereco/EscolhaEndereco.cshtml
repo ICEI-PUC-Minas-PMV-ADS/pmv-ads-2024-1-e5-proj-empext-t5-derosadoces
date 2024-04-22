@@ -1,58 +1,28 @@
-﻿@{
-    int enderecoIdSelecionado = 0;
-    object funcEnderecoIdSelecionado(int id)
-    {
-        enderecoIdSelecionado = id;
-        return enderecoIdSelecionado;
-    }
-}
+﻿@model List<Endereco>
 
 <form asp-action="EscolhaEndereco" asp-controller="Endereco" method="post" class="form-horizontal" role="form">
     <div class="container">
-        <div class="container">
-            <div class="row">
-                <h4>Escolha um endereço:</h4>
-                <div class="card-body">
-
-
-                    @foreach (Endereco endereco in Model)
-                    {
-                        <div class="container">
-
-                            <label asp-for="@endereco.Logradouro">@endereco.Logradouro</label>
-                            <label asp-for="@endereco.Numero">@endereco.Numero</label>
-                            <label asp-for="@endereco.Complemento">@endereco.Complemento</label>
-                            <label asp-for="@endereco.Bairro">@endereco.Bairro</label>
-                            <label asp-for="@endereco.Cidade">@endereco.Cidade</label>
-                            <label asp-for="@endereco.UF">@endereco.UF</label>
-                            <label asp-for="@endereco.CEP">@endereco.CEP</label>
-                            <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
-                            <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="@funcEnderecoIdSelecionado(@endereco.Id)">
-                        </div>
-                    }
+        <h4>Escolha um endereço:</h4>
+        <div class="card-body">
+            @foreach (Endereco endereco in Model)
+            {
+                <div style="margin-top: 20px">
+                    <label asp-for="@endereco.Id" style="display:none">@endereco.Id</label>
+                    <label>@endereco.Logradouro, @endereco.Numero (@endereco.Complemento), @endereco.Bairro, @endereco.Cidade, @endereco.UF, @endereco.CEP</label>
+                    <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
+                    <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="desmarcarOutrosRadios(this.value)">
                 </div>
-            </div>
+            }
         </div>
     </div>
-    @if (Model.Count > 0)
-    {
-        <input class="btn btn-success" type="submit" role="button" asp-action="EscolhaEndereco" asp-controller="Endereco" asp-route-enderecoId="@enderecoIdSelecionado" value="Confirmar endereço" />
-
-    }
-    <a class="btn btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicione um endereço</a>
-
+    <input class="btn btn-success" type="submit" value="Confirmar endereço" />
+    <a class="btn btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar outro endereço</a>
 </form>
 
 @section Scripts {
     <script>
-        // Função para desmarcar os outros radio buttons quando um é selecionado
         function desmarcarOutrosRadios(idSelecionado) {
-            var radios = document.getElementsByName("selectedAddressId");
-            for (var i = 0; i < radios.length; i++) {
-                if (radios[i].value != idSelecionado) {
-                    radios[i].checked = false;
-                }
-            }
+            console.log("Endereço selecionado: " + idSelecionado); 
         }
     </script>
 }

@@ -31,6 +31,12 @@ namespace DeRosaWebApp.Controllers
             ViewBag.StripePublishableKey = _configuration["Stripe:PublicKey"];
             return View(pedido.Value);
         }
+        [HttpGet]
+        public async Task<IActionResult> Pix(int cod_pedido)
+        {
+            var pedido = await _pedidoService.GetById(cod_pedido);
+            return View(pedido.Value);
+        }
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> ProcessPayment(string stripeToken, int paymentAmount, int cod_pedido) 
