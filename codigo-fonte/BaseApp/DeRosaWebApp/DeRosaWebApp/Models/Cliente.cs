@@ -21,7 +21,7 @@ namespace DeRosaWebApp.Models
         public string NomeUsuario { get; set; } 
 
         [Required(ErrorMessage = "O número de telefone é obrigatório!")]
-        [StringLength(13,ErrorMessage = "O número deve ser no formato: { 035 999999999 }")]
+        [StringLength(13,ErrorMessage = "O número deve ser no formato: [ 035 999999999 ]")]
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "O CPF é obrigatório!")]

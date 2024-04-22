@@ -1,8 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @inject SignInManager<IdentityUser> SignManager
+
+
 @if (SignManager.IsSignedIn(User))
 {
-    @if (User.IsInRole("Member"))
+    @* @if (User.IsInRole("Member"))
     {
         <ul class="nav navbar-nav navbar-left">
             <li class="nav-item">
@@ -17,17 +19,38 @@
                 Logout : @User.Identity.Name &nbsp;
             </button>
         </ul>
-    </form>
+    </form> *@
+
+
+
+    <li class="nav-item dropdown dropdown-navbar">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="Edit">Minha Conta</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="dropdown-item">
+                        <button type="submit" style="width:auto" class="dropdown-item">
+                            Logout
+                        </button>
+                </form>
+            </li>
+        </ul>
+    </li>
 }
 else
 {
     <ul class="nav navbar-nav navbar-left">
         <li class="nav-item">
-            <a class="nav-link" style="color: lightgray;" asp-controller="Account" asp-action="Login">Login</a>
+            <a class="nav-link" style="color: lightgray;" asp-controller="Account" asp-action="Login">Entrar</a>
         </li>
-        <li class="nav-item">
+        @* <li class="nav-item">
             <a class="nav-link" style="color: lightgray;" asp-controller="Cadastro" asp-action="Cadastrar">Cadastrar</a>
-        </li>
+        </li> *@
 
     </ul>
 }

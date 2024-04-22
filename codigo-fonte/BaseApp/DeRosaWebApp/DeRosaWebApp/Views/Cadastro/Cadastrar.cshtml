@@ -1,97 +1,85 @@
 ﻿@model CadastroViewModel
 <div class="containerf">
-    <table class="table">
-        <tr>
-            <td>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12" style="color: black;">
-                        <h4 id="titulo">Registrar usuário</h4>
-                        <form asp-controller="Cadastro" asp-action="Cadastrar" method="post">
-                            <hr />
-                            <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="containerf">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img class="imglogin" width="400px" height="400px" src="~/Imagens/Logo_Login.png" alt="iconelogin" />
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="mw-md py-12 mx-auto">
+                        <div class="container-cadastro">
+                        <h1>Cadastro</h1>
+                    <form asp-controller="Cadastro" asp-action="Cadastrar" method="post">
+                        @* <div asp-validation-summary="All" class="text-danger"></div> *@
+                            <div class="form-cadastro">
+                        <div class="col-md-6 input-pequeno container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.NomeUsuario" placeholder="Nome do Usuário (não utilize espaços)" />
+                            <span asp-validation-for="@Model._Cliente.NomeUsuario" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 input-pequeno container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.Nome" placeholder="Nome completo" />
+                             <span asp-validation-for="@Model._Cliente.Nome" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 input-pequeno container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.Email" placeholder="Email" />
+                            <span asp-validation-for="@Model._Cliente.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6  input-pequeno container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.DateNasc" placeholder="Data de Nascimento" />
+                            <span asp-validation-for="@Model._Cliente.DateNasc" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-8 container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.CPF" placeholder="CPF" />
+                            <span asp-validation-for="@Model._Cliente.CPF" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-8 container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.Senha" placeholder="Senha" />
+                             <span asp-validation-for="@Model._Cliente.Senha" class="text-danger"></span>
+                        </div>
+                                <div class="col-md-8  input-pequeno container-input">
+                            <input class="form-control" asp-for="@Model._Cliente.Telefone" placeholder="Telefone" />
+                            <span asp-validation-for="@Model._Cliente.Telefone" class="text-danger"></span>
+                        </div>
 
-                            <div class="col-md-6">
-                                <label>Digite o nome de seu Usuário (não utilize espaços)</label>
-                                <input class="form-control" asp-for="@Model._Cliente.NomeUsuario" />
-                                <span asp-validation-for="@Model._Cliente.NomeUsuario"></span>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Nome completo</label>
-                                <input class="form-control" asp-for="@Model._Cliente.Nome" />
-                                <span asp-validation-for="@Model._Cliente.Nome"></span>
-                            </div>
-                            <div class="col-md-6">
-                                <label asp-for="@Model._Cliente.Email"></label>
-                                <input class="form-control" asp-for="@Model._Cliente.Email" />
-                                <span asp-validation-for="@Model._Cliente.Email"></span>
-                            </div>
-                            <div class="col-md-6">
-                                <label asp-for="@Model._Cliente.DateNasc"></label>
-                                <input class="form-control" asp-for="@Model._Cliente.DateNasc" />
-                                <span asp-validation-for="@Model._Cliente.DateNasc"></span>
-                            </div>
-                            <div class="col-md-8">
-                                <label asp-for="@Model._Cliente.CPF"></label>
-                                <input class="form-control" asp-for="@Model._Cliente.CPF" />
-                                <span asp-validation-for="@Model._Cliente.CPF"></span>
-                            </div>
-                            <div class="col-md-8">
-                                <label asp-for="@Model._Cliente.Senha"></label>
-                                <input class="form-control" asp-for="@Model._Cliente.Senha" />
-                                <span asp-validation-for="@Model._Cliente.Senha"></span>
-                            </div>
-                            <div class="col-md-8">
-                                <label asp-for="@Model._Cliente.Telefone"></label>
-                                <input class="form-control" asp-for="@Model._Cliente.Telefone" />
-                                <span asp-validation-for="@Model._Cliente.Telefone"></span>
-                            </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.CEP" id="cep" class="form-control" onblur="pesquisacep(this.value);" placeholder="CEP" />
+                            <span asp-validation-for="@Model._Endereco.CEP" class="text-danger"></span>
+                        </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" placeholder="Logradouro" />
+                            <span asp-validation-for="@Model._Endereco.Logradouro" class="text-danger"></span>
+                        </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.Numero" class="form-control" placeholder="Número" />
+                            <span asp-validation-for="@Model._Endereco.Numero" class="text-danger"></span>
+                        </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.Complemento" class="form-control" placeholder="Complemento" />
+                            <span asp-validation-for="@Model._Endereco.Complemento" class="text-danger"></span>
+                        </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.Bairro" id="bairro" class="form-control" placeholder="Bairro" />
+                            <span asp-validation-for="@Model._Endereco.Bairro" class="text-danger"></span>
+                        </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.Cidade" id="cidade" class="form-control" placeholder="Cidade" />
+                            <span asp-validation-for="@Model._Endereco.Cidade" class="text-danger"></span>
+                        </div>
+                                <div class="form-group container-input input-pequeno">
+                            <input asp-for="@Model._Endereco.UF" id="uf" class="form-control" placeholder="UF" />
+                            <span asp-validation-for="@Model._Endereco.UF" class="text-danger"></span>
+                        </div>
 
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.CEP" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.CEP" id="cep" class="form-control" onblur="pesquisacep(this.value);" />
-                                <span asp-validation-for="@Model._Endereco.CEP" class="text-danger"></span>
+                        <div class="form-group btn-cadastrar-container">
+                            <input class="btn btn-success btn-cadastro" type="submit" value="Cadastrar" />
+                        </div>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.Logradouro" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" />
-                                <span asp-validation-for="@Model._Endereco.Logradouro" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.Numero" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.Numero" class="form-control" />
-                                <span asp-validation-for="@Model._Endereco.Numero" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.Complemento" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.Complemento" class="form-control" />
-                                <span asp-validation-for="@Model._Endereco.Complemento" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.Bairro" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.Bairro" id="bairro" class="form-control" />
-                                <span asp-validation-for="@Model._Endereco.Bairro" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.Cidade" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.Cidade" id="cidade" class="form-control" />
-                                <span asp-validation-for="@Model._Endereco.Cidade" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="@Model._Endereco.UF" class="control-label"></label>
-                                <input asp-for="@Model._Endereco.UF" id="uf" class="form-control" />
-                                <span asp-validation-for="@Model._Endereco.UF" class="text-danger"></span>
-                            </div>
-                       
-                            <div class="form-group">
-                                <input class="btn btn-success" type="submit" value="Cadastrar" />
-                            </div>
-                        </form>
+                    </form>
                     </div>
                 </div>
-            </td>
-
-        </tr>
-    </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
