@@ -17,11 +17,18 @@
 
     <div class="offers">
 
+
+
         @foreach (var produto in Model)
         {
+
+            @if (produto.ProdutoDaSemana)
+            {
             <div class="card-deck">
                 <partial name="_produtoHome" for="@produto" />
             </div>
+                
+            }
         }
        
     </div>

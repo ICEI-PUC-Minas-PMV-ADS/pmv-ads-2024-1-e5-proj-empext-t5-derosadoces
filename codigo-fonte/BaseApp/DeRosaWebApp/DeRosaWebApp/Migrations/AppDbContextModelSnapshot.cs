@@ -377,6 +377,9 @@ namespace DeRosaWebApp.Migrations
                     b.Property<decimal>("PrecoSecundario")
                         .HasColumnType("decimal(10,2)");
 
+                    b.Property<bool>("ProdutoDaSemana")
+                        .HasColumnType("bit");
+
                     b.HasKey("Cod_Produto");
 
                     b.ToTable("Produtos");

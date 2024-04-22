@@ -40,5 +40,7 @@ namespace DeRosaWebApp.Models
         [Required(ErrorMessage = "A categoria do produto é obrigatória!")]
         [DisplayName("Categoria")]
         public int IdCategoria { get; set; }
+
+        public bool ProdutoDaSemana { get; set; }
     }
 }
