@@ -4,22 +4,22 @@
 <div class="containerf">
     <div class="row">
         <div class="col-md-6 text-center">
-            <img class="imglogin" width="400px" height="400px" src="~/Imagens/iconelogin.png" alt="iconelogin" />
+            <img class="imglogin" width="400px" height="400px" src="~/Imagens/Logo_Login.png" alt="iconelogin" />
         </div>
-        <div class="col-md-6 text-center">
-            <h1 id="titulo">Faça o seu login!</h1>
-            <div class="login-form">
-                <form asp-controller="Usuario" asp-action="Login" method="post">
-                    <div asp-validation-summary="ModelOnly"></div>
-                    <div class="form-group">
-                        <label asp-for="Usuario"></label>
-                        <input asp-for="Usuario" class="form-control" />
+        <div class="col-12 col-md-6">
+            <div class="mw-md py-12 mx-auto">
+                <h1>Faça o seu login!</h1>
+                <form action="">
+                    <div class="mb-4">
+                        <label class="form-label fw-light">Usuário</label>
+                        <input asp-for="Usuario" class="form-control">
                         <span class="text-danger" asp-validation-for="Usuario"></span>
                     </div>
-                    <div class="input-group">
-                        <input type="password" asp-for="Senha" class="form-control" />
+                    <div class="mb-4">
+                        <label class="form-label fw-light">Senha</label>
+                        <input type="password" asp-for="Senha" class="form-control">
                         <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility(this)">
-                            <img src="~/Imagens/olho.png" alt="password-show" width="25" height="25" />
+                            <img src="~/Imagens/olho.png" alt="password-show" width="25" height="25">
                         </button>
                     </div>
                     <div class="form-group">
