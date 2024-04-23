@@ -1,7 +1,8 @@
-﻿@using DeRosaWebApp.Models;
-@model Produto
+﻿@using DeRosaWebApp.Areas.Admin.ViewModel;
+@model EditProdutoViewModel
+
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
 <h1>Editar</h1>
@@ -12,56 +13,56 @@
     <div class="col-md-4">
         <form asp-action="Edit" asp-area="Admin" asp-controller="AdminProduto" asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="@Model.Cod_Produto" />
+            <input type="hidden" asp-for="@Model.Produto.Cod_Produto" />
             <div class="form-group">
-                <label asp-for="@Model.Nome" class="control-label"></label>
-                <input asp-for="@Model.Nome" class="form-control" />
-                <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+                <label asp-for="@Model.Produto.Nome" class="control-label"></label>
+                <input asp-for="@Model.Produto.Nome" class="form-control" />
+                <span asp-validation-for="@Model.Produto.Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Preco" class="control-label"></label>
-                <input asp-for="@Model.Preco" class="form-control" />
-                <span asp-validation-for="@Model.Preco" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.EmEstoque" class="control-label"></label>
-                <input asp-for="@Model.EmEstoque" class="form-control" />
-                <span asp-validation-for="@Model.EmEstoque" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.ImagemUrl" class="control-label"></label>
-                <input asp-for="@Model.ImagemUrl" class="form-control" />
-                <span asp-validation-for="@Model.ImagemUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.DescricaoCurta" class="control-label"></label>
-                <input asp-for="@Model.DescricaoCurta" class="form-control" />
-                <span asp-validation-for="@Model.DescricaoCurta" class="text-danger"></span>
+                <label asp-for="@Model.Produto.Preco" class="control-label"></label>
+                <input asp-for="@Model.Produto.Preco" class="form-control" />
+                <span asp-validation-for="@Model.Produto.Preco" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="@Model.PrecoSecundario" class="control-label"></label>
-                <input asp-for="@Model.PrecoSecundario" class="form-control" />
-                <span asp-validation-for="@Model.PrecoSecundario" class="text-danger"></span>
+                <label asp-for="@Model.Produto.EmEstoque" class="control-label"></label>
+                <input asp-for="@Model.Produto.EmEstoque" class="form-control" />
+                <span asp-validation-for="@Model.Produto.EmEstoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Produto.ImagemUrl" class="control-label"></label>
+                <input asp-for="@Model.Produto.ImagemUrl" class="form-control" />
+                <span asp-validation-for="@Model.Produto.ImagemUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Produto.DescricaoCurta" class="control-label"></label>
+                <input asp-for="@Model.Produto.DescricaoCurta" class="form-control" />
+                <span asp-validation-for="@Model.Produto.DescricaoCurta" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="@Model.IdCategoria" class="control-label"></label>
-                <input asp-for="@Model.IdCategoria" class="form-control" />
-                <span asp-validation-for="@Model.IdCategoria class=" text-danger"></span>
+                <label asp-for="@Model.Produto.PrecoSecundario" class="control-label"></label>
+                <input asp-for="@Model.Produto.PrecoSecundario" class="form-control" />
+                <span asp-validation-for="@Model.Produto.PrecoSecundario" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label for="IdCategoria" class="form-label">Escolha uma Categoria</label>
+                <select id="IdCategoria" name="IdCategoria" class="form-select">
+                    @foreach (var item in Model.ListCategorias)
+                    {
+                        <option value="@item.IdCategoria">@item.CategoriaNome</option>
+                    }
+                </select>
+                <span asp-validation-for="Produto.IdCategoria" class="text-danger"></span>
+            </div>
 
             <div class="form-check">
-                <label asp-for="@Model.ProdutoDaSemana" class="form-check-label"></label>
-                <input asp-for="@Model.ProdutoDaSemana" class="form-check-input" />
-                <span asp-validation-for="@Model.ProdutoDaSemana" class="text-danger"></span>
+                <label asp-for="@Model.Produto.ProdutoDaSemana" class="form-check-label"></label>
+                <input asp-for="@Model.Produto.ProdutoDaSemana" class="form-check-input" />
+                <span asp-validation-for="@Model.Produto.ProdutoDaSemana" class="text-danger"></span>
             </div>
-
-
-
-
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

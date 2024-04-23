@@ -6,7 +6,7 @@ namespace DeRosaWebApp.Models
     public class Categoria
     {
         [Key]
-        [DisplayName("ID da Categoria")]
+        [DisplayName("Identificador da Categoria")]
         public int IdCategoria { get; set; }
 
         [Required(ErrorMessage = "O nome da categoria é obrigatório!")]

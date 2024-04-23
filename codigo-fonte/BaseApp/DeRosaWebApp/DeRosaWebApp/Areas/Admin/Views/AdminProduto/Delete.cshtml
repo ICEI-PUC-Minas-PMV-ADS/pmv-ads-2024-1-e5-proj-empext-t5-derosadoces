@@ -1,65 +1,77 @@
-﻿@model ActionResult<Produto>
-
+﻿@using DeRosaWebApp.Areas.Admin.ViewModel;
+@using System.Globalization;
+@model ProdutoCategoriaViewModel
 @{
     ViewData["Title"] = "Deletar";
 }
 
 <h1>Deletar</h1>
 
-<h3>Tem certeza que deseja deletar isso?</h3>
+<h3 class="text-center">Tem certeza que deseja deletar este produto?</h3>
 <div>
-    <h4>Produto</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.Nome)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.Cod_Produto)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.Nome)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.Cod_Produto)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.Preco)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.Nome)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.Preco)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.Nome)
         </dd>
-       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.EmEstoque)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.Preco)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.EmEstoque)
+        <dd class="col-sm-10">
+            R$@Model._Produto.Preco.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.ImagemUrl)
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.EmEstoque)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.ImagemUrl)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.EmEstoque)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.DescricaoCurta)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.ImagemUrl)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.DescricaoCurta)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.ImagemUrl)
         </dd>
-       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.PrecoSecundario)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.DescricaoCurta)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.PrecoSecundario)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.DescricaoCurta)
         </dd>
-       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.IdCategoria)
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.IdCategoria)
+        <dd class="col-sm-10">
+            R$@Model._Produto.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Categoria.IdCategoria)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Categoria.IdCategoria)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Categoria.CategoriaNome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Categoria.CategoriaNome)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="@Model.Value.Cod_Produto" />
+        <input type="hidden" asp-for="@Model._Produto.Cod_Produto" />
         <input type="submit" value="Deletar" class="btn btn-danger" /> |
         <a asp-action="Index">Voltar para a lista</a>
     </form>

@@ -34,7 +34,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             }
             if (files.Count > 50)
             {
-                ViewData["Erro"] = "Erro: Quantidade de arquivos excedeu o limite (10)";
+                ViewData["Erro"] = "Erro: Quantidade de arquivos excedeu o limite (50)";
                 return View(ViewData);
             }
             long size = files.Sum(f => f.Length);

@@ -1,4 +1,5 @@
-﻿using DeRosaWebApp.Models;
+﻿using DeRosaWebApp.Areas.Admin.ViewModel;
+using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,11 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
     public class AdminProdutoController : Controller
     {
         private readonly IProductService _productService;
-        public AdminProdutoController(IProductService productService)
+        private readonly ICategoriaService _categoriaService;
+        public AdminProdutoController(IProductService productService, ICategoriaService categoriaService)
         {
             _productService = productService;
+            _categoriaService = categoriaService;   
         }
 
 
@@ -28,6 +31,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             {
                 list = list.Where(p => p.Nome.Contains(filter));
             }
+           
             var model = await PagingList.CreateAsync(list, 5, pageindex, sort, "Nome");
             model.RouteValue = new RouteValueDictionary { { "filter", filter } };
             return View(model);
@@ -38,7 +42,15 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var produto = await _productService.GetById(id);
-            return View(produto);
+            var categoria = await _categoriaService.GetById(id);
+
+            ProdutoCategoriaViewModel produtoCategoriaViewModel = new()
+            {
+                _Produto = produto.Value,
+                _Categoria = categoria,
+            };
+
+            return View(produtoCategoriaViewModel);
         }
 
         [HttpGet]
@@ -70,13 +82,18 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
 
 
             var produto = await _productService.GetById(id);
+            var categorias = _categoriaService.GetAllCategorias();
             if (produto == null)
             {
                 return NotFound();
             }
+            EditProdutoViewModel editProdutoViewModel = new EditProdutoViewModel()
+            {
+                Produto = produto.Value,
+                ListCategorias = categorias
+            };
 
-
-            return View(produto.Value);
+            return View(editProdutoViewModel);
         }
 
 
@@ -110,12 +127,15 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         {
 
             var produto = await _productService.GetById(id);
-            if (produto == null)
-            {
-                return NotFound();
-            }
+            var categoria = await _categoriaService.GetById(id);
 
-            return View(produto);
+            ProdutoCategoriaViewModel produtoCategoriaViewModel = new()
+            {
+                _Produto = produto.Value,
+                _Categoria = categoria,
+            };
+
+            return View(produtoCategoriaViewModel);
         }
 
 

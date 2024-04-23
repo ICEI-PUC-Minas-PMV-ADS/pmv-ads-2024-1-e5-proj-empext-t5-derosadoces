@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace DeRosaWebApp.Models
 {
@@ -21,6 +22,7 @@ namespace DeRosaWebApp.Models
         public double Preco { get; set; }
 
         [Range(0, 999,ErrorMessage ="O máximo de estoque é 999")]
+        [DisplayName("Quantidade no Estoque")]
         public int EmEstoque { get; set; }
 
         [DisplayName("Imagem do Produto")]
@@ -41,6 +43,8 @@ namespace DeRosaWebApp.Models
         [DisplayName("Categoria")]
         public int IdCategoria { get; set; }
 
+        [DisplayName("Produto da Semana")]
         public bool ProdutoDaSemana { get; set; }
+
     }
 }

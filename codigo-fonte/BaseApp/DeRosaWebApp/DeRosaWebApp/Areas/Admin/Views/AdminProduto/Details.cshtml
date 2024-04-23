@@ -1,4 +1,6 @@
-﻿@model ActionResult<Produto>
+﻿@using DeRosaWebApp.Areas.Admin.ViewModel;
+@using System.Globalization;
+@model ProdutoCategoriaViewModel
 
 @{
     ViewData["Title"] = "Detalhes";
@@ -10,54 +12,66 @@
     <h4>Produto</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.Nome)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.Cod_Produto)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.Nome)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.Cod_Produto)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.Preco)
+            @Html.DisplayNameFor(model => model._Produto.Nome)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.Preco)
-        </dd>
-      
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.EmEstoque)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.EmEstoque)
+            @Html.DisplayFor(model => model._Produto.Nome)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.ImagemUrl)
+            @Html.DisplayNameFor(model => model._Produto.Preco)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.ImagemUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.DescricaoCurta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.DescricaoCurta)
+            @Model._Produto.Preco.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
       
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.PrecoSecundario)
+            @Html.DisplayNameFor(model => model._Produto.EmEstoque)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.PrecoSecundario)
+            @Html.DisplayFor(model => model._Produto.EmEstoque)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.ImagemUrl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model._Produto.ImagemUrl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.DescricaoCurta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model._Produto.DescricaoCurta)
+        </dd>
+      
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Model._Produto.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
        
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value.IdCategoria)
+            @Html.DisplayNameFor(model => model._Categoria.IdCategoria)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value.IdCategoria)
+            @Html.DisplayFor(model => model._Categoria.IdCategoria)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Categoria.CategoriaNome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Categoria.IdCategoria)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Value.Cod_Produto">Editar</a> |
+    <a asp-action="Edit" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a> |
     <a asp-action="Index">Voltar para a lista</a>
 </div>

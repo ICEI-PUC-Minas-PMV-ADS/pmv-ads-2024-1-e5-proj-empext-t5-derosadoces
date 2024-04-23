@@ -13,7 +13,7 @@
     <div class="col-md-4">
         <form method="post" asp-action="Edit" asp-controller="AdminCategorias" asp-area="Admin" asp-route-id="@Model._Categoria.IdCategoria">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="_Categoria.IdCategoria" />
+            <label asp-for="_Categoria.IdCategoria" />
             <div class="form-group">
                 <label asp-for="_Categoria.CategoriaNome" class="control-label"></label>
                 <input asp-for="_Categoria.CategoriaNome" class="form-control" />

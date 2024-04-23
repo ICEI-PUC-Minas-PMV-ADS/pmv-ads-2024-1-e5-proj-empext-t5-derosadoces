@@ -30,7 +30,12 @@
     <thead class="table-success">
         <tr class="d-xl-table-row">
             <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.IdCategoria)
+            </th>
+            <th class="d-lg-table-cell border-1">
                 @Html.DisplayNameFor(model => model.CategoriaNome)
+            </th>
+            <th class="d-lg-table-cell border-1">
             </th>
         </tr>
     </thead>
@@ -38,6 +43,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td class="d-print-table-cell border-1">
+                    @Html.DisplayFor(modelItem => item.IdCategoria)
+                </td>
                 <td class="d-print-table-cell border-1">
                     @Html.DisplayFor(modelItem => item.CategoriaNome)
                 </td>
