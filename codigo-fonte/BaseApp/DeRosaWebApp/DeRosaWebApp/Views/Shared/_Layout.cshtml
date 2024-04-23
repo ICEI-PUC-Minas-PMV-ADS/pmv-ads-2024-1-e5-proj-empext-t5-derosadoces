@@ -20,7 +20,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-1">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Imagens/Rosa_DeRosa-black.png" width="60px" height="55px" /></a>
+                <a class="navbar-brand"  asp-controller="Home" asp-action="Index"><img src="~/Imagens/Rosa_DeRosa-black.png" width="60px" height="55px" /></a>
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,16 +28,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex  justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link"  asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         @* Temporário, apenas para ter os itens da nav *@
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Produtos</a>
+                            <a class="nav-link" asp-controller="Produto" asp-action="Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Sobre</a>
-                        </li
+                            <a class="nav-link" asp-controller="Home" asp-action="Sobre">Sobre</a>
+                        </li>
 
                         <li class="nav-item ">
                             @await Component.InvokeAsync("CarrinhoComponent")
@@ -49,7 +49,7 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 @inject UserManager<IdentityUser> UserManager
-                                <a class="nav-link" style="color: lightgray;" asp-area="" asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
+                                <a class="nav-link" style="color: lightgray;"  asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
                             }
                         </li>
                     </ul>

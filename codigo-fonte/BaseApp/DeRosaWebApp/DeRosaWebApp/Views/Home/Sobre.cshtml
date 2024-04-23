@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Sobre Nós";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">@ViewData["Title"]</h2>
+    <p class="mt-4" style="font-size: 20px;">
+        Bem-vindos à nossa doceria, um lugar onde cada doce é feito à mão com dedicação e muito amor.
+        Aqui, revivemos as receitas da vó, preparando doces que tocam o coração e despertam memórias afetivas.
+    </p>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <img src="~/images/doceria.jpg" alt="Doces artesanais" class="img-fluid">
+        </div>
+        <div class="col-md-6" style="font-size: 18px;">
+            <p>
+                Nossos doces são feitos utilizando técnicas artesanais, preservando o sabor autêntico e tradicional que só os doces feitos à mão podem oferecer.
+                Em cada receita, em cada mistura, colocamos um pedaço da história e da alma da família, garantindo que cada mordida seja uma experiência única e inesquecível.
+            </p>
+            <p>
+                Valorizamos a qualidade dos ingredientes, a atenção aos detalhes e, principalmente, o amor pelo que fazemos. Por isso, cada doce não só é delicioso, mas também carrega consigo a essência e a paixão da culinária de vó.
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="@Url.Action("Contato", "Home")" class="btn btn-primary">Entre em contato</a>
+        <a href="@Url.Action("Produtos", "Produto")" class="btn btn-info">Veja nossos produtos</a>
+    </div>
+</div>

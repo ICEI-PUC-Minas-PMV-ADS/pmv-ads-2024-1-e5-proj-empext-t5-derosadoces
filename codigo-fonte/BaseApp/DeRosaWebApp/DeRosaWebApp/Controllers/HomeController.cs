@@ -3,6 +3,7 @@ using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using ReflectionIT.Mvc.Paging;
 using System.Diagnostics;
 
@@ -45,6 +46,12 @@ namespace DeRosaWebApp.Controllers
             return View(model);
 
         }
+        #region Sobre
+        public IActionResult Sobre()
+        {
+            return View();
+        }
+        #endregion
     }
     #endregion
 }

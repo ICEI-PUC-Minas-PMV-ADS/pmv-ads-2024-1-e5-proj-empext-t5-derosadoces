@@ -23,6 +23,18 @@ namespace DeRosaWebApp.Controllers
             return View(produto);
         }
         #endregion
+        #region Todos os produtos
+        public async Task<IActionResult> Produtos()
+        {
+            var produtos = await _produtos.GetAll();
+            if (produtos is not null)
+            {
+                return View(produtos.Value);
+            }
+
+            return produtos.Result;
+        }
+        #endregion
         #region Produto pela categoria
         public async Task<IActionResult> ProdutosByCategoria(int idCategoria)
         {
