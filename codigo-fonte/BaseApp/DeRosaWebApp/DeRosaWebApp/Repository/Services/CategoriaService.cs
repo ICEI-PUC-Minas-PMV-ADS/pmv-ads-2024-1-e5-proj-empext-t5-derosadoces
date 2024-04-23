@@ -47,5 +47,45 @@ namespace DeRosaWebApp.Repository.Services
             return categoria;
         }
         #endregion
+        #region Atualizar categoria
+        public async Task Update(int id , Categoria categoria)
+        {
+            
+            var categoriaDb = await _context.Categorias.FirstOrDefaultAsync(p => p.IdCategoria == id);
+            if(categoriaDb is not null)
+            {
+                categoriaDb.CategoriaNome = categoria.CategoriaNome;
+                _context.Categorias.Update(categoriaDb);
+                await _context.SaveChangesAsync();
+            }
+        }
+        #endregion
+        #region Deletar
+        public async Task Delete(int id)
+        {
+            var categoria = await _context.Categorias.FirstOrDefaultAsync(p => p.IdCategoria == id);
+            if(categoria is not null)
+            {
+                _context.Categorias.Remove(categoria);
+                await _context.SaveChangesAsync();
+            }
+        }
+        #endregion
+        #region Any
+        public async Task<bool> Any(int id)
+        {
+            return await _context.Categorias.AnyAsync(p => p.IdCategoria == id);
+        }
+        #endregion
+        #region Add
+        public async Task Add(Categoria categoria)
+        {
+            if(categoria is not null)
+            {
+                await _context.Categorias.AddAsync(categoria);
+                await _context.SaveChangesAsync();
+            }
+        }
+        #endregion
     }
 }
