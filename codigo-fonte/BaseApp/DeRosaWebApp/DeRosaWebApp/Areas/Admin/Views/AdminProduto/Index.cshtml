@@ -5,7 +5,6 @@
 
 @{
     ViewData["Title"] = "Lista de produtos";
-    @inject ICategoriaService _categoriaService;
 }
 
 <h1>Inicio</h1>
@@ -66,6 +65,7 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach (var item in Model)
             {
                 <tr class="d-lg-table-row">
@@ -96,15 +96,9 @@
                     <td class="d-print-table-cell border-1">
                         R$@item.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
                     </td>
-                 
+
                     <td class="d-print-table-cell border-1">
                         <span>Identificador: </span>@Html.DisplayFor(modelItem => item.IdCategoria)
-                        <span>
-                            @{
-                                var categoria = await _categoriaService.GetById(item.IdCategoria);
-                            }
-                            <strong>@categoria.CategoriaNome</strong>
-                        </span>
                     </td>
                     <td class="d-print-table-cell border-1">
                         @Html.DisplayFor(modelItem => item.ProdutoDaSemana)

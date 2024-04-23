@@ -16,6 +16,7 @@ namespace DeRosaWebApp.Repository.Interfaces
         bool Any(int id);
         IQueryable<Produto> PaginationProduct();
         Task<ActionResult<Produto>> AddTestProduct(Produto produto);
+        Task<int> QuantidadeEmEstoque(int cod_produto);
         int VerifyQnt();
     }
 }

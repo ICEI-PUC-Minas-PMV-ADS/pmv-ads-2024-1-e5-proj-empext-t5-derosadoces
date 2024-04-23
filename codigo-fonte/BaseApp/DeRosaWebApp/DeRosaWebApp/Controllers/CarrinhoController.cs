@@ -1,4 +1,6 @@
-﻿using DeRosaWebApp.Models;
+﻿using DeRosaWebApp.BusinessRules.Interfaces;
+using DeRosaWebApp.BusinessRules.Validations;
+using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
@@ -12,10 +14,13 @@ namespace DeRosaWebApp.Controllers
         #region Construtor, propriedades e injeção de dependência
         private readonly Carrinho _carrinhoCompra;
         private readonly IProductService _productService;
-        public CarrinhoController(Carrinho carrinhoCompra, IProductService productService)
+        private readonly IProductRules _productRules;
+        public CarrinhoController(Carrinho carrinhoCompra, IProductService productService, IProductRules productRules)
         {
             _carrinhoCompra = carrinhoCompra;
             _productService = productService;
+            _productRules = productRules;
+
         }
         #endregion
         #region Index
@@ -33,31 +38,45 @@ namespace DeRosaWebApp.Controllers
 
         }
         #endregion
-        #region Adicionar no carinho
+        #region Adicionar no carrinho
         [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto, int quantidadeAdicionar)
         {
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                var produtoSelecionado = await _productService.GetById(cod_produto);
-                if (produtoSelecionado is not null)
+                if (User.Identity.IsAuthenticated)
                 {
-                    _carrinhoCompra.AdicionarNoCarrinho(produtoSelecionado.Value, quantidadeAdicionar);
-                    return RedirectToAction("Index", "Carrinho");
+                    await _productRules.VerificaQuantidadeEmEstoque(quantidadeAdicionar, cod_produto);
+
+                    var produtoSelecionado = await _productService.GetById(cod_produto);
+                    if (produtoSelecionado is not null)
+                    {
+                        _carrinhoCompra.AdicionarNoCarrinho(produtoSelecionado.Value, quantidadeAdicionar);
+                        return RedirectToAction("Index", "Carrinho");
+                    }
+                    else
+                    {
+                        return Problem();
+                    }
+
                 }
                 else
                 {
-                    return Problem();
+                    return RedirectToAction("Login", "Usuario");
                 }
-
             }
-            else
+            catch(DeRosaExceptionValidation e)
             {
-                return RedirectToAction("Login", "Usuario");
-            }
-
-
+                ViewBag.Erro = e.Message;
+                return View("Erro");
+            } 
+        }
+        #endregion
+        #region
+        public IActionResult Erro()
+        {
+            return View();
         }
         #endregion
         #region Remover item no carrinho

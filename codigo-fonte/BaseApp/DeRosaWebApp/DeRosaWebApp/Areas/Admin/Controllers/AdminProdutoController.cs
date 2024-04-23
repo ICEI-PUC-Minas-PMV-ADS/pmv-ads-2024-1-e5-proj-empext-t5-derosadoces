@@ -18,21 +18,20 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         public AdminProdutoController(IProductService productService, ICategoriaService categoriaService)
         {
             _productService = productService;
-            _categoriaService = categoriaService;   
+            _categoriaService = categoriaService;
         }
 
 
         [HttpGet]
         [Route("{controller}/Index")]
-        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
+        public async Task<IActionResult> Index(string filter, int pageIndex = 1, string sort = "Nome")
         {
             var list = _productService.PaginationProduct();
             if (!string.IsNullOrWhiteSpace(filter))
             {
                 list = list.Where(p => p.Nome.Contains(filter));
             }
-           
-            var model = await PagingList.CreateAsync(list, 5, pageindex, sort, "Nome");
+            var model = await PagingList.CreateAsync(list, 5, pageIndex, sort, "Nome");
             model.RouteValue = new RouteValueDictionary { { "filter", filter } };
             return View(model);
         }
@@ -159,7 +158,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
 
         private bool ProdutoExists(int id)
         {
-            return  _productService.Any(id);
+            return _productService.Any(id);
         }
     }
 }

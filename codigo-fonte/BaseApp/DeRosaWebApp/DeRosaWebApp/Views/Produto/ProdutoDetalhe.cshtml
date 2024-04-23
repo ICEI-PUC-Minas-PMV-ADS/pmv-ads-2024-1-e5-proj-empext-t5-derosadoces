@@ -20,18 +20,25 @@
 
         <h2 id="product-price">R$@Model.Value.Preco.ToString("F2",@CultureInfo.InvariantCulture)</h2>
 
-        <p style="color: yellow; font-size:smaller;"> Preço promocional: R$@Model.Value.PrecoSecundario</p>
+        <p style="color: gray; font-size:smaller;"> Em estoque: @Model.Value.EmEstoque</p>
 
         @{
             int quantidade = 1;
         }
-
-        <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
-            <div class="form-group">
-                <label class="col-form-label" for="@quantidade">Quantidade </label>
-                <input type="number" id="quantidade" class="" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
-            </div>
-            <button type="submit" class="btn btn-primary">Adicionar @Model.Value.Nome ao carrinho</button>
-        </form>
+        @if(Model.Value.EmEstoque > 0)
+        {
+            <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
+                <div class="form-group">
+                    <label class="col-form-label" for="@quantidade">Quantidade </label>
+                    <input type="number" id="quantidade" class="" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
+                </div>
+                <button type="submit" class="btn btn-primary">Adicionar @Model.Value.Nome ao carrinho</button>
+            </form>
+        }
+        else{
+            <p>Produto indisponível no momento, deseja agendar para a próxima semana?</p>
+            <a class="btn btn-success">Agendar para outra semana</a>
+        }
+      
     </div>
 </div>

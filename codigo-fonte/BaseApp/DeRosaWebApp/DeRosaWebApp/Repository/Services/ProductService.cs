@@ -23,11 +23,27 @@ namespace DeRosaWebApp.Repository.Services
             return produto;
         }
         #endregion
-        #region Verificar a quantidade de produtos existentes
+        #region Verificar a quantidade em estoque
+        public async Task<int> QuantidadeEmEstoque(int cod_produto)
+        {
+            var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.Cod_Produto == cod_produto);
+            if(produto is not null)
+            {
+                return produto.EmEstoque;
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
+
+        #endregion
+        #region Verifica quantidade total de produtos
         public int VerifyQnt()
         {
-            var QntProdutosExistentes = _context.Produtos.Count();
-            return QntProdutosExistentes;
+            var produtosQnt = _context.Produtos.Count();
+            return produtosQnt;
         }
         #endregion
         #region Adicionar um produto teste

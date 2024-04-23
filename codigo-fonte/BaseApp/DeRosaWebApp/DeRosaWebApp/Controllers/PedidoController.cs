@@ -119,7 +119,7 @@ namespace DeRosaWebApp.Controllers
                     return View(pedido);
                 }
             }
-            catch (PedidoExceptionValidation ex)
+            catch (DeRosaExceptionValidation ex)
             {
                 ViewBag.Erro = ex.Message;
                 return View();
@@ -186,7 +186,7 @@ namespace DeRosaWebApp.Controllers
                 ViewBag.Erro = "O pedido foi expirado.";
                 return View("Erro");
             }
-            catch (PedidoExceptionValidation e)
+            catch (DeRosaExceptionValidation e)
             {
                 ViewBag.Erro = e.Message;
                 return View("Erro");

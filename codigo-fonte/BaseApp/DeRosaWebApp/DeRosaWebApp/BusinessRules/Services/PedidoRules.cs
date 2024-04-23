@@ -13,9 +13,10 @@ namespace DeRosaWebApp.BusinessRules.Services
             {
                 var dataMinimaPermitida = DateTime.Now.AddDays(7).Date;
 
-                PedidoExceptionValidation.When(dataEntrega.Date < dataMinimaPermitida,
+                DeRosaExceptionValidation.When(dataEntrega.Date < dataMinimaPermitida,
                     $"Pedidos comemorativos só são permitidos com até 7 dias de antecedência! Pedidos comemorativos: {item.Nome}");
             }
         }
+
     }
 }

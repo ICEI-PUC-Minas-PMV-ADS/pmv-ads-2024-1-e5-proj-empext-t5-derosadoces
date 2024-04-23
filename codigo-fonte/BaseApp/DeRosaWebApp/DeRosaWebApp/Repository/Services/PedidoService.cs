@@ -318,7 +318,7 @@ namespace DeRosaWebApp.Repository.Services
             bool contemAlgumPedidoComEsseId = pedidosDoProprietario.Any(p => p.Cod_Pedido == codPedidoAnalisar);
             if (!contemAlgumPedidoComEsseId)
             {
-                throw new PedidoExceptionValidation("Esse pedido não está em seus pedidos ou foi expirado... Verifique se o link está correto e tente novamente");
+                throw new DeRosaExceptionValidation("Esse pedido não está em seus pedidos ou foi expirado... Verifique se o link está correto e tente novamente");
             }
         }
         #endregion
