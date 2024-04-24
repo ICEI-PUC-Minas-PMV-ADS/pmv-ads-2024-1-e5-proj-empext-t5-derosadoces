@@ -393,3 +393,98 @@ p {
 .nav-link.dropdown-toggle::after {
     display: none; /* Hide the arrow icon */
 }
+
+/*INICIO TELA PRODUTO DETALHE*/
+
+.product-details-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 100px
+
+}
+
+.product-image img,
+.product-image .img-loja {
+    max-width: 50%;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 0 20px;
+    max-width: 50%;
+}
+
+.product-title {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.product-description {
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+.product-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.stock-status {
+    font-size: 0.9em;
+    margin-bottom: 2em;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: .5em;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 0.5em;
+        line-height: 1.5;
+        border: 1px solid #ccc;
+    }
+
+.btn-add-cart, .btn-schedule {
+    background-color: #000;
+    color: #fff;
+    padding: 1em 1.5em;
+    text-align: center;
+    display: inline-block;
+    margin-top: 1em;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-add-cart:hover, .btn-schedule:hover {
+        background-color: #555;
+    }
+
+/* Se precisar de um estilo para o link de agendamento como um botão, você pode adicionar isto */
+.btn-schedule {
+    background-color: green; /* Ou outra cor conforme seu design */
+}
+
+/* Para responder a mudanças de tamanho de tela, considere usar media queries */
+@media (max-width: 768px) {
+    .product-details-container {
+        flex-direction: column;
+    }
+
+    .product-image img,
+    .product-image .img-loja,
+    .product-details {
+        max-width: 100%;
+    }
+}
+
+/*FIM TELA PRODUTO DETALHE*/

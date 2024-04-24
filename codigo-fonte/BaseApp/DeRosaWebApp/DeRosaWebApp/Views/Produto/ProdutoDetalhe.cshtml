@@ -6,39 +6,40 @@
     <div class="product-image">
         @if (Model.Value.ImagemUrl.Contains("www") || Model.Value.ImagemUrl.Contains("https") || Model.Value.ImagemUrl.Contains("http"))
         {
-            <img style="width: 560px; height: 560px" src='@Model.Value.ImagemUrl' />
+            <img src='@Model.Value.ImagemUrl' alt="@Model.Value.Nome" />
         }
         else
         {
-            <input class="img-loja" type="image" style="width: 560px; height: 560px" src='~/Imagens/@Model.Value.ImagemUrl' />
+            <input class="img-loja" type="image" src='~/Imagens/@Model.Value.ImagemUrl' alt="@Model.Value.Nome" />
         }
-        
+
     </div>
     <div class="product-details">
-        <h1 class="nome-item">@Model.Value.Nome</h1>
-        <p>@Model.Value.DescricaoCurta</p>
+        <h1 class="product-title">@Model.Value.Nome</h1>
+        <p class="product-description">@Model.Value.DescricaoCurta</p>
 
-        <h2 id="product-price">R$@Model.Value.Preco.ToString("F2",@CultureInfo.InvariantCulture)</h2>
+        <h2 class="product-price">R$@Model.Value.Preco.ToString("F2", CultureInfo.InvariantCulture)</h2>
 
-        <p style="color: gray; font-size:smaller;"> Em estoque: @Model.Value.EmEstoque</p>
+        <p class="stock-status"> Em estoque: @Model.Value.EmEstoque</p>
 
         @{
             int quantidade = 1;
         }
-        @if(Model.Value.EmEstoque > 0)
+
+        @if (Model.Value.EmEstoque > 0)
         {
             <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
                 <div class="form-group">
-                    <label class="col-form-label" for="@quantidade">Quantidade </label>
-                    <input type="number" id="quantidade" class="" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
+                    <label for="quantidade">Quantidade </label>
+                    <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
                 </div>
-                <button type="submit" class="btn btn-primary">Adicionar @Model.Value.Nome ao carrinho</button>
+                <button type="submit" class="btn-add-cart">Adicionar @Model.Value.Nome ao carrinho</button>
             </form>
         }
-        else{
-            <p>Produto indisponível no momento, deseja agendar para a próxima semana?</p>
-            <a class="btn btn-success">Agendar para outra semana</a>
+        else
+        {
+            <p class="product-unavailable">Produto indisponível no momento, deseja agendar para a próxima semana?</p>
+            <a class="btn-schedule">Agendar para outra semana</a>
         }
-      
     </div>
 </div>
