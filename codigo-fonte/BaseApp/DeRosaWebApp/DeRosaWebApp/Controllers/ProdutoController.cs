@@ -10,16 +10,20 @@ namespace DeRosaWebApp.Controllers
         #region Construtor, propriedades e injeção de dependência
         private readonly IProductService _produtos;
         private readonly ICategoriaService _categorias;
-        public ProdutoController(IProductService produtos, ICategoriaService categorias)
+        private readonly IPedidoService _pedidoService;
+
+        public ProdutoController(IProductService produtos, ICategoriaService categorias, IPedidoService pedidoService)
         {
             _produtos = produtos;
             _categorias = categorias;
+            _pedidoService = pedidoService; 
         }
         #endregion
         #region Produto Detalhe
         [HttpGet]
         public async Task<IActionResult> ProdutoDetalhe(int cod_produto)
         {
+            await _pedidoService.VerificarPedidosExpirados();
             var produto = await _produtos.GetById(cod_produto);
             return View(produto);
         }

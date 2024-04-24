@@ -245,6 +245,12 @@ namespace DeRosaWebApp.Repository.Services
 
                     };
 
+                    var produto = await _context.Produtos.FindAsync(item.Produto.Cod_Produto);
+                    var quantidade = produto.EmEstoque - pedidoDetalhe.Quantidade;
+
+                    produto.EmEstoque = quantidade;
+
+                    _context.Entry(produto).Property(p => p.EmEstoque).IsModified = true;
                     _context.PedidoDetalhes.Add(pedidoDetalhe);
                 }
                 _carrinho.LimparCarrinho();
@@ -282,7 +288,10 @@ namespace DeRosaWebApp.Repository.Services
                     foreach (var detail in produtoDetalhe)
                     {
                         _context.PedidoDetalhes.Remove(detail);
-
+                        var produto =  await _context.Produtos.FindAsync(detail.Cod_Produto);
+                        var quantidade = produto.EmEstoque + detail.Quantidade;
+                        produto.EmEstoque = quantidade;
+                        _context.Entry(produto).Property(x => x.EmEstoque).IsModified = true;
                     }
                 }
             }

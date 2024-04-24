@@ -105,9 +105,11 @@ namespace DeRosaWebApp.Controllers
                 pedido.DataParaEntregar = dataParaEntregar;
 
                 _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(ProdutosComemorativos, dataParaEntregar);
+                
                 var result = await _pedidoService.CriarPedido(pedido, user_id);
                 if (result is not null)
                 {
+
                     ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
                     ViewBag.TotalPedido = precoTotalPedido;
 
