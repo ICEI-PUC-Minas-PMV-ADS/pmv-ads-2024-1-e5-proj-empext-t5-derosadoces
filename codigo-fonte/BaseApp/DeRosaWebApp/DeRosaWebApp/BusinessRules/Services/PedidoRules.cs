@@ -7,6 +7,8 @@ namespace DeRosaWebApp.BusinessRules.Services
 {
     public class PedidoRules : IPedidoRules
     {
+        // Não use AppDbContext aqui, por questões segurança
+
         public void VerificaComemorativosSeteDiasAntecedencia(List<Produto> produtosEmPedido, DateTime dataEntrega)
         {
             foreach (var item in produtosEmPedido)

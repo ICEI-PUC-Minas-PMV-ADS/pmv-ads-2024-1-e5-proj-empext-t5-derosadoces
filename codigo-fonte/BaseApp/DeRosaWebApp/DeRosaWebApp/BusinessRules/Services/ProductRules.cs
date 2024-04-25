@@ -6,6 +6,8 @@ namespace DeRosaWebApp.BusinessRules.Services
 {
     public class ProductRules : IProductRules
     {
+        // Não use AppDbContext aqui, por questões de segurança
+
         private readonly IProductService _productService;
         public ProductRules(IProductService productService)
         {

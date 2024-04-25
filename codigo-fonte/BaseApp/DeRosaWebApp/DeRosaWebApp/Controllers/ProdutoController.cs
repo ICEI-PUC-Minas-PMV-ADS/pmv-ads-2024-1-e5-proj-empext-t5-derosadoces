@@ -1,4 +1,5 @@
 ﻿using DeRosaWebApp.BusinessRules.Interfaces;
+using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -32,27 +33,38 @@ namespace DeRosaWebApp.Controllers
         public async Task<IActionResult> Produtos()
         {
             var produtos = await _produtos.GetAll();
-            if (produtos is not null)
+            var categorias = _categorias.GetAllCategorias();
+            if (produtos is not null && categorias is not null)
             {
-                return View(produtos.Value);
+                TodosProdutosViewModel todosProdutosViewModel = new TodosProdutosViewModel()
+                {
+                    _Produtos = produtos.Value,
+                    _Categorias = categorias
+                };
+                return View(todosProdutosViewModel);
             }
-
+            ViewBag.Title = "Todos os Produtos";
             return produtos.Result;
         }
         #endregion
         #region Produto pela categoria
-        public async Task<IActionResult> ProdutosByCategoria(int idCategoria)
+        public async Task<IActionResult> ProdutoByCategoria(int cod_categoria)
         {
-            var prodCatg = await _categorias.GetByCategoria(idCategoria);
+            var prodCatg = await _categorias.GetByCategoria(cod_categoria);
+            string categoriaNome = _categorias.GetNameById(cod_categoria);
+
+            var categorias = _categorias.GetAllCategorias();
             if (prodCatg is null)
             {
                 ModelState.AddModelError("Erro", "Nenhum produto com essa categoria");
             }
-            ProdutoViewModel produtoViewModel = new ProdutoViewModel()
+            TodosProdutosViewModel todosProdutosViewModel = new TodosProdutosViewModel()
             {
-                Produtos = prodCatg.Value
+                _Produtos = prodCatg.Value,
+                _Categorias = categorias
             };
-            return View(produtoViewModel);
+            ViewBag.Title = $"Produtos com a categoria {categoriaNome}";
+            return View("Produtos",todosProdutosViewModel);
         }
     }
     #endregion

@@ -13,12 +13,13 @@ namespace DeRosaWebApp.Tests.Controllers
     {
         private ProdutoController _produtoController;
         private Mock<IProductService> _mockProdutoService;
+        private IPedidoService _pedidoService;
 
         [SetUp]
         public void Setup()
         {
             _mockProdutoService = new Mock<IProductService>();
-            _produtoController = new ProdutoController(_mockProdutoService.Object, null);
+            _produtoController = new ProdutoController(_mockProdutoService.Object, null,_pedidoService);
         }
 
         [Test]

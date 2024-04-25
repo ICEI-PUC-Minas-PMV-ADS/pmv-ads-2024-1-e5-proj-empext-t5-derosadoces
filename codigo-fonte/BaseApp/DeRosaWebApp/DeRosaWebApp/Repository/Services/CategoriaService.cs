@@ -60,6 +60,13 @@ namespace DeRosaWebApp.Repository.Services
             }
         }
         #endregion
+        #region Pegar somente nome da categoria
+        public string GetNameById(int idCategoria)
+        {
+            string nome = _context.Categorias.FirstOrDefault(i => i.IdCategoria == idCategoria).CategoriaNome;
+            return nome;
+        }
+        #endregion
         #region Deletar
         public async Task Delete(int id)
         {

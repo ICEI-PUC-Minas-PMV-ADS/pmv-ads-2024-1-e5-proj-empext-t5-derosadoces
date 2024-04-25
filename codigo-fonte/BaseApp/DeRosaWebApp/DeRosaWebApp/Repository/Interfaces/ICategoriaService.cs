@@ -13,5 +13,6 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task Delete(int id);
         Task<bool> Any(int id);
         Task Add(Categoria categoria);
+        string GetNameById(int idCategoria);
     }
 }
