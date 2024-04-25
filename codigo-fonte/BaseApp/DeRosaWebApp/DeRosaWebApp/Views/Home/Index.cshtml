@@ -77,10 +77,14 @@
 <script>
     window.onload = function () {
         var message = '@TempData["LogoutMessage"]'
+        var message2 = '@TempData["LoginMessage"]'
         if (message) {
             alert(message);
         }
+        else if (message2) {
+            alert(message2);
+        }
     };
 
-</script>
 
+</script>

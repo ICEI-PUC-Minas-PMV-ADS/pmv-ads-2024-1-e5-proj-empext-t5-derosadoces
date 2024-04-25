@@ -71,6 +71,7 @@ namespace DeRosaWebApp.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, usuarioViewModel.Senha, false, false);
                     if (result.Succeeded)
                     {
+                        TempData["LoginMessage"] = $"Seja bem-vindo novamente {usuarioViewModel.Usuario}!";
                         return RedirectToAction("Index", "Home");
                     }
                 }

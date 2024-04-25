@@ -66,11 +66,13 @@ namespace DeRosaWebApp.Controllers
                     return RedirectToAction("Login", "Usuario");
                 }
             }
-            catch(DeRosaExceptionValidation e)
+
+            catch (DeRosaExceptionValidation)
             {
-                ViewBag.Erro = e.Message;
-                return View("Erro");
-            } 
+                TempData["ErroAdicionar"] = "Quantidade superior a disponivel do produto, diminua a quantidade.";
+                return RedirectToAction("ProdutoDetalhe", "Produto", new { cod_produto = cod_produto });
+            }
+
         }
         #endregion
         #region
