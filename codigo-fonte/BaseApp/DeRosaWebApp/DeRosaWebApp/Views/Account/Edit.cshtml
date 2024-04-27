@@ -5,54 +5,68 @@
 }
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="card1">
         <div class="card">
-            <div class="card-header">Edit</div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                </svg>
+            </div>
             <div class="card-body">
-                <h4>Cliente</h4>
+                <h4 class="title-edit">Editar Perfil</h4>
                 <hr />
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
-                        <label asp-for="Nome" class="control-label"></label>
+                        <label asp-for="Nome" class="control-label subtitle-edit"></label>
                         <input asp-for="Nome" class="form-control" />
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="NomeUsuario" class="control-label"></label>
+                        <label asp-for="NomeUsuario" class="control-label subtitle-edit"></label>
                         <input asp-for="NomeUsuario" class="form-control" />
                         <span asp-validation-for="NomeUsuario" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Telefone" class="control-label"></label>
+                        <label asp-for="Telefone" class="control-label subtitle-edit"></label>
                         <input asp-for="Telefone" class="form-control" />
                         <span asp-validation-for="Telefone" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
+                        <label asp-for="Email" class="control-label subtitle-edit"></label>
                         <input asp-for="Email" class="form-control" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
+
                     <div class="form-group">
-                        <label asp-for="DateNasc" class="control-label">Data de nascimento: @Model.DateNasc.Date.ToString("dd/MM/yyyy")</label>
+                        <label asp-for="Senha" class="control-label subtitle-edit"></label>
+                        <input asp-for="Senha" class="form-control" type="password" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="DateNasc" class="control-label subtitle-edit">Data de nascimento: @Model.DateNasc.Date.ToString("dd/MM/yyyy")</label>
                         <input asp-for="DateNasc" value="@Model.DateNasc.Date" class="form-control" />
                         <span asp-validation-for="DateNasc" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <h4>Endereços</h4>
-                        <a class="btn btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar outro endereço</a>
+                        <div class="testando">
+                            <h4 class="subtitle-edit">Endereços</h4>
+                            <a class="btn-add-endereço btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar</a>
+                        </div>
+
                         @foreach (Endereco endereco in Model._Enderecos)
                         {
-                            <div style="margin-top:20px; border: 1px solid lightgray; border-radius:6px;">
+                            <div style="margin-top:10px; border: 1px solid lightgray; padding: 15px;">
                                 <label asp-for="@endereco.Id" style="display:none;"></label>
-                                <label asp-for="@endereco.Logradouro">@endereco.Logradouro</label>
-                                <label asp-for="@endereco.Numero">@endereco.Numero</label>
-                                <label asp-for="@endereco.Complemento">@endereco.Complemento</label>
-                                <label asp-for="@endereco.Bairro">@endereco.Bairro</label>
-                                <label asp-for="@endereco.Cidade">@endereco.Cidade</label>
-                                <label asp-for="@endereco.UF">@endereco.UF</label>
-                                <label asp-for="@endereco.CEP">@endereco.CEP</label>
+                                <span asp-for="@endereco.Logradouro">@endereco.Logradouro</span>,
+                                <span asp-for="@endereco.Numero">@endereco.Numero</span>,
+                                <span asp-for="@endereco.Complemento">@endereco.Complemento</span>.
+                                <span asp-for="@endereco.Bairro">@endereco.Bairro</span>
+                                <span asp-for="@endereco.Cidade">@endereco.Cidade</span> -
+                                <span asp-for="@endereco.UF">@endereco.UF</span>,
+                                <span asp-for="@endereco.CEP">@endereco.CEP</span> <br />
                                 <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
                             </div>
                         }

@@ -488,3 +488,67 @@ p {
 }
 
 /*FIM TELA PRODUTO DETALHE*/
+
+/* INÍCIO TELA EDIT DO PERFIL*/
+
+.card1 {
+    /*border: solid;*/
+    /*width: 50%;*/
+    justify-content: center;
+    display: flex;
+}
+
+.card {
+    /*border: solid 2px red;*/
+    width: 50%;
+    padding: 5%;
+}
+
+.card-header {
+    background-color: white;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.title-edit {
+    padding: 0;
+    margin: 0;
+    text-align: initial;
+    font-size: 1.2rem;
+}
+
+.subtitle-edit {
+    padding: 0;
+    margin: 0;
+    text-align: initial;
+    font-size: 0.9rem;
+}
+
+.title-endereço {
+    padding: 0;
+    margin: 0;
+    text-align: initial;
+    font-size: 0.9rem;
+}
+
+.testando {
+    /*border: solid red;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-add-endereço {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 5vw;
+    height: 3vh;
+}
+
+    .btn-add-endereço:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }

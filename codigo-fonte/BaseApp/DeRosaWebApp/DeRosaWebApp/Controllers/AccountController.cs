@@ -1,5 +1,4 @@
-﻿
-using DeRosaWebApp.Context;
+﻿using DeRosaWebApp.Context;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
@@ -35,14 +34,14 @@ namespace DeRosaWebApp.Controllers
     IEmailService emailService,
     SignInManager<IdentityUser> signInManagerCliente,
     IEnderecoService enderecoService,
-    RoleManager<IdentityRole> roleManager) 
+    RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _clienteService = clienteService;
             _userManagerCliente = userManagerCliente;
             _signInManagerCliente = signInManagerCliente;
-            _roleManager = roleManager; 
+            _roleManager = roleManager;
             _emailService = emailService;
             _enderecoService = enderecoService;
         }
@@ -116,6 +115,7 @@ namespace DeRosaWebApp.Controllers
                 Email = cliente.Email,
                 Telefone = cliente.Telefone,
                 DateNasc = cliente.DateNasc.Date,
+                Senha = cliente.Senha,
                 _Enderecos = enderecos,
             };
             HttpContext.Session.SetString("AddEndereco", "MinhaConta");
@@ -144,6 +144,11 @@ namespace DeRosaWebApp.Controllers
                 user.Email = clienteEditViewModel.Email;
                 user.NormalizedEmail = clienteEditViewModel.Email.ToUpper();
                 user.PhoneNumber = clienteEditViewModel.Telefone;
+                if (clienteEditViewModel.Senha != null)
+                {
+                    user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, clienteEditViewModel.Senha);
+                }
+
 
 
                 var userId = user.Id;
@@ -160,6 +165,10 @@ namespace DeRosaWebApp.Controllers
                 cliente.Email = clienteEditViewModel.Email;
                 cliente.Telefone = clienteEditViewModel.Telefone;
                 cliente.DateNasc = clienteEditViewModel.DateNasc.Date;
+                if (clienteEditViewModel.Senha != null)
+                {
+                    cliente.Senha = _userManager.PasswordHasher.HashPassword(user, clienteEditViewModel.Senha);
+                }
 
                 foreach (Endereco e in clienteEditViewModel._Enderecos)
                 {

@@ -18,6 +18,10 @@ namespace DeRosaWebApp.ViewModel
         [Required(ErrorMessage = "O email é obrigatório!")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage = "No minimo 8 caracteres!")]
+        [StringLength(200, ErrorMessage = "No máximo 200 caracteres!")]
+        public string Senha { get; set; }
         [Required(ErrorMessage = "A data de nascimento é obrigatória!")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
