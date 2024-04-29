@@ -277,26 +277,32 @@ namespace DeRosaWebApp.Repository.Services
             var pedidosExpirados = _context.Pedidos.Where(p => p.DataExpiracao <= DateTime.Now).ToList();
             if(pedidosExpirados.Count > 0)
             {
-
-            }
-            foreach (var pedido in pedidosExpirados)
-            {
-                _context.Pedidos.Remove(pedido);
-                var produtoDetalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == pedido.Cod_Pedido).ToList();
-                if (produtoDetalhe is not null)
+                foreach (var pedido in pedidosExpirados)
                 {
-                    foreach (var detail in produtoDetalhe)
+                    if (!pedido.Pago)
                     {
-                        _context.PedidoDetalhes.Remove(detail);
-                        var produto =  await _context.Produtos.FindAsync(detail.Cod_Produto);
-                        var quantidade = produto.EmEstoque + detail.Quantidade;
-                        produto.EmEstoque = quantidade;
-                        _context.Entry(produto).Property(x => x.EmEstoque).IsModified = true;
+                        _context.Pedidos.Remove(pedido);
+                        var produtoDetalhe = _context.PedidoDetalhes.Where(p => p.Cod_Pedido == pedido.Cod_Pedido).ToList();
+                        if (produtoDetalhe is not null)
+                        {
+                            foreach (var detail in produtoDetalhe)
+                            {
+                                _context.PedidoDetalhes.Remove(detail);
+                                var produto = await _context.Produtos.FindAsync(detail.Cod_Produto);
+                                var quantidade = produto.EmEstoque + detail.Quantidade;
+                                produto.EmEstoque = quantidade;
+                                _context.Entry(produto).Property(x => x.EmEstoque).IsModified = true;
+                            }
+                        }
+
                     }
+                  
                 }
+                await _context.SaveChangesAsync();
+                return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
             }
-            await _context.SaveChangesAsync();
-            return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
+            return new NotFoundObjectResult("Nenhum pedido expirado");
+          
         }
         #endregion
         #region Get Pedido Detalhe pelo ID
