@@ -51,6 +51,33 @@ namespace DeRosaWebApp.Controllers
         [HttpGet]
         public IActionResult Checkout()
         {
+            var produtosCarrinho = _carrinho.GetItemCarrinhos();
+            foreach (var produto in produtosCarrinho)
+            {
+                var categoria = _categoriaService.GetById(produto.Produto.IdCategoria);
+                if (categoria is not null && !categoria.Result.CategoriaNome.Equals("Comemorativos"))
+                {
+                    DateTime dataAtual = DateTime.Today;
+                    int diasAteSexta = ((int)DayOfWeek.Friday - (int)dataAtual.DayOfWeek + 7) % 7;
+                    DateTime proximaSexta = DateTime.Today;
+                    if (diasAteSexta <= 1)
+                    {
+                        proximaSexta = dataAtual.AddDays(diasAteSexta + 7);
+                    }
+                    else
+                    {
+                        proximaSexta = dataAtual.AddDays(diasAteSexta);
+                    }
+                    ViewBag.EntregaPedidoNormal = true;
+                    ViewBag.DataEntrega = proximaSexta.ToString().Substring(0, 10);
+                }
+
+                //if (produto.Produto.IdCategoria != 20)
+                //{
+                //    ViewBag.EntregaPedidoNormal = true;
+
+                //}
+            }
             return View();
         }
         #endregion
@@ -61,7 +88,7 @@ namespace DeRosaWebApp.Controllers
         public async Task<IActionResult> Checkout(DateTime dataParaEntregar)
         {
             try
-            {  
+            {
                 int totalItemsPedido = 0;
                 double precoTotalPedido = 0.0;
 
@@ -88,7 +115,7 @@ namespace DeRosaWebApp.Controllers
                 var user_id = _userMananger.GetUserId(User);
                 var getCliente = await _clienteService.GetClienteByUserId(user_id);
                 var getEndereco = await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
-                
+
 
                 pedido.Bairro = getEndereco.Bairro;
                 pedido.Cep = getEndereco.CEP;
@@ -102,10 +129,30 @@ namespace DeRosaWebApp.Controllers
                 pedido.TotalPedido = precoTotalPedido;
                 pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
                 pedido.Id_User = user_id;
-                pedido.DataParaEntregar = dataParaEntregar;
+                if (dataParaEntregar.ToString() == "01/01/0001 00:00:00")
+                {
+                    DateTime dataAtual = DateTime.Today;
+                    int diasAteSexta = ((int)DayOfWeek.Friday - (int)dataAtual.DayOfWeek + 7) % 7;
+                    DateTime proximaSexta = dataAtual;
+                    if (diasAteSexta <= 1)
+                    {
+                        proximaSexta = dataAtual.AddDays(diasAteSexta + 7);
+                    }
+                    else
+                    {
+                        proximaSexta = dataAtual.AddDays(diasAteSexta + 7);
+
+                    }
+                    pedido.DataParaEntregar = proximaSexta;
+
+                }
+                else
+                {
+                    pedido.DataParaEntregar = dataParaEntregar;
+                }
 
                 _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(ProdutosComemorativos, dataParaEntregar);
-                
+
                 var result = await _pedidoService.CriarPedido(pedido, user_id);
                 if (result is not null)
                 {
@@ -126,7 +173,7 @@ namespace DeRosaWebApp.Controllers
                 ViewBag.Erro = ex.Message;
                 return View();
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 ViewBag.Erro = "Volte a página anterior e selecione um endereço!";
                 return View();
