@@ -4,6 +4,7 @@
     <div class="container">
         <h4>Escolha um endereço:</h4>
         <div class="card-body">
+            <h6 class="text-danger">@TempData["Erro"]</h6>
             @foreach (Endereco endereco in Model)
             {
                 <div class="container-escolha-endereco" onclick="selecionarEndereco(this, @endereco.Id)">

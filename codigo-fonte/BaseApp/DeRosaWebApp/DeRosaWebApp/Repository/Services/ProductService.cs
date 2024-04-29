@@ -129,6 +129,7 @@ namespace DeRosaWebApp.Repository.Services
                 productExist.Preco = produto.Preco;
                 productExist.PrecoSecundario = produto.PrecoSecundario;
                 productExist.ProdutoDaSemana = produto.ProdutoDaSemana;
+                productExist.Indisponivel = produto.Indisponivel;
 
                 _context.Produtos.Update(productExist);
                 await _context.SaveChangesAsync();

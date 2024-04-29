@@ -20,14 +20,13 @@
 
         <h2 class="product-price">R$@Model.Value.Preco.ToString("F2", CultureInfo.InvariantCulture)</h2>
 
-        <p class="stock-status"> Em estoque: @Model.Value.EmEstoque</p>
-
         @{
             int quantidade = 1;
         }
 
-        @if (Model.Value.EmEstoque > 0)
+        @if (Model.Value.EmEstoque > 0 && !Model.Value.Indisponivel)
         {
+            <p class="stock-status"> Em estoque: @Model.Value.EmEstoque</p>
             <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
                 <div class="form-group">
                     <label for="quantidade">Quantidade </label>
@@ -38,8 +37,8 @@
         }
         else
         {
-            <p class="product-unavailable">Produto indisponível no momento, deseja agendar para a próxima semana?</p>
-            <a class="btn-schedule">Agendar para outra semana</a>
+            <p class="product-unavailable">Produto indisponível no momento.</p>
+           // <a class="btn-schedule">Agendar para outra semana</a>
         }
     </div>
 </div>

@@ -298,13 +298,13 @@ p {
 /* FIM TELA HOME */
 
 
-.form-login {
-    width: 100%;
-    margin-top: 5rem;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.form-login{
+    width:100%;
+    margin-top:5rem;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .input-login {
@@ -313,50 +313,50 @@ p {
     margin: auto;
 }
 
-.input-senha-login {
-    display: flex;
+.input-senha-login{
+    display:flex;
 }
 
-    .input-senha-login button {
-        border: none;
-        background: none
-    }
+.input-senha-login button{
+    border:none;
+    background:none
+}
 
 .btn-esqueci-senha {
     border: none;
     background: none;
     color: red;
     font-size: 0.8rem;
-    margin-top: 10px;
+    margin-top:10px;
 }
 
 
 /* TELA CADASTRO */
 
-.linha-vertical {
-    width: 4px;
-    height: 100px;
-    background-color: red;
+.linha-vertical{
+    width:4px;
+    height:100px;
+    background-color:red;
 }
 
 .container-cadastro {
     width: 100%;
     height: 100%;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 20px;
+    display:flex;
+    text-align:center;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:20px;
 }
 
-.form-control {
+.form-control{
     border: none;
-    border-radius: 0;
+    border-radius:0;
     border-bottom: 1px solid black;
 }
 
-.container-input {
-    margin: 4px;
+.container-input{
+    margin:4px;
 }
 
 .form-cadastro {
@@ -366,28 +366,28 @@ p {
     width: 100%;
 }
 
-.input-pequeno {
-    width: 33%;
-    height: auto;
+.input-pequeno{
+    width:33%;
+    height:auto;
 }
 
-.btn-cadastrar-container {
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+.btn-cadastrar-container{
+    width:100%;
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
 }
 
-.btn-cadastro {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    width: 40%;
+.btn-cadastro{
+    font-size:1.2rem;
+    line-height:1.2rem;
+    width:40%;
 }
 
 /* FIM TELA CADASTRO*/
 
-.dropdown-navbar {
-    list-style: none
+.dropdown-navbar{
+    list-style:none
 }
 
 .nav-link.dropdown-toggle::after {
@@ -401,6 +401,7 @@ p {
     max-width: 1200px;
     margin: auto;
     padding-top: 100px
+
 }
 
 .product-image img,
@@ -551,28 +552,3 @@ p {
         background-color: rgb(225, 191, 56);
         color: white;
     }
-
-/*INICIO TELA ENDERECO*/
-
-.container_botao_voltar {
-    display: flex;
-    justify-content: center;
-}
-
-.container-escolha-endereco {
-    margin: 1rem;
-    padding: 2rem;
-    border: 1px solid black;
-    cursor: pointer;
-}
-
-.container-escolha-botoes {
-    display: flex;
-    justify-content: space-around;
-}
-
-.btn-endereco {
-    width: auto;
-}
-
-/*FINAL TELA ENDERECO*/

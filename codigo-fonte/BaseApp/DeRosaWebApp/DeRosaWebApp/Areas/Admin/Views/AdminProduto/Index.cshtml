@@ -60,6 +60,9 @@
                 <th class="d-lg-table-cell border-1">
                     @Html.DisplayNameFor(model => model.ProdutoDaSemana)
                 </th>
+                <th class="d-lg-table-cell border-1">
+                    @Html.DisplayNameFor(model => model.Indisponivel)
+                </th>
 
                 <th></th>
             </tr>
@@ -102,6 +105,9 @@
                     </td>
                     <td class="d-print-table-cell border-1">
                         @Html.DisplayFor(modelItem => item.ProdutoDaSemana)
+                    </td>
+                    <td class="d-print-table-cell border-1">
+                        @Html.DisplayFor(modelItem => item.Indisponivel)
                     </td>
                     <td class="flex-column border-1">
                         <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Edit" asp-route-id="@item.Cod_Produto">Editar</a>
