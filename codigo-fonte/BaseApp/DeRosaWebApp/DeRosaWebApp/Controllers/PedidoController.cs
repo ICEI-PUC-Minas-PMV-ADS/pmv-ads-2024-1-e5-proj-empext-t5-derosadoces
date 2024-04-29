@@ -116,7 +116,7 @@ namespace DeRosaWebApp.Controllers
                 var getCliente = await _clienteService.GetClienteByUserId(user_id);
                 var getEndereco = await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
 
-
+                pedido.Logradouro = getEndereco.Logradouro;
                 pedido.Bairro = getEndereco.Bairro;
                 pedido.Cep = getEndereco.CEP;
                 pedido.Cidade = getEndereco.Cidade;

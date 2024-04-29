@@ -1,4 +1,5 @@
 ﻿@using DeRosaWebApp.Models;
+@using System.Globalization;
 @model IEnumerable<Pedido>
 
 @{
@@ -63,7 +64,7 @@
                     @Html.DisplayFor(modelItem => item.TotalItensPedido)
                 </td>
                 <td class="d-print-table-cell border-1">
-                    R$@Html.DisplayFor(modelItem => item.TotalPedido)
+                   R$@item.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)
                 </td>
                 @if(item.Entregue)
                 {

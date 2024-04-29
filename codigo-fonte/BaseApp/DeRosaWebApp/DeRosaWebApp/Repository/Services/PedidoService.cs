@@ -190,7 +190,7 @@ namespace DeRosaWebApp.Repository.Services
                     pedidoExist.TotalPedido = pedido.TotalPedido;
                     pedidoExist.Entregue = pedido.Entregue;
                     pedidoExist.Concluido = pedido.Concluido;
-                    pedidoExist.Pago = pedido.Pago;
+                    pedidoExist.Pago = true;
 
                     _context.Pedidos.Update(pedidoExist);
                     await _context.SaveChangesAsync();

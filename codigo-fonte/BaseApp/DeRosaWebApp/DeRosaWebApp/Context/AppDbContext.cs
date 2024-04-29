@@ -20,7 +20,7 @@ namespace DeRosaWebApp.Context
         public DbSet<Endereco> Enderecos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Data Source=Erick_PC;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True;MultipleActiveResultSets=True;");
         }                   // exemplo: connectionString: @"Data Source=DESKTOP-QG1NG7E;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True"
     }
 }

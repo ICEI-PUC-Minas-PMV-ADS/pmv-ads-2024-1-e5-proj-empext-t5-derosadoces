@@ -1,5 +1,6 @@
 ﻿﻿@using DeRosaWebApp.Areas.Admin.ViewModel;
 @using DeRosaWebApp.Models;
+@using System.Globalization;
 @model PedidoViewModel;
 
 @{
@@ -52,7 +53,7 @@
             @Html.DisplayNameFor(model => model._Pedido.TotalPedido)
         </dt>
         <dd class="col-sm-10" style="color:dodgerblue">
-            @Html.DisplayFor(model => model._Pedido.TotalPedido)
+            R$@Model._Pedido.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
     </dl>
     <h3>Produto</h3>

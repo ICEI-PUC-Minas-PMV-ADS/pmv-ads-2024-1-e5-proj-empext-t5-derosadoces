@@ -67,6 +67,7 @@ namespace DeRosaWebApp.Models
         [Range(0.01, double.MaxValue, ErrorMessage = "O total do pedido deve ser maior que zero.")]
         public double TotalPedido { get; set; }
 
+        [DisplayName("Já foi Preparado")]
         public bool Concluido { get; set; }
         public bool Entregue { get; set; }
         public bool Pago { get; set; }
