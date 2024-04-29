@@ -265,15 +265,7 @@ namespace DeRosaWebApp.Repository.Services
 
         public async Task<ActionResult<Pedido>> VerificarPedidosExpirados()
         {
-            var listItemCarrinho = _carrinho.GetItemCarrinhos();
-            foreach (var item in listItemCarrinho)
-            {
-                if (item is not null)
-                {
-                    _context.ItemCarrinhos.Remove(item);
-                    await _context.SaveChangesAsync();
-                }
-            }
+           
             var pedidosExpirados = _context.Pedidos.Where(p => p.DataExpiracao <= DateTime.Now).ToList();
             if(pedidosExpirados.Count > 0)
             {
@@ -297,6 +289,15 @@ namespace DeRosaWebApp.Repository.Services
 
                     }
                   
+                }
+                var listItemCarrinho = _carrinho.GetItemCarrinhos();
+                foreach (var item in listItemCarrinho)
+                {
+                    if (item is not null)
+                    {
+                        _context.ItemCarrinhos.Remove(item);
+                        await _context.SaveChangesAsync();
+                    }
                 }
                 await _context.SaveChangesAsync();
                 return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");

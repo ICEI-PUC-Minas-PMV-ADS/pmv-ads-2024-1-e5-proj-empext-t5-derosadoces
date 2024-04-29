@@ -24,7 +24,6 @@ namespace DeRosaWebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> ProdutoDetalhe(int cod_produto)
         {
-            await _pedidoService.VerificarPedidosExpirados();
             var produto = await _produtos.GetById(cod_produto);
             return View(produto);
         }
