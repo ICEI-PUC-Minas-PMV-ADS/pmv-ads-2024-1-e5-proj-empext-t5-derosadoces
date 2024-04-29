@@ -237,7 +237,7 @@ namespace DeRosaWebApp.Controllers
                     mensagem.Append("<p>Atenciosamente,<br>Equipe de Suporte</p>");
                     await _emailService.SendEmailAsync(usuario.Email,
                         "Redefinição de Senha", "", mensagem.ToString());
-                    return View(nameof(EmailRedefinicaoEnviado));
+                    return View(nameof(EmailEnviado));
                 }
                 else
                 {
@@ -252,7 +252,7 @@ namespace DeRosaWebApp.Controllers
             }
         }
 
-        public IActionResult EmailRedefinicaoEnviado()
+        public IActionResult EmailEnviado()
         {
             return View();
         }
