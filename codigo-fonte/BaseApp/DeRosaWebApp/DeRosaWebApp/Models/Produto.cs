@@ -45,6 +45,8 @@ namespace DeRosaWebApp.Models
 
         [DisplayName("Produto da Semana")]
         public bool ProdutoDaSemana { get; set; }
+        [DisplayName("Bloquear pedidos deste produto")]
+        public bool Indisponivel { get; set; }
 
     }
 }

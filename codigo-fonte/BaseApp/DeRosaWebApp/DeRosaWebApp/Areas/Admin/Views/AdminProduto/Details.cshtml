@@ -53,9 +53,18 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
         </dt>
+
         <dd class = "col-sm-10">
             @Model._Produto.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.Indisponivel)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.Indisponivel)
+        </dd>
+
        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model._Categoria.IdCategoria)

@@ -63,6 +63,11 @@
                 <input asp-for="@Model.Produto.ProdutoDaSemana" class="form-check-input" />
                 <span asp-validation-for="@Model.Produto.ProdutoDaSemana" class="text-danger"></span>
             </div>
+            <div class="form-check">
+                <label asp-for="@Model.Produto.Indisponivel" class="form-check-label"></label>
+                <input asp-for="@Model.Produto.Indisponivel" class="form-check-input" />
+                <span asp-validation-for="@Model.Produto.Indisponivel" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -1,4 +1,5 @@
-﻿using DeRosaWebApp.Models;
+﻿using DeRosaWebApp.BusinessRules.Validations;
+using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.Repository.Services;
 using Microsoft.AspNetCore.Identity;
@@ -50,7 +51,7 @@ namespace DeRosaWebApp.Controllers
             {
                 return RedirectToAction("Edit", "Account");
             }
-            return View(endereco);   
+            return View(endereco);
         }
         [HttpGet]
         public async Task<IActionResult> EscolhaEndereco()
@@ -66,27 +67,40 @@ namespace DeRosaWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> EscolhaEndereco(int selectedAddressId)
         {
-            var user_id = _userManager.GetUserId(User);
-
-            if (User.IsInRole("Admin"))
+            try
             {
-                Cliente adminToClient = new Cliente()
+                if (selectedAddressId == 0)
                 {
-                    Nome = "admin",
-                    NomeUsuario = "admin@localhost",
-                    Email = "admin@gmail.com",
-                    Id_User = user_id,
-                    IdEndereco = selectedAddressId,
-                    CPF = "00000000000",
-                    Telefone = "9999999999",
-                    Senha = "Hash",
-                    DateNasc = DateTime.Now.Date,
-                };
-               await _clienteService.Add(adminToClient);
+                    throw new DeRosaExceptionValidation("Selecione um endereço!");
+                }
+                var user_id = _userManager.GetUserId(User);
+
+                if (User.IsInRole("Admin"))
+                {
+                    Cliente adminToClient = new Cliente()
+                    {
+                        Nome = "admin",
+                        NomeUsuario = "admin@localhost",
+                        Email = "admin@gmail.com",
+                        Id_User = user_id,
+                        IdEndereco = selectedAddressId,
+                        CPF = "00000000000",
+                        Telefone = "9999999999",
+                        Senha = "Hash",
+                        DateNasc = DateTime.Now.Date,
+                    };
+                    await _clienteService.Add(adminToClient);
+                }
+                var cliente = await _clienteService.GetClienteByUserId(user_id);
+                await _clienteService.UpdateOnlyEnderecoId(selectedAddressId, cliente.Cod_Cliente);
+                return RedirectToAction("Checkout", "Pedido");
             }
-            var cliente = await _clienteService.GetClienteByUserId(user_id);
-            await _clienteService.UpdateOnlyEnderecoId(selectedAddressId, cliente.Cod_Cliente);
-            return RedirectToAction("Checkout", "Pedido");
+            catch (DeRosaExceptionValidation e)
+            {
+                TempData["Erro"] = e.Message;
+                return RedirectToAction("EscolhaEndereco", "Endereco");
+            }
+
         }
         [HttpGet]
         public IActionResult AdicionarEndereco(string origem)
