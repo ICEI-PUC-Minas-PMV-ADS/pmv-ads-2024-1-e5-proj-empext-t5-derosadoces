@@ -6,23 +6,33 @@
         <div class="card-body">
             @foreach (Endereco endereco in Model)
             {
-                <div style="margin-top: 20px">
+                <div class="container-escolha-endereco" onclick="selecionarEndereco(this, @endereco.Id)">
+                    <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="desmarcarOutrosRadios(this.value)">
                     <label asp-for="@endereco.Id" style="display:none">@endereco.Id</label>
                     <label>@endereco.Logradouro, @endereco.Numero (@endereco.Complemento), @endereco.Bairro, @endereco.Cidade, @endereco.UF, @endereco.CEP</label>
                     <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
-                    <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="desmarcarOutrosRadios(this.value)">
                 </div>
             }
         </div>
+        <div class="container-escolha-botoes">
+            <input class="btn btn-success btn-endereco" type="submit" value="Confirmar endereço" />
+            <a class="btn btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar novo</a>
+        </div>
     </div>
-    <input class="btn btn-success" type="submit" value="Confirmar endereço" />
-    <a class="btn btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar outro endereço</a>
 </form>
 
 @section Scripts {
     <script>
         function desmarcarOutrosRadios(idSelecionado) {
-            console.log("Endereço selecionado: " + idSelecionado); 
+            console.log("Endereço selecionado: " + idSelecionado);
+        }
+
+        function selecionarEndereco(elemento, enderecoId) {
+            const radioButtons = document.querySelectorAll('input[name="selectedAddressId"]');
+            radioButtons.forEach(radioButton => radioButton.checked = false);
+
+            const radioButton = elemento.querySelector('input[name="selectedAddressId"]');
+            radioButton.checked = true;
         }
     </script>
 }

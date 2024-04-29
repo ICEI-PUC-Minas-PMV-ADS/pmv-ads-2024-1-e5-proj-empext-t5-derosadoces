@@ -4,10 +4,13 @@
     ViewData["Title"] = "Editar Endereço";
 }
 
-<h1>Editar Endereço</h1>
-
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="col-md-12 container_botao_voltar">
+            <a class="btn btn-primary" onclick="window.history.back();">
+                Voltar
+            </a>
+        </div>
         <form asp-action="EditEndereco">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -47,10 +50,10 @@
                 <input asp-for="Bairro" id="bairro" class="form-control" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
-               <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
+            <input type="hidden" asp-for="Id_User" value="@Model.Id_User" />
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <input type="submit" class="btn btn-primary" value="Atualizar Endereço" />
             </div>
         </form>
     </div>
