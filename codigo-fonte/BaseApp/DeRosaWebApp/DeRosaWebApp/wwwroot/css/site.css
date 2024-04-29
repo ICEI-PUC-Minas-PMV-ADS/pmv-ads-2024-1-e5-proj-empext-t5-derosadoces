@@ -552,3 +552,29 @@ p {
         background-color: rgb(225, 191, 56);
         color: white;
     }
+
+
+/*INICIO TELA ENDERECO*/
+
+.container_botao_voltar {
+    display: flex;
+    justify-content: center;
+}
+
+.container-escolha-endereco {
+    margin: 1rem;
+    padding: 2rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.container-escolha-botoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-endereco {
+    width: auto;
+}
+
+/*FINAL TELA ENDERECO*/
