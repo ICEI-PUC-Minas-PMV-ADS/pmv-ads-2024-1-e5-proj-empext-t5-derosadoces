@@ -84,6 +84,8 @@ body {
     height: 4vh;
     margin-bottom: 10px;
     margin-right: 10px;
+    justify-content:center;
+    align-items:center;
 }
 
     .btn1:hover {
@@ -492,22 +494,27 @@ p {
 /* INÍCIO TELA EDIT DO PERFIL*/
 
 .card1 {
-    /*border: solid;*/
-    /*width: 50%;*/
     justify-content: center;
     display: flex;
+    margin: 80px
 }
 
 .card {
-    /*border: solid 2px red;*/
-    width: 50%;
     padding: 5%;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
 }
 
 .card-header {
     background-color: white;
     border: none;
     margin-bottom: 20px;
+}
+
+.card-body{
+    /*width:80%;*/
 }
 
 .title-edit {
@@ -544,8 +551,11 @@ p {
     font-size: 0.8rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 5vw;
-    height: 3vh;
+    text-decoration: none;
+    align-items:center;
+    justify-content: center;
+    display: flex;
+    padding: 3px;
 }
 
     .btn-add-endereço:hover {
@@ -554,8 +564,22 @@ p {
     }
 
 
-/*INICIO TELA ENDERECO*/
+.btn-salvar-edit {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+    .btn-salvar-edit:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
 
+
+
+/*INICIO TELA ENDERECO*/
 .container_botao_voltar {
     display: flex;
     justify-content: center;
