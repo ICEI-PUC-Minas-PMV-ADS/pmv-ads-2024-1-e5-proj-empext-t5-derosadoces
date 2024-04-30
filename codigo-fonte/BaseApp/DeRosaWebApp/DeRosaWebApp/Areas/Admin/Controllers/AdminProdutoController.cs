@@ -1,8 +1,10 @@
 ﻿using DeRosaWebApp.Areas.Admin.ViewModel;
+using DeRosaWebApp.Configuration.ConfigImages;
 using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using ReflectionIT.Mvc.Paging;
 using System.Data;
 
@@ -15,10 +17,15 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
     {
         private readonly IProductService _productService;
         private readonly ICategoriaService _categoriaService;
-        public AdminProdutoController(IProductService productService, ICategoriaService categoriaService)
+        private readonly ConfigurationImages _myConfig;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public AdminProdutoController(IProductService productService, ICategoriaService categoriaService,
+            IWebHostEnvironment hostingEnvironment, IOptions<ConfigurationImages> myConfiguration)
         {
             _productService = productService;
             _categoriaService = categoriaService;
+            _myConfig = myConfiguration.Value;
+            _hostingEnvironment = hostingEnvironment;
         }
 
 
@@ -78,22 +85,28 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         [Route("{controller}/Edit/{id}")]
         public async Task<IActionResult> Edit(int id)
         {
-
-
             var produto = await _productService.GetById(id);
-            var categorias = _categoriaService.GetAllCategorias();
+            var categorias = _categoriaService.GetAllCategorias();  // Certifique-se de que este método é assíncrono
             if (produto == null)
             {
                 return NotFound();
             }
+
+            // Carregar imagens do diretório
+            var imagesPath = Path.Combine(_hostingEnvironment.WebRootPath, _myConfig.NomePastaImagensProdutos);
+            DirectoryInfo dir = new DirectoryInfo(imagesPath);
+            FileInfo[] files = dir.GetFiles("*.*", SearchOption.TopDirectoryOnly).Where(f => f.Name.EndsWith(".jpg") || f.Name.EndsWith(".png") || f.Name.EndsWith(".gif")).ToArray();
+
             EditProdutoViewModel editProdutoViewModel = new EditProdutoViewModel()
             {
                 Produto = produto.Value,
-                ListCategorias = categorias
+                ListCategorias = categorias,
+                AvailableImages = files.Select(file => file.Name).ToList()
             };
 
             return View(editProdutoViewModel);
         }
+
 
 
         [HttpPost]

@@ -4,6 +4,20 @@
 @{
     ViewData["Title"] = "Editar";
 }
+<style>
+    .img-thumbnail {
+        margin: 5px;
+        transition: transform 0.3s;
+    }
+
+        .img-thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+    .img-selected {
+        border: 2px solid #007bff; /* Azul do bootstrap */
+    }
+</style>
 
 <h1>Editar</h1>
 
@@ -31,10 +45,20 @@
                 <span asp-validation-for="@Model.Produto.EmEstoque" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Produto.ImagemUrl" class="control-label"></label>
-                <input asp-for="@Model.Produto.ImagemUrl" class="form-control" />
+                <label class="control-label">Escolha uma Imagem</label>
+                <div id="image-picker">
+                    @foreach (var image in Model.AvailableImages)
+                    {
+                        <img src="@Url.Content("~/Imagens/Produtos/" + image)" alt="@image" class="img-thumbnail img-selectable"
+                             data-image="@Url.Content("~/Imagens/Produtos/" + image)" style="width: 100px; height: auto; cursor: pointer;">
+                    }
+                </div>
+                <input type="hidden" id="imagemUrlField" asp-for="@Model.Produto.ImagemUrl" />
+
                 <span asp-validation-for="@Model.Produto.ImagemUrl" class="text-danger"></span>
             </div>
+            <a class="btn btn-success" asp-area="Admin" asp-action="Index" asp-controller="AdminImagens">Ou adicione outra imagem</a>
+
             <div class="form-group">
                 <label asp-for="@Model.Produto.DescricaoCurta" class="control-label"></label>
                 <input asp-for="@Model.Produto.DescricaoCurta" class="form-control" />
@@ -55,6 +79,7 @@
                         <option value="@item.IdCategoria">@item.CategoriaNome</option>
                     }
                 </select>
+                <input type="hidden" id="imagemUrlField" asp-for="@Model.Produto.ImagemUrl" />
                 <span asp-validation-for="Produto.IdCategoria" class="text-danger"></span>
             </div>
 
@@ -79,3 +104,19 @@
 <div>
     <a asp-action="Index">Voltar para a lista</a>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll('.img-selectable');
+        images.forEach(img => img.addEventListener('click', function () {
+            // Remove a seleção anterior
+            images.forEach(i => i.classList.remove('img-selected'));
+
+            // Marca a imagem clicada como selecionada
+            this.classList.add('img-selected');
+
+            // Atualiza o valor do campo oculto com o caminho completo da imagem
+            const hiddenInput = document.getElementById('imagemUrlField');
+            hiddenInput.value = this.getAttribute('data-image');
+        }));
+    });
+</script>

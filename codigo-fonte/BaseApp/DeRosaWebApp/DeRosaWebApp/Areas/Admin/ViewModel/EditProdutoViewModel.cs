@@ -6,5 +6,6 @@ namespace DeRosaWebApp.Areas.Admin.ViewModel
     {
         public Produto Produto { get; set; }
         public IEnumerable<Categoria> ListCategorias { get; set; }
+        public List<string> AvailableImages { get; set; } = new List<string>();
     }
 }
