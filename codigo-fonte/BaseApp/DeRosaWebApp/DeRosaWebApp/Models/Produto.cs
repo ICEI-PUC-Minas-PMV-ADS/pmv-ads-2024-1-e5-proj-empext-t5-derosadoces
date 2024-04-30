@@ -26,6 +26,7 @@ namespace DeRosaWebApp.Models
         public int EmEstoque { get; set; }
 
         [DisplayName("Imagem do Produto")]
+        [Required(ErrorMessage = "A imagem do produto é obrigatória!")]
         public string ImagemUrl { get; set; }
 
         [Required(ErrorMessage = "A descrição é obrigatória!")]

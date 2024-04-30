@@ -63,7 +63,19 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         [Route("{controller}/Create")]
         public IActionResult Create()
         {
-            return View();
+            var categorias = _categoriaService.GetAllCategorias();
+            // Carregar imagens do diretório
+            var imagesPath = Path.Combine(_hostingEnvironment.WebRootPath, _myConfig.NomePastaImagensProdutos);
+            DirectoryInfo dir = new DirectoryInfo(imagesPath);
+            FileInfo[] files = dir.GetFiles("*.*", SearchOption.TopDirectoryOnly).Where(f => f.Name.EndsWith(".jpg") || f.Name.EndsWith(".png") || f.Name.EndsWith(".gif")).ToArray();
+
+            CreateProdutoViewModel createProdutoViewModel = new CreateProdutoViewModel()
+            {
+                ListCategorias = categorias,
+                AvailableImages = files.Select(file => file.Name).ToList()
+            };
+
+            return View(createProdutoViewModel);
         }
 
 
@@ -75,10 +87,21 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 await _productService.Create(produto);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "AdminProduto");
 
             }
-            return View(produto);
+            var imagesPath = Path.Combine(_hostingEnvironment.WebRootPath, _myConfig.NomePastaImagensProdutos);
+            DirectoryInfo dir = new DirectoryInfo(imagesPath);
+            FileInfo[] files = dir.GetFiles("*.*", SearchOption.TopDirectoryOnly).Where(f => f.Name.EndsWith(".jpg") || f.Name.EndsWith(".png") || f.Name.EndsWith(".gif")).ToArray();
+            var categorias = _categoriaService.GetAllCategorias();
+            CreateProdutoViewModel createProdutoViewModel = new CreateProdutoViewModel()
+            {
+                Produto = produto,
+                ListCategorias = categorias,
+                AvailableImages = files.Select(file => file.Name).ToList()
+            };
+            ModelState.AddModelError("Erro", "Produto é nulo");
+            return View(createProdutoViewModel);
         }
 
         [HttpGet]
@@ -95,7 +118,8 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             // Carregar imagens do diretório
             var imagesPath = Path.Combine(_hostingEnvironment.WebRootPath, _myConfig.NomePastaImagensProdutos);
             DirectoryInfo dir = new DirectoryInfo(imagesPath);
-            FileInfo[] files = dir.GetFiles("*.*", SearchOption.TopDirectoryOnly).Where(f => f.Name.EndsWith(".jpg") || f.Name.EndsWith(".png") || f.Name.EndsWith(".gif")).ToArray();
+            FileInfo[] files = dir.GetFiles("*.*", SearchOption.TopDirectoryOnly)
+                .Where(f => f.Name.EndsWith(".jpg") || f.Name.EndsWith(".png") || f.Name.EndsWith(".gif")).ToArray();
 
             EditProdutoViewModel editProdutoViewModel = new EditProdutoViewModel()
             {
@@ -128,7 +152,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
                 }
 
             }
-            ModelState.AddModelError("Erro", "Pedido é nulo");
+            ModelState.AddModelError("Erro", "Produto é nulo");
             return View();
 
         }

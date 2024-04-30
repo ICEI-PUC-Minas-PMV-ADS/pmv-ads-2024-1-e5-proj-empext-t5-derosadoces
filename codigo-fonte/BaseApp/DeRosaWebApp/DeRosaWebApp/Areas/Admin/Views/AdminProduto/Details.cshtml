@@ -41,7 +41,7 @@
             @Html.DisplayNameFor(model => model._Produto.ImagemUrl)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model._Produto.ImagemUrl)
+            <img src="@Model._Produto.ImagemUrl" alt="imagem_produto_@Model._Produto.Nome" />
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model._Produto.DescricaoCurta)
