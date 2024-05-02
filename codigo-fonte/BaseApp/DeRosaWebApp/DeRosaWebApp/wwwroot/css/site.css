@@ -441,6 +441,7 @@ p {
 
 .form-group {
     margin-bottom: 1em;
+    width: 75px
 }
 
     .form-group label {

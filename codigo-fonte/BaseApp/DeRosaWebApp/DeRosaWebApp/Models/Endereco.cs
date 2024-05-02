@@ -9,7 +9,7 @@ namespace DeRosaWebApp.Models
 
         [UIHint("_CepTemplate")]
         [Required(ErrorMessage = "Obrigatório informar o CEP!")]
-        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Formato de CEP inválido. Use o formato: 00000-000")]
+        //[RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Formato de CEP inválido. Use o formato: 00000-000")]
         [StringLength(9, ErrorMessage = "O cep deve ter no máximo 9 caracteres.")]
         public string CEP { get; set; }
 

@@ -36,41 +36,40 @@
                                     <input class="form-control" asp-for="@Model._Cliente.Senha" placeholder="Senha" />
                                     <span asp-validation-for="@Model._Cliente.Senha" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-8  input-pequeno container-input">
+                                <div class="col-md-8 input-pequeno container-input">
                                     <input class="form-control" asp-for="@Model._Cliente.Telefone" placeholder="Telefone" />
                                     <span asp-validation-for="@Model._Cliente.Telefone" class="text-danger"></span>
                                 </div>
-
-                                <div class="form-group container-input input-pequeno">
+                                <div class="col-md-8 container-input input-pequeno">
                                     <input asp-for="@Model._Endereco.CEP" id="cep" class="form-control" onblur="pesquisacep(this.value);" placeholder="CEP" />
                                     <span asp-validation-for="@Model._Endereco.CEP" class="text-danger"></span>
                                 </div>
-                                <div class="form-group container-input input-pequeno">
-                                    <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" placeholder="Logradouro" />
+                                <div class="col-md-8 container-input input-pequeno">
+                                    <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" placeholder="Rua" />
                                     <span asp-validation-for="@Model._Endereco.Logradouro" class="text-danger"></span>
                                 </div>
-                                <div class="form-group container-input input-pequeno">
+                                <div class="col-md-8 container-input input-pequeno">
                                     <input asp-for="@Model._Endereco.Numero" class="form-control" placeholder="Número" />
                                     <span asp-validation-for="@Model._Endereco.Numero" class="text-danger"></span>
                                 </div>
-                                <div class="form-group container-input input-pequeno">
+                                <div class="col-md-8 container-input input-pequeno">
                                     <input asp-for="@Model._Endereco.Complemento" class="form-control" placeholder="Complemento" />
                                     <span asp-validation-for="@Model._Endereco.Complemento" class="text-danger"></span>
                                 </div>
-                                <div class="form-group container-input input-pequeno">
+                                <div class="col-md-8 container-input input-pequeno">
                                     <input asp-for="@Model._Endereco.Bairro" id="bairro" class="form-control" placeholder="Bairro" />
                                     <span asp-validation-for="@Model._Endereco.Bairro" class="text-danger"></span>
                                 </div>
-                                <div class="form-group container-input input-pequeno">
+                                <div class="col-md-8 container-input input-pequeno">
                                     <input asp-for="@Model._Endereco.Cidade" id="cidade" class="form-control" placeholder="Cidade" />
                                     <span asp-validation-for="@Model._Endereco.Cidade" class="text-danger"></span>
                                 </div>
-                                <div class="form-group container-input input-pequeno">
+                                <div class="col-md-8 container-input input-pequeno">
                                     <input asp-for="@Model._Endereco.UF" id="uf" class="form-control" placeholder="UF" />
                                     <span asp-validation-for="@Model._Endereco.UF" class="text-danger"></span>
                                 </div>
 
-                                <div class="form-group btn-cadastrar-container">
+                                <div class="btn-cadastrar-container">
                                     <input class="btn btn-success btn-cadastro" type="submit" value="Cadastrar" />
                                 </div>
                             </div>
