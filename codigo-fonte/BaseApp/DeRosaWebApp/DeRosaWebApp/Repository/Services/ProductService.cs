@@ -26,16 +26,16 @@ namespace DeRosaWebApp.Repository.Services
         #region Verificar a quantidade em estoque
         public async Task<int> QuantidadeEmEstoque(int cod_produto)
         {
-            var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.Cod_Produto == cod_produto);
-            if(produto is not null)
-            {
-                return produto.EmEstoque;
-            }
-            else
-            {
-                return 0;
-            }
-            
+            var quantidade = await _context.Produtos.Where(p => p.Cod_Produto == cod_produto).Select(p => p.EmEstoque).FirstOrDefaultAsync();
+            return quantidade;    
+        }
+
+        #endregion
+        #region Verificar a quantidade em estoque agendamento
+        public async Task<int> QuantidadeEmEstoqueAgendamento(int cod_produto)
+        {
+            var quantidade = await _context.Produtos.Where(p => p.Cod_Produto == cod_produto).Select(p=> p.EstoqueAgendamento).FirstOrDefaultAsync();
+            return quantidade;
         }
 
         #endregion
@@ -130,6 +130,7 @@ namespace DeRosaWebApp.Repository.Services
                 productExist.PrecoSecundario = produto.PrecoSecundario;
                 productExist.ProdutoDaSemana = produto.ProdutoDaSemana;
                 productExist.Indisponivel = produto.Indisponivel;
+                productExist.EstoqueAgendamento = produto.EstoqueAgendamento;
 
                 _context.Produtos.Update(productExist);
                 await _context.SaveChangesAsync();

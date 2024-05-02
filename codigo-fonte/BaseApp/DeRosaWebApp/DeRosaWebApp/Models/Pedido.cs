@@ -71,6 +71,7 @@ namespace DeRosaWebApp.Models
         public bool Concluido { get; set; }
         public bool Entregue { get; set; }
         public bool Pago { get; set; }
+        public bool Agendado { get; set; }
         [StringLength(250)]
         public string Conjunto_IdProdutos { get; set; }
         public string Id_User { get; set; }

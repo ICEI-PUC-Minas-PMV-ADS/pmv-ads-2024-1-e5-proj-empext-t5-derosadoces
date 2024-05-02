@@ -58,8 +58,10 @@ namespace DeRosaWebApp.Controllers
         {
             var user_id = _userManager.GetUserId(User);
             List<Endereco> enderecos = await _enderecoService.GetListaEnderecoUsuario(user_id);
+            
             HttpContext.Session.SetString("AddEndereco", "EscolhaEndereco");
             HttpContext.Session.SetString("EditEndereco", "EscolhaEndereco");
+            
 
 
             return View(enderecos);
@@ -93,6 +95,7 @@ namespace DeRosaWebApp.Controllers
                 }
                 var cliente = await _clienteService.GetClienteByUserId(user_id);
                 await _clienteService.UpdateOnlyEnderecoId(selectedAddressId, cliente.Cod_Cliente);
+                
                 return RedirectToAction("Checkout", "Pedido");
             }
             catch (DeRosaExceptionValidation e)

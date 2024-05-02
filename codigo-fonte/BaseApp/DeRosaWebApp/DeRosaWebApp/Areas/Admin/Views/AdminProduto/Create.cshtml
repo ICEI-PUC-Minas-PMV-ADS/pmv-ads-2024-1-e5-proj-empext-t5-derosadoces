@@ -44,6 +44,11 @@
                 <span asp-validation-for="@Model.Produto.EmEstoque" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="@Model.Produto.EstoqueAgendamento" class="control-label"></label>
+                <input asp-for="@Model.Produto.EstoqueAgendamento" class="form-control" />
+                <span asp-validation-for="@Model.Produto.EstoqueAgendamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label class="control-label">Escolha uma Imagem</label>
                 <div id="image-picker">
                     @foreach (var image in Model.AvailableImages)

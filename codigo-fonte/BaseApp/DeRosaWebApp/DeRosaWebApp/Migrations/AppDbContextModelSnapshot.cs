@@ -222,6 +222,9 @@ namespace DeRosaWebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Cod_Pedido"));
 
+                    b.Property<bool>("Agendado")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Bairro")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -360,11 +363,18 @@ namespace DeRosaWebApp.Migrations
                     b.Property<int>("EmEstoque")
                         .HasColumnType("int");
 
+                    b.Property<int>("EstoqueAgendamento")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdCategoria")
                         .HasColumnType("int");
 
                     b.Property<string>("ImagemUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Indisponivel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nome")
                         .IsRequired()

@@ -24,5 +24,16 @@ namespace DeRosaWebApp.BusinessRules.Services
             DeRosaExceptionValidation.When(quantidadeEmEstoque - quantidadeRecebida  < 0,
                   $"Produto indisponível nessa semana!");
         }
+
+        public async Task VerificaQuantidadeEmEstoqueAgendamento(int quantidadeRecebida, int cod_produto)
+        {
+            int quantidadeEmEstoqueAgendamento = await _productService.QuantidadeEmEstoqueAgendamento(cod_produto);
+            DeRosaExceptionValidation.When(quantidadeRecebida > quantidadeEmEstoqueAgendamento,
+                   $"Quantidade não disponível no estoque, por favor, diminua a quantidade.");
+            DeRosaExceptionValidation.When(quantidadeEmEstoqueAgendamento == 0,
+                  $"Produto indisponível nessa semana!");
+            DeRosaExceptionValidation.When(quantidadeEmEstoqueAgendamento - quantidadeRecebida < 0,
+                  $"Produto indisponível nessa semana!");
+        }
     }
 }

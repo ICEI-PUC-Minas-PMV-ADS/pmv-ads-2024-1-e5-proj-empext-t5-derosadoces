@@ -1,4 +1,4 @@
-﻿@using DeRosaWebApp.ViewModel;
+﻿﻿@using DeRosaWebApp.ViewModel;
 @model UsuarioViewModel
 
 
@@ -22,10 +22,10 @@
                                 <div class="mb-4  input-login">
                                     @* <label class="form-label fw-light">Senha</label> *@
                                     <div class="input-senha-login">
-                                    <input type="password" asp-for="Senha" class="form-control" placeholder="Senha">
-                                    <button type="button" onclick="togglePasswordVisibility(this)">
-                                        <img src="~/Imagens/olho.png" alt="password-show" width="25" height="25">
-                                    </button> 
+                                        <input type="password" asp-for="Senha" class="form-control" placeholder="Senha">
+                                        <button type="button" onclick="togglePasswordVisibility(this)">
+                                            <img src="~/Imagens/olho.png" alt="password-show" width="25" height="25">
+                                        </button>
                                     </div>
                                     <a class="btn btn-esqueci-senha" asp-controller="Account" asp-action="EsqueciSenha" role="button">Esqueci a senha</a>
                                 </div>

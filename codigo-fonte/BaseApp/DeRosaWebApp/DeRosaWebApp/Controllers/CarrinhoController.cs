@@ -41,14 +41,22 @@ namespace DeRosaWebApp.Controllers
         #region Adicionar no carrinho
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto, int quantidadeAdicionar)
+        public async Task<IActionResult> AdicionarNoCarrinho(int cod_produto, int quantidadeAdicionar, bool agendado)
         {
             try
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    await _productRules.VerificaQuantidadeEmEstoque(quantidadeAdicionar, cod_produto);
-
+                    if (agendado)
+                    {
+                        HttpContext.Session.SetString("Agendado", "true");
+                        await _productRules.VerificaQuantidadeEmEstoqueAgendamento(quantidadeAdicionar, cod_produto);
+                    }
+                    else
+                    {
+                        await _productRules.VerificaQuantidadeEmEstoque(quantidadeAdicionar, cod_produto);
+                    }
+                    
                     var produtoSelecionado = await _productService.GetById(cod_produto);
                     if (produtoSelecionado is not null)
                     {

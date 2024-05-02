@@ -1,4 +1,4 @@
-﻿@using DeRosaWebApp.ViewModel;
+﻿﻿@using DeRosaWebApp.ViewModel;
 @model CarrinhoViewModel
 
 <div class="container">
@@ -27,7 +27,7 @@
                         <td class="text-center">
                             @if (item.Produto.ImagemUrl.Contains("www"))
                             {
-                                <img width="100" height="100" src='@item.Produto.ImagemUrl' alt="imagemProduto"/>
+                                <img width="100" height="100" src='@item.Produto.ImagemUrl' alt="imagemProduto" />
                             }
                             else
                             {
@@ -41,7 +41,7 @@
                                          alt="thumb" width="50" height="40" />
                                 }
                             }
-                           
+
                         </td>
                         <td class="text-right"> @item.Produto.Preco.ToString("c")</td>
                         <td class="text-right">

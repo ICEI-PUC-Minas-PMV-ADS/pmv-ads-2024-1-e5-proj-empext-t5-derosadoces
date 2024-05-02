@@ -55,6 +55,12 @@
         <dd class = "col-sm-10">
             R$@Model.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Agendado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Agendado)
+        </dd>
     </dl>
     
     <form asp-area="Admin" asp-controller="AdminPedidos" asp-action="DeleteConfirmed" asp-route-id="@Model.Cod_Pedido" method="post">
