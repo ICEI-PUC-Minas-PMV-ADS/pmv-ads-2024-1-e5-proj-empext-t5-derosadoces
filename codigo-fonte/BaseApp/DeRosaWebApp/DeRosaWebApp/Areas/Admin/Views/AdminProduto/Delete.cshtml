@@ -54,6 +54,12 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model._Produto.Indisponivel)
         </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model._Produto.EstoqueAgendamento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Produto.EstoqueAgendamento)
+        </dt>
 
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
@@ -74,6 +80,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model._Categoria.CategoriaNome)
         </dd>
+
     </dl>
     
     <form asp-action="Delete">

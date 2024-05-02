@@ -38,6 +38,9 @@
             <th class="d-lg-table-cell border-1">
                 @Html.DisplayNameFor(model => model.Concluido)
             </th>
+            <th class="d-lg-table-cell border-1">
+                @Html.DisplayNameFor(model => model.Agendado)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -92,6 +95,9 @@
                         @Html.DisplayFor(modelItem => item.Concluido)
                     </td>
                 }
+                 <td >
+                    @Html.DisplayFor(modelItem => item.Agendado)
+                </td>
                 
                 
                 <td style="font-size:small">

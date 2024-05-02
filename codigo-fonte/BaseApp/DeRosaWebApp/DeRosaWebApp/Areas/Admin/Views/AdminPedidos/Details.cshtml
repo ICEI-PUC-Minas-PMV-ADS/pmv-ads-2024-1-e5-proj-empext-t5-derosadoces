@@ -53,6 +53,12 @@
             @Html.DisplayNameFor(model => model._Pedido.TotalPedido)
         </dt>
         <dd class="col-sm-10" style="color:dodgerblue">
+            @Html.DisplayFor(model => model._Pedido.Agendado)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model._Pedido.Agendado)
+        </dt>
+        <dd class="col-sm-10" style="color:dodgerblue">
             R$@Model._Pedido.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
     </dl>

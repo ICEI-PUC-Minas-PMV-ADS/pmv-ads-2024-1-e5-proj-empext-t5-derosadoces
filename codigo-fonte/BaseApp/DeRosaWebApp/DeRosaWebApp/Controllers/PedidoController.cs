@@ -89,10 +89,12 @@ namespace DeRosaWebApp.Controllers
         {
             try
             {
+               
                 int totalItemsPedido = 0;
                 double precoTotalPedido = 0.0;
 
                 Pedido pedido = new Pedido();
+
                 List<ItemCarrinho> itemCarrinhos = _carrinho.GetItemCarrinhos();
                 List<Produto> ProdutosComemorativos = new List<Produto>();
                 _carrinho.ListItemCarrinho = itemCarrinhos;
@@ -115,7 +117,16 @@ namespace DeRosaWebApp.Controllers
                 var user_id = _userMananger.GetUserId(User);
                 var getCliente = await _clienteService.GetClienteByUserId(user_id);
                 var getEndereco = await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
+                string valorSessaoAgendado = HttpContext.Session.GetString("Agendado");
 
+                if (string.Equals(valorSessaoAgendado, "true"))
+                {
+                    pedido.Agendado = true;
+                }
+                else
+                {
+                    pedido.Agendado = false;
+                }
                 pedido.Logradouro = getEndereco.Logradouro;
                 pedido.Bairro = getEndereco.Bairro;
                 pedido.Cep = getEndereco.CEP;

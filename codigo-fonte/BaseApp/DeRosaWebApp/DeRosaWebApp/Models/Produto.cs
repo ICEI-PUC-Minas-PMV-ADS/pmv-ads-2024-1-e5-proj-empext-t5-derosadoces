@@ -49,5 +49,8 @@ namespace DeRosaWebApp.Models
         [DisplayName("Bloquear pedidos deste produto")]
         public bool Indisponivel { get; set; }
 
+        [DisplayName("Quantidade aceita para Agendamentos")]
+        public int EstoqueAgendamento { get; set; }
+
     }
 }
