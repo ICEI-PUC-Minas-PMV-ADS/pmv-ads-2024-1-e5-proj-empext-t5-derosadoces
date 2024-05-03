@@ -25,7 +25,7 @@ namespace DeRosaWebApp.Models
         public DateTime DataParaEntregar { get; set; }
 
         [Required(ErrorMessage = "O pedido deve conter o cep!")]
-        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Formato de CEP inválido. Use o formato: 00000-000")]
+        //[RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Formato de CEP inválido. Use o formato: 00000-000")]
         public string Cep { get; set; }
 
         [Required(ErrorMessage = "O pedido deve conter o número da residência!")]

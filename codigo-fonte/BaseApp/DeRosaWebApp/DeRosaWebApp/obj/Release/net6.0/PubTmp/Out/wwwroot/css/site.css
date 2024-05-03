@@ -1,0 +1,604 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/*ALTERAÇÕES param NAVBAR*/
+.navbar-nav {
+    justify-content: center;
+    font-family: Montserrat;
+    letter-spacing: 0.1em;
+    font-size: 0.2rem;
+}
+
+.navbar-custom {
+    background-color: rgba(251, 246, 235, 1);
+}
+
+.nav-item {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+}
+
+.navbar-brand {
+    color: black;
+}
+
+    .navbar-brand:hover {
+        color: rgba(240, 206, 70, 1);
+    }
+
+.nav-link {
+    color: black;
+}
+
+    .nav-link:hover {
+        color: rgba(240, 206, 70, 1);
+    }
+
+.container-footer {
+    background-color: black;
+    color: rgba(193, 157, 86, 1);
+}
+
+
+/* TELA HOME */
+.container-home {
+    width: 100%;
+    /*border: solid 2px red;*/
+}
+
+
+.banner {
+    text-align: center;
+    /*border: solid 1px red;*/
+    background-size: cover;
+    background-image: url(../Imagens/banner.png);
+    background-repeat: no-repeat;
+    padding: 10%;
+    background-position: center;
+}
+
+.btn1 {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 4vh;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    justify-content:center;
+    align-items:center;
+}
+
+    .btn1:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+.btn2 {
+    background-color: rgba(243, 243, 243, 1);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 4vh;
+    margin-right: 10px;
+}
+
+    .btn2:hover {
+        background-color: transparent;
+        color: rgb(225, 191, 56);
+        border: solid 1px rgb(225, 191, 56);
+    }
+
+.title-home {
+    font-size: 4rem;
+    text-align: center;
+    color: rgba(193, 157, 86, 1);
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+}
+
+.subtitle-home {
+    font-size: 1.5rem;
+    letter-spacing: 0.12rem;
+    text-align: center;
+    font-family: Montserrat;
+    padding: 2%;
+}
+
+.title-about {
+    font-size: 3rem;
+    font-style: italic;
+    text-align: initial;
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+}
+
+.title-more {
+    font-size: 3rem;
+    text-align: center;
+    color: rgba(193, 157, 86, 1);
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+}
+
+p {
+    font-family: Montserrat;
+    font-size: 1.2em;
+}
+
+.offers {
+    /*border: solid 2px green;*/
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 10%;
+    justify-content: space-around;
+    background-image: url(../Imagens/back-prod.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.about {
+    /*border: solid 2px blue;*/
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(251, 246, 243, 1);
+    justify-content: center;
+}
+
+.underline-about {
+    margin-top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(193, 157, 86, 1);
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.underline-about1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    background-color: rgba(193, 157, 86, 1);
+    transform-origin: left;
+    transform: rotate(315deg);
+    width: 10rem;
+}
+
+.text-about {
+    /*border: solid 2px green;*/
+    width: 75%;
+    align-content: center;
+    padding: 0px 5%;
+}
+
+.julia {
+    /*border: solid;*/
+    margin-left: 20px;
+}
+
+.more {
+    /*border: solid 2px grey;*/
+    padding: 10%;
+    justify-content: center;
+    display: flex;
+    background-image: url(../Imagens/back-more.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.more-text {
+    /*border: solid 2px grey;*/
+    width: 50vw;
+    justify-content: center;
+    text-align: center;
+}
+
+.more-underline {
+    /*border: solid 2px;*/
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-underline1 {
+    border: solid 2px rgba(193, 157, 86, 1);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(193, 157, 86, 1);
+    transform: rotate(315deg);
+    position: absolute;
+}
+
+.more-underline2 {
+    background-color: rgba(193, 157, 86, 1);
+    width: 200px;
+    height: 1px;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+}
+
+.image-position {
+    font-size: 200%;
+    text-align: center;
+    padding: 1%;
+    /*border: solid 2px red;*/
+}
+
+
+
+/*Produtos datalist Home*/
+.card-body {
+    /* border: solid 2px red; */
+    text-align: center;
+    font-family: Montserrat;
+    letter-spacing: 0.05rem;
+    padding: 1%;
+}
+
+.card-img-top {
+    /* border: solid 2px green; */
+}
+
+.card {
+    text-align: center;
+}
+
+.list-group {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1em;
+    letter-spacing: 0.05rem;
+}
+
+.btn {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 4vh;
+    border-radius: 0;
+}
+
+    .btn:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+
+/* FIM TELA HOME */
+
+
+.form-login{
+    width:100%;
+    margin-top:5rem;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.input-login {
+    width: 40%;
+    height: auto;
+    margin: auto;
+}
+
+.input-senha-login{
+    display:flex;
+}
+
+.input-senha-login button{
+    border:none;
+    background:none
+}
+
+.btn-esqueci-senha {
+    border: none;
+    background: none;
+    color: red;
+    font-size: 0.8rem;
+    margin-top:10px;
+}
+
+
+/* TELA CADASTRO */
+
+.linha-vertical{
+    width:4px;
+    height:100px;
+    background-color:red;
+}
+
+.container-cadastro {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    text-align:center;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.form-control{
+    border: none;
+    border-radius:0;
+    border-bottom: 1px solid black;
+}
+
+.container-input{
+    margin:4px;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.input-pequeno{
+    width:33%;
+    height:auto;
+}
+
+.btn-cadastrar-container{
+    width:100%;
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+}
+
+.btn-cadastro{
+    font-size:1.2rem;
+    line-height:1.2rem;
+    width:40%;
+}
+
+/* FIM TELA CADASTRO*/
+
+.dropdown-navbar{
+    list-style:none
+}
+
+.nav-link.dropdown-toggle::after {
+    display: none; /* Hide the arrow icon */
+}
+
+/*INICIO TELA PRODUTO DETALHE*/
+
+.product-details-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 100px
+
+}
+
+.product-image img,
+.product-image .img-loja {
+    max-width: 50%;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 0 20px;
+    max-width: 50%;
+}
+
+.product-title {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.product-description {
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+.product-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.stock-status {
+    font-size: 0.9em;
+    margin-bottom: 2em;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: .5em;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 0.5em;
+        line-height: 1.5;
+        border: 1px solid #ccc;
+    }
+
+.btn-add-cart, .btn-schedule {
+    background-color: #000;
+    color: #fff;
+    padding: 1em 1.5em;
+    text-align: center;
+    display: inline-block;
+    margin-top: 1em;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-add-cart:hover, .btn-schedule:hover {
+        background-color: #555;
+    }
+
+/* Se precisar de um estilo para o link de agendamento como um botão, você pode adicionar isto */
+.btn-schedule {
+    background-color: green; /* Ou outra cor conforme seu design */
+}
+
+/* Para responder a mudanças de tamanho de tela, considere usar media queries */
+@media (max-width: 768px) {
+    .product-details-container {
+        flex-direction: column;
+    }
+
+    .product-image img,
+    .product-image .img-loja,
+    .product-details {
+        max-width: 100%;
+    }
+}
+
+/*FIM TELA PRODUTO DETALHE*/
+
+/* INÍCIO TELA EDIT DO PERFIL*/
+
+.card1 {
+    justify-content: center;
+    display: flex;
+    margin: 80px
+}
+
+.card {
+    padding: 5%;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.card-header {
+    background-color: white;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-body{
+    /*width:80%;*/
+}
+
+.title-edit {
+    padding: 0;
+    margin: 0;
+    text-align: initial;
+    font-size: 1.2rem;
+}
+
+.subtitle-edit {
+    padding: 0;
+    margin: 0;
+    text-align: initial;
+    font-size: 0.9rem;
+}
+
+.title-endereço {
+    padding: 0;
+    margin: 0;
+    text-align: initial;
+    font-size: 0.9rem;
+}
+
+.testando {
+    /*border: solid red;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-add-endereço {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    align-items:center;
+    justify-content: center;
+    display: flex;
+    padding: 3px;
+}
+
+    .btn-add-endereço:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+
+.btn-salvar-edit {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+    .btn-salvar-edit:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+
+
+/*INICIO TELA ENDERECO*/
+.container_botao_voltar {
+    display: flex;
+    justify-content: center;
+}
+
+.container-escolha-endereco {
+    margin: 1rem;
+    padding: 2rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.container-escolha-botoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-endereco {
+    width: auto;
+}
+
+/*FINAL TELA ENDERECO*/
