@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div>
-            <img src="~/Imagens/shopping-cart_3144456.png" alt="IconeCarrinho" />
+            <img style="width: 50px" src="~/Imagens/carrinho.png" alt="IconeCarrinho" />
             <h4>Seu carrinho de compras : </h4>
         </div>
         <table class="table table-bordered table-striped">
@@ -50,7 +50,7 @@
                         <td class="text-center">
                             <a asp-controller="Carrinho" asp-action="RemoverItemNoCarrinhoCompra"
                                asp-route-cod_produto="@item.Produto.Cod_Produto">
-                                <img src="~/Imagens/lixeira.png" alt="IconeLixeira" width="24" height="24" />
+                                <img src="~/Imagens/delete.svg" alt="IconeLixeira" width="40" height="40" />
                             </a>
                         </td>
                     </tr>
