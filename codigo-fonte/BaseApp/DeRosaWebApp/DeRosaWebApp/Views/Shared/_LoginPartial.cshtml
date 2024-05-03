@@ -32,6 +32,14 @@
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" asp-controller="Account" asp-action="Edit">Minha Conta</a></li>
             <li><hr class="dropdown-divider"></li>
+            @if (User.IsInRole("Admin"))
+            {              
+                    <li>
+                        <a class="dropdown-item" asp-area="Admin" asp-action="Index" asp-controller="Admin">Área de Administração</a>
+                    </li>
+                <li><hr class="dropdown-divider"></li>
+            }
+            
             <li>
                 <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="dropdown-item">
                         <button type="submit" style="width:auto" class="dropdown-item">
@@ -46,7 +54,7 @@ else
 {
     <ul class="nav navbar-nav navbar-left">
         <li class="nav-item">
-            <a class="nav-link" style="color: lightgray;" asp-controller="Account" asp-action="Login">Entrar</a>
+            <a class="nav-link" style=@*"color: lightgray;"*@  asp-controller="Account" asp-action="Login">Entrar</a>
         </li>
         @* <li class="nav-item">
             <a class="nav-link" style="color: lightgray;" asp-controller="Cadastro" asp-action="Cadastrar">Cadastrar</a>

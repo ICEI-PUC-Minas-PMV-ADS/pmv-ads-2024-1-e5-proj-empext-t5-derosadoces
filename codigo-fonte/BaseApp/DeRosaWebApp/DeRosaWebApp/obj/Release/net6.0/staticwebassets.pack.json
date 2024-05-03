@@ -53,6 +53,14 @@
       "PackagePath": "staticwebassets\\Imagens\\logo-derosa.png"
     },
     {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\monitoring.png",
+      "PackagePath": "staticwebassets\\Imagens\\monitoring.png"
+    },
+    {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\monitoring.svg",
+      "PackagePath": "staticwebassets\\Imagens\\monitoring.svg"
+    },
+    {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\olho.png",
       "PackagePath": "staticwebassets\\Imagens\\olho.png"
     },
