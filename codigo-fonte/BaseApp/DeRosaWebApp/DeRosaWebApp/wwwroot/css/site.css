@@ -602,3 +602,17 @@ p {
 }
 
 /*FINAL TELA ENDERECO*/
+
+
+/* INÍCIO TELA CHECKOUT*/
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items:center;
+}
+
+.checkout-title {
+    font-size: 1.5rem;
+}

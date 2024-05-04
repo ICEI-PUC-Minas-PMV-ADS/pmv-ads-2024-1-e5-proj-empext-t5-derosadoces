@@ -1,26 +1,28 @@
 ﻿@model DateTime
+<div class="checkout-container">
+    <div class="main-checkout">
+        <h2 class="checkout-title">Checkout</h2>
 
-<h2>Checkout</h2>
+        <form asp-action="Checkout" method="post">
+            <h6>@ViewBag.Erro</h6>
+            <div class="form-group custom-checkout">
+                <label for="dataParaEntregar">Data para entrega:</label>
+                <p style="color: gray; font-size: small">
+                    (A data para entrega depende da demanda e da disponibilidade da empresa, acompanhe o status do pedido em 'Meus pedidos' para ficar por dentro da data
+                    da entrega)
+                </p>
+                @if (ViewBag.EntregaPedidoNormal != null)
+                {
+                    <p>Seu pedido será entrega na próxima sexta feira disponível: @ViewBag.DataEntrega</p>
+                }
+                else
+                {
+                    <input type="date" id="dataParaEntregar" name="dataParaEntregar" class="form-control" required />
+                }
+            </div>
+            <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
 
-
-
-<form asp-action="Checkout" method="post">
-    <h6>@ViewBag.Erro</h6>
-    <div class="form-group">
-        <label for="dataParaEntregar">Data para entrega:</label>
-        <p style="color: gray; font-size: small">
-            (A data para entrega depende da demanda e da disponibilidade da empresa, acompanhe o status do pedido em 'Meus pedidos' para ficar por dentro da data
-            da entrega)
-        </p>
-        @if (ViewBag.EntregaPedidoNormal != null)
-        {
-            <p>Seu pedido será entrega na próxima sexta feira disponível: @ViewBag.DataEntrega</p>
-        }
-        else
-        {
-            <input type="date" id="dataParaEntregar" name="dataParaEntregar" class="form-control" required />
-        }
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
 
-</form>
+</div>
