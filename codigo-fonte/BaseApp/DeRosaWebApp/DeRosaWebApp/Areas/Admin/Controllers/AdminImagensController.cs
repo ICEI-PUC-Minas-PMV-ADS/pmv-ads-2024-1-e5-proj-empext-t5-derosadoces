@@ -1,5 +1,6 @@
 ﻿using DeRosaWebApp.Configuration.ConfigImages;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hJIe4xSm5g0RBulL8faT1nmBqgffKE8a3Hr/3v2tswo=",
+  "Hash": "7fNij4KDTfWCo7t0XU1IJWY1/O0PRMDMb/75mckQIpg=",
   "Source": "DeRosaWebApp",
   "BasePath": "_content/DeRosaWebApp",
   "Mode": "Default",
@@ -1341,6 +1341,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagens\\Produtos\\caixa.png"
+    },
+    {
+      "Identity": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\caminhao.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/Produtos/caminhao.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\Produtos\\caminhao.png"
     },
     {
       "Identity": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\engrenagem.png",
