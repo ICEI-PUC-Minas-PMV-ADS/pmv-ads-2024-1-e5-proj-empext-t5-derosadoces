@@ -54,6 +54,10 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             }
             ViewData["Resultado"] = $"{files.Count} arquivos foram enviados ao servidor, " + $"com tamanho total de: {size} bytes";
             ViewBag.Arquivos = filePathsName;
+            string getSessionCodProduto = HttpContext.Session.GetString("Cod_Produto");
+            if (!string.IsNullOrEmpty(getSessionCodProduto)){
+                return RedirectToAction("Edit", "AdminProduto", new { id = getSessionCodProduto });
+            }
             return View(ViewData);
         }
         [Route("{controller}/GetImagens")]

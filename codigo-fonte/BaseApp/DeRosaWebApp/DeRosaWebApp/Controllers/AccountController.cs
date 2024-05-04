@@ -73,10 +73,11 @@ namespace DeRosaWebApp.Controllers
                         TempData["LoginMessage"] = $"Seja bem-vindo novamente {usuarioViewModel.Usuario}!";
                         return RedirectToAction("Index", "Home");
                     }
+                    ModelState.AddModelError("Errologin", "Nome ou senha não coincidem!");
                 }
 
             }
-            ModelState.AddModelError("", "Nome ou senha não coincidem!");
+      
             return View(usuarioViewModel);
 
         }

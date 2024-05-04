@@ -149,8 +149,15 @@ namespace DeRosaWebApp.Repository.Services
         public async Task<ActionResult<Pedido>> Delete(int id)
         {
             var pedido = await GetById(id);
-            if (pedido is not null)
+            var pedidoDetalhes = await DetalhePedidoList(id);
+
+            if (pedido is not null && pedidoDetalhes is not null)
             {
+                foreach (PedidoDetalhe p in pedidoDetalhes)
+                {
+                    _context.PedidoDetalhes.Remove(p);
+                    await _context.SaveChangesAsync();
+                }
                 _context.Pedidos.Remove(pedido.Value);
                 await _context.SaveChangesAsync();
                 return new OkObjectResult("O pedido foi excluido com sucesso!");
@@ -224,7 +231,7 @@ namespace DeRosaWebApp.Repository.Services
 
                 pedido.Pago = false;  // importante para definir o pedido temporario..
 
-               
+
                 await _context.Pedidos.AddAsync(pedido);
                 await _context.SaveChangesAsync();
 
@@ -257,7 +264,7 @@ namespace DeRosaWebApp.Repository.Services
                         var quantidade = produto.EmEstoque - pedidoDetalhe.Quantidade;
                         produto.EmEstoque = quantidade;
                         _context.Entry(produto).Property(p => p.EmEstoque).IsModified = true;
-                    }      
+                    }
                     _context.PedidoDetalhes.Add(pedidoDetalhe);
                 }
                 _carrinho.LimparCarrinho();
@@ -272,9 +279,9 @@ namespace DeRosaWebApp.Repository.Services
 
         public async Task<ActionResult<Pedido>> VerificarPedidosExpirados()
         {
-           
+
             var pedidosExpirados = _context.Pedidos.Where(p => p.DataExpiracao <= DateTime.Now).ToList();
-            if(pedidosExpirados.Count > 0)
+            if (pedidosExpirados.Count > 0)
             {
                 foreach (var pedido in pedidosExpirados)
                 {
@@ -287,13 +294,13 @@ namespace DeRosaWebApp.Repository.Services
                             foreach (var detail in produtoDetalhe)
                             {
                                 _context.PedidoDetalhes.Remove(detail);
-                                var produto = await _context.Produtos.FindAsync(detail.Cod_Produto);                              
-                               
+                                var produto = await _context.Produtos.FindAsync(detail.Cod_Produto);
+
                                 if (pedido.Agendado)
                                 {
-                                   var quantidade = produto.EstoqueAgendamento + detail.Quantidade;
-                                   produto.EstoqueAgendamento = quantidade;
-                                   _context.Entry(produto).Property(x => x.EstoqueAgendamento).IsModified = true;
+                                    var quantidade = produto.EstoqueAgendamento + detail.Quantidade;
+                                    produto.EstoqueAgendamento = quantidade;
+                                    _context.Entry(produto).Property(x => x.EstoqueAgendamento).IsModified = true;
                                 }
                                 else
                                 {
@@ -301,12 +308,12 @@ namespace DeRosaWebApp.Repository.Services
                                     produto.EmEstoque = quantidade;
                                     _context.Entry(produto).Property(x => x.EmEstoque).IsModified = true;
                                 }
-                                
+
                             }
                         }
 
                     }
-                  
+
                 }
                 var listItemCarrinho = _carrinho.GetItemCarrinhos();
                 foreach (var item in listItemCarrinho)
@@ -321,7 +328,7 @@ namespace DeRosaWebApp.Repository.Services
                 return new OkObjectResult($"Produtos acima de 30 min sem pagamento removido do banco de dados: {pedidosExpirados.Count}");
             }
             return new NotFoundObjectResult("Nenhum pedido expirado");
-          
+
         }
         #endregion
         #region Get Pedido Detalhe pelo ID

@@ -127,7 +127,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
                 ListCategorias = categorias,
                 AvailableImages = files.Select(file => file.Name).ToList()
             };
-
+            HttpContext.Session.SetString("Cod_Produto", id.ToString());
             return View(editProdutoViewModel);
         }
 
