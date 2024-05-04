@@ -21,7 +21,7 @@ namespace DeRosaWebApp.Controllers
         #region Index
         public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
         {
-            var list = _produtos.PaginationProduct();
+            var list = _produtos.PaginationProductHome();
             var qntProdutosExistentes = _produtos.VerifyQnt();
             if(qntProdutosExistentes == 0)
             {

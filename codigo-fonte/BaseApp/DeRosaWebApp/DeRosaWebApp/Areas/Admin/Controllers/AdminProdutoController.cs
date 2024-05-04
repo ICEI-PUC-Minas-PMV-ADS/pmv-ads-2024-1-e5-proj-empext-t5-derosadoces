@@ -63,6 +63,8 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         [Route("{controller}/Create")]
         public IActionResult Create()
         {
+            HttpContext.Session.Remove("Cod_Produto");
+
             var categorias = _categoriaService.GetAllCategorias();
             // Carregar imagens do diretório
             var imagesPath = Path.Combine(_hostingEnvironment.WebRootPath, _myConfig.NomePastaImagensProdutos);
@@ -74,6 +76,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
                 ListCategorias = categorias,
                 AvailableImages = files.Select(file => file.Name).ToList()
             };
+            HttpContext.Session.SetString("Create", "True");
 
             return View(createProdutoViewModel);
         }

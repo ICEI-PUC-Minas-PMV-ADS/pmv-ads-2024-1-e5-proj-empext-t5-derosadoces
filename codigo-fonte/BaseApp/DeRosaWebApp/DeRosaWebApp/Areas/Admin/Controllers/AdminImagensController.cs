@@ -30,7 +30,7 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
         {
             if (files == null || files.Count == 0)
             {
-                ViewData["Erro"] = "Erro: Arquivo(s) não selecionado(s)";
+                ViewData["Erro"] = "Erro: Nenhum Arquivo foi selecionado";
                 return View(ViewData);
             }
             if (files.Count > 50)
@@ -55,9 +55,17 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
             }
             ViewData["Resultado"] = $"{files.Count} arquivos foram enviados ao servidor, " + $"com tamanho total de: {size} bytes";
             ViewBag.Arquivos = filePathsName;
+
             string getSessionCodProduto = HttpContext.Session.GetString("Cod_Produto");
+            string getSessionCreateProduto = HttpContext.Session.GetString("Create");
+
+
             if (!string.IsNullOrEmpty(getSessionCodProduto)){
                 return RedirectToAction("Edit", "AdminProduto", new { id = getSessionCodProduto });
+            }
+            else if (!string.IsNullOrEmpty(getSessionCreateProduto))
+            {
+                return RedirectToAction("Create", "AdminProduto");
             }
             return View(ViewData);
         }

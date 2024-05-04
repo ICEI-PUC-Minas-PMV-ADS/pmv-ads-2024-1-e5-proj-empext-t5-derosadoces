@@ -94,6 +94,13 @@ namespace DeRosaWebApp.Repository.Services
             return result;
         }
         #endregion
+        #region Produtos em Query para paginação Home
+        public IQueryable<Produto> PaginationProductHome()
+        {
+            var result = _context.Produtos.AsNoTracking().AsQueryable().Take(4);
+            return result;
+        }
+        #endregion
         #region Get todos os produtos
         public async Task<ActionResult<IEnumerable<Produto>>> GetAll()
         {

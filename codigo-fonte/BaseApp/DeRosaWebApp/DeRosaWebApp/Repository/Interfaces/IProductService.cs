@@ -15,6 +15,7 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<IActionResult> PatchQnt(Produto produto);
         bool Any(int id);
         IQueryable<Produto> PaginationProduct();
+        IQueryable<Produto> PaginationProductHome();
         Task<ActionResult<Produto>> AddTestProduct(Produto produto);
         Task<int> QuantidadeEmEstoque(int cod_produto);
         Task<int> QuantidadeEmEstoqueAgendamento(int cod_produto);

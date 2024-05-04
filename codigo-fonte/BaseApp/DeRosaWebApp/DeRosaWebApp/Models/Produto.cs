@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Runtime.Serialization;
+using System.Configuration;
+using Newtonsoft.Json.Serialization;
 
 namespace DeRosaWebApp.Models
 {

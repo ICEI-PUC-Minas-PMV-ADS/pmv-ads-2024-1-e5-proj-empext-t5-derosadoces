@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Imagens\\Produtos\\ativo.png"
     },
     {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\botao-x.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\botao-x.png"
+    },
+    {
       "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\caixa.png",
       "PackagePath": "staticwebassets\\Imagens\\Produtos\\caixa.png"
     },
@@ -21,8 +25,16 @@
       "PackagePath": "staticwebassets\\Imagens\\Produtos\\caminhao.png"
     },
     {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\conversa.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\conversa.png"
+    },
+    {
       "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\engrenagem.png",
       "PackagePath": "staticwebassets\\Imagens\\Produtos\\engrenagem.png"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\icons8-login-arredondado-à-direita-100.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\icons8-login-arredondado-à-direita-100.png"
     },
     {
       "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\kisspng-cheesecake-banoffee-pie-cream-pie-bavarian-cream-lemon-cake-5b53f566971be6.002204521532228966619.png",
@@ -35,6 +47,22 @@
     {
       "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\lupa.png",
       "PackagePath": "staticwebassets\\Imagens\\Produtos\\lupa.png"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\register.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\register.png"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\shopping-cart_3144456.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\shopping-cart_3144456.png"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\sobremesa-de-bolo-de-baunilha-com-morango-no-topo.jpg",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\sobremesa-de-bolo-de-baunilha-com-morango-no-topo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Produtos\\upload-na-nuvem.png",
+      "PackagePath": "staticwebassets\\Imagens\\Produtos\\upload-na-nuvem.png"
     },
     {
       "Id": "C:\\Users\\Eduardo\\source\\repos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\Rosa_DeRosa-black.png",
