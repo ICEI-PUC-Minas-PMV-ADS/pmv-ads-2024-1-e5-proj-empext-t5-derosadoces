@@ -48,8 +48,16 @@
                         <li class="nav-item ">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                @inject UserManager<IdentityUser> UserManager
-                                <a class="nav-link" style=@*"color: lightgray;"*@  asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a class="nav-link" asp-area="Admin" asp-action="Index" asp-controller="Admin">Área de Administração</a>
+                                }
+
+                                else
+                                {
+                                    @inject UserManager<IdentityUser> UserManager
+                                    <a class="nav-link" style=@*"color: lightgray;"*@  asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
+                                }
                             }
                         </li>
                     </ul>

@@ -9,247 +9,247 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DeRosaWebApp
 build_property.RootNamespace = DeRosaWebApp
-build_property.ProjectDir = E:\Projetos\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp\
+build_property.ProjectDir = D:\ferne\Documents\GitHub\DeRosaDoces\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = E:\Projetos\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp
+build_property.MSBuildProjectDirectory = D:\ferne\Documents\GitHub\DeRosaDoces\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Create.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWFzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Delete.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWFzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Details.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWFzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Edit.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWFzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminCategorias/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWFzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminDashboard/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminDashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EYXNoYm9hcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminImagens/GetImagens.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminImagens/GetImagens.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbWFnZW5zXEdldEltYWdlbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminImagens/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminImagens/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbWFnZW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminImagens/UploadFiles.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminImagens/UploadFiles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbWFnZW5zXFVwbG9hZEZpbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Delete.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QZWRpZG9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Details.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QZWRpZG9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Edit.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QZWRpZG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminPedidos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QZWRpZG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Create.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdXRvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Delete.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdXRvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Details.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdXRvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Edit.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdXRvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/AdminProduto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdXRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/Admin/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/Shared/_Layout.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/_ViewImports.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/_ViewStart.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/AcessDenied.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/AcessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Vzc0RlbmllZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/AlterarSenha.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/AlterarSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBbHRlcmFyU2VuaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/Edit.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/EmailEnviado.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/EmailEnviado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFbWFpbEVudmlhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/EsqueciSenha.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/EsqueciSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFc3F1ZWNpU2VuaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/Login.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Cadastro/Cadastrar.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Cadastro/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9cQ2FkYXN0cmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Carrinho/Erro.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Carrinho/Erro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmluaG9cRXJyby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Carrinho/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Carrinho/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmluaG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Endereco/AdicionarEndereco.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Endereco/AdicionarEndereco.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cQWRpY2lvbmFyRW5kZXJlY28uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Endereco/EditEndereco.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Endereco/EditEndereco.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cRWRpdEVuZGVyZWNvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Endereco/EscolhaEndereco.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Endereco/EscolhaEndereco.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cRXNjb2xoYUVuZGVyZWNvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Home/Index.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Home/Sobre.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Home/Sobre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTb2JyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Error.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Payment.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Payment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Pix.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Pix.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQaXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Success.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Payment/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxTdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Checkout.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENoZWNrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Erro.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Erro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEVycm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/MeusPedidos.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/MeusPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXE1ldXNQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Resumo.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Pedido/Resumo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXFJlc3Vtby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Produto/ProdutoDetalhe.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Produto/ProdutoDetalhe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xQcm9kdXRvRGV0YWxoZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Produto/Produtos.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Produto/Produtos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xQcm9kdXRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/Components/CarrinhoComponent/Default.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/Components/CarrinhoComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FycmluaG9Db21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/Error.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_AdmPartial.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_AdmPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_ConsultaCEP.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_ConsultaCEP.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db25zdWx0YUNFUC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_LoginPartial.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_produtoHome.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_produtoHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wcm9kdXRvSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/EmailRedefinicaoEnviado.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/EmailRedefinicaoEnviado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFbWFpbFJlZGVmaW5pY2FvRW52aWFkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/EsqueciSenha.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/EsqueciSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFc3F1ZWNpU2VuaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/RedefinirSenha.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Usuario/RedefinirSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWRlZmluaXJTZW5oYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/_ViewImports.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/_ViewStart.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Projetos/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_Layout.cshtml]
+[D:/ferne/Documents/GitHub/DeRosaDoces/pmv-ads-2024-1-e5-proj-empext-t5-derosadoces/codigo-fonte/BaseApp/DeRosaWebApp/DeRosaWebApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8138bu225b
