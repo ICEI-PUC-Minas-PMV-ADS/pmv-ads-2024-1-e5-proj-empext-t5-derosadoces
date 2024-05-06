@@ -140,6 +140,42 @@ namespace DeRosaWebApp.Controllers
                 pedido.TotalPedido = precoTotalPedido;
                 pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
                 pedido.Id_User = user_id;
+
+                if (pedido.Cidade != "Poços de Caldas")
+                {
+                    ModelState.AddModelError("Erro", "Entrega para outra cidade");
+                    ViewBag.Erro = "Pedidos são entregas apenas para a cidade de Poços de Caldas";
+                    if (ProdutosComemorativos.Count <= 0)
+                    {
+                        ViewBag.EntregaPedidoNormal = true;
+                    }
+
+                    // Recriar os outros ViewBags necessários
+                    var produtosCarrinho = _carrinho.GetItemCarrinhos();
+                    foreach (var produto in produtosCarrinho)
+                    {
+                        var categoria = _categoriaService.GetById(produto.Produto.IdCategoria);
+                        if (categoria is not null && !categoria.Result.CategoriaNome.Equals("Comemorativos"))
+                        {
+                            DateTime dataAtual = DateTime.Today;
+                            int diasAteSexta = ((int)DayOfWeek.Friday - (int)dataAtual.DayOfWeek + 7) % 7;
+                            DateTime proximaSexta = DateTime.Today;
+                            if (diasAteSexta <= 1)
+                            {
+                                proximaSexta = dataAtual.AddDays(diasAteSexta + 7);
+                            }
+                            else
+                            {
+                                proximaSexta = dataAtual.AddDays(diasAteSexta);
+                            }
+                            ViewBag.EntregaPedidoNormal = true;
+                            ViewBag.DataEntrega = proximaSexta.ToString().Substring(0, 10);
+                        }
+                    }
+
+                    return View();
+                }
+
                 if (dataParaEntregar.ToString() == "01/01/0001 00:00:00")
                 {
                     DateTime dataAtual = DateTime.Today;

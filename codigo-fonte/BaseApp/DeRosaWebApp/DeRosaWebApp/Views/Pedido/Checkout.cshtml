@@ -1,10 +1,14 @@
 ﻿@model DateTime
 <div class="checkout-container">
     <div class="main-checkout">
+        <a class="btn btn-success" asp-action="EscolhaEndereco" asp-controller="Endereco">Voltar</a>
         <h2 class="checkout-title">Checkout</h2>
+        @if (ViewBag.Erro != null)
+        {
+            <h6 style="color:red">@ViewBag.Erro</h6>
+        }
 
         <form asp-action="Checkout" method="post">
-            <h6>@ViewBag.Erro</h6>
             <div class="form-group custom-checkout">
                 <label for="dataParaEntregar">Data para entrega:</label>
                 <p style="color: gray; font-size: small">

@@ -102,9 +102,12 @@
                                         <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vez</strong></p>
 
                                     }
-
                                 }
 
+                            }
+                            @{
+                                var telefone = "5531999999999";
+                                var pedidoUrl = "https://wa.me/" + telefone + "?text=Ol%C3%A1%21%20Estou%20entrando%20em%20contato%20sobre%20o%20pedido%20Nº%20" + pedido.Cod_Pedido + "%2C%20feito%20em%20" + pedido.DataPedido.ToString("dd/MM/yyyy") + ".%20Seria%20poss%C3%ADvel%20discutir%20alguns%20detalhes%3F";
                             }
                         </div>
                     </div>
@@ -124,24 +127,26 @@ catch (NullReferenceException)
 
 
 <script>
-    setInterval(function () {
-        var currentDate = new Date(); // Obtém a data e hora atuais
-        var dateTimes = [@Json.Serialize(DateTimes)]; // Converte a lista de DateTimes do modelo para JavaScript
-        var expiredIndexes = []; // Array para armazenar os índices dos pedidos expirados
+    function checkOrders() {
+        const currentDate = new Date();
+        const ordersDate = @Json.Serialize(DateTimes);
 
-        // Verifica cada DateTime na lista
-        for (var i = 0; i < dateTimes.length; i++) {
-            var expirationDate = new Date(dateTimes[i]); // Cria um objeto Date para a data de expiração do pedido
+        for (const orderExpireDate of ordersDate) {
+            const expireDate = new Date(orderExpireDate);
 
-            // Verifica se a data de expiração é igual à data atual
-            if (expirationDate <= currentDate) {
-                expiredIndexes.push(i); // Adiciona o índice do pedido expirado ao array
+            if (expireDate < currentDate) {
+                @inject IPedidoService _pedidoService
+    @{
+        await _pedidoService.VerificarPedidosExpirados();
+    }
+                    window.location.reload();
             }
         }
 
-        // Se houver pedidos expirados, recarrega a página
-        if (expiredIndexes.length > 0) {
-            location.reload();
-        }
-    }, 30000); // Verifica a cada 30 segundos
+    }
+
+    checkOrders();
+
+    setInterval(checkOrders, 30000);
+
 </script>
