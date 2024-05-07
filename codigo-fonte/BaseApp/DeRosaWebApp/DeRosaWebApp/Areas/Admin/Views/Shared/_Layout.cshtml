@@ -1,49 +1,59 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.AspNetCore.Identity;
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DéRosa Área de Administração</title>
+    <title>@ViewData["Title"] - DeRosaWebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DeRosaWebApp.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 
     @RenderSection("scripts", required: false)
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg  custom-navbar">
-            <a class="navbar-brand" asp-action="Index" asp-controller="Home">DéRosa</a>
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="Home">Página inicial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminPedidos">Pedidos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminProduto">Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminCategorias">Categorias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminDashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="Admin" style="color:lightgray" aria-current="page" asp-action="Index" asp-controller="AdminImagens">Gerenciar Imagens</a>
-                        </li>
-                    </ul>
-                </div>
-                @await Html.PartialAsync("_LoginPartial")
-                @await Html.PartialAsync("_AdmPartial")
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-1">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/Imagens/Rosa_DeRosa-black.png" width="60px" height="55px" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex  justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Admin" aria-current="page" asp-action="Index" asp-controller="Home">Página inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Admin" aria-current="page" asp-action="Index" asp-controller="AdminPedidos">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Admin" aria-current="page" asp-action="Index" asp-controller="AdminProduto">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Admin" aria-current="page" asp-action="Index" asp-controller="AdminCategorias">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Admin" aria-current="page" asp-action="Index" asp-controller="AdminDashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-area="Admin" aria-current="page" asp-action="Index" asp-controller="AdminImagens">Gerenciar Imagens</a>
+                    </li>
+                </ul>                    
             </div>
-        </nav>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @RenderBody()
-    </div>
+            @await Html.PartialAsync("_LoginPartial")
+            @await Html.PartialAsync("_AdmPartial")
+        </div>
+    </nav>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderBody()
 </body>
 </html>
