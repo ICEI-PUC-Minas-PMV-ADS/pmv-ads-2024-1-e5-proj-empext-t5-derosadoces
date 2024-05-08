@@ -2,16 +2,18 @@
 using System;
 using System.Net;
 using System.Net.Mail;
+using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 
 namespace DeRosaWebApp.Repository.Services
 {
     public class EmailService : IEmailService
     {
-        private readonly string _smtpServer = "smtp.gmail.com";
+        private readonly string _smtpServer = "smtp-mail.outlook.com";
         private readonly int _smtpPort = 587;
-        private readonly string _senderEmail = "teste@gmail.com";
-        private readonly string _senderPassword = Environment.GetEnvironmentVariable("GmailPassword");
+        private readonly string _senderEmail = "derosateste@hotmail.com";
+        private readonly string _senderPassword = "adminderosa1234";
+        private readonly string _nome = "DeRosa";
 
         public async Task SendEmailAsync(string emailDestinatario, string assunto, string mensagemTexto, string mensagemHtml)
         {
@@ -22,25 +24,22 @@ namespace DeRosaWebApp.Repository.Services
                     throw new ArgumentException("O e-mail destinatário é inválido.");
                 }
 
-                var smtpClient = new SmtpClient(_smtpServer)
-                {
-                    Port = _smtpPort,
-                    Credentials = new NetworkCredential(_senderEmail, _senderPassword),
-                    EnableSsl = true,
+                MailMessage mail = new MailMessage(){
+                    From = new MailAddress(_senderEmail, _nome)
                 };
 
-                var message = new MailMessage
-                {
-                    From = new MailAddress(_senderEmail),
-                    Subject = assunto,
-                    Body = mensagemHtml,
-                    IsBodyHtml = true,
-                };
+                mail.To.Add(emailDestinatario);
+                mail.Subject = assunto;
+                mail.Body = mensagemHtml;
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
 
-                message.To.Add(emailDestinatario);
-
-                await smtpClient.SendMailAsync(message);
                 
+                var smtp = new SmtpClient(_smtpServer, _smtpPort);
+                smtp.Credentials = new NetworkCredential(_senderEmail, _senderPassword);
+                smtp.EnableSsl = true;
+
+                await smtp.SendMailAsync(mail);
                 Console.WriteLine($"E-mail enviado para: {emailDestinatario}");
             }
             catch (ArgumentException ex)
