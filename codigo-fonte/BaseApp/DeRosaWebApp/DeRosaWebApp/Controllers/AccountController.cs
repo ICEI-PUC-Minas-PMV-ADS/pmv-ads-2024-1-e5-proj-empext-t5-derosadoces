@@ -230,7 +230,7 @@ namespace DeRosaWebApp.Controllers
                 {
                     var usuario = await _userManagerCliente.FindByEmailAsync(dados.Email);
                     var token = await _userManagerCliente.GeneratePasswordResetTokenAsync(usuario);
-                    var urlConfirmacao = Url.Action(nameof(RedefinirSenha), "UserName", new { token }, Request.Scheme);
+                    var urlConfirmacao = Url.Action(nameof(AccountController.RedefinirSenha), "Account", new { token }, Request.Scheme);
                     var mensagem = new StringBuilder();
                     mensagem.Append($"<p>Olá, {usuario.UserName}.</p>");
                     mensagem.Append("<p>Houve uma solicitação de redefinição de senha para seu usuário em nosso site. Se não foi você que fez a solicitação, ignore essa mensagem. Caso tenha sido você, clique no link abaixo para criar sua nova senha:</p>");
