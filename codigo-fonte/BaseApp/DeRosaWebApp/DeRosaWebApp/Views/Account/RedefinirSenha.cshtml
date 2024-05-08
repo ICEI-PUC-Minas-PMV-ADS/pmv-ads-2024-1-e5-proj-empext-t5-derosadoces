@@ -1,0 +1,21 @@
+@using DeRosaWebApp.ViewModel;
+@model RedefinirSenhaViewModel;
+
+<form asp-action="RedefinirSenha" method="post">
+    <input type="hidden" asp-for="Token" />
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="NovaSenha"></label>
+        <input asp-for="NovaSenha" class="form-control" />
+        <span asp-validation-for="NovaSenha" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfNovaSenha"></label>
+        <input asp-for="ConfNovaSenha" class="form-control" />
+        <span asp-validation-for="ConfNovaSenha" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Redefinir Senha</button>
+</form>
