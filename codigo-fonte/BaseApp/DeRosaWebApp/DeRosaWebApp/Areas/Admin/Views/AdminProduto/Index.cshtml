@@ -7,118 +7,69 @@
     ViewData["Title"] = "Lista de produtos";
 }
 
-<h1>Inicio</h1>
+<h1 class="titulo-tabela">Produtos Cadastrados</h1>
 <p>
     <a asp-action="Create">Criar novo produto</a>
 </p>
 <div class="center">
-    <div style="margin-left: 15px; margin-right: 15px">
+    <div class="form-container">
         <form method="get" class="form-inline">
-            <input name="filter" class="form-control" style="width: 40%" placeholder="Pesquise um produto..." value="@Model.RouteValue["Filter"]" />
+            <input name="filter" class="form-control" placeholder="Pesquise um produto..." value="@Model.RouteValue["Filter"]" />
             <button type="submit" class="btn btn-info">
                 <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
             </button>
         </form>
-
-        Total de produtos : @Model.TotalRecordCount
+        Total de produtos: @Model.TotalRecordCount
         <div>
             <vc:pager paging-list="@Model"></vc:pager>
         </div>
-
     </div>
-   
-
 </div>
 
-
-<div class="container-fluid" style="font-size:small">
-  
-    <table class="table table-light font-monospace" style="color: black;">
-        <thead class="table-success">
-            <tr class="d-xl-table-row">
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.Nome)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.Preco)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.EmEstoque)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.ImagemUrl)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.DescricaoCurta)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.PrecoSecundario)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.IdCategoria)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.ProdutoDaSemana)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.Indisponivel)
-                </th>
-                <th class="d-lg-table-cell border-1">
-                    @Html.DisplayNameFor(model => model.EstoqueAgendamento)
-                </th>
-
+<div class="container-fluid admin">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                <th>@Html.DisplayNameFor(model => model.Preco)</th>
+                <th>@Html.DisplayNameFor(model => model.EmEstoque)</th>
+                <th>@Html.DisplayNameFor(model => model.ImagemUrl)</th>
+                <th>@Html.DisplayNameFor(model => model.DescricaoCurta)</th>
+                <th>@Html.DisplayNameFor(model => model.PrecoSecundario)</th>
+                <th>@Html.DisplayNameFor(model => model.IdCategoria)</th>
+                <th>@Html.DisplayNameFor(model => model.ProdutoDaSemana)</th>
+                <th>@Html.DisplayNameFor(model => model.Indisponivel)</th>
+                <th>@Html.DisplayNameFor(model => model.EstoqueAgendamento)</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-
             @foreach (var item in Model)
             {
-                <tr class="d-lg-table-row">
-                    <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td class="d-print-table-cell border-1">
-                        R$@item.Preco.ToString("F2", CultureInfo.InvariantCulture)
-                    </td>
-                    <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.EmEstoque)
-                    </td>
-                    <td class="d-print-table-cell border-1">
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>R$@item.Preco.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EmEstoque)</td>
+                    <td>
                         @if (item.ImagemUrl.Contains("www") || item.ImagemUrl.Contains("http") || item.ImagemUrl.Contains("https"))
                         {
-                            <img src="@Html.DisplayFor(modelItem => item.ImagemUrl)" width="95" height="95">
+                            <img src="@item.ImagemUrl" width="95" height="95">
                         }
                         else
                         {
-                            <img style="border: 1px ridge white; background-color: white;" src="@Html.DisplayFor(modelItem => item.ImagemUrl)" width="95" height="95">
+                            <img class="bordered-image" src="@item.ImagemUrl" width="95" height="95">
                         }
-                        
                     </td>
-                    <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.DescricaoCurta)
-                    </td>
-                    
-                    <td class="d-print-table-cell border-1">
-                        R$@item.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
-                    </td>
-
-                    <td class="d-print-table-cell border-1">
-                        <span>Identificador: </span>@Html.DisplayFor(modelItem => item.IdCategoria)
-                    </td>
-                    <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.ProdutoDaSemana)
-                    </td>
-                    <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.Indisponivel)
-                    </td>
-                    <td class="d-print-table-cell border-1">
-                        @Html.DisplayFor(modelItem => item.EstoqueAgendamento)
-                    </td>
-                    <td class="flex-column border-1">
-                        <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Edit" asp-route-id="@item.Cod_Produto">Editar</a>
-                        <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Details" asp-route-id="@item.Cod_Produto">Detalhes</a>
-                        <a class="list-group-item" style="background-color: lightgoldenrodyellow; border-radius: 10px; margin-top:7px;" asp-action="Delete" asp-route-id="@item.Cod_Produto">Deletar</a>
+                    <td>@Html.DisplayFor(modelItem => item.DescricaoCurta)</td>
+                    <td>R$@item.PrecoSecundario.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    <td><span>Identificador: </span>@Html.DisplayFor(modelItem => item.IdCategoria)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProdutoDaSemana)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Indisponivel)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EstoqueAgendamento)</td>
+                    <td class="actions">
+                        <a class="btn" asp-action="Edit" asp-route-id="@item.Cod_Produto">Editar</a>
+                        <a class="btn" asp-action="Details" asp-route-id="@item.Cod_Produto">Detalhes</a>
+                        <a class="btn" asp-action="Delete" asp-route-id="@item.Cod_Produto">Deletar</a>
                     </td>
                 </tr>
             }
