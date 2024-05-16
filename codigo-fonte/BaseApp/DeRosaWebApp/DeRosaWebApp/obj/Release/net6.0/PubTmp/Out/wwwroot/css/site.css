@@ -602,3 +602,135 @@ p {
 }
 
 /*FINAL TELA ENDERECO*/
+
+
+/* INÍCIO TELA CHECKOUT*/
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items:center;
+}
+
+.checkout-title {
+    font-size: 1.5rem;
+}
+
+/* INÍCIO TABELAS ADMIN*/
+
+/* Container geral para tabelas administrativas */
+
+.titulo-tabela {
+    padding: 10px;
+    text-align: center
+}
+
+.admin .table {
+    width: auto;
+    margin: 20px;
+    border-collapse: collapse;
+    font-family: 'Montserrat', monospace;
+    font-size: 14px;
+    color: black;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    vertical-align: middle
+}
+
+    /* Cabeçalho das tabelas */
+    .admin .table thead {
+        background-color: rgba(251, 246, 235, 1);
+        color: #333333;
+    }
+
+    .admin .table th, .admin .table td {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+        vertical-align: middle; /* Alinhamento vertical no meio */
+    }
+
+    /* Corpo das tabelas */
+    .admin .table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .admin .table tbody tr:hover {
+        background-color: #ddd;
+    }
+
+/* Imagem com borda */
+.admin .bordered-image {
+    border: 1px ridge white;
+    background-color: white;
+}
+
+/* Status */
+.admin .status[data-status="True"] {
+    background-color: #93F09C;
+    color: white;
+}
+
+.admin .status[data-status="False"] {
+    background-color: #EF5952;
+    color: white;
+}
+
+/* Botões */
+.admin .actions .btn {
+    background-color: lightgoldenrodyellow;
+    color: black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+    .admin .actions .btn:hover {
+        background-color: goldenrod;
+        color: white;
+    }
+
+/* Estilo para responsividade */
+.admin .table-responsive {
+    overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+    .admin .table thead {
+        display: none;
+    }
+
+    .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
+        display: block;
+        width: 100%;
+    }
+
+        .admin .table tr {
+            margin-bottom: 15px;
+        }
+
+        .admin .table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .admin .table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+    .admin .actions .btn {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+

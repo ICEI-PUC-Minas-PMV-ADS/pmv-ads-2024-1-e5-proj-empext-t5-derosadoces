@@ -125,6 +125,14 @@
       "PackagePath": "staticwebassets\\Imagens\\upload-na-nuvem.png"
     },
     {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\visibility.svg",
+      "PackagePath": "staticwebassets\\Imagens\\visibility.svg"
+    },
+    {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\visibility_off.svg",
+      "PackagePath": "staticwebassets\\Imagens\\visibility_off.svg"
+    },
+    {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

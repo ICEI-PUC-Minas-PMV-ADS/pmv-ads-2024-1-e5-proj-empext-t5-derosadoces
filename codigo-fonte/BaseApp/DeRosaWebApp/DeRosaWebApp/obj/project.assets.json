@@ -12512,19 +12512,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jhody.mike.da.silva\\.nuget\\packages\\": {}
+    "C:\\Users\\ferne\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\jhody.mike.da.silva\\Desktop\\derosa\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\DeRosaWebApp.csproj",
+      "projectUniqueName": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\DeRosaWebApp.csproj",
       "projectName": "DeRosaWebApp",
-      "projectPath": "c:\\Users\\jhody.mike.da.silva\\Desktop\\derosa\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\DeRosaWebApp.csproj",
-      "packagesPath": "C:\\Users\\jhody.mike.da.silva\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jhody.mike.da.silva\\Desktop\\derosa\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\obj\\",
+      "projectPath": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\DeRosaWebApp.csproj",
+      "packagesPath": "C:\\Users\\ferne\\.nuget\\packages\\",
+      "outputPath": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\jhody.mike.da.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ferne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

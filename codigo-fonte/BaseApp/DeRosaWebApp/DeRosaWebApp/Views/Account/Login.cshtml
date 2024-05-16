@@ -23,11 +23,11 @@
                                 <div class="mb-4  input-login">
                                     @* <label class="form-label fw-light">Senha</label> *@
                                     <div class="input-senha-login">
-                                        <input type="password" asp-for="Senha" class="form-control" placeholder="Senha">
-                                        <button type="button" onclick="togglePasswordVisibility(this)">
-                                            <img src="~/Imagens/olho.png" alt="password-show" width="25" height="25">
+                                        <input id="password-input" type="password" asp-for="Senha" class="form-control" placeholder="Senha">
+                                        <button type="button" class="btn-toggle-password" onclick="togglePasswordVisibility()">
+                                            <img id="toggle-icon" src="~/Imagens/visibility_off.svg" alt="password-show" width="25" height="25">
                                         </button>
-                                    </div>
+                                    </div>                                    
                                     <a class="btn btn-esqueci-senha" asp-controller="Account" asp-action="EsqueciSenha" role="button">Esqueci a senha</a>
                                 </div>
                                 <div class="form-group-login">
@@ -52,4 +52,17 @@
             input.type = "password";
         }
     }
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('password-input');
+            var toggleIcon = document.getElementById('toggle-icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.src = '@Url.Content("~/Imagens/visibility.svg")';
+                toggleIcon.alt = 'password-hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.src = '@Url.Content("~/Imagens/visibility_off.svg")';
+                toggleIcon.alt = 'password-show';
+            }
+        }
 </script>

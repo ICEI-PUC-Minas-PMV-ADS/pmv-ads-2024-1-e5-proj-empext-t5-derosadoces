@@ -332,6 +332,24 @@ p {
     margin-top:10px;
 }
 
+.input-senha-login {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+    .input-senha-login .btn-toggle-password {
+        background: none;
+        border: none;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        padding: 0;
+    }
+
+        .input-senha-login .btn-toggle-password i {
+            font-size: 1.5em;
+        }
 
 /* TELA CADASTRO */
 
