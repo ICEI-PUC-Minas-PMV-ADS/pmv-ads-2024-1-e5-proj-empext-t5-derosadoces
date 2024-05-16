@@ -71,7 +71,8 @@ namespace DeRosaWebApp.Controllers
         {
             try
             {
-                if (selectedAddressId == 0)
+                string retiradaLocalValue = HttpContext.Session.GetString("RetiradaLocal");
+                if (selectedAddressId == 0 && retiradaLocalValue == "false")
                 {
                     throw new DeRosaExceptionValidation("Selecione um endereço!");
                 }

@@ -123,10 +123,25 @@ namespace DeRosaWebApp.Controllers
                 {
                     ModelState.AddModelError("", "Resumo");
                 }
+                var getString = HttpContext.Session.GetString("RetiradaLocal");
                 var user_id = _userMananger.GetUserId(User);
                 var getCliente = await _clienteService.GetClienteByUserId(user_id);
-                var getEndereco = await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
+
+                Endereco getEndereco;
+
+                if (getString == "false")
+                {
+                    getEndereco = await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
+                }
+                else
+                {
+                    getEndereco = new Endereco();
+                }
+
+                await _enderecoService.GetEnderecoById(getCliente.IdEndereco);
                 string valorSessaoAgendado = HttpContext.Session.GetString("Agendado");
+
+
 
                 if (string.Equals(valorSessaoAgendado, "true"))
                 {
@@ -136,13 +151,26 @@ namespace DeRosaWebApp.Controllers
                 {
                     pedido.Agendado = false;
                 }
-                pedido.Logradouro = getEndereco.Logradouro;
-                pedido.Bairro = getEndereco.Bairro;
-                pedido.Cep = getEndereco.CEP;
-                pedido.Cidade = getEndereco.Cidade;
-                pedido.Numero = getEndereco.Numero;
-                pedido.Complemento = getEndereco.Complemento;
-                pedido.Estado = getEndereco.UF;
+                if(getString == "true")
+                {
+                    pedido.Logradouro = "Rua Exemplo";
+                    pedido.Bairro = "Bairro Exemplo";
+                    pedido.Cep = "00000-000";
+                    pedido.Cidade = "Poços de Caldas";
+                    pedido.Numero = 123;
+                    pedido.Complemento = "Complemento Exemplo";
+                    pedido.Estado = "MG";
+                }
+                else
+                {
+                    pedido.Logradouro = getEndereco.Logradouro;
+                    pedido.Bairro = getEndereco.Bairro;
+                    pedido.Cep = getEndereco.CEP;
+                    pedido.Cidade = getEndereco.Cidade;
+                    pedido.Numero = getEndereco.Numero;
+                    pedido.Complemento = getEndereco.Complemento;
+                    pedido.Estado = getEndereco.UF;
+                }
                 pedido.Nome = getCliente.Nome;
                 pedido.Telefone = getCliente.Telefone;
                 pedido.TotalItensPedido = totalItemsPedido;
@@ -150,7 +178,6 @@ namespace DeRosaWebApp.Controllers
                 pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
                 pedido.Id_User = user_id;
 
-            var getString = HttpContext.Session.GetString("RetiradaLocal");
             pedido.TotalPedido += getString == "true" ? 0 : 20.00;
     
                 if (pedido.Cidade != "Poços de Caldas")
@@ -232,6 +259,7 @@ namespace DeRosaWebApp.Controllers
                 ViewBag.Erro = ex.Message;
                 return View();
             }
+
             catch (NullReferenceException)
             {
                 ViewBag.Erro = "Volte a página anterior e selecione um endereço!";
