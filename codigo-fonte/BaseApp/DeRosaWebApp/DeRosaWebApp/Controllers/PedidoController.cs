@@ -80,6 +80,15 @@ namespace DeRosaWebApp.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public IActionResult AtualizarFormaDeEntrega(string formaEntrega)
+        {
+            var retiradaLocal = formaEntrega == "local";
+            HttpContext.Session.SetString("RetiradaLocal", retiradaLocal ? "true" : "false");
+            return Json(new { success = true, message = "Forma de entrega atualizada.", currentSetting = retiradaLocal });
+        }
+            
         #endregion
 
         #region Checkout completo
@@ -141,6 +150,9 @@ namespace DeRosaWebApp.Controllers
                 pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
                 pedido.Id_User = user_id;
 
+            var getString = HttpContext.Session.GetString("RetiradaLocal");
+            pedido.TotalPedido += getString == "true" ? 0 : 20.00;
+    
                 if (pedido.Cidade != "Poços de Caldas")
                 {
                     ModelState.AddModelError("Erro", "Entrega para outra cidade");

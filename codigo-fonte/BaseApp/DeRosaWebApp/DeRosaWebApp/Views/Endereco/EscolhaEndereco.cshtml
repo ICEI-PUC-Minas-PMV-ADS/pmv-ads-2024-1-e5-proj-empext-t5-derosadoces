@@ -1,19 +1,38 @@
 ﻿@model List<Endereco>
 
+@{
+    var formaEntregaSelecionada = ViewBag.RetiradaLocal == "true" ? "local" : "domicilio";
+}
+
 <form asp-action="EscolhaEndereco" asp-controller="Endereco" method="post" class="form-horizontal" role="form">
     <div class="container">
-        <h4>Escolha um endereço:</h4>
+        <h4>Escolha a forma de entrega:</h4>
+        <div class="form-group">
+            <label for="formaEntrega">Forma de entrega:</label>
+            <select id="formaEntrega" name="formaEntrega" class="form-control" onchange="atualizarFormaEntrega()">
+    <option value="domicilio" selected="@(formaEntregaSelecionada == "domicilio" ? "true" : "false")">Entrega a domicílio</option>
+<option value="local" selected="@(formaEntregaSelecionada == "local" ? "true" : "false")">Retirada no local</option>
+</select>
+
+        </div>
         <div class="card-body">
             <h6 class="text-danger">@TempData["Erro"]</h6>
-            @foreach (Endereco endereco in Model)
-            {
-                <div class="container-escolha-endereco" onclick="selecionarEndereco(this, @endereco.Id)">
-                    <input type="radio" name="selectedAddressId" value="@endereco.Id" onclick="desmarcarOutrosRadios(this.value)">
-                    <label asp-for="@endereco.Id" style="display:none">@endereco.Id</label>
-                    <label>@endereco.Logradouro, @endereco.Numero (@endereco.Complemento), @endereco.Bairro, @endereco.Cidade, @endereco.UF, @endereco.CEP</label>
-                    <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
-                </div>
-            }
+            <div id="enderecoUsuario" style="display:none;">
+                <h5>Endereço do Usuário:</h5>
+                @foreach (Endereco endereco in Model)
+                {
+                    <div class="container-escolha-endereco" onclick="selecionarEndereco(this, @endereco.Id)">
+                        <input type="radio" name="selectedAddressId" value="@endereco.Id">
+                        <label>@endereco.Logradouro, @endereco.Numero (@endereco.Complemento), @endereco.Bairro, @endereco.Cidade, @endereco.UF, @endereco.CEP</label>
+                        <a asp-action="EditEndereco" asp-controller="Endereco" asp-route-enderecoId="@endereco.Id">Editar endereço</a>
+                    </div>
+                }
+            </div>
+            <div id="enderecoLocal" style="display:none;">
+                <h5>Endereço para Retirada:</h5>
+                <p>DeRosa Store, Rua Exemplo, 123, Bairro Centro, Cidade Exemplo, Estado Exemplo, 12345-678</p>
+                <p>Horário de funcionamento: Seg-Sex, 9h-18h</p>
+            </div>
         </div>
         <div class="container-escolha-botoes">
             <input class="btn btn-success btn-endereco" type="submit" value="Confirmar endereço" />
@@ -24,16 +43,47 @@
 
 @section Scripts {
     <script>
-        function desmarcarOutrosRadios(idSelecionado) {
-            console.log("Endereço selecionado: " + idSelecionado);
+        function atualizarFormaEntrega() {
+            const formaEntrega = document.getElementById("formaEntrega").value;
+            const bodyData = `formaEntrega=${encodeURIComponent(formaEntrega)}`;
+
+            fetch('/Pedido/AtualizarFormaDeEntrega', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: bodyData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Sessão atualizada com sucesso.");
+                    const enderecoUsuario = document.getElementById("enderecoUsuario");
+                    const enderecoLocal = document.getElementById("enderecoLocal");
+                    if (formaEntrega === "domicilio") {
+                        enderecoUsuario.style.display = "block";
+                        enderecoLocal.style.display = "none";
+                    } else {
+                        enderecoUsuario.style.display = "none";
+                        enderecoLocal.style.display = "block";
+                    }
+                } else {
+                    throw new Error('Falha na atualização da sessão');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar a sessão:', error);
+                alert('Não foi possível atualizar a forma de entrega. Por favor, tente novamente.');
+            });
         }
 
         function selecionarEndereco(elemento, enderecoId) {
             const radioButtons = document.querySelectorAll('input[name="selectedAddressId"]');
-            radioButtons.forEach(radioButton => radioButton.checked = false);
-
-            const radioButton = elemento.querySelector('input[name="selectedAddressId"]');
-            radioButton.checked = true;
+            radioButtons.forEach(radioButton => {
+                radioButton.checked = radioButton.value === enderecoId.toString();
+            });
         }
+
+        // Inicializa a exibição correta com base na seleção atual quando a página carrega
+        document.addEventListener("DOMContentLoaded", function() {
+            atualizarFormaEntrega();
+        });
     </script>
 }
