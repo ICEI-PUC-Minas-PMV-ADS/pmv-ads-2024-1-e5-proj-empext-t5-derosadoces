@@ -845,3 +845,166 @@ p {
 }
 
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container, .summary-container, .sales-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-form select,
+.filter-form .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+.filter-form .btn {
+    flex: 0 1 auto;
+}
+
+#filterButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#filterButton:hover {
+    background-color: #0056b3;
+}
+
+.summary-container p {
+    margin: 5px 0;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.sales-table th, .sales-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.sales-table th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    .filter-form {
+        flex-direction: column;
+    }
+
+    .filter-form select,
+    .filter-form .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/*FIM TABELAS ADMIN*/
+
+/*INICIO TELA DASHBOARD*/
+
+.title-dashboard {
+    margin-top: 20px;
+}
+
+.form-container, .summary-container, .sales-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: auto;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+    .filter-form select,
+    .filter-form .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .filter-form .btn {
+        flex: 0 1 auto;
+    }
+
+#filterButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+    #filterButton:hover {
+        background-color: #0056b3;
+    }
+
+.summary-container p {
+    margin: 5px 0;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .sales-table th, .sales-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .sales-table th {
+        background-color: #f2f2f2;
+    }
+
+@media (max-width: 600px) {
+    .filter-form {
+        flex-direction: column;
+    }
+
+        .filter-form select,
+        .filter-form .btn {
+            width: 100%;
+            margin: 5px 0;
+        }
+}
+
+
+/*FIM TELA DASHBOARD*/
