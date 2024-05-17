@@ -287,7 +287,7 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 150px;
-    height: 4vh;
+    //height: 4vh;
     border-radius: 0;
 }
 
@@ -714,6 +714,84 @@ p {
     overflow-x: auto;
 }
 
+/* Centraliza o conteúdo */
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Contêiner do formulário */
+.form-container {
+    display: inline-block;
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do formulário de busca */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+    .search-form .form-control {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .search-form .btn-info {
+        display: flex;
+        align-items: center;
+        background-color: lightgoldenrodyellow;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width:auto;
+    }
+        .search-form .btn-info:hover {
+            //background-color: lightgoldenrodyellow;
+            background-color: goldenrod;
+            color: white;
+        }
+
+        .search-form .btn-info span {
+            margin-right: 5px;
+
+        }
+
+/* Contador total */
+.total-count {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Botão de criar novo produto */
+.create-button {
+    display: inline-block;
+    margin-left: 30px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width:auto;
+}
+
+    .create-button:hover {
+        background-color: #0056b3;
+    }
+
 @media (max-width: 600px) {
     .admin .table thead {
         display: none;
@@ -749,6 +827,21 @@ p {
         width: 100%;
         margin: 5px 0;
     }
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+        .search-form .form-control,
+        .search-form .btn-info {
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .search-form .btn-info {
+            justify-content: center;
+        }
 }
 
 

@@ -9,17 +9,17 @@
 
 <h1 class="titulo-tabela">Produtos Cadastrados</h1>
 <p>
-    <a asp-action="Create">Criar novo produto</a>
+    <a asp-action="Create" class="btn btn-primary create-button">Criar novo produto</a>
 </p>
 <div class="center">
     <div class="form-container">
-        <form method="get" class="form-inline">
+        <form method="get" class="form-inline search-form">
             <input name="filter" class="form-control" placeholder="Pesquise um produto..." value="@Model.RouteValue["Filter"]" />
             <button type="submit" class="btn btn-info">
                 <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
             </button>
         </form>
-        Total de produtos: @Model.TotalRecordCount
+        <p class="total-count">Total de produtos: @Model.TotalRecordCount</p>
         <div>
             <vc:pager paging-list="@Model"></vc:pager>
         </div>

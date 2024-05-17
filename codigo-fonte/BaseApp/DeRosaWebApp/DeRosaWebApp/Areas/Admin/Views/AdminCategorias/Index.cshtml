@@ -5,20 +5,20 @@
     ViewData["Title"] = "Inicio";
 }
 
-<h1 class="titulo-tabela">Categorias dos Produtos</h1>
+<h1 class="titulo-tabela" >Categorias dos Produtos</h1>
 
 <p>
-    <a asp-action="Create">Criar nova categoria</a>
+    <a asp-action="Create" class="btn btn-primary create-button">Criar nova categoria</a>
 </p>
 <div class="center">
     <div class="form-container">
-        <form method="get" class="form-inline">
+        <form method="get" class="form-inline search-form">
             <input name="filter" class="form-control" placeholder="Pesquise uma categoria..." value="@Model.RouteValue["Filter"]" />
             <button type="submit" class="btn btn-info">
                 <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
             </button>
         </form>
-        Total de categorias: @Model.TotalRecordCount
+        <p class="total-count">Total de categorias: @Model.TotalRecordCount</p>
         <div>
             <vc:pager paging-list="@Model"></vc:pager>
         </div>
