@@ -2,107 +2,122 @@
 @model Pedido
 
 @{
-    ViewData["Title"] = "Editar";
+    ViewData["Title"] = "Editar Pedido";
 }
 
-<h1>Editar</h1>
+<h1 class="titulo-tabela">Editar Pedido</h1>
 
-<h4>Pedido</h4>
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-area="Admin" method="post" asp-action="Edit" asp-controller="AdminPedidos">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="@Model.Cod_Pedido" />
-            <div class="form-group">
-                <label asp-for="@Model.Nome" class="control-label"></label>
-                <input asp-for="@Model.Nome" class="form-control" />
-                <span asp-validation-for="@Model.Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.DataPedido" class="control-label"></label>
-                <input asp-for="@Model.DataPedido" class="form-control" />
-                <span asp-validation-for="@Model.DataPedido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Logradouro" class="control-label"></label>
-                <input asp-for="@Model.Logradouro" class="form-control" />
-                <span asp-validation-for="@Model.Logradouro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Numero" class="control-label"></label>
-                <input asp-for="@Model.Numero" class="form-control" />
-                <span asp-validation-for="@Model.Numero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Telefone" class="control-label"></label>
-                <input asp-for="@Model.Telefone" class="form-control" />
-                <span asp-validation-for="@Model.Telefone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.TotalItensPedido" class="control-label"></label>
-                <input asp-for="@Model.TotalItensPedido" class="form-control" />
-                <span asp-validation-for="@Model.TotalItensPedido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.TotalPedido" class="control-label"></label>
-                <input asp-for="@Model.TotalPedido" class="form-control" min="0" />
-                <span asp-validation-for="@Model.TotalPedido" class="text-danger"></span>
-            </div>
-            <div class="form-check">
-                <label asp-for="@Model.Entregue" class="form-check-label"></label>
-                <input asp-for="@Model.Entregue" class="form-check-input" />
-                <span asp-validation-for="@Model.Entregue" class="text-danger"></span>
-            </div>
-            <div class="form-check">
-                <label asp-for="@Model.Concluido" class="form-check-label"></label>
-                <input asp-for="@Model.Concluido" class="form-check-input" />
-                <span asp-validation-for="@Model.Concluido" class="text-danger"></span>
-            </div>
-              <div class="form-group">
-                <label asp-for="@Model.Complemento" class="control-label"></label>
-                <input asp-for="@Model.Complemento" class="form-control" />
-                <span asp-validation-for="@Model.Complemento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Cep" class="control-label"></label>
-                <input asp-for="@Model.Cep" class="form-control" />
-                <span asp-validation-for="@Model.Cep" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Cep" class="control-label"></label>
-                <input asp-for="@Model.Cep" class="form-control" />
-                <span asp-validation-for="@Model.Cep" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Cidade" class="control-label"></label>
-                <input asp-for="@Model.Cidade" class="form-control" />
-                <span asp-validation-for="@Model.Cidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Estado" class="control-label"></label>
-                <input asp-for="@Model.Estado" class="form-control" />
-                <span asp-validation-for="@Model.Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Bairro" class="control-label"></label>
-                <input asp-for="@Model.Bairro" class="form-control" />
-                <span asp-validation-for="@Model.Bairro" class="text-danger"></span>
-            </div>
+<div class="container">
 
-            <div class="form-check">
-                <label asp-for="@Model.Agendado" class="form-check-label"></label>
-                <input asp-for="@Model.Agendado" class="form-check-input" />
-                <span asp-validation-for="@Model.Agendado" class="text-danger"></span>
+    <div class="row justify-content-center align-items-center">
+        <!-- Coluna do formulário -->
+        <div class="container justify-content-center align-items-center">
+            <div class="center col-md-8">
+                <div class="col-md-4">
+                    <div class="alert alert-secondary" role="alert">
+                        <h2>Aviso importante:</h2>
+                        As informações deste pedido foram recebidas diretamente do cliente no momento do pagamento do pedido,<br />
+                        <strong>não é recomendável alterar informações além de: "Já foi Entregue?" ou "Já foi Preparado?"!</strong>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar"  class="btn btn-primary" />
+            <form id="editForm"  asp-area="Admin" method="post" asp-action="Edit" asp-controller="AdminPedidos">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="@Model.Cod_Pedido" />
+                <div class="form-check">
+                    <label asp-for="@Model.Entregue" class="form-check-label"></label>
+                    <input asp-for="@Model.Entregue" class="form-check-input" />
+                    <span asp-validation-for="@Model.Entregue" class="text-danger"></span>
+                </div>
+                <div class="form-check">
+                    <label asp-for="@Model.Concluido" class="form-check-label"></label>
+                    <input asp-for="@Model.Concluido" class="form-check-input" />
+                    <span asp-validation-for="@Model.Concluido" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Nome" class="control-label"></label>
+                    <input asp-for="@Model.Nome" class="form-control" />
+                    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.DataPedido" class="control-label"></label>
+                    <input asp-for="@Model.DataPedido" class="form-control" />
+                    <span asp-validation-for="@Model.DataPedido" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Logradouro" class="control-label"></label>
+                    <input asp-for="@Model.Logradouro" class="form-control" />
+                    <span asp-validation-for="@Model.Logradouro" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Numero" class="control-label"></label>
+                    <input asp-for="@Model.Numero" class="form-control" />
+                    <span asp-validation-for="@Model.Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Telefone" class="control-label"></label>
+                    <input asp-for="@Model.Telefone" class="form-control" />
+                    <span asp-validation-for="@Model.Telefone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.TotalItensPedido" class="control-label"></label>
+                    <input asp-for="@Model.TotalItensPedido" class="form-control" />
+                    <span asp-validation-for="@Model.TotalItensPedido" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.TotalPedido" class="control-label"></label>
+                    <input asp-for="@Model.TotalPedido" class="form-control" min="0" />
+                    <span asp-validation-for="@Model.TotalPedido" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Complemento" class="control-label"></label>
+                    <input asp-for="@Model.Complemento" class="form-control" />
+                    <span asp-validation-for="@Model.Complemento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Cep" class="control-label"></label>
+                    <input asp-for="@Model.Cep" class="form-control" />
+                    <span asp-validation-for="@Model.Cep" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Cidade" class="control-label"></label>
+                    <input asp-for="@Model.Cidade" class="form-control" />
+                    <span asp-validation-for="@Model.Cidade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Estado" class="control-label"></label>
+                    <input asp-for="@Model.Estado" class="form-control" />
+                    <span asp-validation-for="@Model.Estado" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Bairro" class="control-label"></label>
+                    <input asp-for="@Model.Bairro" class="form-control" />
+                    <span asp-validation-for="@Model.Bairro" class="text-danger"></span>
+                </div>
+
+                <div class="form-check">
+                    <label asp-for="@Model.Agendado" class="form-check-label"></label>
+                    <input asp-for="@Model.Agendado" class="form-check-input" />
+                    <span asp-validation-for="@Model.Agendado" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+            </form>
+            <div>
+                <a asp-action="Index">Voltar para a lista</a>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar para a lista</a>
-</div>
+<script>
+    document.getElementById('editForm').onsubmit = function (event) {
+        event.preventDefault(); // Previne o envio imediato do formulário
+        if (confirm('Tem certeza que deseja realizar as alterações?')) {
+            this.submit(); // Se o usuário confirmar, o formulário é enviado
+        }
+    };
+</script>

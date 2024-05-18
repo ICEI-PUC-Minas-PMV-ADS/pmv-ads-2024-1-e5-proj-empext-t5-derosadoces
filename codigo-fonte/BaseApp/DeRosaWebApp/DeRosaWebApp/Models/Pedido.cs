@@ -69,8 +69,10 @@ namespace DeRosaWebApp.Models
 
         [DisplayName("Já foi Preparado?")]
         public bool Concluido { get; set; }
+        [DisplayName("Já foi Entregue?")]
         public bool Entregue { get; set; }
         public bool Pago { get; set; }
+        [DisplayName("Recebido como agendamento")]
         public bool Agendado { get; set; }
         [StringLength(250)]
         public string Conjunto_IdProdutos { get; set; }

@@ -15,5 +15,9 @@
     <_SelectedScaffolderCategoryPath>root/Common</_SelectedScaffolderCategoryPath>
     <WebStackScaffolding_DependencyDialogWidth>650</WebStackScaffolding_DependencyDialogWidth>
     <NameOfLastUsedPublishProfile>D:\ferne\Documents\GitHub\DeRosaDoces\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\codigo-fonte\BaseApp\DeRosaWebApp\DeRosaWebApp\Properties\PublishProfiles\DeRosa - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>DeRosaWebApp</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

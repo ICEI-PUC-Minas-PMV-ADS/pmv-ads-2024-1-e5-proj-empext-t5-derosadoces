@@ -22,6 +22,8 @@
                 <th>@Html.DisplayNameFor(model => model.Entregue)</th>
                 <th>@Html.DisplayNameFor(model => model.Concluido)</th>
                 <th>@Html.DisplayNameFor(model => model.Agendado)</th>
+                <th>@Html.DisplayNameFor(model => model.Pago)</th>
+
                 <th></th>
             </tr>
         </thead>
@@ -43,6 +45,8 @@
                         @Html.DisplayFor(modelItem => item.Concluido)
                     </td>
                     <td>@Html.DisplayFor(modelItem => item.Agendado)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pago)</td>
+
                     <td class="actions">
                         <a class="btn" asp-action="Edit" asp-route-id="@item.Cod_Pedido">Editar</a>
                         <a class="btn" asp-action="Details" asp-route-id="@item.Cod_Pedido">Detalhes</a>

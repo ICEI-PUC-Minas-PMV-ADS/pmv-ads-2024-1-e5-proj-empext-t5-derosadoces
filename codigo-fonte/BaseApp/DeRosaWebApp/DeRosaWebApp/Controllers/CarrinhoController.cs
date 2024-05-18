@@ -60,6 +60,10 @@ namespace DeRosaWebApp.Controllers
                     var produtoSelecionado = await _productService.GetById(cod_produto);
                     if (produtoSelecionado is not null)
                     {
+                        if (produtoSelecionado.Value.Promocional)
+                        {
+                            produtoSelecionado.Value.Preco = (double)produtoSelecionado.Value.PrecoSecundario;
+                        }
                         _carrinhoCompra.AdicionarNoCarrinho(produtoSelecionado.Value, quantidadeAdicionar);
                         return RedirectToAction("Index", "Carrinho");
                     }
