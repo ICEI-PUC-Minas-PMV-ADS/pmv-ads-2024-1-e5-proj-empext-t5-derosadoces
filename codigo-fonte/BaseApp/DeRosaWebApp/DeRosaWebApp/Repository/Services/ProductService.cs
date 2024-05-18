@@ -138,6 +138,7 @@ namespace DeRosaWebApp.Repository.Services
                 productExist.ProdutoDaSemana = produto.ProdutoDaSemana;
                 productExist.Indisponivel = produto.Indisponivel;
                 productExist.EstoqueAgendamento = produto.EstoqueAgendamento;
+                productExist.Promocional = produto.Promocional;
 
                 _context.Produtos.Update(productExist);
                 await _context.SaveChangesAsync();

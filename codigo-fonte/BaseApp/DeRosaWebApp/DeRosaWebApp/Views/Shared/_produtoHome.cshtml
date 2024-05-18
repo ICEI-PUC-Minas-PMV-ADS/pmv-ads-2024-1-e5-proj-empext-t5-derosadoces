@@ -17,8 +17,15 @@
         @* <p class="card-text">@Model.DescricaoCurta</p> *@
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="groupitem"><span id="antigoPreco">R$@Model.Preco.ToString("F2",@CultureInfo.InvariantCulture)</span></li>
-        <li class="list-group-item" id="backgroundcartao"><span id="danger">Preço promocional  R$@Model.PrecoSecundario</span></></li>
+        @if (Model.Promocional)
+        {
+            <li class="list-group-item" id="backgroundcartao" style="color:red"><span id="danger">Preço promocional  R$@Model.PrecoSecundario</span></li>
+        }
+        else
+        {
+            <li class="list-group-item" id="groupitem"><span id="antigoPreco">R$@Model.Preco.ToString("F2",@CultureInfo.InvariantCulture)</span></li>
+
+        }
     </ul>
 
     <div class="text-box">

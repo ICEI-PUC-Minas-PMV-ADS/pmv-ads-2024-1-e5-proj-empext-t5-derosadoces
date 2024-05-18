@@ -39,20 +39,22 @@ namespace DeRosaWebApp.Models
 
         [Column(TypeName = "decimal(10,2)")]
         [Range(0.01, double.MaxValue, ErrorMessage = "O preço secundário deve ser no máximo 999")]
-        [DisplayName("Preço Secundário")]
+        [DisplayName("Preço Promocional")]
         public decimal PrecoSecundario { get; set; }
 
         [Required(ErrorMessage = "A categoria do produto é obrigatória!")]
         [DisplayName("Categoria")]
         public int IdCategoria { get; set; }
 
-        [DisplayName("Produto da Semana")]
+        [DisplayName("Mostrar na página inicial")]
         public bool ProdutoDaSemana { get; set; }
         [DisplayName("Bloquear pedidos deste produto")]
         public bool Indisponivel { get; set; }
 
         [DisplayName("Quantidade aceita para Agendamentos")]
         public int EstoqueAgendamento { get; set; }
+        [DisplayName("Usar preço promocional")]
+        public bool Promocional { get; set; }
 
     }
 }

@@ -390,6 +390,9 @@ namespace DeRosaWebApp.Migrations
                     b.Property<bool>("ProdutoDaSemana")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("Promocional")
+                        .HasColumnType("bit");
+
                     b.HasKey("Cod_Produto");
 
                     b.ToTable("Produtos");

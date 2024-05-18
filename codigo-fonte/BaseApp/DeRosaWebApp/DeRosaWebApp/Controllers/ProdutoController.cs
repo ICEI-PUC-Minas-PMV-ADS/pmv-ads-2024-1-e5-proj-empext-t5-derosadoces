@@ -25,7 +25,13 @@ namespace DeRosaWebApp.Controllers
         public async Task<IActionResult> ProdutoDetalhe(int cod_produto)
         {
             var produto = await _produtos.GetById(cod_produto);
-            return View(produto);
+            var categoria = await _categorias.GetById(produto.Value.IdCategoria);
+            ProdutoDetalheViewModel produtoDetalheViewModel = new ProdutoDetalheViewModel()
+            {
+                Produto = produto,
+                Categoria = categoria
+            };
+            return View(produtoDetalheViewModel);
         }
         #endregion
         #region Todos os produtos

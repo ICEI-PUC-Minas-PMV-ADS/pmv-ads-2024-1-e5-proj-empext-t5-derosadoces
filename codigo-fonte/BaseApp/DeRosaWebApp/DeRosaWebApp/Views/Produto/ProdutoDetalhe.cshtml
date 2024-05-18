@@ -1,50 +1,64 @@
 ﻿@using DeRosaWebApp.Models;
 @using System.Globalization;
-@model ActionResult<Produto>
+@model ProdutoDetalheViewModel
 
 <div class="product-details-container">
     <div class="product-image">
-        @if (Model.Value.ImagemUrl.Contains("www") || Model.Value.ImagemUrl.Contains("https") || Model.Value.ImagemUrl.Contains("http"))
+        @if (Model.Produto.Value.ImagemUrl.Contains("www") || Model.Produto.Value.ImagemUrl.Contains("https") || Model.Produto.Value.ImagemUrl.Contains("http"))
         {
-            <img src='@Model.Value.ImagemUrl' alt="@Model.Value.Nome" />
+            <img src='@Model.Produto.Value.ImagemUrl' alt="@Model.Produto.Value.Nome" />
         }
         else
         {
-            <input class="img-loja" type="image" src='@Model.Value.ImagemUrl' alt="@Model.Value.Nome" />
+            <input class="img-loja" type="image" src='@Model.Produto.Value.ImagemUrl' alt="@Model.Produto.Value.Nome" />
         }
 
     </div>
     <div class="product-details">
-        <h1 class="product-title">@Model.Value.Nome</h1>
-        <p class="product-description">@Model.Value.DescricaoCurta</p>
+        <h1 class="product-title">@Model.Produto.Value.Nome</h1>
+        <p class="product-description">@Model.Produto.Value.DescricaoCurta</p>
+        @if (Model.Produto.Value.Promocional)
+        {
+            <h2 class="product-price">R$@Model.Produto.Value.PrecoSecundario.ToString("F2", CultureInfo.InvariantCulture)</h2>
 
-        <h2 class="product-price">R$@Model.Value.Preco.ToString("F2", CultureInfo.InvariantCulture)</h2>
+        }
+        else
+        {
+            <h2 class="product-price">R$@Model.Produto.Value.Preco.ToString("F2", CultureInfo.InvariantCulture)</h2>
+        }
 
         @{
             int quantidade = 1;
         }
 
-        @if (Model.Value.EmEstoque > 0 && !Model.Value.Indisponivel)
+        @if (Model.Produto.Value.EmEstoque > 0 && !Model.Produto.Value.Indisponivel)
         {
-            <p class="stock-status"> Em estoque: @Model.Value.EmEstoque</p>
-            <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
+            <p class="stock-status"> Em estoque: @Model.Produto.Value.EmEstoque</p>
+            <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Produto.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
                 <div class="form-group">
                     <label for="quantidade">Quantidade </label>
-                    <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
+                    @if (Model.Categoria.Equals("Comemorativos"))
+                    {
+                        <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="12" max="100" step="2" />
+                    }
+                    else{
+                        <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="2" max="12" step="2" />
+
+                    }
                 </div>
-                <button type="submit" class="btn-add-cart">Adicionar @Model.Value.Nome ao carrinho</button>
+                <button type="submit" class="btn-add-cart">Adicionar @Model.Produto.Value.Nome ao carrinho</button>
             </form>
         }
-        else if(Model.Value.EstoqueAgendamento > 0)
+        else if (Model.Produto.Value.EstoqueAgendamento > 0)
         {
             <p class="product-unavailable">Produto indisponível no momento, deseja agendar?</p>
-            <p class="stock-status"> Disponível para agendar @Model.Value.EstoqueAgendamento</p>
-            <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade" asp-route-agendado="@true">
+            <p class="stock-status"> Disponível para agendar @Model.Produto.Value.EstoqueAgendamento</p>
+            <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Produto.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade" asp-route-agendado="@true">
                 <div class="form-group">
                     <label>Quantidade</label>
                     <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
                 </div>
-                <button type="submit" class="btn-add-cart">Adicionar @Model.Value.Nome ao carrinho</button>
+                <button type="submit" class="btn-add-cart">Adicionar @Model.Produto.Value.Nome ao carrinho</button>
             </form>
         }
         else

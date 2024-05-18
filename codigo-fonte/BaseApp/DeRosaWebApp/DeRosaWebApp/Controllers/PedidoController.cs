@@ -81,6 +81,8 @@ namespace DeRosaWebApp.Controllers
             return View();
         }
 
+        #endregion
+        #region Atualizar forma de entrega
         [HttpPost]
         public IActionResult AtualizarFormaDeEntrega(string formaEntrega)
         {
@@ -88,7 +90,7 @@ namespace DeRosaWebApp.Controllers
             HttpContext.Session.SetString("RetiradaLocal", retiradaLocal ? "true" : "false");
             return Json(new { success = true, message = "Forma de entrega atualizada.", currentSetting = retiradaLocal });
         }
-            
+
         #endregion
 
         #region Checkout completo
