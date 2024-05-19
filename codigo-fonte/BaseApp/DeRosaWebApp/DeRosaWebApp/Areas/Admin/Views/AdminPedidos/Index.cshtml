@@ -23,6 +23,7 @@
                 <th>@Html.DisplayNameFor(model => model.Concluido)</th>
                 <th>@Html.DisplayNameFor(model => model.Agendado)</th>
                 <th>@Html.DisplayNameFor(model => model.Pago)</th>
+                <th>@Html.DisplayNameFor(model => model.Frete)</th>
 
                 <th></th>
             </tr>
@@ -46,6 +47,15 @@
                     </td>
                     <td>@Html.DisplayFor(modelItem => item.Agendado)</td>
                     <td>@Html.DisplayFor(modelItem => item.Pago)</td>
+                    @if(item.Frete < 20.00)
+                    {
+                        <td style="color:green; font-style: italic">Grátis</td>
+                    }
+                    else
+                    {
+                        <td>R$@item.Frete.ToString("F2", CultureInfo.InvariantCulture)</td>
+
+                    }
 
                     <td class="actions">
                         <a class="btn" asp-action="Edit" asp-route-id="@item.Cod_Pedido">Editar</a>

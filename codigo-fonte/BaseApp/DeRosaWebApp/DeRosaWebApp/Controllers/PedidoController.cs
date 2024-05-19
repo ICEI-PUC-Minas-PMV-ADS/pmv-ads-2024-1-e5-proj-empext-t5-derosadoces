@@ -153,7 +153,8 @@ namespace DeRosaWebApp.Controllers
                 {
                     pedido.Agendado = false;
                 }
-                if(getString == "true")
+                #region Domicilio ou local
+                if (getString == "true")
                 {
                     pedido.Logradouro = "Rua Exemplo";
                     pedido.Bairro = "Bairro Exemplo";
@@ -173,6 +174,7 @@ namespace DeRosaWebApp.Controllers
                     pedido.Complemento = getEndereco.Complemento;
                     pedido.Estado = getEndereco.UF;
                 }
+               
                 pedido.Nome = getCliente.Nome;
                 pedido.Telefone = getCliente.Telefone;
                 pedido.TotalItensPedido = totalItemsPedido;
@@ -185,8 +187,9 @@ namespace DeRosaWebApp.Controllers
                     pedido.TotalPedido += 20.00;
                     pedido.Frete = 20.00;
                 }
+                #endregion
 
-    
+                #region Cidade poços
                 if (pedido.Cidade != "Poços de Caldas")
                 {
                     ModelState.AddModelError("Erro", "Entrega para outra cidade");
@@ -221,7 +224,8 @@ namespace DeRosaWebApp.Controllers
 
                     return View();
                 }
-
+                #endregion
+                #region Data Entrega
                 if (dataParaEntregar.ToString() == "01/01/0001 00:00:00")
                 {
                     DateTime dataAtual = DateTime.Today;
@@ -243,6 +247,7 @@ namespace DeRosaWebApp.Controllers
                 {
                     pedido.DataParaEntregar = dataParaEntregar;
                 }
+                #endregion
 
                 _pedidoRules.VerificaComemorativosSeteDiasAntecedencia(ProdutosComemorativos, dataParaEntregar);
 
@@ -251,7 +256,7 @@ namespace DeRosaWebApp.Controllers
                 {
 
                     ViewBag.CheckoutCompletoMensagem = "Resumo do pedido";
-                    ViewBag.TotalPedido = precoTotalPedido;
+                    ViewBag.TotalPedido = precoTotalPedido + pedido.Frete;
 
                     return View("Resumo", pedido);
                 }

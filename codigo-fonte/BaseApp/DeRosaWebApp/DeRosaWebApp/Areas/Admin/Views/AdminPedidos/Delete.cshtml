@@ -61,6 +61,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Agendado)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Frete)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Frete)
+        </dd>
     </dl>
     
     <form asp-area="Admin" asp-controller="AdminPedidos" asp-action="DeleteConfirmed" asp-route-id="@Model.Cod_Pedido" method="post">

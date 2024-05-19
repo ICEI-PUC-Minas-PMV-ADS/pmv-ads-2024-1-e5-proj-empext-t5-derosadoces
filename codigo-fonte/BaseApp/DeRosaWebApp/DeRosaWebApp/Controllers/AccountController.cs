@@ -75,9 +75,14 @@ namespace DeRosaWebApp.Controllers
                     }
                     ModelState.AddModelError("Errologin", "Nome ou senha não coincidem!");
                 }
+                else
+                {
+                    ModelState.AddModelError("Errologin", "Nome ou senha não coincidem!");
+                }
+
 
             }
-      
+
             return View(usuarioViewModel);
 
         }
