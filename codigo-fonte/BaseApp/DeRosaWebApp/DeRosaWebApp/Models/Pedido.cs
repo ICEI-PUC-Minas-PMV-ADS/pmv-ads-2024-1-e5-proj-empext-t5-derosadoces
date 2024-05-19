@@ -77,6 +77,7 @@ namespace DeRosaWebApp.Models
         [StringLength(250)]
         public string Conjunto_IdProdutos { get; set; }
         public string Id_User { get; set; }
+        public double Frete { get; set; }
 
         [JsonIgnore]
         [IgnoreDataMember]

@@ -10,9 +10,9 @@
         <div class="form-group">
             <label for="formaEntrega">Forma de entrega:</label>
             <select id="formaEntrega" name="formaEntrega" class="form-control" onchange="atualizarFormaEntrega()">
-    <option value="domicilio" selected="@(formaEntregaSelecionada == "domicilio" ? "true" : "false")">Entrega a domicílio</option>
-<option value="local" selected="@(formaEntregaSelecionada == "local" ? "true" : "false")">Retirada no local</option>
-</select>
+                <option value="domicilio" selected="@(formaEntregaSelecionada == "domicilio" ? "true" : "false")">Entrega a domicílio</option>
+                <option value="local" selected="@(formaEntregaSelecionada == "local" ? "true" : "false")">Retirada no local</option>
+            </select>
 
         </div>
         <div class="card-body">
@@ -38,8 +38,16 @@
             <input class="btn btn-success btn-endereco" type="submit" value="Confirmar endereço" />
             <a class="btn btn-success" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar novo</a>
         </div>
+        <div class="alerta-frete d-flex flex-column align-items-center justify-content-center text-center position-relative" style="width: 20%; margin-top: 4%;background-color: lightgray; border-radius: 4px; height: 120px;">
+            <ul class="list-unstyled m-0 p-0 d-flex flex-column justify-content-center align-items-center" style="height: 100px; width: 100%;">
+                <li>Retirada no Local: <span class="text-success ">Grátis</span></li>
+                <li>Retirada a domicílio: <span class="text-success ">R$20.00</span></li>
+            </ul>
+        </div>
     </div>
+
 </form>
+
 
 @section Scripts {
     <script>
@@ -49,29 +57,29 @@
 
             fetch('/Pedido/AtualizarFormaDeEntrega', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: bodyData
             })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Sessão atualizada com sucesso.");
-                    const enderecoUsuario = document.getElementById("enderecoUsuario");
-                    const enderecoLocal = document.getElementById("enderecoLocal");
-                    if (formaEntrega === "domicilio") {
-                        enderecoUsuario.style.display = "block";
-                        enderecoLocal.style.display = "none";
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Sessão atualizada com sucesso.");
+                        const enderecoUsuario = document.getElementById("enderecoUsuario");
+                        const enderecoLocal = document.getElementById("enderecoLocal");
+                        if (formaEntrega === "domicilio") {
+                            enderecoUsuario.style.display = "block";
+                            enderecoLocal.style.display = "none";
+                        } else {
+                            enderecoUsuario.style.display = "none";
+                            enderecoLocal.style.display = "block";
+                        }
                     } else {
-                        enderecoUsuario.style.display = "none";
-                        enderecoLocal.style.display = "block";
+                        throw new Error('Falha na atualização da sessão');
                     }
-                } else {
-                    throw new Error('Falha na atualização da sessão');
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao atualizar a sessão:', error);
-                alert('Não foi possível atualizar a forma de entrega. Por favor, tente novamente.');
-            });
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar a sessão:', error);
+                    alert('Não foi possível atualizar a forma de entrega. Por favor, tente novamente.');
+                });
         }
 
         function selecionarEndereco(elemento, enderecoId) {
@@ -82,7 +90,7 @@
         }
 
         // Inicializa a exibição correta com base na seleção atual quando a página carrega
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             atualizarFormaEntrega();
         });
     </script>

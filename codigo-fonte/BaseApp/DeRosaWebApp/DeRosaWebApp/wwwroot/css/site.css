@@ -456,7 +456,17 @@ p {
     font-size: 0.9em;
     margin-bottom: 2em;
 }
+.alerta-frete {
+    font-family: 'Segoe UI Historic';
+    box-sizing: border-box;
+    word-break: normal;
+    white-space: nowrap;
+}
 
+    .alerta-frete ul {
+        word-break: normal;
+        white-space: nowrap;
+    }
 .form-group {
     margin-bottom: 1em;
 }

@@ -198,6 +198,7 @@ namespace DeRosaWebApp.Repository.Services
                     pedidoExist.Entregue = pedido.Entregue;
                     pedidoExist.Concluido = pedido.Concluido;
                     pedidoExist.Pago = true;
+                    pedidoExist.Frete = pedido.Frete;
 
                     _context.Pedidos.Update(pedidoExist);
                     await _context.SaveChangesAsync();

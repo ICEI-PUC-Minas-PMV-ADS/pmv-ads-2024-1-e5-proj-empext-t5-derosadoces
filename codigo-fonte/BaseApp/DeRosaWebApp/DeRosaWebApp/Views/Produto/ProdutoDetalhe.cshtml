@@ -33,13 +33,14 @@
 
         @if (Model.Produto.Value.EmEstoque > 0 && !Model.Produto.Value.Indisponivel)
         {
-            <p class="stock-status"> Em estoque: @Model.Produto.Value.EmEstoque</p>
+            <p class="stock-status"> Disponível: @Model.Produto.Value.EmEstoque</p>
             <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Produto.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
                 <div class="form-group">
-                    <label for="quantidade">Quantidade </label>
-                    @if (Model.Categoria.Equals("Comemorativos"))
-                    {
+                    <label class="stock-status" for="quantidade">Quantidade  </label>
+                    @if (string.Equals(Model.Categoria.CategoriaNome,"Comemorativos"))
+                    {   
                         <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="12" max="100" step="2" />
+                        <span class="stock-status" style="font-style:italic">Mínimo de 12 produtos</span>
                     }
                     else{
                         <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="2" max="12" step="2" />

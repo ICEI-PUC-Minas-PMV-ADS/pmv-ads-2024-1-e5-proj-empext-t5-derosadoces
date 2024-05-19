@@ -180,7 +180,12 @@ namespace DeRosaWebApp.Controllers
                 pedido.DataExpiracao = pedido.DataPedido.AddMinutes(30);
                 pedido.Id_User = user_id;
 
-            pedido.TotalPedido += getString == "true" ? 0 : 20.00;
+                if (!string.Equals(getString, "true"))
+                {
+                    pedido.TotalPedido += 20.00;
+                    pedido.Frete = 20.00;
+                }
+
     
                 if (pedido.Cidade != "Poços de Caldas")
                 {
@@ -299,6 +304,7 @@ namespace DeRosaWebApp.Controllers
                     pedido.Concluido = getPedido.Value.Concluido;
                     pedido.Entregue = getPedido.Value.Entregue;
                     pedido.Pago = getPedido.Value.Pago;
+                    pedido.Frete = getPedido.Value.Frete;
                     pedido.Conjunto_IdProdutos = getPedido.Value.Conjunto_IdProdutos;
 
                     var pedidoDetalhe = await _pedidoService.DetalhePedidoList(cod_pedido);

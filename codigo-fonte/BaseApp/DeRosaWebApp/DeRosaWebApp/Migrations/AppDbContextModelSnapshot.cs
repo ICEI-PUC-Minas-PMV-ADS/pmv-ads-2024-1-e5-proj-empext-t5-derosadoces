@@ -270,6 +270,9 @@ namespace DeRosaWebApp.Migrations
                         .HasMaxLength(2)
                         .HasColumnType("nvarchar(2)");
 
+                    b.Property<double>("Frete")
+                        .HasColumnType("float");
+
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(max)");
 

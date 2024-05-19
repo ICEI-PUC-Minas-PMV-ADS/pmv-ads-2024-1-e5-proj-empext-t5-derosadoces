@@ -39,7 +39,17 @@
                     </tr>
                 }
             </table>
-            <h4>Valor Total do Pedido: <strong style="color: red;">@(((decimal)ViewBag.TotalPedido).ToString("C2"))</strong></h4>
+            <h4>Valor Total do Pedido: <strong style="color: red;">@(
+                    (ViewBag.TotalPedido + Model.Frete).ToString("C2")
+                    ) ( Frete @if (Model.Frete < 20)
+                    {
+                        <span>Grátis</span>
+                    }
+                    else
+                    {
+                      <span>R$</span>@Model.Frete.ToString("F2",CultureInfo.InvariantCulture);
+                    }
+                )</strong></h4>
             <div class="form-group" style="text-align :center">
                 <h3>
                     <a class="nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
