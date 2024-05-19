@@ -1018,3 +1018,66 @@ h2 {
 
 
 /*FIM TELA DASHBOARD*/
+
+/* INÍCIO TELA ESQUECI SENHA*/
+
+.layoutEsqueciSenha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.layoutEsqueciSenha h1 {
+    margin-bottom: 1em;
+}
+
+.form-controlEsqueciSenha {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 0.5em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.form-controlEsqueciSenha::placeholder {
+    text-align: center;
+    color: #aaa;
+}
+
+.form-controlEsqueciSenha:focus::placeholder {
+    color: transparent;
+}
+
+.input-pequeno2 {
+    width: 120%; 
+    max-width: 300px;
+    margin: 0 auto;
+    margin-right: 100px; 
+}
+
+/*FINAL TELA ESQUECI SENHA*/
+
+/* INÍCIO TELA REDEFINIR SENHA */
+
+.layoutRedefinirSenha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.btn-redefinir {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    line-height:1.2rem;
+    width:60%;
+}
+
+/* FINAL TELA REDEFINIR SENHA */
