@@ -5,20 +5,23 @@
     ViewData["Title"] = "Esqueci Minha Senha";
 }
 
+<div class = 'layoutEsqueciSenha'>
 <h1>Esqueci Minha Senha</h1>
 
-@if (ViewBag.Mensagem != null)
-{
-    <div class="alert alert-info" role="alert">
-        @ViewBag.Mensagem
-    </div>
-}
+    @if (ViewBag.Mensagem != null)
+    {
+        <div class="alert alert-info" role="alert">
+            @ViewBag.Mensagem
+        </div>
+    }
 
-<form asp-controller="Account" asp-action="EsqueciSenha" method="post">
-    <div class="form-group">
-        <label asp-for="Email" class="control-label">E-mail</label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+    <form asp-controller="Account" asp-action="EsqueciSenha" method="post">
+        <div class="input-pequeno2">
+            <input asp-for="Email" class="form-controlEsqueciSenha form-control" placeholder="E-mail" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="btn-cadastrar-container">
+            <button type="submit" class="btn btn-primary btn-cadastro">Enviar</button>
+        </div>
+    </form>
+</div>
