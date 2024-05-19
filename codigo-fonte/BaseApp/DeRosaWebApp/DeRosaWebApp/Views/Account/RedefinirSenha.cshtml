@@ -1,22 +1,31 @@
 @using DeRosaWebApp.ViewModel;
 @model RedefinirSenhaViewModel;
 
-<form asp-controller="Account" asp-action="RedefinirSenha" method="post">
-    <input type="hidden" asp-for="Token" />
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+@{
+    ViewData["Title"] = "Redefinir Senha";
+}
+
+<div class="layoutRedefinirSenha">
+    <h1>Redefinir Senha</h1>
+        
+    <form asp-controller="Account" asp-action="RedefinirSenha" method="post">
+        <input type="hidden" asp-for="Token" />
+            
+        <div class="input-pequeno2">
+            <input asp-for="Email" class="form-controlEsqueciSenha form-control" placeholder="E-mail" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+            
+        <div class="input-pequeno2">
+            <input asp-for="NovaSenha" class="form-controlEsqueciSenha form-control" placeholder="Nova Senha" />
+            <span asp-validation-for="NovaSenha" class="text-danger"></span>
+        </div>
+            
+        <div class="input-pequeno2">
+            <input asp-for="ConfNovaSenha" class="form-controlEsqueciSenha form-control" placeholder="Confirmar Nova Senha" />
+            <span asp-validation-for="ConfNovaSenha" class="text-danger"></span>
+        </div>
+            
+        <button type="submit" class="btn btn-primary btn-redefinir">Redefinir Senha</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="NovaSenha"></label>
-        <input asp-for="NovaSenha" class="form-control" />
-        <span asp-validation-for="NovaSenha" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ConfNovaSenha"></label>
-        <input asp-for="ConfNovaSenha" class="form-control" />
-        <span asp-validation-for="ConfNovaSenha" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Redefinir Senha</button>
-</form>
