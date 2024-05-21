@@ -44,15 +44,39 @@ body {
 
 .nav-link {
     color: black;
+    transition: color 0.3s ease;
 }
 
     .nav-link:hover {
         color: rgba(240, 206, 70, 1);
     }
 
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+}
+
 .container-footer {
     background-color: black;
     color: rgba(193, 157, 86, 1);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-aguardando-edu {
+    min-height: calc(100vh - 100px); /* Ajusta o valor de acordo com a altura do footer */
+    padding-bottom: 20px; /* Espaço para garantir que o conteúdo não encoste no footer */
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: auto;
+    height: 50px; /* Ajuste conforme necessário */
+    background-color: #f8f9fa;
+    
 }
 
 .navbar-toggler-icon {
@@ -108,9 +132,8 @@ body {
 }
 
     .btn2:hover {
-        background-color: transparent;
-        color: rgb(225, 191, 56);
-        border: solid 1px rgb(225, 191, 56);
+        background-color: rgb(225, 191, 56);
+        color: white;
     }
 
 .title-home {
@@ -290,7 +313,7 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 150px;
-    //height: 4vh;
+    /*height: 4vh;*/
     border-radius: 0;
 }
 
@@ -353,6 +376,14 @@ p {
         .input-senha-login .btn-toggle-password i {
             font-size: 1.5em;
         }
+
+@media (max-width: 768px) {
+
+    .imglogin {
+        height: 300px;
+        width: 300px;
+    }
+}
 
 /* TELA CADASTRO */
 
@@ -769,7 +800,7 @@ p {
         width:auto;
     }
         .search-form .btn-info:hover {
-            //background-color: lightgoldenrodyellow;
+            /*background-color: lightgoldenrodyellow;*/
             background-color: goldenrod;
             color: white;
         }
