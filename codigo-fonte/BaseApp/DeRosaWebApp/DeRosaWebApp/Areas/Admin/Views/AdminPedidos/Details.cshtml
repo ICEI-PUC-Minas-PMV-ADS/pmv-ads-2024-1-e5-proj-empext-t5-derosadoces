@@ -1,4 +1,4 @@
-﻿﻿@using DeRosaWebApp.Areas.Admin.ViewModel;
+﻿@using DeRosaWebApp.Areas.Admin.ViewModel;
 @using DeRosaWebApp.Models;
 @using System.Globalization;
 @model PedidoViewModel;
@@ -7,110 +7,95 @@
     ViewData["Title"] = "Detalhes";
 }
 
-<h1>Detalhes</h1>
+<h1 class="Admin-pedidos-titulo">Detalhes</h1>
 
-<div style="color:black;">
+<div class="Admin-pedidos-detalhes-quadro">
     <h4>Pedido</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.Nome)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
             @Html.DisplayFor(model => model._Pedido.Nome)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.DataPedido)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
             @Html.DisplayFor(model => model._Pedido.DataPedido)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.Logradouro)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
             @Html.DisplayFor(model => model._Pedido.Logradouro)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.Numero)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
             @Html.DisplayFor(model => model._Pedido.Numero)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.Telefone)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
             @Html.DisplayFor(model => model._Pedido.Telefone)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.TotalItensPedido)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
             @Html.DisplayFor(model => model._Pedido.TotalItensPedido)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.TotalPedido)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
-            R$@Model._Pedido.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
+            R$@Model._Pedido.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)
         </dd>
-        <dd class="col-sm-10" style="color:dodgerblue">
-            @Html.DisplayFor(model => model._Pedido.Agendado)
-        </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.Agendado)
         </dt>
-        <dd class="col-sm-10" style="color:dodgerblue">
-            @Html.DisplayFor(model => model._Pedido.Frete)
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
+            @Html.DisplayFor(model => model._Pedido.Agendado)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model._Pedido.Frete)
         </dt>
-
+        <dd class="col-sm-8 Admin-pedidos-detalhe">
+            @Html.DisplayFor(model => model._Pedido.Frete)
+        </dd>
     </dl>
+
     <h3>Produto</h3>
     @foreach (Produto Produtos in Model._ProdutosPedido)
     {
         <dl class="row" style="color:black;">
-
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => Produtos.Nome)
             </dt>
-            <dd class="col-sm-10" style="color:dodgerblue">
+            <dd class="col-sm-8 Admin-pedidos-detalhe">
                 @Html.DisplayFor(model => Produtos.Nome)
             </dd>
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => Produtos.Cod_Produto)
             </dt>
-            <dd class="col-sm-10" style="color:dodgerblue">
+            <dd class="col-sm-8 Admin-pedidos-detalhe">
                 @Html.DisplayFor(model => Produtos.Cod_Produto)
             </dd>
-
-        </dl>
-        <dl class="card-group" style="text-align: start; display:flex;justify-content:flex-start; flex-direction: column;">
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 Imagem
             </dt>
-            @if (Produtos.ImagemUrl.Contains("www"))
-            {
-                <dd class="col-sm-2">
-                    <img src='@Produtos.ImagemUrl' alt="imagem_produto_comprado: @Produtos.Nome" width="200" height="200">
-                </dd>
-            }
-            else
-            {
-                <dd class="col-sm-2">
-                    <img src="@Produtos.ImagemUrl" alt="imagem_produto_comprado: @Produtos.Nome" width="200" height="200">
-                </dd>
-            }
-            
+            <dd class="col-sm-8 Admin-pedidos-detalhe">
+                <img src="@Produtos.ImagemUrl" alt="imagem_produto_comprado: @Produtos.Nome" width="200" height="200">
+            </dd>
         </dl>
     }
-
-
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?._Pedido.Cod_Pedido">Editar</a> |
+
+<div class="Admin-pedidos-links">
+    <a asp-action="Edit" asp-route-id="@Model._Pedido.Cod_Pedido">Editar</a> |
     <a asp-action="Index">Voltar para a lista</a>
 </div>

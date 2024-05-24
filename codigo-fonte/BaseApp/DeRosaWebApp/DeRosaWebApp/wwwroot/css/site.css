@@ -1170,3 +1170,98 @@ h2 {
 }
 
 /* FINAL TELA REDEFINIR SENHA */
+
+/*INICIO TELA ADMIN PRODTUTOS EDITAR/DERALHES/DELETAR*/
+
+.Admin-pedidos-titulo {
+    text-align: center;
+    font-size: 2em;
+}
+
+.Admin-pedidos-container {
+    padding: 20px;
+}
+
+.Admin-pedidos-detalhes-quadro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.Admin-pedidos-alert-container {
+    margin-bottom: 20px;
+}
+
+.Admin-pedidos-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Admin-pedidos-form-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.Admin-pedidos-alert-container {
+    margin-bottom: 20px;
+}
+
+.alert {
+    text-align:center;
+}
+
+.Admin-pedidos-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .Admin-pedidos-titulo {
+        font-size: 1.5em;
+    }
+
+    .Admin-pedidos-form-container {
+        padding: 10px;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-check-label, .control-label {
+        width: 100%;
+        text-align: left;
+    }
+
+    .form-check-input, .form-control {
+        vertical-align: central;
+    }
+
+    .Admin-pedidos-container {
+        padding: 10px;
+    }
+
+    .Admin-pedidos-detalhes-quadro {
+        padding: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-sm-4, .col-sm-8 {
+        width: 100%;
+    }
+
+    .Admin-pedidos-links {
+        text-align: center;
+    }
+}
+
+
+/*INICIO TELA ADMIN PRODTUTOS EDITAR*/

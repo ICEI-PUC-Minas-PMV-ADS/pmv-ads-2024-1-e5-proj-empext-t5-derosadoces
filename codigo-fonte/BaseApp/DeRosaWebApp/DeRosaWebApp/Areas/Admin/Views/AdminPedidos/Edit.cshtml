@@ -5,25 +5,22 @@
     ViewData["Title"] = "Editar Pedido";
 }
 
-<h1 class="titulo-tabela">Editar Pedido</h1>
+<h1 class="Admin-pedidos-titulo">Editar Pedido</h1>
 
 <hr />
 
-<div class="container">
-
-    <div class="row justify-content-center align-items-center">
+<div class="Admin-pedidos-container">
+    <div class="Admin-pedidos-row">
         <!-- Coluna do formulário -->
-        <div class="container justify-content-center align-items-center">
-            <div class="center col-md-8">
-                <div class="col-md-4">
-                    <div class="alert alert-secondary" role="alert">
-                        <h2>Aviso importante:</h2>
-                        As informações deste pedido foram recebidas diretamente do cliente no momento do pagamento do pedido,<br />
-                        <strong>não é recomendável alterar informações além de: "Já foi Entregue?" ou "Já foi Preparado?"!</strong>
-                    </div>
+        <div class="Admin-pedidos-form-container">
+            <div class="Admin-pedidos-alert-container">
+                <div class="alert alert-secondary" role="alert">
+                    <h2>Aviso importante:</h2>
+                    As informações deste pedido foram recebidas diretamente do cliente no momento do pagamento do pedido.<br />
+                    <strong>NÃO é recomendável alterar informações além de: "Já foi Entregue?" ou "Já foi Preparado?"!</strong>
                 </div>
             </div>
-            <form id="editForm"  asp-area="Admin" method="post" asp-action="Edit" asp-controller="AdminPedidos">
+            <form id="editForm" asp-area="Admin" method="post" asp-action="Edit" asp-controller="AdminPedidos">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="@Model.Cod_Pedido" />
                 <div class="form-check">
@@ -38,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.Nome" class="control-label"></label>
-                    <input asp-for="@Model.Nome" class="form-control" />
+                    <input asp-for="@Model.Nome" class="form-control"/>
                     <span asp-validation-for="@Model.Nome" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -101,7 +98,6 @@
                     <input asp-for="@Model.Frete" class="form-control" />
                     <span asp-validation-for="@Model.Frete" class="text-danger"></span>
                 </div>
-
                 <div class="form-check">
                     <label asp-for="@Model.Agendado" class="form-check-label"></label>
                     <input asp-for="@Model.Agendado" class="form-check-input" />
