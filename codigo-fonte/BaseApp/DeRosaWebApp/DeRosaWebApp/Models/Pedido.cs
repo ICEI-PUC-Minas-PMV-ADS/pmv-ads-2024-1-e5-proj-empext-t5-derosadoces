@@ -14,6 +14,7 @@ namespace DeRosaWebApp.Models
 
         [Required(ErrorMessage = "O nome é obrigatório!")]
         [StringLength(200,ErrorMessage ="No máximo 200 caracteres!")]
+        [DisplayName("Nome do Cliente")]
         public string Nome { get; set; }
 
         [DisplayName("Data do pedido")]

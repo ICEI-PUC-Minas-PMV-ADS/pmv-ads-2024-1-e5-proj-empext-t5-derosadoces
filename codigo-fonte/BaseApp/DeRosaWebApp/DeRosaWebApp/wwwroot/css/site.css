@@ -15,7 +15,6 @@ html {
 
 body {
     margin-bottom: 60px;
-    overflow-x: hidden;
 }
 
 /*ALTERAÇÕES param NAVBAR*/
@@ -45,44 +44,17 @@ body {
 
 .nav-link {
     color: black;
-    transition: color 0.3s ease;
 }
 
     .nav-link:hover {
         color: rgba(240, 206, 70, 1);
     }
 
-.navbar-toggler {
-    border: none;
-    background-color: transparent;
-}
-
 .container-footer {
     background-color: black;
     color: rgba(193, 157, 86, 1);
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
-.container-aguardando-edu {
-    min-height: calc(100vh - 100px); /* Ajusta o valor de acordo com a altura do footer */
-    padding-bottom: 20px; /* Espaço para garantir que o conteúdo não encoste no footer */
-}
-
-footer {
-    position: relative;
-    bottom: 0;
-    width: auto;
-    height: 50px; /* Ajuste conforme necessário */
-    background-color: #f8f9fa;
-    
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
 
 /* TELA HOME */
 .container-home {
@@ -133,8 +105,9 @@ footer {
 }
 
     .btn2:hover {
-        background-color: rgb(225, 191, 56);
-        color: white;
+        background-color: transparent;
+        color: rgb(225, 191, 56);
+        border: solid 1px rgb(225, 191, 56);
     }
 
 .title-home {
@@ -185,6 +158,43 @@ p {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
+}
+.span-m {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do .span-m */
+    position: absolute;
+    bottom: 0; 
+    left: 50%; 
+    top: 80%;
+    transform: translateX(-50%);
+    width: fit-content;
+    height: fit-content;
+}
+
+    .span-m a {
+        display: flex;
+        justify-content: center;
+    }
+@media(max-width: 1480px) {
+    .span-m {
+        top: 90%;
+    }
+}
+@media(max-width:1001px){
+    .span-m{
+        top:92%;
+    }
+}
+@media(max-width:757px) {
+    .span-m {
+        top: 95%;
+    }
+}
+@media(max-width:668px) {
+    .span-m {
+        top: 98%;
+    }
 }
 
 .about {
@@ -314,7 +324,7 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 150px;
-    /*height: 4vh;*/
+    //height: 4vh;
     border-radius: 0;
 }
 
@@ -377,14 +387,6 @@ p {
         .input-senha-login .btn-toggle-password i {
             font-size: 1.5em;
         }
-
-@media (max-width: 768px) {
-
-    .imglogin {
-        height: 300px;
-        width: 300px;
-    }
-}
 
 /* TELA CADASTRO */
 
@@ -801,7 +803,7 @@ p {
         width:auto;
     }
         .search-form .btn-info:hover {
-            /*background-color: lightgoldenrodyellow;*/
+            //background-color: lightgoldenrodyellow;
             background-color: goldenrod;
             color: white;
         }
@@ -888,60 +890,6 @@ p {
             justify-content: center;
         }
 }
-
-
-
-/*@media (max-width: 600px) {
-    .admin .table thead {
-        display: none;
-    }
-
-    .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
-        display: block;
-        width: 100%;
-    }
-
-        .admin .table tr {
-            margin-bottom: 15px;
-        }
-
-        .admin .table td {
-            text-align: right;
-            padding-left: 50%;
-            position: relative;
-        }
-
-            .admin .table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 0;
-                width: 50%;
-                padding-left: 15px;
-                font-weight: bold;
-                text-align: left;
-            }
-
-    .admin .actions .btn {
-        display: block;
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    .search-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-        .search-form .form-control,
-        .search-form .btn-info {
-            margin: 5px 0;
-            width: 100%;
-        }
-
-        .search-form .btn-info {
-            justify-content: center;
-        }
-}*/
 
 
 body {
@@ -1171,95 +1119,101 @@ h2 {
 
 /* FINAL TELA REDEFINIR SENHA */
 
-/*INICIO TELA ADMIN PRODTUTOS EDITAR/DERALHES/DELETAR*/
-
-.Admin-pedidos-titulo {
-    text-align: center;
-    font-size: 2em;
+/* INICIO TELA TODOS PRODUTOS*/
+input[type="range"] {
+    width: 40%; /* Assegura que o input ocupa toda a largura disponível do contêiner pai */
+    -webkit-appearance: none; /* Remove a aparência padrão no WebKit */
+    appearance: none;
+    margin: 10px 0; /* Fornece um espaçamento uniforme */
+}
+@media (max-width: 375px){
+    input[type="range"] {
+        width: 30%;
+    }
 }
 
-.Admin-pedidos-container {
-    padding: 20px;
+    input[type="range"]::-webkit-slider-runnable-track {
+        background: rgb(225, 191, 56);
+        border-radius: 10px;
+        height: 2px;
+    }
+
+    /* Firefox */
+    input[type="range"]::-moz-range-track {
+        background: rgb(225, 191, 56);
+        border-radius: 10px;
+        height: 2px;
+    }
+
+    /* Internet Explorer */
+    input[type="range"]::-ms-track {
+        background: rgb(225, 191, 56);
+        border-radius: 10px;
+        height: 2px;
+        border: 0; /* Remove bordas adicionais em IE */
+    }
+/*alterações na home*/
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Cria colunas que se ajustam automaticamente */
+    grid-gap: 10px; /* Espaçamento entre os produtos */
+    padding: 10px; /* Espaçamento interno */
 }
 
-.Admin-pedidos-detalhes-quadro {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-}
-
-.Admin-pedidos-alert-container {
-    margin-bottom: 20px;
-}
-
-.Admin-pedidos-row {
+.product-card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    overflow: hidden;
 }
 
-.Admin-pedidos-form-container {
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
     width: 100%;
-    max-width: 600px;
+    object-fit: cover;
+    height: 180px; /* Ajuste essa altura se necessário para dar mais espaço para o texto e o botão */
 }
 
-.Admin-pedidos-alert-container {
-    margin-bottom: 20px;
+.card-body {
+    padding: 10px;
+    flex-grow: 1; /* Permite que o corpo do card expanda para ocupar espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Isso ajuda a empurrar o footer para baixo */
 }
 
-.alert {
-    text-align:center;
-}
-
-.Admin-pedidos-links {
-    margin-top: 20px;
+.card-footer {
+    width: 100%;
     text-align: center;
+    padding: 10px 0; /* Garante que o padding não empurre o botão para fora do card */
 }
 
-@media (max-width: 768px) {
-    .Admin-pedidos-titulo {
-        font-size: 1.5em;
-    }
+.btn {
+    width: 80%;
+    margin: 10px auto; /* Assegura margem adequada e centraliza o botão */
+    font-size: 10px;
+}
+/*fim alterações home*/
+.border-style {
+    border-right: 2px solid rgba(253, 236, 235, 1);
+}
 
-    .Admin-pedidos-form-container {
-        padding: 10px;
-    }
-
-    .form-group {
-        width: 100%;
-    }
-
-    .form-check-label, .control-label {
-        width: 100%;
-        text-align: left;
-    }
-
-    .form-check-input, .form-control {
-        vertical-align: central;
-    }
-
-    .Admin-pedidos-container {
-        padding: 10px;
-    }
-
-    .Admin-pedidos-detalhes-quadro {
-        padding: 10px;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-
-    .col-sm-4, .col-sm-8 {
-        width: 100%;
-    }
-
-    .Admin-pedidos-links {
-        text-align: center;
+@media (min-width:876){
+    .border-style{
+        height: 100vh;
     }
 }
-/*INICIO TELA ADMIN PRODTUTOS EDITAR*/
+@media (max-width:853px){
+    .border-style {
+        border: none;
+    }
+}

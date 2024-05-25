@@ -5,7 +5,7 @@
     ViewData["Title"] = "Inicio";
 }
 
-<h1 class="titulo-tabela">Categorias dos Produtos</h1>
+<h1 class="titulo-tabela" >Categorias dos Produtos</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-primary create-button">Criar nova categoria</a>
@@ -38,9 +38,9 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td data-label="ID Categoria">@Html.DisplayFor(modelItem => item.IdCategoria)</td>
-                    <td data-label="Nome da Categoria">@Html.DisplayFor(modelItem => item.CategoriaNome)</td>
-                    <td class="actions" data-label="Ações">
+                    <td>@Html.DisplayFor(modelItem => item.IdCategoria)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CategoriaNome)</td>
+                    <td class="actions">
                         <a class="btn" asp-action="Edit" asp-route-id="@item.IdCategoria">Editar</a>
                         <a class="btn" asp-action="Details" asp-route-id="@item.IdCategoria">Detalhes</a>
                         <a class="btn" asp-action="Delete" asp-route-id="@item.IdCategoria">Deletar</a>

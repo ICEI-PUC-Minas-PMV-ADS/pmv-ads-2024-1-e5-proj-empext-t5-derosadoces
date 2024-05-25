@@ -6,27 +6,92 @@
 @{
     ViewData["Title"] = "Todos os Produtos";
 }
+<style>
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Cria colunas que se ajustam automaticamente */
+        gap: 20px; /* Espaçamento entre os cards */
+    }
 
-<h2 class="text-center mb-4">@ViewBag.Title</h2>
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens no eixo transversal (horizontal) */
+        justify-content: center; /* Centraliza os itens no eixo principal (vertical) */
+        height: 420px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border: none;
+        overflow: hidden;
+    }
+
+    .card {
+        width: 100%; /* Ocupa toda a largura do product-card */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Garante que todo o conteúdo interno também esteja alinhado ao centro */
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .card-img-top {
+        width: 90%; /* Reduz um pouco a largura para melhor estética */
+        object-fit: cover;
+        height: 180px;
+    }
+
+    .card-body {
+        width: 90%; /* Mantém o corpo do card alinhado com a imagem */
+        padding: 10px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza o conteúdo no corpo do card */
+    }
+
+    .card-footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .btn {
+        width: 80%;
+        margin: auto; /* Centraliza o botão dentro do footer */
+    }
+
+</style>
+<h2 class="text-md-center fw-light" style="font-size: 25px; font-family:'Linux Libertine G';font-style: italic;">@ViewBag.Titulo</h2>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
-            <div class="list-group" id="list-tab" role="tablist">
-                @foreach(Categoria categoria in Model._Categorias)
+        <div class="col-md-3 border-style">
+            <div class="list-group" id="list-tab" role="tablist" style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;text-align:start;">
+                @foreach (Categoria categoria in Model._Categorias)
                 {
-                    <a asp-controller="Produto" asp-action="ProdutoByCategoria" asp-route-cod_categoria="@categoria.IdCategoria" class="list-group-item list-group-item-action">@categoria.CategoriaNome</a>
+                    <a asp-controller="Produto" asp-action="ProdutoByCategoria" asp-route-cod_categoria="@categoria.IdCategoria"
+                       class="list-group-item list-group-item-action border-0"
+                       style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;">@categoria.CategoriaNome</a>
                 }
+                <div class="custom-range" style="margin-top:20px; margin-left: 10px; font-size: 12px; white-space:nowrap;">
+                    <label for="minPrice">Preço Mínimo:<span style="color:rgb(225, 191, 56);"> R$</span><span id="minPriceOutput" style="color:rgb(225, 191, 56);">0</span></label>
+                    <input type="range" id="minPrice" name="minPreço" min="0" max="1000" value="0" style="background-color:rgb(225, 191, 56);">
+                    <br>
+                    <label for="maxPrice">Preço Máximo:<span style="color:rgb(225, 191, 56);"> R$</span><span id="maxPriceOutput" style="color:rgb(225, 191, 56);">1000</span></label>
+                    <input type="range" id="maxPrice" name="maxPreço" min="0" max="1000" value="1000" style="color:rgb(225, 191, 56);">
+                </div>
+                <div id="productContainer"></div>
+
             </div>
         </div>
         <div class="col-md-9">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-all" role="tabpanel" aria-labelledby="list-all-list">
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Atualização começa aqui -->
+                    <div class="product-grid">
                         @foreach (var produto in Model._Produtos)
                         {
-                            <div class="col" data-category="@produto.IdCategoria">
-                                <div class="card h-100">
+                            <div class="product-card" data-category="@produto.IdCategoria">
+                                <div class="card h-90 border-0">
                                     @if (produto.ImagemUrl.Contains("www") || produto.ImagemUrl.Contains("http") || produto.ImagemUrl.Contains("https"))
                                     {
                                         <img class="card-img-top" src="@produto.ImagemUrl" alt="Imagem do produto @produto.Nome" />
@@ -36,20 +101,69 @@
                                         <img class="card-img-top" src="@produto.ImagemUrl" alt="Imagem do produto @produto.Nome" />
                                     }
                                     <div class="card-body">
-                                        <h5 class="card-title">@produto.Nome</h5>
-                                        <p class="card-text">@produto.DescricaoCurta</p>
-                                        <p class="card-text"><small class="text-muted">Preço: R$ @produto.Preco.ToString("N2")</small></p>
+                                        <h5 class="card-title" style="letter-spacing:3px">@produto.Nome.ToUpper()</h5>
+                                        <p class="card-text fs-6 fst-italic" style="font-family:'Linux Libertine G'">
+                                            @if (produto.DescricaoCurta.Length > 35)
+                                            {
+                                                @produto.DescricaoCurta.Substring(0, 35)
+
+                                            }
+                                            else
+                                            {
+                                                @produto.DescricaoCurta
+                                            }
+                                            ...
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">R$ @produto.Preco.ToString("N2")</small></p>
                                     </div>
-                                    <div class="card-footer">
-                                        <a class="btn" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-cod_produto="@produto.Cod_Produto" role="button">Detalhes</a>
+                                    <div class="card-footer border-0">
+                                        <a class="btn" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-cod_produto="@produto.Cod_Produto" role="button">Ver Detalhes</a>
                                     </div>
                                 </div>
                             </div>
                         }
                     </div>
                 </div>
-                <!-- Outras tabs para categorias específicas -->
             </div>
         </div>
+        <!-- Outras tabs para categorias específicas -->
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const minPriceInput = document.getElementById('minPrice');
+        const maxPriceInput = document.getElementById('maxPrice');
+        const minPriceOutput = document.getElementById('minPriceOutput');
+        const maxPriceOutput = document.getElementById('maxPriceOutput');
+        // Atualizar esta linha para selecionar corretamente os cards de produto
+        const productCards = document.querySelectorAll('.product-card');
+
+        function updatePriceDisplay() {
+            minPriceOutput.textContent = minPriceInput.value;
+            maxPriceOutput.textContent = maxPriceInput.value;
+            filterProducts();
+        }
+
+        function filterProducts() {
+            const minPrice = parseFloat(minPriceInput.value);
+            const maxPrice = parseFloat(maxPriceInput.value);
+
+            productCards.forEach(card => {
+                // Corrigir a seleção para obter o preço corretamente
+                let productPrice = parseFloat(card.querySelector('.text-muted').textContent.split(' ')[1].replace('R$', '').replace(',', '.'));
+                if (productPrice >= minPrice && productPrice <= maxPrice) {
+                    card.style.display = 'block'; // Mostra o produto se estiver dentro do intervalo
+                } else {
+                    card.style.display = 'none'; // Esconde o produto se estiver fora do intervalo
+                }
+            });
+        }
+
+        // Inicia com todos produtos visíveis dentro do intervalo padrão
+        updatePriceDisplay();
+
+        // Eventos que atualizam a exibição ao alterar os valores dos ranges
+        minPriceInput.addEventListener('input', updatePriceDisplay);
+        maxPriceInput.addEventListener('input', updatePriceDisplay);
+    });
+</script>

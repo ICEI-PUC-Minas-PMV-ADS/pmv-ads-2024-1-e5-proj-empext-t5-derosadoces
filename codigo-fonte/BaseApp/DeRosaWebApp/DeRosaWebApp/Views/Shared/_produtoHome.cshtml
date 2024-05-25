@@ -2,33 +2,34 @@
 @using System.Globalization;
 @model Produto
 
-<div class="card" id="titulos" style="width: 18rem; margin-top: 10px;">
-    @if (Model.ImagemUrl.Contains("www") || Model.ImagemUrl.Contains("https") ||  Model.ImagemUrl.Contains("http"))
-    {
-        <img class="card-img-top" src='@Model.ImagemUrl' width="200" height="250" alt="Card image cap">
-    }
-    else
-    {
-        <img class="card-img-top" src='@Model.ImagemUrl' width="200px" height="250px" alt="Card image cap">
-    }
-
-    <div class="card-body">
-        <h5 class="card-title">@Model.Nome</h5>
-        @* <p class="card-text">@Model.DescricaoCurta</p> *@
-    </div>
-    <ul class="list-group list-group-flush">
-        @if (Model.Promocional)
+<div class="product-card" data-category="@Model.IdCategoria">
+    <div class="card h-90 border-0" style="margin-top: 10px;">
+        @if (Model.ImagemUrl.Contains("www") || Model.ImagemUrl.Contains("http") || Model.ImagemUrl.Contains("https"))
         {
-            <li class="list-group-item" id="backgroundcartao" style="color:red"><span id="danger">Preço promocional  R$@Model.PrecoSecundario</span></li>
+            <img class="card-img-top" src="@Model.ImagemUrl" alt="Imagem do produto @Model.Nome" />
         }
         else
         {
-            <li class="list-group-item" id="groupitem"><span id="antigoPreco">R$@Model.Preco.ToString("F2",@CultureInfo.InvariantCulture)</span></li>
-
+            <img class="card-img-top" src="@Model.ImagemUrl" alt="Imagem do produto @Model.Nome" />
         }
-    </ul>
+        <div class="card-body">
+            <h5 class="card-title" style="letter-spacing:3px">@Model.Nome.ToUpper()</h5>
+            <p class="card-text fs-6 fst-italic" style="font-family:'Linux Libertine G'">
+                @if (Model.DescricaoCurta.Length > 35)
+                {
+                    @Model.DescricaoCurta.Substring(0, 35)
 
-    <div class="text-box">
-        <a class="btn" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-cod_produto="@Model.Cod_Produto" role="button">Detalhes</a>
+                }
+                else
+                {
+                    @Model.DescricaoCurta
+                }
+                ...
+            </p>
+            <p class="card-text"><small class="text-muted">R$ @Model.Preco.ToString("N2")</small></p>
+        </div>
+        <div class="card-footer border-0">
+            <a class="btn" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-cod_produto="@Model.Cod_Produto" role="button">Ver mais Detalhes</a>
+        </div>
     </div>
 </div>

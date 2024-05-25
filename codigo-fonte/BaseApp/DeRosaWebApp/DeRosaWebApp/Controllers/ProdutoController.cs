@@ -68,7 +68,7 @@ namespace DeRosaWebApp.Controllers
                 _Produtos = prodCatg.Value,
                 _Categorias = categorias
             };
-            ViewBag.Title = $"Produtos com a categoria {categoriaNome}";
+            ViewBag.Titulo = $"{categoriaNome}";
             return View("Produtos",todosProdutosViewModel);
         }
     }

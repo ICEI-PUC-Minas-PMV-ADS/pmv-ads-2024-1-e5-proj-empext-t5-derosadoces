@@ -6,72 +6,72 @@
     ViewData["Title"] = "Deletar pedido";
 }
 
-<h1 class="Admin-pedidos-titulo">Delete</h1>
+<h1>Delete</h1>
 
-<h3 class="text-center">Tem certeza que deseja deletar esse pedido?</h3>
-<div class="Admin-pedidos-detalhes-quadro">
+<h3>Tem certeza que deseja deletar esse pedido?</h3>
+<div>
     <h4>Pedido</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DataPedido)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DataPedido)
         </dd>
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Logradouro)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Logradouro)
         </dd>
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Numero)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Numero)
         </dd>
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Telefone)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Telefone)
         </dd>
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TotalItensPedido)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TotalItensPedido)
         </dd>
-        <dt class="col-sm-4">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TotalPedido)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
-            R$@Model.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)
+        <dd class = "col-sm-10">
+            R$@Model.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)
         </dd>
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Agendado)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Agendado)
         </dd>
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Frete)
         </dt>
-        <dd class="col-sm-8 Admin-pedidos-detalhe">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Frete)
         </dd>
     </dl>
-
+    
     <form asp-area="Admin" asp-controller="AdminPedidos" asp-action="DeleteConfirmed" asp-route-id="@Model.Cod_Pedido" method="post">
         <input type="hidden" asp-for="Cod_Pedido" />
-        <input type="submit" value="Deletar" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-secondary">Voltar para a lista</a>
+        <input type="submit" value="Deletar"  class="btn btn-danger" /> 
+        <a asp-action="Index">Voltar para a lista</a>
     </form>
 </div>

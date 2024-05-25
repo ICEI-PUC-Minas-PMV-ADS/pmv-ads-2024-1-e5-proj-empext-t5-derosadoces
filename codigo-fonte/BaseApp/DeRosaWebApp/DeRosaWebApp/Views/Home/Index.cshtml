@@ -13,15 +13,16 @@
 <div class="banner">
     <h1 class="title-home">DéRosa Doceria</h1>
     <br />
-    <button class="btn1">SOBRE</button>
-    <button class="btn2">LISTA</button>
+    <button class="btn1">
+        <a asp-controller="Home" asp-action="Sobre" class="btn1">SOBRE</a>
+    </button>
+    <button class="btn2">
+        <a asp-controller="Produto" asp-action="Produtos" class="btn2">PRODUTOS</a>
+    </button>
 </div>
 <div class="container-home">
 
     <div class="offers">
-
-
-
         @foreach (var produto in Model)
         {
 
@@ -33,7 +34,9 @@
                 
             }
         }
-       
+        <div class="span-m">
+            <a class="link-info" asp-controller="Produto" asp-action="Produtos">Clique aqui para ver todos os produtos</a>
+        </div>
     </div>
 
     <div class="about">
