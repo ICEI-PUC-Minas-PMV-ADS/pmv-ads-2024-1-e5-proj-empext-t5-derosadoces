@@ -46,7 +46,7 @@
                                     <span asp-validation-for="@Model._Endereco.CEP" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-8 container-input input-pequeno">
-                                    <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" placeholder="Rua" />
+                                    <input asp-for="@Model._Endereco.Logradouro" id="rua" class="form-control" placeholder="Rua" readonly/>
                                     <span asp-validation-for="@Model._Endereco.Logradouro" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-8 container-input input-pequeno">
@@ -58,15 +58,15 @@
                                     <span asp-validation-for="@Model._Endereco.Complemento" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-8 container-input input-pequeno">
-                                    <input asp-for="@Model._Endereco.Bairro" id="bairro" class="form-control" placeholder="Bairro" />
-                                    <span asp-validation-for="@Model._Endereco.Bairro" class="text-danger"></span>
+                                    <input asp-for="@Model._Endereco.Bairro" id="bairro" class="form-control" placeholder="Bairro" readonly/>
+                                    <span asp-validation-for="@Model._Endereco.Bairro" class="text-danger" ></span>
                                 </div>
                                 <div class="col-md-8 container-input input-pequeno">
-                                    <input asp-for="@Model._Endereco.Cidade" id="cidade" class="form-control" placeholder="Cidade" />
+                                    <input asp-for="@Model._Endereco.Cidade" id="cidade" class="form-control" placeholder="Cidade" readonly/>
                                     <span asp-validation-for="@Model._Endereco.Cidade" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-8 container-input input-pequeno">
-                                    <input asp-for="@Model._Endereco.UF" id="uf" class="form-control" placeholder="UF" />
+                                    <input asp-for="@Model._Endereco.UF" id="uf" class="form-control" placeholder="UF" readonly />
                                     <span asp-validation-for="@Model._Endereco.UF" class="text-danger"></span>
                                 </div>
 
