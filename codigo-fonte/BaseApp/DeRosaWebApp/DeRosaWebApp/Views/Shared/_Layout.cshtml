@@ -30,27 +30,25 @@
                         <li class="nav-item">
                             <a class="nav-link"  asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-
-                        @* Temporário, apenas para ter os itens da nav *@
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link" asp-controller="Produto" asp-action="Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Sobre">Sobre</a>
                         </li>
 
-                        <li class="nav-item ">
+                        <li class="nav-item position-absolute">
                             @await Component.InvokeAsync("CarrinhoComponent")
                         </li>
                       
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="nav-item ">
+                        <li class="nav-item position-relative">
                             @if (User.Identity.IsAuthenticated)
                             {
                                 @if (User.IsInRole("Admin"))
                                 {
-                                    <a class="nav-link" asp-area="Admin" asp-action="Index" asp-controller="AdminDashboard">Área de Administração</a>
+                                    <a class="nav-link position-relative" asp-area="Admin" asp-action="Index" asp-controller="AdminDashboard">Área de Administração</a>
                                 }
 
                                 else

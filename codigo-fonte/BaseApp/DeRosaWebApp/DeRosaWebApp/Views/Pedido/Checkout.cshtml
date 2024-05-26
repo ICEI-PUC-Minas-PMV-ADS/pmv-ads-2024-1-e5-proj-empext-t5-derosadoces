@@ -1,7 +1,7 @@
 ﻿@model DateTime
 <div class="checkout-container">
     <div class="main-checkout">
-        <a class="btn btn-success" asp-action="EscolhaEndereco" asp-controller="Endereco">Voltar</a>
+        <a class="btn btn-success" asp-action="EscolhaEndereco" asp-controller="Endereco" id="btnsmall">Voltar</a>
         <h2 class="checkout-title">Checkout</h2>
         @if (ViewBag.Erro != null)
         {
@@ -24,7 +24,7 @@
                     <input type="date" id="dataParaEntregar" name="dataParaEntregar" class="form-control" required />
                 }
             </div>
-            <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
+            <button type="submit" class="btn btn-primary" id="btnsmall">Finalizar Pedido</button>
 
         </form>
     </div>
