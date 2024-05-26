@@ -92,7 +92,14 @@ body {
         background-color: rgb(225, 191, 56);
         color: white;
     }
-
+.a-link1 {
+    text-decoration:none;
+    color: white;
+}
+.a-link2 {
+    text-decoration: none;
+    color: rgb(225, 191, 56);
+}
 .btn2 {
     background-color: rgba(243, 243, 243, 1);
     border: none;
@@ -102,13 +109,16 @@ body {
     width: 150px;
     height: 4vh;
     margin-right: 10px;
+    color: rgb(225, 191, 56);
 }
 
     .btn2:hover {
         background-color: transparent;
         color: rgb(225, 191, 56);
         border: solid 1px rgb(225, 191, 56);
+        
     }
+    
 
 .title-home {
     font-size: 4rem;
@@ -326,6 +336,10 @@ p {
     width: 150px;
     //height: 4vh;
     border-radius: 0;
+}
+#btnsmall {
+    font-size: 14px;
+    width: 20%;
 }
 
     .btn:hover {
