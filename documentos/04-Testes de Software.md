@@ -116,7 +116,7 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 
 ![Figura 7](img/alterardados02.png)
 
-### CT-05 - Teste de Alteração de Dados do Usuário
+### CT-05 - Teste de Navegação pelas páginas
 ![Video 1](img/navegacao.mp4)
 
 ### CT-06 - Teste de Seleção de Produtos
