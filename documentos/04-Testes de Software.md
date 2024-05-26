@@ -42,11 +42,47 @@ Plano de Testes: Funcionalidade de Login
 
 <br>
 
+|Caso de teste   | CT-04 - Teste de Alteração de Dados do Usuário:
+|------|-----------------------------------------|
+|Requisitos associados | RF-03  A aplicação deve permitir ao usuário EDITAR dados pessoais.
+|Objetivo do teste | O sistema deve permitir que os usuários alterem os dados cadastrados anteriormente. 
+|Passos | <ol><li> Acessar a página de login. </li> <li> Relaizar login com credenciais válidas. </li> <li> Clicar em minha conta. </li> <li> Alterar os dados. </li> <li> Clicar em salvar. </li></ol>
+|Critérios de Êxito | <ul> <li>O sistema deve alterar os dados antigos para os que o usuário acabou de inserir. </li> 
+
+<br>
+
+|Caso de teste   | CT-05 - Teste de Navegação pelas páginas.:
+|------|-----------------------------------------|
+|Requisitos associados | RF-04  A aplicação deve permitir ao usuário navegar pelas páginas.
+|Objetivo do teste | O sistema deve permitir que os usuários naveguem pelas páginas do sistema. 
+|Passos | <ol><li> Acessar a página de login. </li> <li> Relaizar login com credenciais válidas. </li> <li> Clicar em alguma página. </li> <li> Clicar em outra página. </li></ol>
+|Critérios de Êxito | <ul> <li>O sistema deve alterar de página ao clicar. </li> 
+
+<br>
+
+|Caso de teste   | CT-06 - Teste de Seleção de Produtos.:
+|------|------------------------|
+|Requisitos associados | RF-06 A aplicação deve permitir o usuário selecionar produtos.
+|Objetivo do teste | O sistema deve permitir que os usuários selecionem produtos. 
+|Passos | <ol><li> Acessar a página de produtos. </li> <li> Clicar no botão detalhes de algum produto. </li></ol>
+|Critérios de Êxito | <ul> <li>O sistema deve abrir uma página com o produto selecionado. </li> 
+
+<br>
+
+|Caso de teste   | CT-07 - Teste de Adição de Produtos no Carrinho.:
+|------|------------------------|
+|Requisitos associados | RF-07 A aplicação deve permitir o usuário adicionar produtos ao carrinho.
+|Objetivo do teste | O sistema deve permitir que os usuários adicionem produtos ao carrinho. 
+|Passos | <ol><li> Acessar a página de produtos. </li> <li> Clicar no botão detalhes de algum produto. </li> <li> Colocar a quantidade desejada do produto. </li> <li> Clicar no botão de adicionar o produto ao carrinho. </li></ol>
+|Critérios de Êxito | <ul> <li>O sistema deve adicionar o produto selecionado ao carrinho. </li> 
+
+<br>
+
 Os testes unitários a serem realizados na aplicação são descritos a seguir.
 
 <br>
 
-|Caso de teste   | CT-04 - Teste de Cadastro de Novos Produtos:
+|Caso de teste   | CT-0 - Teste de Cadastro de Novos Produtos:
 |------|-----------------------------------------|
 |Requisitos associados | RF-01​2  A aplicação deve permitir somente ao administrador do site adicionar produtos para venda
 |Objetivo do teste | O sistema deve permitir cadastro de novos produtos. 
@@ -66,12 +102,30 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ![Figura 1](img/erroregistrarUsuario.jpg)
 
 ### CT-02 - Teste de Login com Credenciais Válidas
-![Figura 1](img/loginValido.jpg)
+![Figura 2](img/loginValido.jpg)
 
-![Figura 1](img/loginValido2.jpg)
+![Figura 3](img/loginValido2.jpg)
 
 ### CT-03 - Teste de Login com Credenciais Inválidas
-![Figura 1](img/loginInvalido.jpg)
+![Figura 4](img/loginInvalido.jpg)
 
-### CT-04 - Teste Unitário de Adição de Novo Produto
+### CT-04 - Teste de Alteração de Dados do Usuário
+![Figura 5](img/alterardados01.png)
+
+![Figura 6](img/alterardados02.png)
+
+### CT-05 - Teste de Alteração de Dados do Usuário
+![Video 1](img/navegacao.webm)
+
+### CT-06 - Teste de Seleção de Produtos
+![Figura 7](img/selecionarprodutos01.png)
+
+![Figura 8](img/selecionarprodutos02.png)
+
+### CT-07 - Teste de Adição de Produtos no Carrinho
+![Figura 9](img/adicionaraocarrinho01.png)
+
+![Figura 10](img/adicionaraocarrinho02.png)
+
+### CT-0 - Teste Unitário de Adição de Novo Produto
 ![Figura 1](img/testeUnitario.jpg)
