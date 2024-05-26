@@ -109,23 +109,25 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ### CT-03 - Teste de Login com Credenciais Inválidas
 ![Figura 4](img/loginInvalido.jpg)
 
-### CT-04 - Teste de Alteração de Dados do Usuário
-![Figura 5](img/alterardados01.png)
+![Figura 5](img/loginInvalido2.jpg) 
 
-![Figura 6](img/alterardados02.png)
+### CT-04 - Teste de Alteração de Dados do Usuário
+![Figura 6](img/alterardados01.png)
+
+![Figura 7](img/alterardados02.png)
 
 ### CT-05 - Teste de Alteração de Dados do Usuário
-![Video 1](img/navegacao.webm)
+![Video 1](img/navegacao.mp4)
 
 ### CT-06 - Teste de Seleção de Produtos
-![Figura 7](img/selecionarprodutos01.png)
+![Figura 8](img/selecionarprodutos01.png)
 
-![Figura 8](img/selecionarprodutos02.png)
+![Figura 9](img/selecionarprodutos02.png)
 
 ### CT-07 - Teste de Adição de Produtos no Carrinho
-![Figura 9](img/adicionaraocarrinho01.png)
+![Figura 10](img/adicionaraocarrinho01.png)
 
-![Figura 10](img/adicionaraocarrinho02.png)
+![Figura 11](img/adicionaraocarrinho02.png)
 
 ### CT-0 - Teste Unitário de Adição de Novo Produto
 ![Figura 1](img/testeUnitario.jpg)
