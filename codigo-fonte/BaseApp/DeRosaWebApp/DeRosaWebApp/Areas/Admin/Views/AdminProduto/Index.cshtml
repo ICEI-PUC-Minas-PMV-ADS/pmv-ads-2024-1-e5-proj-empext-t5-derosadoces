@@ -1,4 +1,4 @@
-﻿@using System.Globalization;
+﻿﻿@using System.Globalization;
 @using DeRosaWebApp.Repository.Interfaces;
 
 @model ReflectionIT.Mvc.Paging.PagingList<DeRosaWebApp.Models.Produto>
@@ -9,7 +9,7 @@
 
 <h1 class="titulo-tabela">Produtos Cadastrados</h1>
 <p>
-    <a asp-action="Create" class="btn-primary create-button" >Criar novo produto</a>
+    <a asp-action="Create" class="btn btn-primary create-button" id="btnsmall">Criar novo produto</a>
 </p>
 <div class="center">
     <div class="form-container">
@@ -41,8 +41,6 @@
                 <th>@Html.DisplayNameFor(model => model.Indisponivel)</th>
                 <th>@Html.DisplayNameFor(model => model.EstoqueAgendamento)</th>
                 <th>@Html.DisplayNameFor(model => model.Promocional)</th>
-
-
                 <th></th>
             </tr>
         </thead>
@@ -50,10 +48,10 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                    <td>R$@item.Preco.ToString("F2", CultureInfo.InvariantCulture)</td>
-                    <td>@Html.DisplayFor(modelItem => item.EmEstoque)</td>
-                    <td>
+                    <td data-label="Nome">@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td data-label="Preço">R$@item.Preco.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    <td data-label="Em Estoque">@Html.DisplayFor(modelItem => item.EmEstoque)</td>
+                    <td data-label="Imagem">
                         @if (item.ImagemUrl.Contains("www") || item.ImagemUrl.Contains("http") || item.ImagemUrl.Contains("https"))
                         {
                             <img src="@item.ImagemUrl" width="95" height="95">
@@ -63,15 +61,14 @@
                             <img class="bordered-image" src="@item.ImagemUrl" width="95" height="95">
                         }
                     </td>
-                    <td>@Html.DisplayFor(modelItem => item.DescricaoCurta)</td>
-                    <td>R$@item.PrecoSecundario.ToString("F2", CultureInfo.InvariantCulture)</td>
-                    <td><span>Identificador: </span>@Html.DisplayFor(modelItem => item.IdCategoria)</td>
-                    <td>@Html.DisplayFor(modelItem => item.ProdutoDaSemana)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Indisponivel)</td>
-                    <td>@Html.DisplayFor(modelItem => item.EstoqueAgendamento)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Promocional)</td>
-
-                    <td class="actions">
+                    <td data-label="Descrição Curta">@Html.DisplayFor(modelItem => item.DescricaoCurta)</td>
+                    <td data-label="Preço Secundário">R$@item.PrecoSecundario.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    <td data-label="ID Categoria"><span>Identificador: </span>@Html.DisplayFor(modelItem => item.IdCategoria)</td>
+                    <td data-label="Produto da Semana">@Html.DisplayFor(modelItem => item.ProdutoDaSemana)</td>
+                    <td data-label="Indisponível">@Html.DisplayFor(modelItem => item.Indisponivel)</td>
+                    <td data-label="Estoque Agendamento">@Html.DisplayFor(modelItem => item.EstoqueAgendamento)</td>
+                    <td data-label="Promocional">@Html.DisplayFor(modelItem => item.Promocional)</td>
+                    <td class="actions" data-label="Ações">
                         <a class="btn" asp-action="Edit" asp-route-id="@item.Cod_Produto">Editar</a>
                         <a class="btn" asp-action="Details" asp-route-id="@item.Cod_Produto">Detalhes</a>
                         <a class="btn" asp-action="Delete" asp-route-id="@item.Cod_Produto">Deletar</a>

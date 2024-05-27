@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\codigo-fonte",
+    "\\codigo-fonte\\BaseApp",
+    "\\codigo-fonte\\BaseApp\\DeRosaWebApp",
+    "\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp",
+    "\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views",
+    "\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views\\Carrinho"
   ],
-  "SelectedNode": "\\DeRosaWebApp.sln (codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\DeRosaWebApp.sln)",
+  "SelectedNode": "\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views\\Carrinho\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

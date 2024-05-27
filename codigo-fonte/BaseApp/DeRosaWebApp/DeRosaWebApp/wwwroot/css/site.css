@@ -15,6 +15,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    overflow-x: hidden;
 }
 
 /*ALTERAÇÕES param NAVBAR*/
@@ -44,6 +45,7 @@ body {
 
 .nav-link {
     color: black;
+    transition: color 0.3s ease;
 }
 
     .nav-link:hover {
@@ -53,8 +55,31 @@ body {
 .container-footer {
     background-color: black;
     color: rgba(193, 157, 86, 1);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
 }
 
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.container-aguardando-edu {
+    min-height: calc(100vh - 100px); /* Ajusta o valor de acordo com a altura do footer */
+    padding-bottom: 20px; /* Espaço para garantir que o conteúdo não encoste no footer */
+}
+footer {
+    position: relative;
+    bottom: 0;
+    width: auto;
+    height: 50px; /* Ajuste conforme necessário */
+    background-color: #f8f9fa;
+}
 
 /* TELA HOME */
 .container-home {
@@ -334,7 +359,7 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 150px;
-    //height: 4vh;
+    /**height: 4vh;/*/
     border-radius: 0;
 }
 #btnsmall {
@@ -401,6 +426,13 @@ p {
         .input-senha-login .btn-toggle-password i {
             font-size: 1.5em;
         }
+@media (max-width: 768px) {
+
+    .imglogin {
+        height: 300px;
+        width: 300px;
+    }
+}
 
 /* TELA CADASTRO */
 
@@ -807,14 +839,14 @@ p {
     .search-form .btn-info {
         display: flex;
         align-items: center;
-        background-color: lightgoldenrodyellow;
+        /*background-color: lightgoldenrodyellow;*/
         color: black;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s;
-        width:auto;
+        width: auto;
     }
         .search-form .btn-info:hover {
             //background-color: lightgoldenrodyellow;
@@ -828,7 +860,7 @@ p {
         }
 
 /* Contador total */
-.total-count {
+        .total-count {
     font-weight: bold;
     margin-top: 10px;
 }
@@ -853,26 +885,22 @@ p {
         background-color: #0056b3;
     }
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
     .admin .table thead {
         display: none;
     }
-
     .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
         display: block;
         width: 100%;
     }
-
         .admin .table tr {
             margin-bottom: 15px;
         }
-
         .admin .table td {
             text-align: right;
             padding-left: 50%;
             position: relative;
         }
-
             .admin .table td::before {
                 content: attr(data-label);
                 position: absolute;
@@ -882,28 +910,24 @@ p {
                 font-weight: bold;
                 text-align: left;
             }
-
     .admin .actions .btn {
         display: block;
         width: 100%;
         margin: 5px 0;
     }
-
     .search-form {
         flex-direction: column;
         align-items: stretch;
     }
-
         .search-form .form-control,
         .search-form .btn-info {
             margin: 5px 0;
             width: 100%;
         }
-
         .search-form .btn-info {
             justify-content: center;
         }
-}
+}*/
 
 
 body {
@@ -1132,6 +1156,100 @@ h2 {
 }
 
 /* FINAL TELA REDEFINIR SENHA */
+/*INICIO TELA ADMIN PRODTUTOS EDITAR/DERALHES/DELETAR*/
+
+.Admin-pedidos-titulo {
+    text-align: center;
+    font-size: 2em;
+}
+
+.Admin-pedidos-container {
+    padding: 20px;
+}
+
+.Admin-pedidos-detalhes-quadro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.Admin-pedidos-alert-container {
+    margin-bottom: 20px;
+}
+
+.Admin-pedidos-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Admin-pedidos-form-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.Admin-pedidos-alert-container {
+    margin-bottom: 20px;
+}
+
+.alert {
+    text-align: center;
+}
+
+.Admin-pedidos-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .Admin-pedidos-titulo {
+        font-size: 1.5em;
+    }
+
+    .Admin-pedidos-form-container {
+        padding: 10px;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-check-label, .control-label {
+        width: 100%;
+        text-align: left;
+    }
+
+    .form-check-input, .form-control {
+        vertical-align: central;
+    }
+
+    .Admin-pedidos-container {
+        padding: 10px;
+    }
+
+    .Admin-pedidos-detalhes-quadro {
+        padding: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-sm-4, .col-sm-8 {
+        width: 100%;
+    }
+
+    .Admin-pedidos-links {
+        text-align: center;
+    }
+}
+
+
+/*INICIO TELA ADMIN PRODTUTOS EDITAR*/
 
 /* INICIO TELA TODOS PRODUTOS*/
 input[type="range"] {

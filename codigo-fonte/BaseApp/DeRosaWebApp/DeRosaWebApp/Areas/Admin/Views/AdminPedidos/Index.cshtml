@@ -32,28 +32,28 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                    <td>@Html.DisplayFor(modelItem => item.DataPedido)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Logradouro)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Numero)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
-                    <td>@Html.DisplayFor(modelItem => item.TotalItensPedido)</td>
-                    <td>R$@item.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)</td>
-                    <td class="status" data-status="@item.Entregue">
+                    <td data-label="Nome">@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td data-label="DataPedido">@Html.DisplayFor(modelItem => item.DataPedido)</td>
+                    <td data-label="Logradouro">@Html.DisplayFor(modelItem => item.Logradouro)</td>
+                    <td data-label="Numero">@Html.DisplayFor(modelItem => item.Numero)</td>
+                    <td data-label="Telefone">@Html.DisplayFor(modelItem => item.Telefone)</td>
+                    <td data-label="TotalItensPedido">@Html.DisplayFor(modelItem => item.TotalItensPedido)</td>
+                    <td data-label="TotalPedido">R$@item.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    <td data-label="Entregue" class="status" data-status="@item.Entregue">
                         @Html.DisplayFor(modelItem => item.Entregue)
                     </td>
-                    <td class="status" data-status="@item.Concluido">
+                    <td data-label="Concluido" class="status" data-status="@item.Concluido">
                         @Html.DisplayFor(modelItem => item.Concluido)
                     </td>
-                    <td>@Html.DisplayFor(modelItem => item.Agendado)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Pago)</td>
+                    <td data-label="Agendado">@Html.DisplayFor(modelItem => item.Agendado)</td>
+                    <td data-label="Pago">@Html.DisplayFor(modelItem => item.Pago)</td>
                     @if(item.Frete < 1.00)
                     {
-                        <td style="color:green; font-style: italic">Grátis</td>
+                        <td data-label="Frete" style="color:green; font-style: italic">Grátis</td>
                     }
                     else
                     {
-                        <td>R$@item.Frete.ToString("F2", CultureInfo.InvariantCulture)</td>
+                        <td data-label="Frete">R$@item.Frete.ToString("F2", CultureInfo.InvariantCulture)</td>
 
                     }
 
