@@ -2,67 +2,79 @@
 @using DeRosaWebApp.Repository.Interfaces;
 @model Pedido
 
-<div class="container" style="color: black;">
-    <div class="jumbotron">
+<div class="checkout-resumo-container">
+    <div class="checkout-resumo-jumbotron">
         <h2>@ViewBag.CheckoutCompletoMensagem</h2>
     </div>
-    <div class="card">
-        <div class="card-body">
-            <p>Cliente : <strong>@Model.Nome</strong></p>
-            <p>Endereço : <strong>@Model.Logradouro N.º @Model.Numero @Model.Bairro, @Model.Cidade / @Model.Estado  </strong></p> 
-            <p>CEP: @Model.Cep </p>
+    <div class="checkout-resumo-card">
+        <div class="checkout-resumo-card-body">
+            <p>Cliente: <strong>@Model.Nome</strong></p>
+            <p>Endereço: <strong>@Model.Logradouro N.º @Model.Numero @Model.Bairro, @Model.Cidade / @Model.Estado</strong></p>
+            <p>CEP: @Model.Cep</p>
             <p>Complemento: @Model.Complemento</p>
-            <p style="color: yellow">Data aproximada da entrega: @Model.DataParaEntregar</p> 
+            <p class="checkout-resumo-data-entrega">Data aproximada da entrega: @Model.DataParaEntregar</p>
 
-            <p>Número do pedido : <strong>@Model.Cod_Pedido</strong></p>
-            <table class="table">
-                <tr>
-                    <th>Imagem</th>
-                    <th>Quantidade</th>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                </tr>
-                @foreach (var item in Model._PedidoDetalhes)
-                {
+            <p>Número do pedido: <strong>@Model.Cod_Pedido</strong></p>
+            <table class="checkout-resumo-table">
+                <thead>
                     <tr>
-                        @if (item.Produto.ImagemUrl.Contains("www") || item.Produto.ImagemUrl.Contains("https") || item.Produto.ImagemUrl.Contains("http"))
-                        {
-                            <td><img src="@item.Produto.ImagemUrl" width="40" height="40" /></td>
-                        }
-                        else
-                        {
-                            <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
-                        }
-                        <td>@item.Quantidade</td>
-                        <td>@item.Produto.Nome</td>
-                        <td>@item.Produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</td>
+                        <th>Imagem</th>
+                        <th>Quantidade</th>
+                        <th>Produto</th>
+                        <th>Preço</th>
                     </tr>
-                }
+                </thead>
+                <tbody>
+                    @foreach (var item in Model._PedidoDetalhes)
+                    {
+                        <tr>
+                            @if (item.Produto.ImagemUrl.Contains("www") || item.Produto.ImagemUrl.Contains("https") || item.Produto.ImagemUrl.Contains("http"))
+                            {
+                                <td><img src="@item.Produto.ImagemUrl" width="40" height="40" /></td>
+                            }
+                            else
+                            {
+                                <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
+                            }
+                            <td>@item.Quantidade</td>
+                            <td>@item.Produto.Nome</td>
+                            <td>@item.Produto.Preco.ToString("F2", @CultureInfo.InvariantCulture)</td>
+                        </tr>
+                    }
+                </tbody>
             </table>
-            <h4>Valor Total do Pedido: <strong style="color: red;">@(
-                    (ViewBag.TotalPedido + Model.Frete).ToString("C2")
-                    ) ( Frete @if (Model.Frete < 20)
+            <h4>
+                Valor Total do Pedido: <strong class="checkout-resumo-total-pedido">
+                    @(
+                        (ViewBag.TotalPedido + Model.Frete).ToString("C2")
+                        ) ( Frete @if (Model.Frete < 20)
                     {
                         <span>Grátis</span>
                     }
                     else
                     {
-                      <span>R$</span>@Model.Frete.ToString("F2",CultureInfo.InvariantCulture);
-                    }
-                )</strong></h4>
-            <div class="form-group" style="text-align :center">
-                <h3>
-                    <a class="nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
-                </h3>
+                        <span>R$</span>
 
+                        @Model.Frete.ToString("F2", CultureInfo.InvariantCulture)
+                        ;
+                    }
+                    )
+                </strong>
+            </h4>
+            <div class="checkout-resumo-form-group checkout-resumo-text-center">
+                <h3>
+                    <a class="checkout-resumo-nav-link text-info" asp-controller="Home" asp-action="Index">Retornar</a>
+                </h3>
             </div>
         </div>
     </div>
+    <p>Você tem até <strong>@Model.DataExpiracao</strong> para realizar o pagamento</p>
+    <div class="checkout-resumo-form-group">
+        <a class="btn btn-primary" asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Pagar</a>
+    </div>
 </div>
-<p>Você tem até <strong>@Model.DataExpiracao </strong> para realizar o pagamento</p>
-<div class="form-group">
-    <a asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Pagar</a>
-</div>
+
+
 @*<script>
 
     function checkOrders() {

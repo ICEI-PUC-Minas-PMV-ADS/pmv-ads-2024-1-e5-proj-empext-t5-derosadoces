@@ -37,9 +37,9 @@
                             <a class="nav-link" asp-controller="Home" asp-action="Sobre">Sobre</a>
                         </li>
 
-                        <li class="nav-item position-absolute">
+                        @*<li class="nav-item">
                             @await Component.InvokeAsync("CarrinhoComponent")
-                        </li>
+                        </li>*@
                       
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
@@ -57,6 +57,9 @@
                                     <a class="nav-link" style=@*"color: lightgray;"*@  asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
                                 }
                             }
+                        </li>
+                        <li class="nav-item">
+                            @await Component.InvokeAsync("CarrinhoComponent")
                         </li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial") 

@@ -885,7 +885,7 @@ p {
         background-color: #0056b3;
     }
 
-/*@media (max-width: 600px) {
+@media (max-width: 600px) {
     .admin .table thead {
         display: none;
     }
@@ -927,8 +927,7 @@ p {
         .search-form .btn-info {
             justify-content: center;
         }
-}*/
-
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -1349,3 +1348,215 @@ input[type="range"] {
         border: none;
     }
 }
+
+/*INICIO TELA CHECKOUT*/
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.main-checkout {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.checkout-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.note {
+    color: gray;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+.btn-small {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    margin: 10px auto;
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    .main-checkout {
+        padding: 10px;
+    }
+
+    .btn-small {
+        width: 100%;
+    }
+}
+
+.checkout-resumo-container {
+    color: black;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.jumbotron {
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.data-entrega {
+    color: yellow;
+    font-weight: bold;
+}
+
+.total-pedido {
+    color: red;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .checkout-resumo-container {
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        padding: 5px;
+    }
+}
+
+/*RESUMO*/
+
+.checkout-resumo-container {
+    color: black;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.checkout-resumo-jumbotron {
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.checkout-resumo-card {
+    margin-top: 20px;
+}
+
+.checkout-resumo-card-body {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-resumo-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+    .checkout-resumo-table th, .checkout-resumo-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+.checkout-resumo-data-entrega {
+    font-weight: bold;
+}
+
+.checkout-resumo-total-pedido {
+    color: red;
+}
+
+.checkout-resumo-text-center {
+    text-align: center;
+}
+
+.checkout-resumo-nav-link {
+    text-decoration: none;
+}
+
+    .checkout-resumo-nav-link:hover {
+        text-decoration: underline;
+    }
+
+@media (max-width: 768px) {
+    .checkout-resumo-container {
+        padding: 10px;
+    }
+
+    .checkout-resumo-card-body {
+        padding: 10px;
+    }
+
+    .checkout-resumo-table th, .checkout-resumo-table td {
+        padding: 5px;
+    }
+}
+
+
+
+/*INICIO TELA CHECKOUT*/
