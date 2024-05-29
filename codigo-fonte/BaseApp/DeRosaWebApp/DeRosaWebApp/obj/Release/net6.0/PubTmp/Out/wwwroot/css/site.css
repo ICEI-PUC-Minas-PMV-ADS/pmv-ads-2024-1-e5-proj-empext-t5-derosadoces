@@ -15,6 +15,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    overflow-x: hidden;
 }
 
 /*ALTERAÇÕES param NAVBAR*/
@@ -44,6 +45,7 @@ body {
 
 .nav-link {
     color: black;
+    transition: color 0.3s ease;
 }
 
     .nav-link:hover {
@@ -53,8 +55,31 @@ body {
 .container-footer {
     background-color: black;
     color: rgba(193, 157, 86, 1);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
 }
 
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.container-aguardando-edu {
+    min-height: calc(100vh - 100px); /* Ajusta o valor de acordo com a altura do footer */
+    padding-bottom: 20px; /* Espaço para garantir que o conteúdo não encoste no footer */
+}
+footer {
+    position: relative;
+    bottom: 0;
+    width: auto;
+    height: 50px; /* Ajuste conforme necessário */
+    background-color: #f8f9fa;
+}
 
 /* TELA HOME */
 .container-home {
@@ -92,7 +117,14 @@ body {
         background-color: rgb(225, 191, 56);
         color: white;
     }
-
+.a-link1 {
+    text-decoration:none;
+    color: white;
+}
+.a-link2 {
+    text-decoration: none;
+    color: rgb(225, 191, 56);
+}
 .btn2 {
     background-color: rgba(243, 243, 243, 1);
     border: none;
@@ -102,13 +134,16 @@ body {
     width: 150px;
     height: 4vh;
     margin-right: 10px;
+    color: rgb(225, 191, 56);
 }
 
     .btn2:hover {
         background-color: transparent;
         color: rgb(225, 191, 56);
         border: solid 1px rgb(225, 191, 56);
+        
     }
+    
 
 .title-home {
     font-size: 4rem;
@@ -158,6 +193,43 @@ p {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
+}
+.span-m {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do .span-m */
+    position: absolute;
+    bottom: 0; 
+    left: 50%; 
+    top: 80%;
+    transform: translateX(-50%);
+    width: fit-content;
+    height: fit-content;
+}
+
+    .span-m a {
+        display: flex;
+        justify-content: center;
+    }
+@media(max-width: 1480px) {
+    .span-m {
+        top: 90%;
+    }
+}
+@media(max-width:1001px){
+    .span-m{
+        top:92%;
+    }
+}
+@media(max-width:757px) {
+    .span-m {
+        top: 95%;
+    }
+}
+@media(max-width:668px) {
+    .span-m {
+        top: 98%;
+    }
 }
 
 .about {
@@ -287,8 +359,12 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 150px;
-    height: 4vh;
+    /**height: 4vh;/*/
     border-radius: 0;
+}
+#btnsmall {
+    font-size: 14px;
+    width: 20%;
 }
 
     .btn:hover {
@@ -332,6 +408,31 @@ p {
     margin-top:10px;
 }
 
+.input-senha-login {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+    .input-senha-login .btn-toggle-password {
+        background: none;
+        border: none;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        padding: 0;
+    }
+
+        .input-senha-login .btn-toggle-password i {
+            font-size: 1.5em;
+        }
+@media (max-width: 768px) {
+
+    .imglogin {
+        height: 300px;
+        width: 300px;
+    }
+}
 
 /* TELA CADASTRO */
 
@@ -438,7 +539,17 @@ p {
     font-size: 0.9em;
     margin-bottom: 2em;
 }
+.alerta-frete {
+    font-family: 'Segoe UI Historic';
+    box-sizing: border-box;
+    word-break: normal;
+    white-space: nowrap;
+}
 
+    .alerta-frete ul {
+        word-break: normal;
+        white-space: nowrap;
+    }
 .form-group {
     margin-bottom: 1em;
 }
@@ -696,26 +807,100 @@ p {
     overflow-x: auto;
 }
 
+/* Centraliza o conteúdo */
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Contêiner do formulário */
+.form-container {
+    display: inline-block;
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do formulário de busca */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+    .search-form .form-control {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .search-form .btn-info {
+        display: flex;
+        align-items: center;
+        /*background-color: lightgoldenrodyellow;*/
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: auto;
+    }
+        .search-form .btn-info:hover {
+            //background-color: lightgoldenrodyellow;
+            background-color: goldenrod;
+            color: white;
+        }
+
+        .search-form .btn-info span {
+            margin-right: 5px;
+
+        }
+
+/* Contador total */
+        .total-count {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Botão de criar novo produto */
+.create-button {
+    display: inline-block;
+    margin-left: 30px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width:auto;
+}
+
+    .create-button:hover {
+        background-color: #0056b3;
+    }
+
 @media (max-width: 600px) {
     .admin .table thead {
         display: none;
     }
-
     .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
         display: block;
         width: 100%;
     }
-
         .admin .table tr {
             margin-bottom: 15px;
         }
-
         .admin .table td {
             text-align: right;
             padding-left: 50%;
             position: relative;
         }
-
             .admin .table td::before {
                 content: attr(data-label);
                 position: absolute;
@@ -725,12 +910,653 @@ p {
                 font-weight: bold;
                 text-align: left;
             }
-
     .admin .actions .btn {
         display: block;
         width: 100%;
         margin: 5px 0;
     }
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+        .search-form .form-control,
+        .search-form .btn-info {
+            margin: 5px 0;
+            width: 100%;
+        }
+        .search-form .btn-info {
+            justify-content: center;
+        }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container, .summary-container, .sales-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-form select,
+.filter-form .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+.filter-form .btn {
+    flex: 0 1 auto;
+}
+
+#filterButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#filterButton:hover {
+    background-color: #0056b3;
+}
+
+.summary-container p {
+    margin: 5px 0;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.sales-table th, .sales-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.sales-table th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    .filter-form {
+        flex-direction: column;
+    }
+
+    .filter-form select,
+    .filter-form .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/*FIM TABELAS ADMIN*/
+
+/*INICIO TELA DASHBOARD*/
+
+.title-dashboard {
+    margin-top: 20px;
+}
+
+.form-container, .summary-container, .sales-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: auto;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+    .filter-form select,
+    .filter-form .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .filter-form .btn {
+        flex: 0 1 auto;
+    }
+
+#filterButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+    #filterButton:hover {
+        background-color: #0056b3;
+    }
+
+.summary-container p {
+    margin: 5px 0;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .sales-table th, .sales-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .sales-table th {
+        background-color: #f2f2f2;
+    }
+
+@media (max-width: 600px) {
+    .filter-form {
+        flex-direction: column;
+    }
+
+        .filter-form select,
+        .filter-form .btn {
+            width: 100%;
+            margin: 5px 0;
+        }
 }
 
 
+/*FIM TELA DASHBOARD*/
+
+/* INÍCIO TELA ESQUECI SENHA*/
+
+.layoutEsqueciSenha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.layoutEsqueciSenha h1 {
+    margin-bottom: 1em;
+}
+
+.form-controlEsqueciSenha {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 0.5em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.form-controlEsqueciSenha::placeholder {
+    text-align: center;
+    color: #aaa;
+}
+
+.form-controlEsqueciSenha:focus::placeholder {
+    color: transparent;
+}
+
+.input-pequeno2 {
+    width: 120%; 
+    max-width: 300px;
+    margin: 0 auto;
+    margin-right: 100px; 
+}
+
+/*FINAL TELA ESQUECI SENHA*/
+
+/* INÍCIO TELA REDEFINIR SENHA */
+
+.layoutRedefinirSenha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.btn-redefinir {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    line-height:1.2rem;
+    width:60%;
+}
+
+/* FINAL TELA REDEFINIR SENHA */
+/*INICIO TELA ADMIN PRODTUTOS EDITAR/DERALHES/DELETAR*/
+
+.Admin-pedidos-titulo {
+    text-align: center;
+    font-size: 2em;
+}
+
+.Admin-pedidos-container {
+    padding: 20px;
+}
+
+.Admin-pedidos-detalhes-quadro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.Admin-pedidos-alert-container {
+    margin-bottom: 20px;
+}
+
+.Admin-pedidos-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Admin-pedidos-form-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.Admin-pedidos-alert-container {
+    margin-bottom: 20px;
+}
+
+.alert {
+    text-align: center;
+}
+
+.Admin-pedidos-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .Admin-pedidos-titulo {
+        font-size: 1.5em;
+    }
+
+    .Admin-pedidos-form-container {
+        padding: 10px;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-check-label, .control-label {
+        width: 100%;
+        text-align: left;
+    }
+
+    .form-check-input, .form-control {
+        vertical-align: central;
+    }
+
+    .Admin-pedidos-container {
+        padding: 10px;
+    }
+
+    .Admin-pedidos-detalhes-quadro {
+        padding: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-sm-4, .col-sm-8 {
+        width: 100%;
+    }
+
+    .Admin-pedidos-links {
+        text-align: center;
+    }
+}
+
+
+/*INICIO TELA ADMIN PRODTUTOS EDITAR*/
+
+/* INICIO TELA TODOS PRODUTOS*/
+input[type="range"] {
+    width: 40%; /* Assegura que o input ocupa toda a largura disponível do contêiner pai */
+    -webkit-appearance: none; /* Remove a aparência padrão no WebKit */
+    appearance: none;
+    margin: 10px 0; /* Fornece um espaçamento uniforme */
+}
+@media (max-width: 375px){
+    input[type="range"] {
+        width: 30%;
+    }
+}
+
+    input[type="range"]::-webkit-slider-runnable-track {
+        background: rgb(225, 191, 56);
+        border-radius: 10px;
+        height: 2px;
+    }
+
+    /* Firefox */
+    input[type="range"]::-moz-range-track {
+        background: rgb(225, 191, 56);
+        border-radius: 10px;
+        height: 2px;
+    }
+
+    /* Internet Explorer */
+    input[type="range"]::-ms-track {
+        background: rgb(225, 191, 56);
+        border-radius: 10px;
+        height: 2px;
+        border: 0; /* Remove bordas adicionais em IE */
+    }
+/*alterações na home*/
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Cria colunas que se ajustam automaticamente */
+    grid-gap: 10px; /* Espaçamento entre os produtos */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    width: 100%;
+    object-fit: cover;
+    height: 180px; /* Ajuste essa altura se necessário para dar mais espaço para o texto e o botão */
+}
+
+.card-body {
+    padding: 10px;
+    flex-grow: 1; /* Permite que o corpo do card expanda para ocupar espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Isso ajuda a empurrar o footer para baixo */
+}
+
+.card-footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0; /* Garante que o padding não empurre o botão para fora do card */
+}
+
+.btn {
+    width: 80%;
+    margin: 10px auto; /* Assegura margem adequada e centraliza o botão */
+    font-size: 10px;
+}
+/*fim alterações home*/
+.border-style {
+    border-right: 2px solid rgba(253, 236, 235, 1);
+}
+
+@media (min-width:876){
+    .border-style{
+        height: 100vh;
+    }
+}
+@media (max-width:853px){
+    .border-style {
+        border: none;
+    }
+}
+
+/*INICIO TELA CHECKOUT*/
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.main-checkout {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.checkout-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.note {
+    color: gray;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+.btn-small {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    margin: 10px auto;
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    .main-checkout {
+        padding: 10px;
+    }
+
+    .btn-small {
+        width: 100%;
+    }
+}
+
+.checkout-resumo-container {
+    color: black;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.jumbotron {
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.data-entrega {
+    color: yellow;
+    font-weight: bold;
+}
+
+.total-pedido {
+    color: red;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .checkout-resumo-container {
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        padding: 5px;
+    }
+}
+
+/*RESUMO*/
+
+.checkout-resumo-container {
+    color: black;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.checkout-resumo-jumbotron {
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.checkout-resumo-card {
+    margin-top: 20px;
+}
+
+.checkout-resumo-card-body {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-resumo-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+    .checkout-resumo-table th, .checkout-resumo-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+.checkout-resumo-data-entrega {
+    font-weight: bold;
+}
+
+.checkout-resumo-total-pedido {
+    color: red;
+}
+
+.checkout-resumo-text-center {
+    text-align: center;
+}
+
+.checkout-resumo-nav-link {
+    text-decoration: none;
+}
+
+    .checkout-resumo-nav-link:hover {
+        text-decoration: underline;
+    }
+
+@media (max-width: 768px) {
+    .checkout-resumo-container {
+        padding: 10px;
+    }
+
+    .checkout-resumo-card-body {
+        padding: 10px;
+    }
+
+    .checkout-resumo-table th, .checkout-resumo-table td {
+        padding: 5px;
+    }
+}
+
+
+
+/*INICIO TELA CHECKOUT*/

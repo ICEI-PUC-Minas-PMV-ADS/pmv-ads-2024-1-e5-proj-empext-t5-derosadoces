@@ -21,6 +21,7 @@ namespace DeRosaWebApp.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString: @"Data Source=NENDS;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
+            //optionsBuilder.UseSqlServer(connectionString: @"Server=serverderosa.database.windows.net;Database=derosa;User Id=nends;Password=Derosa123+;");
             //optionsBuilder.UseSqlServer(connectionString: @"Data Source=WINAPKQ2YKCHWLK\SQLEXPRESS;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
         }                   // exemplo: connectionString: @"Data Source=DESKTOP-QG1NG7E;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True"
     }

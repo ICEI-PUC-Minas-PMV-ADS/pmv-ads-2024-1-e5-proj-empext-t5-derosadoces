@@ -1537,6 +1537,7 @@ input[type="range"] {
 
 .checkout-resumo-nav-link {
     text-decoration: none;
+ color: black;
 }
 
     .checkout-resumo-nav-link:hover {
@@ -1557,6 +1558,109 @@ input[type="range"] {
     }
 }
 
+/*FIM TELA CHECKOUT*/
+
+/*INICIO TELA PAGAMENTOS*/
+
+.payment-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .payment-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+.payment-amount {
+    color: black;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.card-details label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#card-element {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+#card-errors {
+    margin-top: 10px;
+    display: none;
+}
+
+.payment-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+    .payment-submit:hover {
+        background-color: #0056b3;
+    }
+
+.payment-alternative {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.payment-pix-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #17a2b8;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .payment-pix-link:hover {
+        background-color: #138496;
+        text-decoration: none;
+    }
+
+.alert-danger {
+    display: none;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .payment-container {
+        padding: 10px;
+    }
+
+    .payment-submit {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+}
 
 
-/*INICIO TELA CHECKOUT*/
+/*FIM TELA PAGAMENTOS*/

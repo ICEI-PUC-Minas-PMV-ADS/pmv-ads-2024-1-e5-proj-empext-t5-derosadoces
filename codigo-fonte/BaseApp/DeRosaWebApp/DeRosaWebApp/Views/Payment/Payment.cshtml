@@ -5,33 +5,54 @@
     ViewData["Title"] = "Formulário de Pagamento";
 }
 
+<div class="payment-container">
+    <h1>@ViewData["Title"]</h1>
+    <!-- Formulário de pagamento -->
+    <form id="payment-form" method="post" asp-action="ProcessPayment" asp-route-cod_pedido="@Model.Cod_Pedido">
+        <div class="form-group">
+            <label for="paymentAmount">Valor do Pagamento:  <span class="payment-amount">R$@Model.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)</span></label>
+            <input type="number" id="paymentAmount" name="paymentAmount" class="form-control" min="1" placeholder="Insira o valor em centavos" required>
+        </div>
 
-<h1>@ViewData["Title"]</h1>
-<!-- Formulário de pagamento -->
-<form id="payment-form" method="post" asp-action="ProcessPayment" asp-route-cod_pedido="@Model.Cod_Pedido">
-    <div class="form-group">
-        <label for="paymentAmount">Valor do Pagamento:  <span style="color:lawngreen; font-weight: bold;">R$@Model.TotalPedido.ToString("F2",CultureInfo.InvariantCulture)</span></label>
-        <input type="number" id="paymentAmount" name="paymentAmount" class="form-control" min="1" placeholder="Insira o valor em centavos" required>
+        <div class="form-group card-details">
+            <label for="card-element">Informações do Cartão de Crédito</label>
+            <div id="card-element" class="form-control">
+                <!-- A Stripe Element será inserida aqui -->
+            </div>
+            <div id="card-errors" role="alert" aria-live="polite" class="alert alert-danger"></div>
+        </div>
+
+        <button id="submit-button" class="btn btn-primary payment-submit" type="submit">Efetuar Pagamento</button>
+    </form>
+
+    <div class="payment-alternative">
+        <span>Ou pague via</span>
+        <a class="payment-pix-link" asp-action="Pix" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">PIX</a>
     </div>
-
-    <!-- Onde o Stripe Elements irá inserir o formulário de cartão -->
-    <div id="card-element" class="form-group"></div>
-
-    <!-- Div para exibir mensagens de erro com aria-live para acessibilidade -->
-    <div id="card-errors" role="alert" aria-live="polite" class="alert alert-danger" style="display: none;"></div>
-
-    <button id="submit-button"  class="btn-primary" type="submit">Efetuar Pagamento</button>
-</form>
-
-
-<a asp-action="Pix" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Ou pague via pix</a>
+</div>
 
 @section Scripts {
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         var stripe = Stripe('@ViewBag.StripePublishableKey');
         var elements = stripe.elements();
-        var card = elements.create('card');
+        var style = {
+            base: {
+                color: '#32325d',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        var card = elements.create('card', { style: style });
         card.mount('#card-element');
 
         var form = document.getElementById('payment-form');
@@ -41,14 +62,11 @@
             event.preventDefault();
             stripe.createToken(card).then(function (result) {
                 if (result.error) {
-                    // Mostra os erros na div apropriada e torna-a visível
                     cardErrors.textContent = result.error.message;
                     cardErrors.style.display = 'block';
                 } else {
-                    // Esconde a div de erros caso haja sucesso
                     cardErrors.style.display = 'none';
 
-                    // Adiciona o token como um campo oculto no formulário
                     var hiddenInputToken = document.createElement('input');
                     hiddenInputToken.setAttribute('type', 'hidden');
                     hiddenInputToken.setAttribute('name', 'stripeToken');
