@@ -1735,3 +1735,51 @@ input[type="range"] {
         }
 }
 /*FIM TELA MEUS PEDIDOS*/
+
+/*TELA GERENCIAMENTO IMAGENS*/
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Menor largura para dispositivos móveis */
+    gap: 10px; /* Menor espaço entre as imagens */
+    padding: 10px; /* Padding reduzido */
+}
+
+.image-card {
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px; /* Padding reduzido */
+}
+
+    .image-card img {
+        width: 100%; /* Utiliza toda a largura do card */
+        height: auto;
+        object-fit: cover; /* Garante que a imagem cubra o espaço designado sem distorcer */
+    }
+
+.delete-button {
+    color: #fff;
+    background-color: #dc3545;
+    padding: 6px 12px; /* Padding reduzido */
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 8px; /* Menor espaço acima do botão */
+    font-size: 0.8em; /* Fonte menor */
+    transition: background-color 0.3s;
+}
+
+    .delete-button:hover {
+        background-color: #c82333;
+    }
+
+@media (max-width: 600px) {
+    .image-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Colunas ainda menores para telas muito pequenas */
+    }
+}
+/*FIM TELA GERENCIAMENTO IMAGENS*/

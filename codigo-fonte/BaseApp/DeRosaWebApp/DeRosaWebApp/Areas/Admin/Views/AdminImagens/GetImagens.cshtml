@@ -1,30 +1,26 @@
-﻿@using DeRosaWebApp.Configuration.ConfigImages;
+﻿@using DeRosaWebApp.Configuration.ConfigImages
 @model FileManagerModel
 @{
     ViewBag.Title = "Arquivos";
 }
 
-@if (Model.Files != null)
+@if (Model.Files != null && Model.Files.Count() > 0)
 {
-    <h3>Imagens:</h3>
+    <h3>Imagens</h3>
     <hr />
     var caminho = Model.PathImagesProduto;
     <div class="image-grid">
-        @if(Model.Files.Count() > 0)
+        @foreach (FileInfo file in Model.Files)
         {
-            @foreach (FileInfo file in Model.Files)
-            {
-                <div class="image-card">
-                    <p style="color: black">@file.Name</p>
-                    <img src="~/@caminho/@file.Name" alt="@file.Name">
-                    <a href="@Url.Action("DeleteFile","AdminImagens", new { fname=file.Name })" class="delete-button">Deletar</a>
-                </div>
-            }
+            <div class="image-card">
+                <p>@file.Name</p>
+                <img src="~/@caminho/@file.Name" alt="Imagem de @file.Name">
+                <a href="@Url.Action("DeleteFile", "AdminImagens", new { fname = file.Name })" class="delete-face">Deletar</a>
+            </div>
         }
-        else
-        {
-            <h1>Nenhum arquivo adicionado no servidor.</h1>
-        }
-
     </div>
+}
+else
+{
+    <h1>Nenhum arquivo adicionado no servidor.</h1>
 }
