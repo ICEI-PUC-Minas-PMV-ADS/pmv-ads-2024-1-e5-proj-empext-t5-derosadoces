@@ -19,6 +19,11 @@ namespace DeRosaWebApp.BusinessRules.Services
                     $"Pedidos comemorativos só são permitidos com até 7 dias de antecedência! Pedidos comemorativos: {item.Nome}");
             }
         }
+        public void VerificaCidade(string cidade)
+        {
+            string cidadePocos = "Poços de Caldas";
+            DeRosaExceptionValidation.When(!string.Equals(cidade, cidadePocos), "Os pedidos só são aceitos em endereços de Poços de Caldas - MG !");
+        }
 
     }
 }

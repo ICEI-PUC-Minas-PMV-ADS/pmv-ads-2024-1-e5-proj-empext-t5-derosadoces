@@ -109,6 +109,7 @@ namespace DeRosaWebApp.Controllers
         [HttpGet]
         public IActionResult AdicionarEndereco(string origem)
         {
+            HttpContext.Session.SetString("AddEndereco", "EscolhaEndereco");
             return View(origem);
         }
         [HttpPost]

@@ -8,7 +8,6 @@
     <div class="container">
         <h4>Escolha a forma de entrega:</h4>
         <div class="form-group">
-            <label for="formaEntrega">Forma de entrega:</label>
             <select id="formaEntrega" name="formaEntrega" class="form-control" onchange="atualizarFormaEntrega()">
                 <option value="domicilio" selected="@(formaEntregaSelecionada == "domicilio" ? "true" : "false")">Entrega a domicílio</option>
                 <option value="local" selected="@(formaEntregaSelecionada == "local" ? "true" : "false")">Retirada no local</option>

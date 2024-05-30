@@ -12,7 +12,7 @@
             <p>Endereço: <strong>@Model.Logradouro N.º @Model.Numero @Model.Bairro, @Model.Cidade / @Model.Estado</strong></p>
             <p>CEP: @Model.Cep</p>
             <p>Complemento: @Model.Complemento</p>
-            <p class="checkout-resumo-data-entrega">Data aproximada da entrega: @Model.DataParaEntregar</p>
+            <p class="checkout-resumo-data-entrega">Data aproximada da entrega: @Model.DataParaEntregar.ToString("dd/MM/yyyy")</p>
 
             <p>Número do pedido: <strong>@Model.Cod_Pedido</strong></p>
             <table class="checkout-resumo-table">
@@ -34,7 +34,7 @@
                             }
                             else
                             {
-                                <td><img src="~/Imagens/@item.Produto.ImagemUrl" width="40" height="40" /></td>
+                                <td><img src="@item.Produto.ImagemUrl" width="40" height="40" /></td>
                             }
                             <td>@item.Quantidade</td>
                             <td>@item.Produto.Nome</td>
@@ -47,13 +47,13 @@
                 Valor Total do Pedido: <strong class="checkout-resumo-total-pedido">
                     @(
                         (ViewBag.TotalPedido + Model.Frete).ToString("C2")
-                        ) ( Frete @if (Model.Frete < 20)
+                        ) ( com Frete @if (Model.Frete < 20)
                     {
                         <span>Grátis</span>
                     }
                     else
                     {
-                        <span>R$</span>
+                        <span>de R$</span>
 
                         @Model.Frete.ToString("F2", CultureInfo.InvariantCulture)
                         ;
