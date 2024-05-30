@@ -86,6 +86,23 @@ footer {
     width: 100%;
     /*border: solid 2px red;*/
 }
+.title-second-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha verticalmente ao centro */
+    height: fit-content; /* Defina a altura desejada para a área do título */
+    padding: 20px; /* Opcional: Espaçamento para evitar que o texto toque nas bordas */
+    box-sizing: border-box; /* Inclui padding dentro da altura especificada */
+}
+
+.title-second {
+    font-size: 4rem;
+    text-align: center;
+    color: rgba(193, 157, 86, 1);
+    font-family: licorice;
+    letter-spacing: 0.12rem;
+    margin: 0; /* Remove margens padrão para evitar deslocamentos extras */
+}
 
 
 .banner {
@@ -187,7 +204,6 @@ p {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    padding: 10%;
     justify-content: space-around;
     background-image: url(../Imagens/back-prod.png);
     background-repeat: no-repeat;
@@ -197,38 +213,32 @@ p {
 }
 .span-m {
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do .span-m */
-    position: absolute;
-    bottom: 0; 
-    left: 50%; 
-    top: 80%;
-    transform: translateX(-50%);
-    width: fit-content;
-    height: fit-content;
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-top: 20px; /* Espaço acima do .span-m para separar de .offers */
+    padding: 10px 0; /* Espaço interno para dar ênfase */
+    background-color: #f9f9fa; /* Cor de fundo opcional */
+    width: 100%; /* Faz o .span-m ocupar a largura total */
 }
 
     .span-m a {
-        display: flex;
-        justify-content: center;
+        display: inline-block; /* Muda para inline-block para melhor manipulação */
+        background-color: #007bff; /* Cor de fundo do botão */
+        color: white; /* Texto branco para contraste */
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        text-decoration: none; /* Remove o sublinhado do link */
+        border-radius: 5px; /* Borda arredondada para estética do botão */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra leve para efeito 3D */
+        transition: background-color 0.3s, transform 0.2s; /* Transições para efeitos visuais */
     }
-@media(max-width: 1480px) {
-    .span-m {
-        top: 90%;
-    }
-}
-@media(max-width:1001px){
-    .span-m{
-        top:92%;
-    }
-}
-@media(max-width:757px) {
-    .span-m {
-        top: 95%;
-    }
-}
-@media(max-width:668px) {
-    .span-m {
-        top: 98%;
+
+        .span-m a:hover {
+            background-color: #0056b3; /* Cor de hover */
+            transform: scale(1.05); /* Efeito de crescimento ao passar o mouse */
+        }
+
+@media (max-width: 768px) {
+    .span-m a {
+        padding: 8px 16px; /* Menor padding em telas pequenas */
     }
 }
 
@@ -933,7 +943,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: white;
 }
 
 h2 {

@@ -21,7 +21,9 @@
     </button>
 </div>
 <div class="container-home">
-    <h1 class="title-home">@Model.ManagementHome.TituloSemana</h1>
+    <div class="title-second-container">
+        <h1 class="title-second">@Model.ManagementHome.TituloSemana</h1>
+    </div>
     <div class="offers">
         @foreach (var produto in Model.Produtos)
         {
