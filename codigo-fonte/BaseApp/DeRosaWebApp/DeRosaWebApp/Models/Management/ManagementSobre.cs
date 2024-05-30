@@ -1,4 +1,6 @@
-﻿namespace DeRosaWebApp.Models.Management
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DeRosaWebApp.Models.Management
 {
     public class ManagementSobre
     {

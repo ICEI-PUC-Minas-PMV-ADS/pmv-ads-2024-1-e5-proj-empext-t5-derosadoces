@@ -1674,3 +1674,64 @@ input[type="range"] {
 
 
 /*FIM TELA PAGAMENTOS*/
+
+/*TELA MEUS PEDIDOS*/
+.container-pedido {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-pedido {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.item-pedido {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+    .item-pedido img {
+        max-width: 80px;
+        border-radius: 4px;
+        margin-right: 15px;
+    }
+
+.detalhes-pedido {
+    color: #333;
+}
+
+.status-pedido {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.link-pagamento {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .link-pagamento:hover {
+        text-decoration: underline;
+    }
+
+@media (max-width: 768px) {
+    .item-pedido {
+        flex-direction: column;
+        align-items: start;
+    }
+
+        .item-pedido img {
+            margin-bottom: 10px;
+        }
+}
+/*FIM TELA MEUS PEDIDOS*/

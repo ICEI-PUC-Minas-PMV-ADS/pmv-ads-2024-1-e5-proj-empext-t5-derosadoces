@@ -6,6 +6,7 @@
     var DateTimes = new List<DateTime>();
     var dateTimeNull = new DateTime(1, 1, 1); ;
 }
+
 @try
 {
     @if (Model.Pedidos.Count() == 0)
@@ -16,100 +17,72 @@
         <div class="row">
             @foreach (var pedido in Model.Pedidos)
             {
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body" style="background-color: gray">
-                            <h5 class="card-title">Pedido: @pedido.Cod_Pedido</h5>
-                            <p class="card-text">Data do Pedido: @pedido.DataPedido</p>
-                            <p class="card-text">Endereço: @pedido.Logradouro @pedido.Numero</p>
-                            <p class="card-text">Nome: @pedido.Nome</p>
-                            <p class="card-text">Preço total: R$@pedido.TotalPedido.ToString("F2",@CultureInfo.InvariantCulture)</p>
-                            <p class="card-text">Total itens pedido: @pedido.TotalItensPedido</p>
-                            @if(!pedido.DataParaEntregar.Equals(dateTimeNull))
-                            {
-                                <p class="card-text" style="color: yellow">Data aproximada da entrega de comemorativos: @pedido.DataParaEntregar.ToString("dd/MM/yyyy")</p>
-                            }
-                            @if (pedido.Pago)
-                            {
-                                <p>
-                                    <strong>Status:  </strong>
-                                    @if (pedido.Concluido)
-                                    {
-                                        <span> Seu pedido já foi preparado! </span>
-                                    }
-                                    else
-                                    {
-                                        <span> Seu pedido já foi recebido!</span>
-                                    }
-
-                                    @if (pedido.Entregue)
-                                    {
-                                        <span> O Seu pedido já foi entregue :)</span>
-                                    }
-                                    else if (pedido.Concluido)
-                                    {
-                                        <span>Seu pedido já foi preparado e irá ser entregue em breve!</span>
-                                    }
-                                    else
-                                    {
-                                        <span>Mas ainda não saiu para a entrega.</span>
-                                    }
-
-                                </p>
-
-                            }
-                            else
-                            {
-
-                                <a asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido"><p>Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy HH:mm:ss")</p></a>
-                                DateTimes.Add(pedido.DataExpiracao);
-                            }
-
-                            <h6>Produtos:</h6>
-                            @inject IPedidoService _pedidoService
-                            @{
-                                var produtosInPedidos = await _pedidoService.GetMeusProdutos(pedido.Cod_Pedido);
-
-                                foreach (var produto in produtosInPedidos)
-                                {
-
-                                    <div class="media">
-                                        @if (produto.ImagemUrl.Contains("www") || produto.ImagemUrl.Contains("https") || produto.ImagemUrl.Contains("http"))
-                                        {
-                                            <img src='@produto.ImagemUrl' class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
-                                        }
-                                        else
-                                        {
-                                            <img src="@produto.ImagemUrl" class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
-                                        }
-
-                                        <div class="media-body">
-                                            <h5 class="mt-0">@produto.Nome</h5>
-                                            <p>@produto.DescricaoCurta</p>
-                                            <p>Preço do produto R$@produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</p>
-                                        </div>
-                                    </div>
-                                }
-                                @foreach (PedidoDetalhe p in pedido._PedidoDetalhes)
-                                {
-                                    if (p.Quantidade > 1)
-                                    {
-                                        <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vezes</strong></p>
-
-                                    }
-                                    else
-                                    {
-                                        <p style="color: yellow; font-size: smaller">Informações adicionais:   @p.Produto.Nome <strong>foi adicionado x @p.Quantidade vez</strong></p>
-
-                                    }
-                                }
-
-                            }
-                            @{
-                                var telefone = "5531999999999";
-                                var pedidoUrl = "https://wa.me/" + telefone + "?text=Ol%C3%A1%21%20Estou%20entrando%20em%20contato%20sobre%20o%20pedido%20Nº%20" + pedido.Cod_Pedido + "%2C%20feito%20em%20" + pedido.DataPedido.ToString("dd/MM/yyyy") + ".%20Seria%20poss%C3%ADvel%20discutir%20alguns%20detalhes%3F";
-                            }
+                <div class="col-md-6" style="width: 100%; font-size: 12px;">
+                    <div class="container-pedido">
+                        <div class="header-pedido">
+                            <h5><strong>Pedido:</strong> @pedido.Cod_Pedido</h5>
+                            <p><strong>Data do Pedido:</strong> @pedido.DataPedido</p>
                         </div>
+                        <p><strong>Endereço:</strong> @pedido.Logradouro @pedido.Numero</p>
+                        <p><strong>Nome:</strong> @pedido.Nome</p>
+                        <p><strong>Preço total:</strong><span class="status-pedido">R$@pedido.TotalPedido.ToString("F2",@CultureInfo.InvariantCulture)</span></p>
+                        <p><strong>Quantidade de produtos: </strong> @pedido.TotalItensPedido</p>
+                        @if (!pedido.DataParaEntregar.Equals(dateTimeNull))
+                        {
+                            <p><strong>Previsão da entrega:</strong> @pedido.DataParaEntregar.ToString("dd/MM/yyyy")</p>
+                        }
+                        @if (pedido.Pago)
+                        {
+                            <p>
+                                <strong>Status:</strong>
+                                @if (pedido.Entregue)
+                                {
+                                    <span><i style="color:darkcyan">Seu pedido foi entregue :)</i></span>
+                                }
+                                else if (pedido.Concluido)
+                                {
+                                    <span><i style="color:darkcyan">Preparado e pronto para entrega!</i></span>
+                                }
+                                else
+                                {
+                                    <span><i style="color:darkcyan">Recebido e em preparação.</i></span>
+                                }
+                            </p>
+                        }
+                        else
+                        {
+                            <a class="link-pagamento" asp-action="Resumo" asp-controller="Pedido" asp-route-cod_pedido="@pedido.Cod_Pedido">Finalize o pagamento até @pedido.DataExpiracao.ToString("dd/MM/yyyy HH:mm:ss")</a>
+                        }
+
+                        <h6><strong>Produtos:</strong></h6>
+                        @inject IPedidoService _pedidoService
+                        @{
+                            var produtosInPedidos = await _pedidoService.GetMeusProdutos(pedido.Cod_Pedido);
+                            foreach (var produto in produtosInPedidos)
+                            {
+                                <div class="item-pedido">
+                                    <img src='@produto.ImagemUrl' alt="Produto">
+                                    <div class="detalhes-pedido">
+                                        <h5>@produto.Nome</h5>
+                                        <p>@produto.DescricaoCurta</p>
+                                        <p>Preço: R$@produto.Preco.ToString("F2",@CultureInfo.InvariantCulture)</p>
+                                    </div>
+                                </div>
+                            }
+                            @foreach (PedidoDetalhe p in pedido._PedidoDetalhes)
+                            {
+                                if (p.Quantidade > 1)
+                                {
+                                    <p style="font-size: smaller">  @p.Produto.Nome <strong> x @p.Quantidade </strong></p>
+
+                                }
+                                else
+                                {
+                                    <p style=" font-size: smaller"> @p.Produto.Nome <strong>x @p.Quantidade </strong></p>
+
+                                }
+                            }
+                        }
                     </div>
                 </div>
             }
