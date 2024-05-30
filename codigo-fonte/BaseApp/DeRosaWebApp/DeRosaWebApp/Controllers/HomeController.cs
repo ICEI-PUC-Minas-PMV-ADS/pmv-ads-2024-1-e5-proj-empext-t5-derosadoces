@@ -13,28 +13,33 @@ namespace DeRosaWebApp.Controllers
     {
         #region Construtor, propriedades e injeção de dependência
         private readonly IProductService _produtos;
-        public HomeController(IProductService produtos)
+        private readonly IManageSite _manageSite;
+        public HomeController(IProductService produtos, IManageSite manageSite)
         {
             _produtos = produtos;
+            _manageSite = manageSite;   
         }
         #endregion
         #region Index
-        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
+        public async Task<IActionResult> Index()
         {
-            var list = _produtos.PaginationProductHome(); 
-            if (!string.IsNullOrWhiteSpace(filter))
+            var manage = await _manageSite.GetManagementsHome();
+
+            var list = await _produtos.GetAll();
+            HomeViewModel homeViewModel = new HomeViewModel()
             {
-                list = list.Where(p => p.Nome.Contains(filter));
-            }
-            var model = await PagingList.CreateAsync(list, 6, pageindex, sort, "Nome");
-            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
-            return View(model);
+                Produtos = list.Value,
+                ManagementHome = manage
+
+            };
+            return View(homeViewModel);
 
         }
         #region Sobre
-        public IActionResult Sobre()
+        public async Task<IActionResult> Sobre()
         {
-            return View();
+            var manage = await _manageSite.GetManagementSobre();
+            return View(manage);
         }
         #endregion
     }

@@ -1,0 +1,24 @@
+﻿@model DeRosaWebApp.Models.Management.ManagementSobre
+
+@{
+    ViewData["Title"] = "Alterar Título Sobre";
+}
+
+<div class="container mt-5">
+    <h1>Alterar Primeiro Texto da Seção Sobre</h1>
+    <hr />
+
+   <form asp-controller="AdminManage" asp-action="AlterarTituloSobre" method="post">
+       <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="@Model.TituloSobre" class="control-label">Texto Atual</label>
+<textarea asp-for="@Model.TituloSobre" id="tituloSobre" name="tituloSobre" class="form-control" style="height: 20vh; text-align: start; vertical-align: top;">
+                @Model.TituloSobre
+</textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Salvar" class="btn" id="btnsmall" />
+        </div>
+    </form>
+    <a class="btn" asp-area="Admin" asp-controller="AdminManage" asp-action="Index" id="btnsmall">Voltar</a>
+</div>

@@ -1,0 +1,24 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Alterar Título da Semana";
+}
+
+<div class="container mt-5">
+    <h1>Alterar Título da Semana</h1>
+    <hr />
+
+   <form  asp-controller="AdminManage" asp-action="AlterarTituloSemana" method="post">
+       <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="@Model" class="control-label">Título Atual da Semana</label>
+            <textarea asp-for="@Model" type="text" id="titulo" name="titulo" class="form-control" value="@Model"> </textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Salvar Alterações" class="btn" id="btnsmall" />
+        </div>
+    </form>
+    <a class="btn" asp-area="Admin" asp-controller="AdminManage" asp-action="Index" id="btnsmall">Voltar</a>
+
+</div>

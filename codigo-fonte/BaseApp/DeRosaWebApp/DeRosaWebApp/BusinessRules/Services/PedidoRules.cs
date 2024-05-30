@@ -22,7 +22,7 @@ namespace DeRosaWebApp.BusinessRules.Services
         public void VerificaCidade(string cidade)
         {
             string cidadePocos = "Poços de Caldas";
-            DeRosaExceptionValidation.When(!string.Equals(cidade, cidadePocos), "Os pedidos só são aceitos em endereços de Poços de Caldas - MG !");
+            DeRosaExceptionValidation.When(!string.Equals(cidade, cidadePocos), "Os pedidos só são aceitos em endereços de Poços de Caldas - MG");
         }
 
     }

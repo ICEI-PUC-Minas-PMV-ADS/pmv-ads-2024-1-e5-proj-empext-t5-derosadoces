@@ -1,5 +1,6 @@
 ﻿using DeRosaWebApp.Models;
 using DeRosaWebApp.Models.Entities;
+using DeRosaWebApp.Models.Management;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,9 @@ namespace DeRosaWebApp.Context
         public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
         public DbSet<Admin> Administradores { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<ManagementHome> ManagementsHome { get; set; }
+        public DbSet<ManagementSobre> ManagementsSobre { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");

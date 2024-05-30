@@ -27,6 +27,7 @@ builder.Services.AddScoped<IEmailService,EmailService>();
 builder.Services.AddScoped<IPedidoRules, PedidoRules>();
 builder.Services.AddScoped<IProductRules, ProductRules>();
 builder.Services.AddScoped<IEnderecoService, EnderecoService>();
+builder.Services.AddScoped<IManageSite, ManageSite>();
 builder.Services.Configure<ConfigurationImages>(builder.Configuration.GetSection("ConfigurationPastaImages"));
 
 

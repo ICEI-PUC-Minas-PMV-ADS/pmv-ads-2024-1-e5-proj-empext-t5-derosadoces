@@ -1,5 +1,5 @@
 @using DeRosaWebApp.ViewModel;
-@model ReflectionIT.Mvc.Paging.PagingList<Produto>
+@model HomeViewModel
 <link rel="stylescheet" type="text/css" href="~/css/site.css" />
 
 @{
@@ -21,9 +21,9 @@
     </button>
 </div>
 <div class="container-home">
-
+    <h1 class="title-home">@Model.ManagementHome.TituloSemana</h1>
     <div class="offers">
-        @foreach (var produto in Model)
+        @foreach (var produto in Model.Produtos)
         {
 
             @if (produto.ProdutoDaSemana)

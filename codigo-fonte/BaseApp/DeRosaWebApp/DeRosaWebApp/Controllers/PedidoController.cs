@@ -256,6 +256,7 @@ namespace DeRosaWebApp.Controllers
                     pedido.Id_User = getPedido.Value.Id_User;
                     pedido.Nome = getPedido.Value.Nome;
                     pedido.DataPedido = getPedido.Value.DataPedido;
+                    pedido.DataParaEntregar = getPedido.Value.DataParaEntregar;
                     pedido.DataExpiracao = getPedido.Value.DataExpiracao;
                     pedido.Cep = getPedido.Value.Cep;
                     pedido.Numero = getPedido.Value.Numero;

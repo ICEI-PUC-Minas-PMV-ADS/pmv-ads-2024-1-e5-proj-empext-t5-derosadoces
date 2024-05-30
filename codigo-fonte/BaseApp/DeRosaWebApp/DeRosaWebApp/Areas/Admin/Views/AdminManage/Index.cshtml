@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Gerenciamento do Site";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-3">Painel de Gerenciamento</h1>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <a asp-area="Admin" asp-controller="AdminManage" asp-action="AlterarTituloSobre" class="btn" style="font-size: 15px">Alterar Primeiro Texto da Seção Sobre</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a asp-area="Admin" asp-controller="AdminManage" asp-action="AlterarTextoSobre" class="btn" style="font-size: 15px">Alterar Segundo Texto da Seção Sobre</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a asp-area="Admin" asp-controller="AdminManage" asp-action="AlterarTituloSemana" class="btn" style="font-size: 15px">Alterar Título da Semana</a>
+        </div>
+    </div>
+</div>
