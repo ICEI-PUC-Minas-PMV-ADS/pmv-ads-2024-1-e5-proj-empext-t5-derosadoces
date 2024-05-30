@@ -4,9 +4,9 @@ namespace DeRosaWebApp.Repository.Interfaces
 {
     public interface IManageSite
     {
-        Task AlterarTituloDaSemana(string titulo);
-        Task AlterarTextoSobre(string texto);
-        Task AlterarTituloSobre(string texto);
+        Task AlterarTituloDaSemana(ManagementHome titulo);
+        Task AlterarTextoSobre(ManagementSobre texto);
+        Task AlterarTituloSobre(ManagementSobre texto);
         Task VerifyIsNull();
         Task UpdateDefault();
         Task<ManagementSobre> GetManagementSobre();

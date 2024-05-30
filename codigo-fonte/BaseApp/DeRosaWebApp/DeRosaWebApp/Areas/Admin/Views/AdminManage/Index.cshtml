@@ -1,9 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Gerenciamento do Site";
 }
+<style>
+    .container {
+        text-align: center; /* Alinha o texto e conteúdo ao centro */
+    }
 
+    .row {
+        justify-content: center; /* Centraliza os itens da grid horizontalmente no Bootstrap 4+ */
+    }
+
+    .col-md-4 {
+        display: flex;
+        justify-content: center; /* Flexbox para centralizar o conteúdo dentro de cada coluna */
+    }
+
+    .btn {
+        width: 100%; /* Expande o botão para preencher a largura da coluna */
+        max-width: 300px; /* Limita o tamanho máximo do botão para melhor estética */
+    }
+
+    img.julia {
+        display: block; /* Faz a imagem se comportar como um bloco */
+        margin: 0 auto; /* Margem automática para centralização horizontal */
+    }
+</style>
 <div class="container mt-5">
     <h1 class="mb-3">Painel de Gerenciamento</h1>
+    <img class="julia" src="~/Imagens/admin.png" width="20%" height="20%" />
     <div class="row">
         <div class="col-md-4 mb-3">
             <a asp-area="Admin" asp-controller="AdminManage" asp-action="AlterarTituloSobre" class="btn" style="font-size: 15px">Alterar Primeiro Texto da Seção Sobre</a>

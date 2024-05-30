@@ -7,5 +7,7 @@ namespace DeRosaWebApp.Models.Management
         public int Id { get; set; }
         [StringLength(60,ErrorMessage ="No máximo 60 caracteres!")]
         public string TituloSemana { get; set; }
+        public string Font { get; set; }
+        public string Color { get; set; }
     }
 }

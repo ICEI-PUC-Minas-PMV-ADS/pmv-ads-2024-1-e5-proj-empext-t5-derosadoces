@@ -1,22 +1,101 @@
-﻿@model string
+﻿@using DeRosaWebApp.Models.Management;
+@model ManagementSobre
 @{
     ViewData["Title"] = "Alterar Texto Sobre";
 }
+<style>
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+    }
 
-<div class="container mt-5">
+    .container {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .btn {
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        margin-top: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block; /* Faz o botão ocupar a linha inteira */
+    }
+    .form-control {
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 126, 255, 0.25);
+        } }
+
+    label {
+        margin-bottom: .5rem;
+        color: #495057;
+    }
+
+    .alert-light {
+        display: block;
+        font-size: 0.8em;
+        margin-top: 5px;
+    }
+
+    hr {
+        border-top: 1px solid #ccc;
+    }
+
+    select.form-control:not([size]):not([multiple]) {
+        height: calc(2.25rem + 2px);
+    }
+</style>
+<div class="container">
     <h1>Alterar Texto da Seção Sobre</h1>
     <hr />
-
     <form asp-controller="AdminManage" asp-action="AlterarTextoSobre" method="post">
         <div class="form-group">
-            <label asp-for="@Model" class="control-label">Texto Atual</label>
-            <textarea asp-for="@Model" id="textoSobre" name="textoSobre" class="form-control" rows="5">@Model</textarea>
+            <label asp-for="@Model.TextoSobre" class="control-label">Texto Atual</label>
+            <textarea asp-for="@Model.TextoSobre" id="textoSobre" name="textoSobre" class="form-control" rows="5">@Model.TextoSobre</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="fontTypeSelector">Fonte do Texto</label>
+            <select id="fontTypeSelector" class="form-control">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="licorice">Licorice</option>
+            </select>
+        </div>
+        <span class="text-sm-center" style="color:gray;"><i>O tamanho da fonte não pode ser alterado.(Não se preocupe, ela se ajustará ao site)</i></span>
+        <div class="form-group">
+            <label for="fontColorPicker">Cor do Texto</label>
+            <input asp-for="@Model.Color" type="color" id="fontColorPicker" class="form-control" style="width:10%; height: 5vh;">
         </div>
 
         <div class="form-group">
             <input type="submit" value="Salvar Alterações" class="btn" id="btnsmall" />
         </div>
+        <a class="btn" id="btnsmall" asp-area="Admin" asp-controller="AdminManage" asp-action="Index">Voltar</a>
     </form>
-    <a class="btn" asp-area="Admin" asp-controller="AdminManage" asp-action="Index" id="btnsmall">Voltar</a>
 
 </div>
+
+<script>
+    // JavaScript existente para manipulação do estilo do textarea
+    document.getElementById('fontColorPicker').addEventListener('input', function () {
+        document.getElementById('textoSobre').style.color = this.value;
+    });
+
+    document.getElementById('fontTypeSelector').addEventListener('change', function () {
+        document.getElementById('textoSobre').style.fontFamily = this.value;
+    });
+</script>

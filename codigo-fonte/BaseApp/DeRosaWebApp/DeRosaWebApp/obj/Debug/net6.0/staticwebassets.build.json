@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LmApeaZhR/ea6IjRyC2CnOml76aDUJ14DXFH4gfohrg=",
+  "Hash": "7As99447VS7p8EzHj774lccuQ6rNBTvStYxe80Rmm/s=",
   "Source": "DeRosaWebApp",
   "BasePath": "_content/DeRosaWebApp",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\admin.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/admin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\admin.png"
     },
     {
       "Identity": "C:\\Users\\Eduardo\\source\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\back-more.png",

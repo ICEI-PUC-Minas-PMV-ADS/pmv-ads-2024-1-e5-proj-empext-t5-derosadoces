@@ -3,22 +3,103 @@
 @{
     ViewData["Title"] = "Alterar Título Sobre";
 }
+<style>
+    body {
+        font-family: 'Arial', sans-serif; /* Altere conforme preferência */
+        background-color: #f8f8f8;
+    }
 
-<div class="container mt-5">
+    .container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    textarea {
+        width: 100%; /* Faz o textarea ocupar a largura total do contêiner */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 20vh; /* Altura pré-definida */
+    }
+
+    .btn {
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        margin-top: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block; /* Faz o botão ocupar a linha inteira */
+    }
+
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+</style>
+<div class="container">
     <h1>Alterar Primeiro Texto da Seção Sobre</h1>
     <hr />
 
-   <form asp-controller="AdminManage" asp-action="AlterarTituloSobre" method="post">
-       <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-controller="AdminManage" asp-action="AlterarTituloSobre" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="form-group">
-            <label asp-for="@Model.TituloSobre" class="control-label">Texto Atual</label>
-<textarea asp-for="@Model.TituloSobre" id="tituloSobre" name="tituloSobre" class="form-control" style="height: 20vh; text-align: start; vertical-align: top;">
-                @Model.TituloSobre
-</textarea>
+            <label for="tituloSobre">Texto Atual</label>
+            <textarea asp-for="@Model.TituloSobre" id="tituloSobre" name="tituloSobre" class="form-control"></textarea>
         </div>
+
         <div class="form-group">
-            <input type="submit" value="Salvar" class="btn" id="btnsmall" />
+            <label for="fontTypeSelector">Fonte do Texto</label>
+            <select id="fontTypeSelector" asp-for="@Model.Font" class="form-control">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="licorice">licorice</option>
+            </select>
         </div>
+        <span class="text-sm-center" style="color:gray;"><i>O tamanho da fonte não pode ser alterado.(Não se preocupe, ela se ajustará ao site)</i></span>
+
+
+        <div class="form-group">
+            <label for="fontColorPicker">Cor do Texto</label>
+            <input type="color" asp-for="@Model.Color" id="fontColorPicker" class="form-control" style="width:10%; height: 5vh;">
+        </div>
+
+        <button type="submit" class="btn" id="btnsmall">Salvar</button>
     </form>
-    <a class="btn" asp-area="Admin" asp-controller="AdminManage" asp-action="Index" id="btnsmall">Voltar</a>
+
+    <a href="@Url.Action("Index", "AdminManage")" class="btn" id="btnsmall">Voltar</a>
 </div>
+
+<script>
+    document.getElementById('fontColorPicker').addEventListener('input', function () {
+        document.getElementById('tituloSobre').style.color = this.value;
+    });
+
+    document.getElementById('fontTypeParser').addEventListener('change', function () {
+        document.getElementById('tituloSobre').style.fontFamily = this.value;
+    });
+</script>

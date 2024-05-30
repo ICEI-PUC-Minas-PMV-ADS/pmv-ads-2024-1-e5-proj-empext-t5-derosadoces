@@ -13,34 +13,48 @@ namespace DeRosaWebApp.Repository.Services
             _context = context;
         }
 
-        public async Task AlterarTextoSobre(string texto)
+        public async Task AlterarTextoSobre(ManagementSobre textoAtualizado)
         {
             var managementSobre = await _context.ManagementsSobre.FirstOrDefaultAsync(p => p.Id == 1221);
             if (managementSobre is ManagementSobre)
             {
-                managementSobre.TextoSobre = texto;
+                managementSobre.TextoSobre = textoAtualizado.TextoSobre;
+                managementSobre.Color = textoAtualizado.Color;
+                managementSobre.Font = textoAtualizado.Font;
                 _context.Entry(managementSobre).Property(ms => ms.TextoSobre).IsModified = true;
+                _context.Entry(managementSobre).Property(ms => ms.Font).IsModified = true;
+                _context.Entry(managementSobre).Property(ms => ms.Color).IsModified = true;
+
                 await _context.SaveChangesAsync();
             }
         }
-        public async Task AlterarTituloDaSemana(string titulo)
+        public async Task AlterarTituloDaSemana(ManagementHome tituloAtualizado)
         {
             var managementHome = await _context.ManagementsHome.FirstOrDefaultAsync(p => p.Id == 1221);
             if (managementHome is ManagementHome)
             {
               
-                managementHome.TituloSemana = titulo;
+                managementHome.TituloSemana = tituloAtualizado.TituloSemana;
+                managementHome.Font = tituloAtualizado.Font;
+                managementHome.Color = tituloAtualizado.Color;
+
                 _context.Entry(managementHome).Property(p => p.TituloSemana).IsModified = true;
+                _context.Entry(managementHome).Property(p => p.Font).IsModified = true;
+                _context.Entry(managementHome).Property(p => p.Color).IsModified = true;
                 await _context.SaveChangesAsync();
             }
         }
-        public async Task AlterarTituloSobre(string tituloSobre)
+        public async Task AlterarTituloSobre(ManagementSobre tituloAtualizado)
         {
             var managementSobre =  await _context.ManagementsSobre.FirstOrDefaultAsync(p => p.Id == 1221);
             if(managementSobre is ManagementSobre)
             {
-                managementSobre.TituloSobre = tituloSobre;
+                managementSobre.TituloSobre = tituloAtualizado.TituloSobre;
+                managementSobre.Font = tituloAtualizado.Font;
+                managementSobre.Color = tituloAtualizado.Color;
                 _context.Entry(managementSobre).Property(ms => ms.TituloSobre).IsModified = true;
+                _context.Entry(managementSobre).Property(ms => ms.Color).IsModified = true;
+                _context.Entry(managementSobre).Property(ms => ms.Font).IsModified = true;
                 await _context.SaveChangesAsync();
             }
         }
