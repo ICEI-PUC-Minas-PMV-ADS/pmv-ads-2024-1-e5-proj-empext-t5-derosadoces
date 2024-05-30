@@ -46,7 +46,7 @@ namespace DeRosaWebApp.Models
         [DisplayName("Categoria")]
         public int IdCategoria { get; set; }
 
-        [DisplayName("Mostrar na página inicial")]
+        [DisplayName("Mostrar na página inicial (Max 4)")]
         public bool ProdutoDaSemana { get; set; }
         [DisplayName("Bloquear pedidos deste produto")]
         public bool Indisponivel { get; set; }

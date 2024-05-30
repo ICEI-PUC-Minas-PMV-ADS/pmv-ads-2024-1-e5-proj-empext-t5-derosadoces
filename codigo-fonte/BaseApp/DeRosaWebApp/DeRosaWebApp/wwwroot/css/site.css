@@ -1341,7 +1341,6 @@ input[type="range"] {
 .btn {
     width: 80%;
     margin: 10px auto; /* Assegura margem adequada e centraliza o botão */
-    font-size: 10px;
 }
 /*fim alterações home*/
 .border-style {

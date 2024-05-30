@@ -26,7 +26,15 @@
                 }
                 ...
             </p>
-            <p class="card-text"><small class="text-muted">R$ @Model.Preco.ToString("N2")</small></p>
+            @if (Model.Promocional)
+            {
+                <p class="card-text"><small class="text-danger">Promoção! R$ @Model.PrecoSecundario.ToString("N2")</small></p>
+            }
+            else
+            {
+                <p class="card-text"><small class="text-muted">R$ @Model.Preco.ToString("N2")</small></p>
+
+            }
         </div>
         <div class="card-footer border-0">
             <a class="btn" asp-controller="Produto" asp-action="ProdutoDetalhe" method="get" asp-route-cod_produto="@Model.Cod_Produto" role="button">Ver mais Detalhes</a>
