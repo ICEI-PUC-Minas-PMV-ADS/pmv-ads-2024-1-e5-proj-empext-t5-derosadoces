@@ -35,7 +35,7 @@
         .form-control:focus {
             border-color: #80bdff;
             box-shadow: 0 0 0 0.2rem rgba(0, 126, 255, 0.25);
-        } }
+        } 
 
     label {
         margin-bottom: .5rem;
@@ -67,18 +67,27 @@
 
         <div class="form-group">
             <label for="fontTypeSelector">Fonte do Texto</label>
-            <select id="fontTypeSelector" class="form-control">
+            <select asp-for="@Model.Font2" id="fontTypeSelector" class="form-control">
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
                 <option value="Courier New">Courier New</option>
-                <option value="licorice">Licorice</option>
+                <option value="Licorice">Licorice</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                <option value="Garamond">Garamond</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Impact">Impact</option>
+                <option value="Palatino Linotype">Palatino Linotype</option>
             </select>
         </div>
         <span class="text-sm-center" style="color:gray;"><i>O tamanho da fonte não pode ser alterado.(Não se preocupe, ela se ajustará ao site)</i></span>
         <div class="form-group">
             <label for="fontColorPicker">Cor do Texto</label>
-            <input asp-for="@Model.Color" type="color" id="fontColorPicker" class="form-control" style="width:10%; height: 5vh;">
+            <input asp-for="@Model.Color2" type="color" id="fontColorPicker" class="form-control" style="width:10%; height: 5vh;">
         </div>
 
         <div class="form-group">

@@ -9,6 +9,9 @@ namespace DeRosaWebApp.Models.Management
         public string TextoSobre { get; set; }
         public string ImagemUrl { get; set; }
         public string Font { get; set; }
+        public string Font2 { get; set; }
         public string Color { get; set; }
+        public string Color2 { get; set; }
+
     }
 }

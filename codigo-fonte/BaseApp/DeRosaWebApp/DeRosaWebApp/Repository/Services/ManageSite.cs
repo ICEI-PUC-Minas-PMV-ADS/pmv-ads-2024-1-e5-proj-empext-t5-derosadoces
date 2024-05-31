@@ -19,11 +19,11 @@ namespace DeRosaWebApp.Repository.Services
             if (managementSobre is ManagementSobre)
             {
                 managementSobre.TextoSobre = textoAtualizado.TextoSobre;
-                managementSobre.Color = textoAtualizado.Color;
-                managementSobre.Font = textoAtualizado.Font;
+                managementSobre.Color2 = textoAtualizado.Color2;
+                managementSobre.Font2 = textoAtualizado.Font2;
                 _context.Entry(managementSobre).Property(ms => ms.TextoSobre).IsModified = true;
-                _context.Entry(managementSobre).Property(ms => ms.Font).IsModified = true;
-                _context.Entry(managementSobre).Property(ms => ms.Color).IsModified = true;
+                _context.Entry(managementSobre).Property(ms => ms.Font2).IsModified = true;
+                _context.Entry(managementSobre).Property(ms => ms.Color2).IsModified = true;
 
                 await _context.SaveChangesAsync();
             }

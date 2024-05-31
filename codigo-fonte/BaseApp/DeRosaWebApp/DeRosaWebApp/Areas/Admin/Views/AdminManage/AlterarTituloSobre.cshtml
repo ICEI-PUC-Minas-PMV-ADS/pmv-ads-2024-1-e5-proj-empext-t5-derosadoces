@@ -77,7 +77,16 @@
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
                 <option value="Courier New">Courier New</option>
-                <option value="licorice">licorice</option>
+                <option value="Licorice">Licorice</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                <option value="Garamond">Garamond</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Impact">Impact</option>
+                <option value="Palatino Linotype">Palatino Linotype</option>
             </select>
         </div>
         <span class="text-sm-center" style="color:gray;"><i>O tamanho da fonte não pode ser alterado.(Não se preocupe, ela se ajustará ao site)</i></span>
@@ -99,7 +108,7 @@
         document.getElementById('tituloSobre').style.color = this.value;
     });
 
-    document.getElementById('fontTypeParser').addEventListener('change', function () {
+    document.getElementById('fontTypeSelector').addEventListener('change', function () {
         document.getElementById('tituloSobre').style.fontFamily = this.value;
     });
 </script>
