@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e1enEbQqjQg1+bPAXyuHsvMLg6uteb+puj9RqmV1Wzw=",
+  "Hash": "pimzQH44p4EdxzNFj+738wWaR9JWy59B8VQcqXeENYc=",
   "Source": "DeRosaWebApp",
   "BasePath": "_content/DeRosaWebApp",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\admin.png",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/admin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\admin.png"
     },
     {
       "Identity": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\back-more.png",

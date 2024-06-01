@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeRosaWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe5cc0143780167b8ed61284db403e6c90cb3f1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c72e71d2e2ae39926daebd9b619ce803bf70edc9")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeRosaWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeRosaWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
