@@ -519,8 +519,10 @@ p {
 
 .product-image img,
 .product-image .img-loja {
-    max-width: 50%;
+    padding: 20px;
+    max-width: 500px;
     object-fit: cover;
+    object-position: center;
 }
 
 .product-details {
