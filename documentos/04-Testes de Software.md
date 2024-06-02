@@ -78,6 +78,57 @@ Plano de Testes: Funcionalidade de Login
 
 <br>
 
+|Caso de teste   | CT-08 - Teste de Finalização de Pedidos.:
+|------|------------------------|
+|Requisitos associados | RF-08 A aplicação deve permitir ao usuário finalizar a compra de um ou mais produtos.
+|Objetivo do teste | O sistema deve permitir que os usuários finalizem a compra. 
+|Passos | <ol><li> Adicionar produtos ao carrinho. </li> <li> Acessar o carrinho. </li> <li> Clicar em encerrar Pedido. </li> <li> Selecionar o endereço de entrega. </li> <li> Clicar em Finalizar Pedido. </li> <li> Clicar em Pagar. </li></ol>
+|Critérios de Êxito | <ul> <li>O sistema deve processar a compra do usuário corretamente. </li> 
+
+<br>
+
+<br>
+
+|Caso de teste   | CT-09 - Teste de visualização dos pedidos feitos.:
+|------|------------------------|
+|Requisitos associados | RF-09 A aplicação deve permitir ao usuário acessar os pedidos realizados por ele.
+|Objetivo do teste | O sistema deve permitir que os usuários visualizar os pedidos feitos por ele. 
+|Passos | <ol><li> Acessar a página Meus Pedidos. </li> <li> Visualizar os pedidos realizados. </li> 
+|Critérios de Êxito | <ul> <li>O sistema deve exibir os pedidos do usuário. </li> 
+
+<br>
+
+<br>
+
+|Caso de teste   | CT-10 - Teste de visualização de categorias de produtos.:
+|------|------------------------|
+|Requisitos associados | RF-10 A aplicação deve possuir filtro de categoria.
+|Objetivo do teste | O sistema deve permitir que os usuários filtrem os produtos por categorias. 
+|Passos | <ol><li> Acessar a página Produtos. </li> <li> Visualizar os filtros na lateral esquerda da página. </li> 
+|Critérios de Êxito | <ul> <li>O sistema deve exibir os produtos de acordo com os filtros. </li> 
+
+<br>
+
+<br>
+
+|Caso de teste   | CT-11 - Teste de Verificação de Pedidos.:
+|------|------------------------|
+|Requisitos associados | RF-11 A aplicação deve ter um mecanismo que verifica se o pedido é possível, considerando a data e a quantidade desejada..
+|Objetivo do teste | O sistema não deve permitir que os usuários adicionem produtos ao carrinho caso não tenha a quantidade desejada por ele. 
+|Passos | <ol><li> Acessar a página Produtos. </li> <li> Selecionar o produto. </li> <li> Selecionar uma quantidade maior que o disponível. </li> <li> Tentar adicionar o produto ao carrinho. </li> 
+|Critérios de Êxito | <ul> <li>O sistema deve exibir uma mensagem de erro. </li> 
+
+<br>
+
+|Caso de teste   | CT-12 - Teste Recuperação de Senha.:
+|------|------------------------|
+|Requisitos associados | RF-12 A aplicação deve permitir o usuário recuperar sua senha.
+|Objetivo do teste | O sistema deve permitir que os usuários recuperem sua senha caso a esqueçam. 
+|Passos | <ol><li> Acessar a página Login. </li> <li> Clicar em Esqueci Senha. </li> <li> Preencher com o email e clicar em enviar. </li> <li> Clicar no link enviado para o email. </li> <li> Clicar no link enviado para o email. </li> <li> Preencher os campos com a nova senha e clicar em enviar. </li> 
+|Critérios de Êxito | <ul> <li>O sistema deve alterar a senha do usuário. </li> 
+
+<br>
+
 Os testes unitários a serem realizados na aplicação são descritos a seguir.
 
 <br>
@@ -128,6 +179,33 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ![Figura 10](img/adicionaraocarrinho01.png)
 
 ![Figura 11](img/adicionaraocarrinho02.png)
+
+### CT-08 - Teste de Adição de Produtos no Carrinho
+![Figura 12](img/finalizarpedido.png)
+
+![Figura 13](img/finalizarpedido2.png)
+
+![Figura 14](img/finalizarpedido3.png)
+
+![Figura 15](img/finalizarpedido4.png)
+
+### CT-09 - Teste de visualização dos pedidos feitos
+![Figura 16](img/meuspedidos.png)
+
+### CT-10 - Teste de visualização de categorias de produtos
+![Figura 16](img/filtropedidos.png)
+
+### CT-11 - Teste de Verificação de Pedidos
+![Figura 17](img/verificacaopedido2.png)
+
+![Figura 18](img/verificacaopedido.png)
+
+### CT-12 - Teste Recuperação de Senha
+![Figura 19](img/esquecisenha.png)
+
+![Figura 20](img/esquecisenha2.png)
+
+![Figura 21](img/esquecisenha3.png)
 
 ### CT-0 - Teste Unitário de Adição de Novo Produto
 ![Figura 1](img/testeUnitario.jpg)
