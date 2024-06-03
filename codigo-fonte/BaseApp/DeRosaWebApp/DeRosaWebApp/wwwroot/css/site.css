@@ -1785,3 +1785,120 @@ input[type="range"] {
     }
 }
 /*FIM TELA GERENCIAMENTO IMAGENS*/
+
+
+/*-------------------------------CATEGORIA--------------------------*/
+
+.cat-title {
+    margin-top: 15px;
+    font-family: Montserrat;
+}
+
+.custom-cat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+}
+
+/*.custom-cat-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.custom-cat-detail {
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}*/
+
+.tab-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    
+}
+
+
+.table-cat-detail {
+    border-collapse: collapse;
+    width: 30%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    font-size:1rem
+}
+
+    .table-cat-detail td, .table-cat-detail th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        
+    }
+
+    .table-cat-detail th {
+        background-color: rgba(251, 246, 235, 1);
+        border-bottom: solid 2px rgba(0, 0, 0, 0.5);
+    }
+
+
+/*-------------------PRODUTOS-------------------------*/
+
+.custom-product {
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.picker-img-test {
+    width: 110%;
+}
+
+.custom-quant-edit {
+    margin-top: 15px;
+}
+
+.custom-promotion-check {
+    margin-bottom: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    text-align: center;
+    font-size: 1rem;
+}
+
+th {
+    background-color: rgba(251, 246, 235, 1);
+}
+
+.table-prod-detail {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.img-detail-prod {
+    width: 40%;
+    height: 40%;
+}
+
+/*.icon-test {
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.arrow-return {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-left: 20px;
+}*/

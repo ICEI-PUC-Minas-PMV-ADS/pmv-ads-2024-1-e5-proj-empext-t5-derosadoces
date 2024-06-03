@@ -18,11 +18,16 @@
         border: 2px solid #007bff; /* Azul do bootstrap */
     }
 </style>
-<h1>Criar</h1>
+@* <h1>Criar</h1> *@
 
-<h4>Produto</h4>
+<h4 class="cat-title">Novo produto</h4>
 <hr />
-<div class="row">
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+
+<div class="row custom-product">
     <div class="col-md-4">
         <form asp-area="Admin" asp-controller="AdminProduto" asp-action="Create" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -31,11 +36,14 @@
                 <input asp-for="@Model.Produto.Nome" class="form-control" />
                 <span asp-validation-for="@Model.Produto.Nome" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="@Model.Produto.Preco" class="control-label"></label>
                 <input asp-for="@Model.Produto.Preco" min="0" class="form-control" />
                 <span asp-validation-for="@Model.Produto.Preco" class="text-danger"></span>
             </div>
+
+
 
 
             <div class="form-group">
@@ -50,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Escolha uma Imagem</label>
-                <div id="image-picker">
+                <div id="image-picker" class="picker-img-test">
                     @foreach (var image in Model.AvailableImages)
                     {
                         <img src="@Url.Content("~/Imagens/Produtos/" + image)" alt="@image" class="img-thumbnail img-selectable"
@@ -61,17 +69,25 @@
 
                 <span asp-validation-for="@Model.Produto.ImagemUrl" class="text-danger"></span>
             </div>
-            <a class="btn btn-success" asp-area="Admin" asp-action="Index" asp-controller="AdminImagens">Ou adicione outra imagem</a>
+            <a class="btn btn-success" asp-area="Admin" asp-action="Index" asp-controller="AdminImagens">Adicionar nova imagem</a>
+
             <div class="form-group">
                 <label asp-for="@Model.Produto.DescricaoCurta" class="control-label"></label>
                 <input asp-for="@Model.Produto.DescricaoCurta" class="form-control" />
                 <span asp-validation-for="@Model.Produto.DescricaoCurta" class="text-danger"></span>
             </div>
 
+
             <div class="form-group">
                 <label asp-for="@Model.Produto.PrecoSecundario" class="control-label"></label>
                 <input asp-for="@Model.Produto.PrecoSecundario" min="0" class="form-control" />
                 <span asp-validation-for="@Model.Produto.PrecoSecundario" class="text-danger"></span>
+            </div>
+
+            <div class="form-check custom-promotion-check">
+                <label asp-for="@Model.Produto.Promocional" class="form-check-label"></label>
+                <input asp-for="@Model.Produto.Promocional" class="form-check-input" />
+                <span asp-validation-for="@Model.Produto.Promocional" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -97,21 +113,15 @@
                     <label class="form-check-label" for="produtoSemanaNao">Não</label>
                 </div>
             </div>
-            <div class="form-check">
-                <label asp-for="@Model.Produto.Promocional" class="form-check-label"></label>
-                <input asp-for="@Model.Produto.Promocional" class="form-check-input" />
-                <span asp-validation-for="@Model.Produto.Promocional" class="text-danger"></span>
-            </div>
+
+
+
 
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Voltar para a lista</a>
 </div>
 
 <script>
@@ -130,3 +140,10 @@
         }));
     });
 </script>
+
+<style>
+
+    * {
+        font-family: Montserrat;
+    }
+</style>

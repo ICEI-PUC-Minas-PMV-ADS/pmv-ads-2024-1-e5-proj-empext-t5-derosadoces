@@ -5,15 +5,20 @@
     ViewData["Title"] = "Editar";
 }
 
-<h1>Editar</h1>
-
-<h4>Categoria</h4>
+<h4 class="cat-title">Editar categoria</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+
+<div class="row custom-cat">
+    <div class="col-md-4 test-edit">
         <form method="post" asp-action="Edit" asp-controller="AdminCategorias" asp-area="Admin" asp-route-id="@Model.IdCategoria">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <label asp-for="IdCategoria" />
+
+            @* <label asp-for="IdCategoria" /> *@ @* RETIREI DE TESTE POIS ESTAVA ALTERANDO O PADRÃO, FUNCIONOU NORMALMENTE. *@
+
             <div class="form-group">
                 <label asp-for="CategoriaNome" class="control-label"></label>
                 <input asp-for="CategoriaNome" class="form-control" />
@@ -26,11 +31,15 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar para a lista</a>
-</div>
 <script>
-    if(@ViewBag.Sucesso != ''){
+    if (@ViewBag.Sucesso != '') {
         alert('@ViewBag.Sucesso');
     }
 </script>
+
+<style>
+
+    * {
+        font-family: Montserrat;
+    }
+</style>

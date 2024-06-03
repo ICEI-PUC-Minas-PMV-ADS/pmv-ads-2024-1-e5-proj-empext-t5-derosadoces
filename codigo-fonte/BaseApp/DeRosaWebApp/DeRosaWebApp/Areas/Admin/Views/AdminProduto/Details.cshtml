@@ -6,93 +6,153 @@
     ViewData["Title"] = "Detalhes";
 }
 
-<h1>Detalhes</h1>
+@* <h1>Detalhes</h1> *@
 
 <div>
-    <h4>Produto</h4>
+    <h4 class="cat-title">Detalhes do produto</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.Cod_Produto)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model._Produto.Cod_Produto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model._Produto.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.Preco)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model._Produto.Preco.ToString("F2",CultureInfo.InvariantCulture)
-        </dd>
-      
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.EmEstoque)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model._Produto.EmEstoque)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.ImagemUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@Model._Produto.ImagemUrl" alt="imagem_produto_@Model._Produto.Nome" />
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.DescricaoCurta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model._Produto.DescricaoCurta)
-        </dd>
-      
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
-        </dt>
+    @* <dl class="row">
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.Cod_Produto)
+    </dt>
+    <dd class="col-sm-10">
+    @Html.DisplayFor(model => model._Produto.Cod_Produto)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.Nome)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model._Produto.Nome)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.Preco)
+    </dt>
+    <dd class = "col-sm-10">
+    @Model._Produto.Preco.ToString("F2",CultureInfo.InvariantCulture)
+    </dd>
 
-        <dd class = "col-sm-10">
-            @Model._Produto.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.Indisponivel)
-        </dt>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.EmEstoque)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model._Produto.EmEstoque)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.ImagemUrl)
+    </dt>
+    <dd class = "col-sm-10">
+    <img src="@Model._Produto.ImagemUrl" alt="imagem_produto_@Model._Produto.Nome" />
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.DescricaoCurta)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model._Produto.DescricaoCurta)
+    </dd>
 
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model._Produto.Indisponivel)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.EstoqueAgendamento)
-        </dt>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
+    </dt>
 
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model._Produto.EstoqueAgendamento)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model._Produto.Promocional)
-        </dt>
+    <dd class = "col-sm-10">
+    @Model._Produto.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
+    </dd>
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.Indisponivel)
+    </dt>
 
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model._Produto.Promocional)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model._Categoria.IdCategoria)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model._Categoria.IdCategoria)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model._Categoria.CategoriaNome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model._Categoria.IdCategoria)
-        </dd>
-    </dl>
+    <dd class="col-sm-10">
+    @Html.DisplayFor(model => model._Produto.Indisponivel)
+    </dd>
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.EstoqueAgendamento)
+    </dt>
+
+    <dd class="col-sm-10">
+    @Html.DisplayFor(model => model._Produto.EstoqueAgendamento)
+    </dd>
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model._Produto.Promocional)
+    </dt>
+
+    <dd class="col-sm-10">
+    @Html.DisplayFor(model => model._Produto.Promocional)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model._Categoria.IdCategoria)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model._Categoria.IdCategoria)
+    </dd>
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model._Categoria.CategoriaNome)
+    </dt>
+    <dd class="col-sm-10">
+    @Html.DisplayFor(model => model._Categoria.IdCategoria)
+    </dd>
+    </dl> *@
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a> |
     <a asp-action="Index">Voltar para a lista</a>
 </div>
+
+<div class="tab-detail">
+    <table class="table-prod-detail">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.Cod_Produto)</th>
+            <td>@Html.DisplayFor(model => model._Produto.Cod_Produto)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.Nome)</th>
+            <td>@Html.DisplayFor(model => model._Produto.Nome)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.Preco)</th>
+            <td>@Model._Produto.Preco.ToString("F2", CultureInfo.InvariantCulture)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.EmEstoque)</th>
+            <td>@Html.DisplayFor(model => model._Produto.EmEstoque)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.ImagemUrl)</th>
+            <td><img src="@Model._Produto.ImagemUrl" alt="imagem_produto_@Model._Produto.Nome" class="img-detail-prod" /></td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.DescricaoCurta)</th>
+            <td>@Html.DisplayFor(model => model._Produto.DescricaoCurta)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.PrecoSecundario)</th>
+            <td>@Model._Produto.PrecoSecundario.ToString("F2", CultureInfo.InvariantCulture)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.Indisponivel)</th>
+            <td>@Html.DisplayFor(model => model._Produto.Indisponivel)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.EstoqueAgendamento)</th>
+            <td>@Html.DisplayFor(model => model._Produto.EstoqueAgendamento)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Produto.Promocional)</th>
+            <td>@Html.DisplayFor(model => model._Produto.Promocional)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Categoria.IdCategoria)</th>
+            <td>@Html.DisplayFor(model => model._Categoria.IdCategoria)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model._Categoria.CategoriaNome)</th>
+            <td>@Html.DisplayFor(model => model._Categoria.IdCategoria)</td>
+        </tr>
+    </table>
+    <a asp-action="Edit" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a>
+</div>
+
+<style>
+
+    * {
+        font-family: Montserrat;
+    }
+</style>

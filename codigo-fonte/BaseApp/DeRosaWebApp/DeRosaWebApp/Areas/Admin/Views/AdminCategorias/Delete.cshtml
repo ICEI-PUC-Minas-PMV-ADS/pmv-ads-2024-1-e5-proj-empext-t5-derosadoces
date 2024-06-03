@@ -4,31 +4,61 @@
     ViewData["Title"] = "Deletar";
 }
 
-<h1>Delete</h1>
-
-<h3>Tem certeza que deseja deletar essa categoria?</h3>
+@* <h3>Tem certeza que deseja deletar essa categoria?</h3> *@
 <div>
-    <h4>Categoria</h4>
+    <h4 class="cat-title">Deletar categoria</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCategoria)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdCategoria)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoriaNome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoriaNome)
-        </dd>
-        
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="IdCategoria" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+
+    <div class="cat-detail-btns">
         <a asp-action="Index">Voltar para a lista</a>
-    </form>
+    </div>
+
+    @*  <dl class="row">
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.IdCategoria)
+    </dt>
+    <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.IdCategoria)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.CategoriaNome)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.CategoriaNome)
+    </dd>
+
+    </dl> *@
 </div>
+
+<div class="custom-cat-detail">
+    <div class="tab-detail">
+        <table class="table-cat-detail">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CategoriaNome)</th>
+                <th>@Html.DisplayNameFor(model => model.IdCategoria)</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.CategoriaNome)</td>
+                <td>@Html.DisplayFor(model => model.IdCategoria)</td>
+                <td>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="IdCategoria" />
+                        <input type="submit" value="Deletar" class="btn" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+        @* <div class="cat-detail-btns">
+        <a asp-action="Index">Voltar para a lista</a>
+        </div> *@
+    </div>
+</div>
+
+<style>
+
+    * {
+        font-family: Montserrat;
+    }
+</style>
