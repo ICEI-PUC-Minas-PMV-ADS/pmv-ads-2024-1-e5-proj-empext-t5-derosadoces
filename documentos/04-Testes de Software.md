@@ -122,10 +122,28 @@ Plano de Testes: Funcionalidade de Login
 
 |Caso de teste   | CT-12 - Teste Recuperação de Senha.:
 |------|------------------------|
-|Requisitos associados | RF-12 A aplicação deve permitir o usuário recuperar sua senha.
+|Requisitos associados | RF-21 A aplicação deve permitir o usuário recuperar sua senha.
 |Objetivo do teste | O sistema deve permitir que os usuários recuperem sua senha caso a esqueçam. 
 |Passos | <ol><li> Acessar a página Login. </li> <li> Clicar em Esqueci Senha. </li> <li> Preencher com o email e clicar em enviar. </li> <li> Clicar no link enviado para o email. </li> <li> Clicar no link enviado para o email. </li> <li> Preencher os campos com a nova senha e clicar em enviar. </li> 
 |Critérios de Êxito | <ul> <li>O sistema deve alterar a senha do usuário. </li> 
+
+<br>
+
+|Caso de teste   | CT-13 - Teste Adição de Produtos.:
+|------|------------------------|
+|Requisitos associados | RF-12 A aplicação deve permitir somente ao administrador do site adicionar produtos para venda
+|Objetivo do teste | O sistema deve permitir que o administrador adicione produtos para a venda. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Produtos. </li> <li> Clicar em Criar Novo Produto. </li> <li> Preencher os dados do novo produto. </li> <li> Clicar em Salvar. </li> 
+|Critérios de Êxito | <ul> <li>O sistema deve salvar o novo produto cadastrado. </li> 
+
+<br>
+
+|Caso de teste   | CT-14 - Teste Edição de Produtos.:
+|------|------------------------|
+|Requisitos associados | RF-13 A aplicação deve permitir somente ao administrador do site editar produtos
+|Objetivo do teste | O sistema deve permitir que o administrador edite produtos cadastrados. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Produtos. </li> <li> Clicar em Editar. </li> <li> Alterar os dados/imagem do produto. </li> <li> Clicar em Salvar. </li> 
+|Critérios de Êxito | <ul> <li>O sistema deve alterar os dados do produto cadastrado. </li> 
 
 <br>
 
@@ -206,6 +224,16 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ![Figura 20](img/esquecisenha2.png)
 
 ![Figura 21](img/esquecisenha3.png)
+
+### CT-13 - Teste Adição de Produtos
+![Figura 19](img/adicaoproduto.png)
+
+![Figura 20](img/adicionarproduto2.png)
+
+### CT-14 - Teste Edição de Produtos
+![Figura 19](img/editarproduto.png)
+
+![Figura 20](img/editarproduto2.png)
 
 ### CT-0 - Teste Unitário de Adição de Novo Produto
 ![Figura 1](img/testeUnitario.jpg)
