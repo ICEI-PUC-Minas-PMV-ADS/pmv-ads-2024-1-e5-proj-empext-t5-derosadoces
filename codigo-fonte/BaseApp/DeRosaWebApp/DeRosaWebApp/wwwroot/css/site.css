@@ -59,6 +59,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width:100vw;
 }
 .navbar-toggler {
     border: none;
@@ -93,6 +94,7 @@ footer {
     height: fit-content; /* Defina a altura desejada para a área do título */
     padding: 20px; /* Opcional: Espaçamento para evitar que o texto toque nas bordas */
     box-sizing: border-box; /* Inclui padding dentro da altura especificada */
+    width: 100%;
 }
 
 .title-second {
@@ -138,8 +140,14 @@ footer {
     text-decoration:none;
     color: white;
 }
+.a-link1:visited{
+    color:white
+}
 .a-link2 {
     text-decoration: none;
+    color: rgb(225, 191, 56);
+}
+.a-link2:visited {
     color: rgb(225, 191, 56);
 }
 .btn2 {
@@ -216,17 +224,14 @@ p {
     justify-content: center; /* Centraliza horizontalmente */
     margin-top: 20px; /* Espaço acima do .span-m para separar de .offers */
     padding: 10px 0; /* Espaço interno para dar ênfase */
-    background-color: #f9f9fa; /* Cor de fundo opcional */
     width: 100%; /* Faz o .span-m ocupar a largura total */
 }
 
     .span-m a {
         display: inline-block; /* Muda para inline-block para melhor manipulação */
-        background-color: #007bff; /* Cor de fundo do botão */
         color: white; /* Texto branco para contraste */
         padding: 10px 20px; /* Espaçamento interno do botão */
         text-decoration: none; /* Remove o sublinhado do link */
-        border-radius: 5px; /* Borda arredondada para estética do botão */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra leve para efeito 3D */
         transition: background-color 0.3s, transform 0.2s; /* Transições para efeitos visuais */
     }
@@ -944,7 +949,6 @@ p {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
     background-color: white;
 }
 
@@ -1344,6 +1348,14 @@ input[type="range"] {
     width: 80%;
     margin: 10px auto; /* Assegura margem adequada e centraliza o botão */
 }
+
+.botao-ver-mais {
+    background-color:rgb(48, 48, 48) !important;
+}
+
+.botao-ver-mais:hover {
+    background-color:rgb(225, 191, 56) !important;
+}
 /*fim alterações home*/
 .border-style {
     border-right: 2px solid rgba(253, 236, 235, 1);
@@ -1394,7 +1406,6 @@ input[type="range"] {
 
 .form-group {
     margin-bottom: 20px;
-    font-size: 1.5em;
 }
 
 .note {

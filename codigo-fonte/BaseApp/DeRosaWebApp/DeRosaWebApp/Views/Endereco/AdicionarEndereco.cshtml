@@ -5,11 +5,6 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="col-md-12 container_botao_voltar">
-            <a class="btn btn-primary" onclick="window.history.back();">
-                Voltar
-            </a>
-        </div>
         <form class="form-cadastro" asp-action="AdicionarEndereco" method="post">
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -52,8 +47,13 @@
                 <input asp-for="UF" id="uf" class="form-control" placeholder="UF" readonly />
             </div>
 
-            <div class="btn-cadastrar-container">
+            <div class="col-md-6 btn-cadastrar-container">
                 <input type="submit" value="Adicionar Endereço" class="btn btn-success" />
+            </div>
+            <div class="col-md-6 container_botao_voltar">
+                <a class="btn btn-primary" onclick="window.history.back();">
+                    Voltar
+                </a>
             </div>
         </form>
     </div>

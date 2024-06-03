@@ -21,10 +21,10 @@
     </button>
 </div>
 <div class="container-home">
-    <div class="title-second-container">
-        <h1 class="title-second" style="color: @Model.ManagementHome.Color; font-family:'@Model.ManagementHome.Font'">@Model.ManagementHome.TituloSemana</h1>
-    </div>
     <div class="offers">
+        <div class="title-second-container">
+            <h1 class="title-second" style="color: @Model.ManagementHome.Color; font-family:'@Model.ManagementHome.Font'">@Model.ManagementHome.TituloSemana</h1>
+        </div>
         @foreach (var produto in Model.Produtos)
         {
 
@@ -37,7 +37,7 @@
             }
         }
         <div class="span-m">
-            <a class="link-info" asp-controller="Produto" asp-action="Produtos">Clique aqui para ver todos os produtos</a>
+            <a class="botao-ver-mais" asp-controller="Produto" asp-action="Produtos">Clique aqui para ver todos os produtos</a>
         </div>
     </div>
 

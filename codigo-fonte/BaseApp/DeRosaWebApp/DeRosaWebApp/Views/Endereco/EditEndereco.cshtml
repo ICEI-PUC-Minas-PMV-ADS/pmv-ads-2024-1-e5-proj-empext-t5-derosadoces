@@ -6,11 +6,6 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="col-md-12 container_botao_voltar">
-            <a class="btn btn-primary" onclick="window.history.back();">
-                Voltar
-            </a>
-        </div>
         <form asp-action="EditEndereco">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -54,6 +49,11 @@
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Atualizar Endereço" />
+            </div>
+            <div class="col-md-12 container_botao_voltar">
+                <a class="btn btn-primary" onclick="window.history.back();">
+                    Voltar
+                </a>
             </div>
         </form>
     </div>

@@ -20,7 +20,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-1">
             <div class="container-fluid">
-                <a class="navbar-brand"  asp-controller="Home" asp-action="Index"><img src="~/Imagens/Rosa_DeRosa-black.png" width="60px" height="55px" /></a>
+                <a class="navbar-brand"  asp-controller="Home" asp-action="Index"><img src="~/Imagens/Rosa_DeRosa-black.png" width="64px" height="55px" /></a>
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -49,12 +49,6 @@
                                 @if (User.IsInRole("Admin"))
                                 {
                                     <a class="nav-link position-relative" asp-area="Admin" asp-action="Index" asp-controller="AdminDashboard">Área de Administração</a>
-                                }
-
-                                else
-                                {
-                                    @inject UserManager<IdentityUser> UserManager
-                                    <a class="nav-link" style=@*"color: lightgray;"*@  asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
                                 }
                             }
                         </li>

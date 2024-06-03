@@ -1,12 +1,35 @@
 ﻿@using DeRosaWebApp.ViewModel;
 @model CarrinhoViewModel
+
+<style>
+    .iconCarrinho{
+        color:black;
+    }
+    .iconCarrinho:hover{
+            color: rgba(240, 206, 70, 1)
+    }
+</style>
+
+
 @if (Model.CarrinhoCompra.ListItemCarrinho.Count > 0)
 {
-    <a asp-controller="Carrinho" asp-action="Index">
-        <span><img width="40" height="40" src="~/Imagens/carrinho.png" /></span>
-        <span style="color:red; font-size:larger">
-            @Model.CarrinhoCompra.ListItemCarrinho.Count
+    <a asp-controller="Carrinho" asp-action="Index" class="flex text-center gap-1 iconCarrinho d-none d-md-block" style="display:flex; text-decoration:none; height:auto">
+        @* <span><img width="40" height="40" src="~/Imagens/carrinho.png" /></span> *@
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="iconCarrinho" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
+            </svg>
+        </span>
+        <span style="color:black; font-size:larger">
+            (@Model.CarrinhoCompra.ListItemCarrinho.Count)
         </span>
     </a>
+
+    <a asp-controller="Carrinho" asp-action="Index" class="flex text-center gap-1 iconCarrinho d-md-none" style="display:flex; text-decoration:none; height:auto">
+        <span>
+            Carrinho (@Model.CarrinhoCompra.ListItemCarrinho.Count)
+        </span>
+    </a>
+
 
 }

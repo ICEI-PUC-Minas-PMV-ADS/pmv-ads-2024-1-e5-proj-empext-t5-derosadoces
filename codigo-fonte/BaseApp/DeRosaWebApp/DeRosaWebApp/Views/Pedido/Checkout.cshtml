@@ -23,8 +23,10 @@
                     <input type="date" id="dataParaEntregar" name="dataParaEntregar" class="form-control" required />
                 }
             </div>
-            <button type="submit" class="btn btn-primary btn-small">Finalizar Pedido</button>
-            <a class="btn btn-success btn-small" asp-controller="Endereco" asp-action="EscolhaEndereco">Voltar</a>
+            <div class="d-flex">
+                <a class="btn btn-success btn-small" asp-controller="Endereco" asp-action="EscolhaEndereco">Voltar</a>
+                <button type="submit" class="btn btn-primary btn-small">Finalizar Pedido</button>
+            </div>
         </form>
     </div>
 </div>

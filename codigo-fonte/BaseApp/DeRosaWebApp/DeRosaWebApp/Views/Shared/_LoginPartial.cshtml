@@ -1,56 +1,65 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @inject SignInManager<IdentityUser> SignManager
+@inject UserManager<IdentityUser> UserManager
 
+<style>
+    .iconPerfil {
+        text-decoration: none;
+    }
+
+        .iconPerfil:visited svg {
+            fill: black;
+        }
+
+        .iconPerfil:hover svg {
+            fill: rgba(240, 206, 70, 1);
+        }
+
+        .iconPerfil:active svg {
+            fill: rgba(240, 206, 70, 1);
+        }
+</style>
 
 @if (SignManager.IsSignedIn(User))
 {
-    @* @if (User.IsInRole("Member"))
-    {
-        <ul class="nav navbar-nav navbar-left">
-            <li class="nav-item">
-                <a class="nav-link" style="color: lightgray;" asp-controller="Account" asp-action="Edit">Minha Conta</a>
-            </li>
-        </ul>
-    }
-    
-    <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-left">
-        <ul class="nav navbar-nav navbar-left">
-            <button type="submit" style="width:auto" class="nav-link btn btn-link py-0">
-                Logout : @User.Identity.Name &nbsp;
-            </button>
-        </ul>
-    </form> *@
-
-
-
-    <li class="nav-item dropdown dropdown-navbar">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-</svg>
+    <!-- Dropdown para telas grandes -->
+    <li class="nav-item dropdown dropdown-navbar d-none d-md-block">
+        <a class="nav-link dropdown-toggle iconPerfil" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+            </svg>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" asp-controller="Account" asp-action="Edit">Minha Conta</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a></li>
+            <li><hr class="dropdown-divider"></li>
             <li>
-                <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="dropdown-item">
-                        <button type="submit" style="width:auto" class="dropdown-item">
-                            Logout
-                        </button>
-                </form>
+                <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" hidden></form>
+                <a class="dropdown-item" href="#" onclick="document.getElementById('logoutForm').submit(); return false;">Sair</a>
             </li>
         </ul>
     </li>
+
+    <!-- Lista simples para telas pequenas -->
+    <ul class="nav navbar-nav navbar-left d-md-none">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Account" asp-action="Edit">Minha Conta</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Pedido" asp-action="MeusPedidos" asp-route-user_id="@UserManager.GetUserId(User)">Meus Pedidos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="document.getElementById('logoutForm').submit(); return false;">Sair</a>
+            <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" hidden></form>
+        </li>
+    </ul>
 }
 else
 {
     <ul class="nav navbar-nav navbar-left">
         <li class="nav-item">
-            <a class="nav-link" style=@*"color: lightgray;"*@  asp-controller="Account" asp-action="Login">Entrar</a>
+            <a class="nav-link" style=@*"color: lightgray;"*@ asp-controller="Account" asp-action="Login">Entrar</a>
         </li>
-        @* <li class="nav-item">
-            <a class="nav-link" style="color: lightgray;" asp-controller="Cadastro" asp-action="Cadastrar">Cadastrar</a>
-        </li> *@
-
     </ul>
 }
