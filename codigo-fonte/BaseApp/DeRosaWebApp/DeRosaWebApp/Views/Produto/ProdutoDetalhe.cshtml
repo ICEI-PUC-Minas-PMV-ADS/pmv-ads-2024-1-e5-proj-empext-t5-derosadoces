@@ -37,17 +37,20 @@
             <form method="post" asp-controller="Carrinho" asp-action="AdicionarNoCarrinho" asp-route-cod_Produto="@Model.Produto.Value.Cod_Produto" asp-route-quantidadeAdicionar="@quantidade">
                 <div class="form-group">
                     <label class="stock-status" for="quantidade">Quantidade  </label>
-                    @if (string.Equals(Model.Categoria.CategoriaNome,"Comemorativos"))
-                    {   
+                    @if (string.Equals(Model.Categoria.CategoriaNome, "Comemorativos"))
+                    {
                         <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="12" max="100" step="2" />
                         <span class="stock-status" style="font-style:italic">Mínimo de 12 produtos</span>
                     }
-                    else{
+                    else
+                    {
                         <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" step="2" />
 
                     }
                 </div>
-                <button type="submit" class="btn-add-cart">Adicionar @Model.Produto.Value.Nome ao carrinho</button>
+                <div class="w-100 text-center">
+                    <button type="submit" class="btn-add-cart">Adicionar ao carrinho</button>
+                </div>
             </form>
         }
         else if (Model.Produto.Value.EstoqueAgendamento > 0)
@@ -59,7 +62,7 @@
                     <label>Quantidade</label>
                     <input type="number" id="quantidade" name="quantidadeAdicionar" value="@quantidade" min="1" max="12" />
                 </div>
-                <button type="submit" class="btn-add-cart">Adicionar @Model.Produto.Value.Nome ao carrinho</button>
+                <button type="submit" class="btn-add-cart">Adicionar ao carrinho</button>
             </form>
         }
         else

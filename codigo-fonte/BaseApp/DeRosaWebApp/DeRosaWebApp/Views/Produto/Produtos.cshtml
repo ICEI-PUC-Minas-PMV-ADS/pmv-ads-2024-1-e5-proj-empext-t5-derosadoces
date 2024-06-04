@@ -59,18 +59,35 @@
         margin: auto; /* Centraliza o botão dentro do footer */
     }
 
-</style>
-<h2 class="text-md-center fw-light" style="font-size: 25px; font-family:'Linux Libertine G';font-style: italic;">@ViewBag.Titulo</h2>
+    input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        background: rgba(193, 157, 86, 1);
+        height: 10px;
+        width: 10px;
+        line-height:100px;
+        margin-top:-3px;
+    }
 
-<div class="container-fluid">
+    .category-link:hover{
+        color: rgba(193, 157, 86, 1);
+    }
+
+</style>
+
+<div class="container-fluid mt-4">
     <div class="row">
         <div class="col-md-3 border-style">
             <div class="list-group" id="list-tab" role="tablist" style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;text-align:start;">
+                <a
+                    id="todosProdutos"
+                   asp-controller="Produto" asp-action="Produtos"
+                   class="list-group-item list-group-item-action border-0 category-link"
+                   style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px; padding: .5rem 5px; margin-left:10px; width:auto">Todos</a>
                 @foreach (Categoria categoria in Model._Categorias)
                 {
-                    <a asp-controller="Produto" asp-action="ProdutoByCategoria" asp-route-cod_categoria="@categoria.IdCategoria"
-                       class="list-group-item list-group-item-action border-0"
-                       style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;">@categoria.CategoriaNome</a>
+                        <a asp-controller="Produto" asp-action="ProdutoByCategoria" id="category_@categoria.IdCategoria" asp-route-cod_categoria="@categoria.IdCategoria"
+                           class="list-group-item list-group-item-action border-0 category-link"
+                           style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px; padding: .5rem 5px; margin-left:10px; width:auto">@categoria.CategoriaNome</a>
                 }
                 <div class="custom-range" style="margin-top:20px; margin-left: 10px; font-size: 12px; white-space:nowrap;">
                     <label for="minPrice">Preço Mínimo:<span style="color:rgb(225, 191, 56);"> R$</span><span id="minPriceOutput" style="color:rgb(225, 191, 56);">0</span></label>
@@ -83,11 +100,13 @@
 
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 d-md-block col-sm-12 d-sm-flex justify-content-sm-center">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-all" role="tabpanel" aria-labelledby="list-all-list">
                     <!-- Atualização começa aqui -->
+                        <h2 class="text-md-center fw-light" style="font-size: 25px; font-family:'Linux Libertine G';font-style: italic;">@ViewBag.Titulo</h2>
                     <div class="product-grid">
+
                         @foreach (var produto in Model._Produtos)
                         {
                             <div class="product-card" data-category="@produto.IdCategoria">
@@ -165,5 +184,25 @@
         // Eventos que atualizam a exibição ao alterar os valores dos ranges
         minPriceInput.addEventListener('input', updatePriceDisplay);
         maxPriceInput.addEventListener('input', updatePriceDisplay);
+
+        function selectedCategory() {
+            const url = window.location.href;
+            if (url.includes('ProdutoByCategoria')) {
+                const category = url.substring(url.indexOf('=') + 1);
+                console.log(category);
+
+                const categoryItem = document.getElementById('category_' + category);
+                categoryItem.style.color = 'rgba(225, 191, 56, 0.5)';
+                categoryItem.style.textDecoration = 'underline';
+                categoryItem.style.textUnderlineOffset = '5px'
+            } else {
+                const todosProdutosItem = document.getElementById('todosProdutos')
+                todosProdutosItem.style.color = 'rgba(225, 191, 56, 0.5)';
+                todosProdutosItem.style.textDecoration = 'underline';
+                todosProdutosItem.style.textUnderlineOffset = '5px'
+            }
+        }
+
+        selectedCategory();
     });
 </script>

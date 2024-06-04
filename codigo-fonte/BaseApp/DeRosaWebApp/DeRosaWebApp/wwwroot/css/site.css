@@ -518,7 +518,8 @@ p {
     display: flex;
     max-width: 1200px;
     margin: auto;
-    padding-top: 100px
+    padding-top: 4rem;
+    margin-bottom:4rem;
 
 }
 
@@ -1305,6 +1306,7 @@ input[type="range"] {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Cria colunas que se ajustam automaticamente */
     grid-gap: 10px; /* Espaçamento entre os produtos */
     padding: 10px; /* Espaçamento interno */
+    margin-bottom:4rem;
 }
 
 .product-card {
@@ -1315,6 +1317,8 @@ input[type="range"] {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 1px solid #ccc;
     overflow: hidden;
+    width:90%;
+    margin-bottom:2rem;
 }
 
 .card {
