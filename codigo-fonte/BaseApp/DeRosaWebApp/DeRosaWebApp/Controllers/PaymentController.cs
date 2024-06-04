@@ -60,7 +60,7 @@ namespace DeRosaWebApp.Controllers
                 var chargeOptions = new ChargeCreateOptions
                 {
                     Amount = paymentAmount, // Agora o valor vem do usuário
-                    Currency = "usd", // Ajuste a moeda conforme necessário
+                    Currency = "brl", // Ajuste a moeda conforme necessário
                     Description = "Descrição do produto ou serviço",
                     Source = stripeToken,
                 };

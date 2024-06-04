@@ -3,6 +3,8 @@
 
 @{
     ViewData["Title"] = "Formulário de Pagamento";
+    // Calculando o valor em centavos
+    var valorEmCentavos = (int)(Model.TotalPedido * 100);
 }
 
 <div class="payment-container">
@@ -11,7 +13,8 @@
     <form id="payment-form" method="post" asp-action="ProcessPayment" asp-route-cod_pedido="@Model.Cod_Pedido">
         <div class="form-group">
             <label for="paymentAmount">Valor do Pagamento:  <span class="payment-amount">R$@Model.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)</span></label>
-            <input type="number" id="paymentAmount" name="paymentAmount" class="form-control" min="1" placeholder="Insira o valor em centavos" required>
+            <!-- Escondendo o valor em centavos -->
+            <input type="hidden" id="paymentAmount" name="paymentAmount" value="@valorEmCentavos">
         </div>
 
         <div class="form-group card-details">
