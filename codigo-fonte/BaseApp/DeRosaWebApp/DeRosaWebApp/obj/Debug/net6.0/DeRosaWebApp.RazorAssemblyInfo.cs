@@ -15,7 +15,7 @@ using System.Reflection;
     "ory, Microsoft.AspNetCore.Mvc.Razor")]
 [assembly: Microsoft.AspNetCore.Razor.Hosting.RazorLanguageVersionAttribute("6.0")]
 [assembly: Microsoft.AspNetCore.Razor.Hosting.RazorConfigurationNameAttribute("MVC-3.0")]
-[assembly: Microsoft.AspNetCore.Razor.Hosting.RazorExtensionAssemblyNameAttribute("MVC-3.0", "Microsoft.CodeAnalysis.Razor.Compiler.Mvc")]
+[assembly: Microsoft.AspNetCore.Razor.Hosting.RazorExtensionAssemblyNameAttribute("MVC-3.0", "Microsoft.CodeAnalysis.Razor.Compiler")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 

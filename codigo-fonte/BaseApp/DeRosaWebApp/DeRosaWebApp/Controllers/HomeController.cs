@@ -42,6 +42,11 @@ namespace DeRosaWebApp.Controllers
             return View(manage);
         }
         #endregion
+
+        public IActionResult MeusContatos()
+        {
+            return View();
+        }
     }
     #endregion
 }
