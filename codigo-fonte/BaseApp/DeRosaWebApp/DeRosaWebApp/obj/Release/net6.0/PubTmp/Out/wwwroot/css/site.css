@@ -59,6 +59,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width:100vw;
 }
 .navbar-toggler {
     border: none;
@@ -93,6 +94,7 @@ footer {
     height: fit-content; /* Defina a altura desejada para a área do título */
     padding: 20px; /* Opcional: Espaçamento para evitar que o texto toque nas bordas */
     box-sizing: border-box; /* Inclui padding dentro da altura especificada */
+    width: 100%;
 }
 
 .title-second {
@@ -138,8 +140,14 @@ footer {
     text-decoration:none;
     color: white;
 }
+.a-link1:visited{
+    color:white
+}
 .a-link2 {
     text-decoration: none;
+    color: rgb(225, 191, 56);
+}
+.a-link2:visited {
     color: rgb(225, 191, 56);
 }
 .btn2 {
@@ -216,17 +224,14 @@ p {
     justify-content: center; /* Centraliza horizontalmente */
     margin-top: 20px; /* Espaço acima do .span-m para separar de .offers */
     padding: 10px 0; /* Espaço interno para dar ênfase */
-    background-color: #f9f9fa; /* Cor de fundo opcional */
     width: 100%; /* Faz o .span-m ocupar a largura total */
 }
 
     .span-m a {
         display: inline-block; /* Muda para inline-block para melhor manipulação */
-        background-color: #007bff; /* Cor de fundo do botão */
         color: white; /* Texto branco para contraste */
         padding: 10px 20px; /* Espaçamento interno do botão */
         text-decoration: none; /* Remove o sublinhado do link */
-        border-radius: 5px; /* Borda arredondada para estética do botão */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra leve para efeito 3D */
         transition: background-color 0.3s, transform 0.2s; /* Transições para efeitos visuais */
     }
@@ -513,14 +518,17 @@ p {
     display: flex;
     max-width: 1200px;
     margin: auto;
-    padding-top: 100px
+    padding-top: 4rem;
+    margin-bottom:4rem;
 
 }
 
 .product-image img,
 .product-image .img-loja {
-    max-width: 50%;
+    padding: 20px;
+    max-width: 500px;
     object-fit: cover;
+    object-position: center;
 }
 
 .product-details {
@@ -850,7 +858,7 @@ p {
         display: flex;
         align-items: center;
         /*background-color: lightgoldenrodyellow;*/
-        color: black;
+        color: white;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
@@ -942,7 +950,6 @@ p {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
     background-color: white;
 }
 
@@ -1299,6 +1306,7 @@ input[type="range"] {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Cria colunas que se ajustam automaticamente */
     grid-gap: 10px; /* Espaçamento entre os produtos */
     padding: 10px; /* Espaçamento interno */
+    margin-bottom:4rem;
 }
 
 .product-card {
@@ -1309,6 +1317,8 @@ input[type="range"] {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 1px solid #ccc;
     overflow: hidden;
+    width:90%;
+    margin-bottom:2rem;
 }
 
 .card {
@@ -1341,6 +1351,14 @@ input[type="range"] {
 .btn {
     width: 80%;
     margin: 10px auto; /* Assegura margem adequada e centraliza o botão */
+}
+
+.botao-ver-mais {
+    background-color:rgb(48, 48, 48) !important;
+}
+
+.botao-ver-mais:hover {
+    background-color:rgb(225, 191, 56) !important;
 }
 /*fim alterações home*/
 .border-style {
@@ -1392,7 +1410,6 @@ input[type="range"] {
 
 .form-group {
     margin-bottom: 20px;
-    font-size: 1.5em;
 }
 
 .note {
@@ -1783,3 +1800,120 @@ input[type="range"] {
     }
 }
 /*FIM TELA GERENCIAMENTO IMAGENS*/
+
+
+/*-------------------------------CATEGORIA--------------------------*/
+
+.cat-title {
+    margin-top: 15px;
+    font-family: Montserrat;
+}
+
+.custom-cat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+}
+
+/*.custom-cat-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.custom-cat-detail {
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}*/
+
+.tab-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    
+}
+
+
+.table-cat-detail {
+    border-collapse: collapse;
+    width: 30%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    font-size:1rem
+}
+
+    .table-cat-detail td, .table-cat-detail th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        
+    }
+
+    .table-cat-detail th {
+        background-color: rgba(251, 246, 235, 1);
+        border-bottom: solid 2px rgba(0, 0, 0, 0.5);
+    }
+
+
+/*-------------------PRODUTOS-------------------------*/
+
+.custom-product {
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.picker-img-test {
+    width: 110%;
+}
+
+.custom-quant-edit {
+    margin-top: 15px;
+}
+
+.custom-promotion-check {
+    margin-bottom: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    text-align: center;
+    font-size: 1rem;
+}
+
+th {
+    background-color: rgba(251, 246, 235, 1);
+}
+
+.table-prod-detail {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.img-detail-prod {
+    width: 40%;
+    height: 40%;
+}
+
+/*.icon-test {
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.arrow-return {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-left: 20px;
+}*/

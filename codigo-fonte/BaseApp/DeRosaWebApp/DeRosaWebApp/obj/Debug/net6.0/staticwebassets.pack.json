@@ -93,12 +93,20 @@
       "PackagePath": "staticwebassets\\Imagens\\bloco5.png"
     },
     {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\call.svg",
+      "PackagePath": "staticwebassets\\Imagens\\call.svg"
+    },
+    {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\carrinho.png",
       "PackagePath": "staticwebassets\\Imagens\\carrinho.png"
     },
     {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\delete.svg",
       "PackagePath": "staticwebassets\\Imagens\\delete.svg"
+    },
+    {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\instagram.svg",
+      "PackagePath": "staticwebassets\\Imagens\\instagram.svg"
     },
     {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\julia.png",
@@ -139,6 +147,10 @@
     {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\visibility_off.svg",
       "PackagePath": "staticwebassets\\Imagens\\visibility_off.svg"
+    },
+    {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\whatsapp.svg",
+      "PackagePath": "staticwebassets\\Imagens\\whatsapp.svg"
     },
     {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
