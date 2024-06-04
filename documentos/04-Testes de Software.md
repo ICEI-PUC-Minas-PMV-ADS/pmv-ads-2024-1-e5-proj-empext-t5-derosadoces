@@ -147,6 +147,33 @@ Plano de Testes: Funcionalidade de Login
 
 <br>
 
+|Caso de teste   | CT-15 - Teste Deleção de Produtos.:
+|------|------------------------|
+|Requisitos associados | RF-14 A aplicação deve permitir somente ao administrador do site excluir produtos
+|Objetivo do teste | O sistema deve permitir que o administrador exclua produtos cadastrados. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Produtos. </li> <li> Clicar em Deletar. </li> <li> Clicar em excluir. </li>
+|Critérios de Êxito | <ul> <li>O sistema deve excluir o produto cadastrado. </li> 
+
+<br>
+
+|Caso de teste   | CT-16 - Teste Adição de Categoria.:
+|------|------------------------|
+|Requisitos associados | RF-15 A aplicação deve permitir somente ao administrador do site adicionar categorias de produtos
+|Objetivo do teste | O sistema deve permitir que o administrador adicione categorias de produtos. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Categorias. </li> <li> Clicar em Criar Nova Categoria. </li> <li> CPreencher o nome da categoria e clicar em Criar. </li>
+|Critérios de Êxito | <ul> <li>O sistema deve adicionar a nova categoria. </li>
+
+<br>
+
+|Caso de teste   | CT-17 - Teste Edição de Categoria.:
+|------|------------------------|
+|Requisitos associados | RF-15 A aplicação deve permitir somente ao administrador do site adicionar categorias de produtos
+|Objetivo do teste | O sistema deve permitir que o administrador adicione categorias de produtos. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Categorias. </li> <li> Clicar em Editar. </li> <li> Preencher o nome da categoria e clicar em Salvar. </li>
+|Critérios de Êxito | <ul> <li>O sistema deve editar categoria. </li>
+
+<br>
+
 Os testes unitários a serem realizados na aplicação são descritos a seguir.
 
 <br>
@@ -226,14 +253,33 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ![Figura 21](img/esquecisenha3.png)
 
 ### CT-13 - Teste Adição de Produtos
-![Figura 19](img/adicaoproduto.png)
+![Figura 22](img/adicaoproduto.png)
 
-![Figura 20](img/adicionarproduto2.png)
+![Figura 23](img/adicionarproduto2.png)
 
 ### CT-14 - Teste Edição de Produtos
-![Figura 19](img/editarproduto.png)
+![Figura 24](img/editarproduto.png)
 
-![Figura 20](img/editarproduto2.png)
+![Figura 25](img/editarproduto2.png)
+
+### CT-15 - Teste Deleção de Produtos
+![Figura 26](img/deletarproduto.png)
+
+![Figura 27](img/deletarproduto2.png)
+
+### CT-16 - Teste Adição de Categoria
+![Figura 28](img/criarcategoria.png)
+
+![Figura 29](img/criarcategoria2.png)
+
+![Figura 30](img/criarcategoria3.png)
+
+### CT-17 - Teste Edição de Categoria
+![Figura 28](img/editarcategoria.png)
+
+![Figura 29](img/editarcategoria2.png)
+
+![Figura 30](img/editarcategoria3.png)
 
 ### CT-0 - Teste Unitário de Adição de Novo Produto
 ![Figura 1](img/testeUnitario.jpg)
