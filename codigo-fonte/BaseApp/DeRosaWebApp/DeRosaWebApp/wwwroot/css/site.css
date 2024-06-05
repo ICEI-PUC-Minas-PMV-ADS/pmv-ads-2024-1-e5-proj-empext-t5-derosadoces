@@ -1921,66 +1921,65 @@ th {
 /*INICIO TELA MEUS CONTATOS*/
 
 .meus-contatos {
-    font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
 }
 
-    .meus-contatos p {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-.contact-table {
-    margin: 0 auto;
-    border-collapse: collapse;
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-    .contact-table td {
-        padding: 10px;
-        border: 1px solid #ddd;
+.contact-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.contato {
+    text-decoration: none;
+}
+
+    .contact-card:hover {
+        transform: translateY(-5px);
     }
 
 .contact-icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
 }
-
-.meus-contatos a {
-    text-decoration: none;
-    color: #007bff;
-    margin-left: 8px;
-}
-
-    .meus-contatos a:hover {
-        text-decoration: underline;
-    }
 
 /* Responsividade */
-@media (max-width: 600px) {
-    .meus-contatos {
-        margin: 10px;
-    }
-
-        .meus-contatos p {
-            font-size: 16px;
-        }
-
-    .contact-table td {
-        padding: 5px;
-    }
-
-    .meus-contatos a {
-        font-size: 14px;
-        margin-left: 5px;
+@media (max-width: 768px) {
+    .contact-card {
+        width: 120px;
+        padding: 15px;
     }
 
     .contact-icon {
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
     }
 }
+
+@media (max-width: 480px) {
+    .contact-card {
+        width: 100%;
+        margin: 0 10px;
+    }
+
+    .contact-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 
 /*FIM TELA MEUS CONTATOS*/
