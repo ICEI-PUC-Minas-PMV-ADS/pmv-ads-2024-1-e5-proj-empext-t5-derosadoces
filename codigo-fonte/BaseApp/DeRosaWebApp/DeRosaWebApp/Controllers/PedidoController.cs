@@ -71,12 +71,6 @@ namespace DeRosaWebApp.Controllers
                     ViewBag.EntregaPedidoNormal = true;
                     ViewBag.DataEntrega = proximaSexta.ToString().Substring(0, 10);
                 }
-
-                //if (produto.Produto.IdCategoria != 20)
-                //{
-                //    ViewBag.EntregaPedidoNormal = true;
-
-                //}
             }
             return View();
         }
@@ -198,7 +192,7 @@ namespace DeRosaWebApp.Controllers
                     }
                     else
                     {
-                        proximaSexta = dataAtual.AddDays(diasAteSexta + 7);
+                        proximaSexta = dataAtual.AddDays(diasAteSexta);
 
                     }
                     pedido.DataParaEntregar = proximaSexta;

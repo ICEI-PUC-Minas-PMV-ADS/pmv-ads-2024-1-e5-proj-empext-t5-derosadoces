@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\",
+  "WorkspaceRootPath": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|d:\\ferne\\documents\\github\\derosadoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\views\\home\\meuscontatos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|e:\\projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|solutionrelative:derosawebapp\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|e:\\projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|solutionrelative:derosawebapp\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|e:\\projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\views\\home\\meuscontatos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|solutionrelative:derosawebapp\\views\\home\\meuscontatos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|d:\\ferne\\documents\\github\\derosadoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|e:\\projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|solutionrelative:derosawebapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|d:\\ferne\\documents\\github\\derosadoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\areas\\admin\\views\\adminproduto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|e:\\projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\areas\\admin\\views\\adminproduto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|solutionrelative:derosawebapp\\areas\\admin\\views\\adminproduto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|d:\\ferne\\documents\\github\\derosadoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\baseapp\\derosawebapp\\derosawebapp\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{319701D6-4739-452C-A18A-66D588568E86}|DeRosaWebApp\\DeRosaWebApp.csproj|solutionrelative:derosawebapp\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,6 +42,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{5a4e9529-b6a0-46b5-be4f-0f0b239bc0eb}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -46,32 +54,40 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{5a4e9529-b6a0-46b5-be4f-0f0b239bc0eb}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "site.css",
-              "DocumentMoniker": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "DeRosaWebApp\\wwwroot\\css\\site.css",
-              "ToolTip": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "DeRosaWebApp\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAAIQHAAAAAAAAAAAtwJkHAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-04T20:20:38.443Z",
+              "DocumentIndex": 0,
+              "Title": "PedidoController.cs",
+              "DocumentMoniker": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Controllers\\PedidoController.cs",
+              "RelativeDocumentMoniker": "DeRosaWebApp\\Controllers\\PedidoController.cs",
+              "ToolTip": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Controllers\\PedidoController.cs",
+              "RelativeToolTip": "DeRosaWebApp\\Controllers\\PedidoController.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEcAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T16:29:35.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "site.css",
+              "DocumentMoniker": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "DeRosaWebApp\\wwwroot\\css\\site.css",
+              "ToolTip": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "DeRosaWebApp\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAIQHAAAAAAAAAAAtwJkHAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-04T20:20:38.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MeusContatos.cshtml",
-              "DocumentMoniker": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views\\Home\\MeusContatos.cshtml",
+              "DocumentMoniker": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views\\Home\\MeusContatos.cshtml",
               "RelativeDocumentMoniker": "DeRosaWebApp\\Views\\Home\\MeusContatos.cshtml",
-              "ToolTip": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views\\Home\\MeusContatos.cshtml",
+              "ToolTip": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Views\\Home\\MeusContatos.cshtml",
               "RelativeToolTip": "DeRosaWebApp\\Views\\Home\\MeusContatos.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -80,23 +96,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Context\\AppDbContext.cs",
+              "DocumentMoniker": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DeRosaWebApp\\Context\\AppDbContext.cs",
-              "ToolTip": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Context\\AppDbContext.cs",
+              "ToolTip": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Context\\AppDbContext.cs",
               "RelativeToolTip": "DeRosaWebApp\\Context\\AppDbContext.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAA9wBoAAAALAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAA5wBoAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T13:40:43.929Z"
+              "WhenOpened": "2024-06-04T13:40:43.929Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Areas\\Admin\\Views\\AdminProduto\\Index.cshtml",
+              "DocumentMoniker": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Areas\\Admin\\Views\\AdminProduto\\Index.cshtml",
               "RelativeDocumentMoniker": "DeRosaWebApp\\Areas\\Admin\\Views\\AdminProduto\\Index.cshtml",
-              "ToolTip": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Areas\\Admin\\Views\\AdminProduto\\Index.cshtml",
+              "ToolTip": "E:\\Projetos\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\Areas\\Admin\\Views\\AdminProduto\\Index.cshtml",
               "RelativeToolTip": "DeRosaWebApp\\Areas\\Admin\\Views\\AdminProduto\\Index.cshtml",
               "ViewState": "AQIAADMAAAAAAAAAAAAAAAsAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -126,15 +143,19 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         },
