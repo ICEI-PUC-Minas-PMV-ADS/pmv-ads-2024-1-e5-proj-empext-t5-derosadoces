@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DeRosaWebApp.Models
 {
@@ -20,6 +21,7 @@ namespace DeRosaWebApp.Models
 
         [Required(ErrorMessage = "Obrigatório informar o número!")]
         [Range(1, 9999, ErrorMessage = "O número deve ser entre 1 e 9999.")]
+        [DisplayName("Número")]
         public int Numero { get; set; }
 
         [Required(ErrorMessage = "O complemento é obrigatório!")]

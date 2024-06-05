@@ -9,7 +9,7 @@ namespace DeRosaWebApp.Models
     public class Pedido
     {
         [Key]
-        [DisplayName("Identificador do pedido")]
+        [DisplayName("Número do pedido")]
         public int Cod_Pedido { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório!")]

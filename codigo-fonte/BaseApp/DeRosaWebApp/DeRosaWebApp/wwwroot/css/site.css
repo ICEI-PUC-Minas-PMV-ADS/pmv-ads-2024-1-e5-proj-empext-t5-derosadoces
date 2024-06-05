@@ -903,22 +903,27 @@ p {
         background-color: #0056b3;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .admin .table thead {
         display: none;
     }
+
     .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
         display: block;
         width: 100%;
     }
+
         .admin .table tr {
             margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
         }
+
         .admin .table td {
             text-align: right;
             padding-left: 50%;
             position: relative;
         }
+
             .admin .table td::before {
                 content: attr(data-label);
                 position: absolute;
@@ -928,20 +933,24 @@ p {
                 font-weight: bold;
                 text-align: left;
             }
+
     .admin .actions .btn {
         display: block;
         width: 100%;
         margin: 5px 0;
     }
+
     .search-form {
         flex-direction: column;
         align-items: stretch;
     }
+
         .search-form .form-control,
         .search-form .btn-info {
             margin: 5px 0;
             width: 100%;
         }
+
         .search-form .btn-info {
             justify-content: center;
         }
@@ -1016,16 +1025,16 @@ h2 {
     background-color: #f2f2f2;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .filter-form {
         flex-direction: column;
     }
 
-    .filter-form select,
-    .filter-form .btn {
-        width: 100%;
-        margin: 5px 0;
-    }
+        .filter-form select,
+        .filter-form .btn {
+            width: 100%;
+            margin: 5px 0;
+        }
 }
 
 /*FIM TABELAS ADMIN*/
@@ -1095,7 +1104,7 @@ h2 {
         background-color: #f2f2f2;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .filter-form {
         flex-direction: column;
     }
@@ -1794,7 +1803,7 @@ input[type="range"] {
         background-color: #c82333;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .image-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Colunas ainda menores para telas muito pequenas */
     }

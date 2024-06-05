@@ -12,6 +12,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>@Html.DisplayNameFor(model => model.Cod_Pedido)</th>
                 <th>@Html.DisplayNameFor(model => model.Nome)</th>
                 <th>@Html.DisplayNameFor(model => model.DataPedido)</th>
                 <th>@Html.DisplayNameFor(model => model.Logradouro)</th>
@@ -32,13 +33,14 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td data-label="Número Pedido">@Html.DisplayFor(modelItem => item.Cod_Pedido)</td>
                     <td data-label="Nome">@Html.DisplayFor(modelItem => item.Nome)</td>
                     <td data-label="DataPedido">@Html.DisplayFor(modelItem => item.DataPedido)</td>
-                    <td data-label="Logradouro">@Html.DisplayFor(modelItem => item.Logradouro)</td>
-                    <td data-label="Numero">@Html.DisplayFor(modelItem => item.Numero)</td>
+                    <td data-label="Rua">@Html.DisplayFor(modelItem => item.Logradouro)</td>
+                    <td data-label="Número">@Html.DisplayFor(modelItem => item.Numero)</td>
                     <td data-label="Telefone">@Html.DisplayFor(modelItem => item.Telefone)</td>
-                    <td data-label="TotalItensPedido">@Html.DisplayFor(modelItem => item.TotalItensPedido)</td>
-                    <td data-label="TotalPedido">R$@item.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    <td data-label="Total Itens Pedido">@Html.DisplayFor(modelItem => item.TotalItensPedido)</td>
+                    <td data-label="Total Pedido">R$@item.TotalPedido.ToString("F2", CultureInfo.InvariantCulture)</td>
                     <td data-label="Entregue" class="status" data-status="@item.Entregue">
                         @Html.DisplayFor(modelItem => item.Entregue)
                     </td>
@@ -64,6 +66,7 @@
                     </td>
                 </tr>
             }
+            <br />
         </tbody>
     </table>
 </div>
