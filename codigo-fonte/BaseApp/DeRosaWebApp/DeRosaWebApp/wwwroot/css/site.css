@@ -910,7 +910,7 @@ p {
 
     .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
         display: block;
-        width: 100%;
+        width: auto;
     }
 
         .admin .table tr {
