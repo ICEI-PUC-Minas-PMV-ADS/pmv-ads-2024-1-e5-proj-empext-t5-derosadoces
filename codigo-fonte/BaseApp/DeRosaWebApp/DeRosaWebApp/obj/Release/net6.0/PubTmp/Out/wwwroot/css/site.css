@@ -387,6 +387,14 @@ p {
         color: white;
     }
 
+@media (max-width: 768px) {
+    #btnsmall {
+        display: block;
+        width: auto;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+}
 
 /* FIM TELA HOME */
 
@@ -585,8 +593,8 @@ p {
     }
 
 .btn-add-cart, .btn-schedule {
-    background-color: #000;
-    color: #fff;
+    background-color: rgb(48, 48, 48);
+    color: white;
     padding: 1em 1.5em;
     text-align: center;
     display: inline-block;
@@ -597,7 +605,8 @@ p {
 }
 
     .btn-add-cart:hover, .btn-schedule:hover {
-        background-color: #555;
+        background-color: rgb(225, 191, 56);
+        color: white;
     }
 
 /* Se precisar de um estilo para o link de agendamento como um botão, você pode adicionar isto */
@@ -625,7 +634,8 @@ p {
 .card1 {
     justify-content: center;
     display: flex;
-    margin: 80px
+    margin: 80px;
+    width: auto;
 }
 
 .card {
@@ -903,22 +913,27 @@ p {
         background-color: #0056b3;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .admin .table thead {
         display: none;
     }
+
     .admin .table, .admin .table tbody, .admin .table tr, .admin .table td {
         display: block;
-        width: 100%;
+        width: auto;
     }
+
         .admin .table tr {
             margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
         }
+
         .admin .table td {
             text-align: right;
             padding-left: 50%;
             position: relative;
         }
+
             .admin .table td::before {
                 content: attr(data-label);
                 position: absolute;
@@ -928,20 +943,24 @@ p {
                 font-weight: bold;
                 text-align: left;
             }
+
     .admin .actions .btn {
         display: block;
         width: 100%;
         margin: 5px 0;
     }
+
     .search-form {
         flex-direction: column;
         align-items: stretch;
     }
+
         .search-form .form-control,
         .search-form .btn-info {
             margin: 5px 0;
             width: 100%;
         }
+
         .search-form .btn-info {
             justify-content: center;
         }
@@ -1016,16 +1035,16 @@ h2 {
     background-color: #f2f2f2;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .filter-form {
         flex-direction: column;
     }
 
-    .filter-form select,
-    .filter-form .btn {
-        width: 100%;
-        margin: 5px 0;
-    }
+        .filter-form select,
+        .filter-form .btn {
+            width: 100%;
+            margin: 5px 0;
+        }
 }
 
 /*FIM TABELAS ADMIN*/
@@ -1095,7 +1114,7 @@ h2 {
         background-color: #f2f2f2;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .filter-form {
         flex-direction: column;
     }
@@ -1794,7 +1813,7 @@ input[type="range"] {
         background-color: #c82333;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .image-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Colunas ainda menores para telas muito pequenas */
     }
@@ -1917,3 +1936,295 @@ th {
     -webkit-transform: rotate(135deg);
     margin-left: 20px;
 }*/
+
+/*INICIO TELA MEUS CONTATOS*/
+
+.meus-contatos {
+    text-align: center;
+    margin: 20px;
+}
+
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.contato {
+    text-decoration: none;
+}
+
+    .contact-card:hover {
+        transform: translateY(-5px);
+    }
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-card {
+        width: 120px;
+        padding: 15px;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-card {
+        width: 100%;
+        margin: 0 10px;
+    }
+
+    .contact-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+/*FIM TELA MEUS CONTATOS*/
+
+/*INICIO CARRINHO DE COMPRAS*/
+
+.carrinho-compras {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.titulo-carrinho h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carrinho-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .carrinho-tabela th, .carrinho-tabela td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .carrinho-tabela th {
+        background-color: mistyrose;
+    }
+
+    .carrinho-tabela td {
+        color: black;
+    }
+
+.total-label {
+    text-align: right;
+}
+
+.botoes {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-carrinho {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 48, 48);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn-carrinho:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carrinho-tabela thead {
+        display: none;
+    }
+
+    .carrinho-tabela, .carrinho-tabela tbody, .carrinho-tabela tr, .carrinho-tabela td, .carrinho-tabela tfoot, .carrinho-tabela tfoot td {
+        display: block;
+        width: 100%;
+    }
+
+        .carrinho-tabela tr {
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .carrinho-tabela td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .carrinho-tabela td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+        .carrinho-tabela tfoot td {
+            text-align: right;
+            padding-left: 50%;
+        }
+
+            .carrinho-tabela tfoot td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+    .botoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-carrinho {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/*FIM CARRINHO DE COMPRAS*/
+
+/*INICIO ESCOLHA DE ENDEREÇOS*/
+
+.escolha-endereco {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+    .escolha-endereco h4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+.forma-entrega-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.card-body {
+    margin-bottom: 20px;
+}
+
+.container-escolha-endereco {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+    .container-escolha-endereco input {
+        margin-right: 10px;
+    }
+
+.container-escolha-botoes {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-endereco {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+    background-color: rgb(48,48,48);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn-endereco:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+.alerta-frete {
+    width: auto;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 4px;
+    text-align: center;
+}
+
+    .alerta-frete ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .alerta-frete li {
+        margin: 5px 0;
+    }
+
+.text-success {
+    color: green;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container-escolha-botoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-endereco {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/*FIM ESCOLHA DE ENDEREÇOS*/

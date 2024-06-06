@@ -399,116 +399,187 @@ p {
 /* FIM TELA HOME */
 
 
-.form-login{
-    width:100%;
-    margin-top:5rem;
-    height:auto;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.containerf {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.input-login {
-    width: 40%;
+.text-center {
+    text-align: center;
+}
+
+.imglogin {
+    max-width: 100%;
     height: auto;
-    margin: auto;
-}
-
-.input-senha-login{
-    display:flex;
-}
-
-.input-senha-login button{
-    border:none;
-    background:none
-}
-
-.btn-esqueci-senha {
-    border: none;
-    background: none;
-    color: red;
-    font-size: 0.8rem;
-    margin-top:10px;
-}
-
-.input-senha-login {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-    .input-senha-login .btn-toggle-password {
-        background: none;
-        border: none;
-        position: absolute;
-        right: 10px;
-        cursor: pointer;
-        padding: 0;
-    }
-
-        .input-senha-login .btn-toggle-password i {
-            font-size: 1.5em;
-        }
-@media (max-width: 768px) {
-
-    .imglogin {
-        height: 300px;
-        width: 300px;
-    }
-}
-
-/* TELA CADASTRO */
-
-.linha-vertical{
-    width:4px;
-    height:100px;
-    background-color:red;
 }
 
 .container-cadastro {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+    .container-cadastro h1 {
+        margin-bottom: 20px;
+    }
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro do contêiner */
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+.input-login {
     width: 100%;
-    height: 100%;
-    display:flex;
-    text-align:center;
-    flex-direction:column;
-    justify-content:center;
-    margin-top:20px;
+    max-width: 300px;
+    text-align: left; /* Alinha o texto dos inputs à esquerda */
 }
 
-.form-control{
+.input-senha-login {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    position: relative
+}
+
+    .input-senha-login input {
+        width: 100%;
+        padding-right: 40px;
+    }
+
+.btn-toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
     border: none;
-    border-radius:0;
-    border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
-.container-input{
-    margin:4px;
+.form-group-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-login {
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 48, 48);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Tamanho da fonte reduzido */
+    flex: 1;
+}
+
+    .btn-login:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+.btn-esqueci-senha {
+    text-align: right;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .btn-login {
+        width: 100%;
+        font-size: 14px; /* Mantendo o tamanho da fonte reduzido no mobile */
+    }
+}
+
+
+/* TELA CADASTRO */
+
+.containerf {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.imglogin {
+    max-width: 100%;
+    height: auto;
+}
+
+.container-cadastro {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .form-cadastro {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 10px;
+}
+
+.container-input {
     width: 100%;
 }
 
-.input-pequeno{
-    width:33%;
-    height:auto;
+.input-pequeno {
+    flex: 1 1 48%;
 }
 
-.btn-cadastrar-container{
-    width:100%;
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
+.btn-cadastrar-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.btn-cadastro{
-    font-size:1.2rem;
-    line-height:1.2rem;
-    width:40%;
+.btn-cadastro {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
 }
+
+    .btn-cadastro:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .imglogin {
+        margin-bottom: 30px;
+    }
+    .form-cadastro {
+        flex-direction: column;
+    }
+
+    .input-pequeno {
+        flex: 1 1 100%;
+    }
+
+    .container-input {
+        margin-bottom: 10px;
+    }
+}
+
 
 /* FIM TELA CADASTRO*/
 

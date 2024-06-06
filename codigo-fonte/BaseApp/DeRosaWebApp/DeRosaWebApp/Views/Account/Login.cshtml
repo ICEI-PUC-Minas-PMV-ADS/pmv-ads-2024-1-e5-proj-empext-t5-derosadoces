@@ -15,24 +15,22 @@
                         <form action="">
                             <div class="form-login">
                                 <div class="mb-4 input-login">
-                                    @* <label class="form-label fw-light">Usuário</label> *@
                                     <input asp-for="Usuario" class="form-control" placeholder="Usuário">
                                     <span class="text-danger" asp-validation-for="Usuario"></span>
                                     <div asp-validation-summary="All"></div>
                                 </div>
-                                <div class="mb-4  input-login">
-                                    @* <label class="form-label fw-light">Senha</label> *@
+                                <div class="mb-4 input-login">
                                     <div class="input-senha-login">
                                         <input id="password-input" type="password" asp-for="Senha" class="form-control" placeholder="Senha">
                                         <button type="button" class="btn-toggle-password" onclick="togglePasswordVisibility()">
                                             <img id="toggle-icon" src="~/Imagens/visibility_off.svg" alt="password-show" width="25" height="25">
                                         </button>
-                                    </div>                                    
-                                    <a class="btn btn-esqueci-senha" asp-controller="Account" asp-action="EsqueciSenha" role="button">Esqueci a senha</a>
+                                    </div>
+                                    <a class="btn-esqueci-senha" asp-controller="Account" asp-action="EsqueciSenha" role="button">Esqueci a senha</a>
                                 </div>
                                 <div class="form-group-login">
-                                    <button class="btn btn-success" asp-controller="Account" asp-action="Login" formmethod="post" type="submit" role="button" value="Login" id="btnsmall">Login</button>
-                                    <button class="btn btn-success" asp-controller="Cadastro" asp-action="Cadastrar" id="btnsmall" >Cadastrar</button>
+                                    <button class="btn-login" asp-controller="Account" asp-action="Login" formmethod="post" type="submit" role="button" value="Login">Login</button>
+                                    <button class="btn-login" asp-controller="Cadastro" asp-action="Cadastrar">Cadastrar</button>
                                 </div>
                             </div>
                         </form>
