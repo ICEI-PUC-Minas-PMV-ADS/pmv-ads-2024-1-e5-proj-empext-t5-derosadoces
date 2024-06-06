@@ -4,15 +4,14 @@
     var formaEntregaSelecionada = ViewBag.RetiradaLocal == "true" ? "local" : "domicilio";
 }
 
-<form asp-action="EscolhaEndereco" asp-controller="Endereco" method="post" class="form-horizontal" role="form">
-    <div class="container">
+<form asp-action="EscolhaEndereco" asp-controller="Endereco" method="post" class="escolha-endereco-form">
+    <div class="escolha-endereco">
         <h4>Escolha a forma de entrega:</h4>
         <div class="form-group">
-            <select id="formaEntrega" name="formaEntrega" class="form-control" onchange="atualizarFormaEntrega()">
+            <select id="formaEntrega" name="formaEntrega" class="forma-entrega-select" onchange="atualizarFormaEntrega()">
                 <option value="domicilio" selected="@(formaEntregaSelecionada == "domicilio" ? "true" : "false")">Entrega a domicílio</option>
                 <option value="local" selected="@(formaEntregaSelecionada == "local" ? "true" : "false")">Retirada no local</option>
             </select>
-
         </div>
         <div class="card-body">
             <h6 class="text-danger">@TempData["Erro"]</h6>
@@ -34,18 +33,17 @@
             </div>
         </div>
         <div class="container-escolha-botoes">
-            <a class="btn btn-success btn-small" asp-controller="Carrinho" asp-action="Index">Voltar</a>
-            <a class="btn btn-success" id="btnsmall" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar novo</a>
-            <input class="btn btn-success btn-endereco" id="btnsmall" type="submit" value="Confirmar endereço" />
+            <a class="btn-endereco" id="btnsmall" asp-controller="Carrinho" asp-action="Index">Voltar</a>
+            <a class="btn-endereco" id="btnsmall" asp-action="AdicionarEndereco" asp-controller="Endereco">Adicionar novo</a>
+            <input class="btn-endereco" id="btnsmall" type="submit" value="Confirmar endereço" />
         </div>
-        <div class="alerta-frete d-flex flex-column align-items-center justify-content-center text-center position-relative" style="width: 20%; margin-top: 4%;background-color: lightgray; border-radius: 4px; height: 120px;">
-            <ul class="list-unstyled m-0 p-0 d-flex flex-column justify-content-center align-items-center" style="height: 100px; width: 100%;">
-                <li>Retirada no Local: <span class="text-success ">Grátis</span></li>
-                <li>Retirada a domicílio: <span class="text-success ">R$20.00</span></li>
+        <div class="alerta-frete">
+            <ul class="frete-lista">
+                <li>Retirada no Local: <span class="text-success">Grátis</span></li>
+                <li>Entrega a domicílio: <span class="text-success">R$20.00</span></li>
             </ul>
         </div>
     </div>
-
 </form>
 
 

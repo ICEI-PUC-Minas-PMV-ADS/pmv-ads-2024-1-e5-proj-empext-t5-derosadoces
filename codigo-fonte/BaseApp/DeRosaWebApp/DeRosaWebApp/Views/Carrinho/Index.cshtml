@@ -1,74 +1,66 @@
-﻿﻿@using DeRosaWebApp.ViewModel;
+﻿@using DeRosaWebApp.ViewModel;
 @model CarrinhoViewModel
 
-<div class="container">
-    <div class="row">
-        <div>
-            <h4>Seu carrinho de compras : </h4>
-        </div>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr style="color: mistyrose;">
-                    <th>Quantidade</th>
-                    <th>Nome</th>
-                    <th>Produto</th>
-                    <th class="text-right">Preço</th>
-                    <th class="text-right">Subtotal</th>
-                    <th>Remover</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.CarrinhoCompra.ListItemCarrinho)
-                {
-                    <tr style="color: black;">
-                        <td class="text-center">@item.QntProduto</td>
-                        <td class="text-left">@item.Produto.Nome</td>
-                        <td class="text-center">
-                            @if (item.Produto.ImagemUrl.Contains("www"))
+
+<div class="carrinho-compras">
+    <div class="titulo-carrinho">
+        <h4>Seu carrinho de compras:</h4>
+    </div>
+    <table class="carrinho-tabela">
+        <thead>
+            <tr>
+                <th>Quantidade</th>
+                <th>Nome</th>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Subtotal</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CarrinhoCompra.ListItemCarrinho)
+            {
+                <tr>
+                    <td data-label="Quantidade">@item.QntProduto</td>
+                    <td data-label="Nome">@item.Produto.Nome</td>
+                    <td data-label="Produto">
+                        @if (item.Produto.ImagemUrl.Contains("www"))
+                        {
+                            <img src='@item.Produto.ImagemUrl' alt="imagemProduto" width="100" height="100" />
+                        }
+                        else
+                        {
+                            @if (item.Produto.ImagemUrl.Contains("www") || item.Produto.ImagemUrl.Contains("https") || item.Produto.ImagemUrl.Contains("http"))
                             {
-                                <img width="100" height="100" src='@item.Produto.ImagemUrl' alt="imagemProduto" />
+                                <img src='@item.Produto.ImagemUrl' alt="Imagem do Produto" style="max-width: 100px;">
                             }
                             else
                             {
-                                @if (item.Produto.ImagemUrl.Contains("www") || item.Produto.ImagemUrl.Contains("https") || item.Produto.ImagemUrl.Contains("http"))
-                                {
-                                    <img src='@item.Produto.ImagemUrl' class="mr-3" alt="Imagem do Produto" style="max-width: 100px;">
-                                }
-                                else
-                                {
-                                    <img src="@item.Produto.ImagemUrl"
-                                         alt="thumb" width="50" height="40" />
-                                }
+                                <img src="@item.Produto.ImagemUrl" alt="thumb" width="50" height="40" />
                             }
-
-                        </td>
-                        <td class="text-right"> @item.Produto.Preco.ToString("c")</td>
-                        <td class="text-right">
-                            @((item.QntProduto * item.Produto.Preco).ToString("c"))
-                        </td>
-                        <td class="text-center">
-                            <a id="btnsmall" asp-controller="Carrinho" asp-action="RemoverItemNoCarrinhoCompra"
-                               asp-route-cod_produto="@item.Produto.Cod_Produto">
-                                <img src="~/Imagens/delete.svg" alt="IconeLixeira" width="40" height="40" />
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3" class="text-right">Total: </td>
-                    <td class="text-right">@Model.CarrinhoCompraTotal.ToString("c")</td>
+                        }
+                    </td>
+                    <td data-label="Preço"> @item.Produto.Preco.ToString("c")</td>
+                    <td data-label="Subtotal">
+                        @((item.QntProduto * item.Produto.Preco).ToString("c"))
+                    </td>
+                    <td data-label="Remover">
+                        <a id="btnsmall" asp-controller="Carrinho" asp-action="RemoverItemNoCarrinhoCompra" asp-route-cod_produto="@item.Produto.Cod_Produto">
+                            <img src="~/Imagens/delete.svg" alt="IconeLixeira" width="40" height="40" />
+                        </a>
+                    </td>
                 </tr>
-            </tfoot>
-        </table>
-        <div class="text-right">
-            <div class="btn-group">
-                <a class="btn btn-success" asp-controller="Endereco" asp-action="EscolhaEndereco" id="btnsmall">Encerrar Pedido</a>
-                &nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" asp-controller="Home" asp-action="Index" id="btnsmall">Continuar comprando</a>
-            </div>
-        </div>
-
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="total-label" data-label="Total">Total: </td>
+                <td data-label="Total">@Model.CarrinhoCompraTotal.ToString("c")</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="botoes">
+        <a href="@Url.Action("EscolhaEndereco", "Endereco")" class="btn-carrinho" id="btnsmall">Encerrar Pedido</a>
+        <a href="@Url.Action("Index", "Home")" class="btn-carrinho" id="btnsmall">Continuar comprando</a>
     </div>
 </div>
