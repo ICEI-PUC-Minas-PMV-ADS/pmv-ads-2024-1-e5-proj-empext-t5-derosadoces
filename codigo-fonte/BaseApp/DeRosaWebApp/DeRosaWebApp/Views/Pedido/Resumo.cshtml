@@ -2,13 +2,6 @@
 @using DeRosaWebApp.Repository.Interfaces;
 @model Pedido
 
-@{
-    // Calcular o valor total do pedido incluindo o frete
-    double totalPedido = ViewBag.TotalPedido != null ? (double)ViewBag.TotalPedido : 0.0;
-    double frete = Model.Frete != null ? (double)Model.Frete : 0.0;
-    double valorTotal = totalPedido + frete;
-}
-
 <div class="checkout-resumo-container">
     <div class="checkout-resumo-jumbotron">
         <h2>@ViewBag.CheckoutCompletoMensagem</h2>
@@ -45,14 +38,14 @@
             </table>
             <h4>
                 Valor Total do Pedido: <strong class="checkout-resumo-total-pedido">
-                    @(valorTotal.ToString("C2", CultureInfo.CurrentCulture)) (com Frete 
-                    @if (frete < 20)
+                    @(ViewBag.TotalPedido.ToString("C2", CultureInfo.CurrentCulture)) (com Frete 
+                    @if (Model.Frete < 20)
                     {
                         <span>Grátis</span>
                     }
                     else
                     {
-                        <span>de R$ @frete.ToString("F2", CultureInfo.InvariantCulture)</span>
+                        <span>de R$ @Model.Frete.ToString("F2", CultureInfo.InvariantCulture)</span>
                     })
                 </strong>
             </h4>
@@ -63,7 +56,7 @@
     </div>
     <p>Você tem até <strong>@Model.DataExpiracao</strong> para realizar o pagamento</p>
     <div class="checkout-resumo-form-group">
-        <a class="btn btn-primary" asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido" asp-route-total="@valorTotal">Pagar</a>
+        <a class="btn btn-primary" asp-action="Payment" asp-controller="Payment" asp-route-cod_pedido="@Model.Cod_Pedido">Pagar</a>
     </div>
 </div>
 
