@@ -1,0 +1,78 @@
+@model PeckProductsApp.Models.ProdutoPack
+
+@{
+    ViewData["Title"] = "Editar Pack de Produto";
+}
+
+<h1>Editar Pack de Produto</h1>
+
+<h4>ProdutoPack</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeUnidades" class="control-label"></label>
+                <input asp-for="QuantidadeUnidades" class="form-control" />
+                <span asp-validation-for="QuantidadeUnidades" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Sabores</label>
+                <button type="button" id="addSabor" class="btn btn-primary">Adicionar Sabor</button>
+                <div id="saboresList">
+                    @foreach (var sabor in Model.Sabores)
+                    {
+                        <div class="input-group mb-3">
+                            <input type="text" name="sabores" value="@sabor.Nome" class="form-control" />
+                            <div class="input-group-append">
+                                <button class="btn btn-danger remove-sabor" type="button">Remover</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('addSabor').addEventListener('click', function () {
+            var saboresList = document.getElementById('saboresList');
+            var saborDiv = document.createElement('div');
+            saborDiv.className = 'input-group mb-3';
+            var saborInput = document.createElement('input');
+            saborInput.name = 'sabores';
+            saborInput.className = 'form-control';
+            var removeButton = document.createElement('button');
+            removeButton.className = 'btn btn-danger remove-sabor';
+            removeButton.type = 'button';
+            removeButton.innerText = 'Remover';
+            saborDiv.appendChild(saborInput);
+            var inputGroupAppend = document.createElement('div');
+            inputGroupAppend.className = 'input-group-append';
+            inputGroupAppend.appendChild(removeButton);
+            saborDiv.appendChild(inputGroupAppend);
+            saboresList.appendChild(saborDiv);
+        });
+
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('remove-sabor')) {
+                e.target.closest('.input-group').remove();
+            }
+        });
+    </script>
+}

@@ -1,0 +1,39 @@
+@model PeckProductsApp.Models.ProdutoPack
+
+@{
+    ViewData["Title"] = "Excluir Pack de Produto";
+}
+
+<h1>Excluir Pack de Produto</h1>
+
+<h3>Você tem certeza que deseja excluir este pack de produto?</h3>
+<div>
+    <h4>ProdutoPack</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nome
+        </dd>
+        <dt class="col-sm-2">
+            Quantidade de Unidades
+        </dt>
+        <dd class="col-sm-10">
+            @Model.QuantidadeUnidades
+        </dd>
+        <dt class="col-sm-2">
+            Valor
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Valor
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

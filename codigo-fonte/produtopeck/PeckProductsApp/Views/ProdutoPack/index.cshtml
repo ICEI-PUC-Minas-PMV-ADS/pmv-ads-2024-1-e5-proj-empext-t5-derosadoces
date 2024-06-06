@@ -1,0 +1,36 @@
+@model IEnumerable<PeckProductsApp.Models.ProdutoPack>
+
+@{
+    ViewData["Title"] = "Packs de Produtos";
+}
+
+<h1>Packs de Produtos</h1>
+
+<p>
+    <button onclick="location.href='@Url.Action("Create", "ProdutoPack")'" class="btn btn-primary">Adicionar Novo Pack</button>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade de Unidades</th>
+            <th>Valor</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.QuantidadeUnidades</td>
+                <td>@item.Valor</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

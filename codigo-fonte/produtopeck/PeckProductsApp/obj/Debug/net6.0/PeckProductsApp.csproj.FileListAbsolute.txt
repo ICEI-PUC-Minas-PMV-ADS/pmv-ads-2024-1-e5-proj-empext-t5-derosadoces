@@ -1,0 +1,8 @@
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.csproj.AssemblyReference.cache
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.AssemblyInfoInputs.cache
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.AssemblyInfo.cs
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.csproj.CoreCompileInputs.cache
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.RazorAssemblyInfo.cache
+C:\Users\jhody.mike.da.silva\Desktop\produtopeck\PeckProductsApp\obj\Debug\net6.0\PeckProductsApp.RazorAssemblyInfo.cs

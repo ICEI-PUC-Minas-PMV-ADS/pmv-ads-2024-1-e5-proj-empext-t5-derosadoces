@@ -1,0 +1,46 @@
+@model PeckProductsApp.Models.ProdutoPack
+
+@{
+    ViewData["Title"] = "Criar Novo Pack de Produto";
+}
+
+<h1>Criar Novo Pack de Produto</h1>
+
+<h4>ProdutoPack</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" id="Nome" placeholder="Nome do Pack" required />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeUnidades" class="control-label"></label>
+                <input asp-for="QuantidadeUnidades" class="form-control" id="QuantidadeUnidades" placeholder="Quantidade de Unidades" required />
+                <span asp-validation-for="QuantidadeUnidades" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" id="Valor" placeholder="Valor" required />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="sabor1">Sabor 1</label>
+                <input type="text" id="sabor1" name="Sabores" class="form-control" placeholder="Adicionar Sabor 1" aria-label="Adicionar Sabor 1" required />
+            </div>
+            <div class="form-group">
+                <label for="sabor2">Sabor 2</label>
+                <input type="text" id="sabor2" name="Sabores" class="form-control" placeholder="Adicionar Sabor 2" aria-label="Adicionar Sabor 2" />
+            </div>
+            <div class="form-group">
+                <label for="sabor3">Sabor 3</label>
+                <input type="text" id="sabor3" name="Sabores" class="form-control" placeholder="Adicionar Sabor 3" aria-label="Adicionar Sabor 3" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
