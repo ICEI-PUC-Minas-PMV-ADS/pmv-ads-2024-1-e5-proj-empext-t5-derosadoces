@@ -150,12 +150,12 @@ namespace DeRosaWebApp.Controllers
 
                 if (getString == "true")
                 {
-                    pedido.Logradouro = "Rua Exemplo";
-                    pedido.Bairro = "Bairro Exemplo";
-                    pedido.Cep = "00000-000";
+                    pedido.Logradouro = "Alameda Serra dos Ipês Rosa";
+                    pedido.Bairro = "Bairro Serras Altas";
+                    pedido.Cep = "37.718-522";
                     pedido.Cidade = "Poços de Caldas";
-                    pedido.Numero = 123;
-                    pedido.Complemento = "Complemento Exemplo";
+                    pedido.Numero = 81;
+                    pedido.Complemento = "Condomínio Residencial Serras Altas Golf State";
                     pedido.Estado = "MG";
                 }
                 else
