@@ -1743,7 +1743,7 @@ input[type="range"] {
     width: 100%;
     padding: 10px;
     font-size: 1.2em;
-    background-color: #007bff;
+    background-color: rgb(48, 48, 48);
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -1751,7 +1751,8 @@ input[type="range"] {
 }
 
     .payment-submit:hover {
-        background-color: #0056b3;
+        background-color: rgb(225, 191, 56);
+        color: white;
     }
 
 .payment-alternative {
@@ -2318,3 +2319,38 @@ th {
 }
 
 /*FIM ESCOLHA DE ENDEREÇOS*/
+
+
+/*INICIO TELA SUCESSO NO PAGAMENTO*/
+
+/* Centralização e estilo geral */
+.pg-efetuado-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pg-efetuado-img-check {
+    margin-top: 20px;
+}
+
+/* Estilo responsivo para telas menores */
+@media (max-width: 768px) {
+    .pg-efetuado-container {
+        padding: 0 20px;
+    }
+
+        .pg-efetuado-container h1 {
+            font-size: 24px;
+        }
+
+        .pg-efetuado-container p {
+            font-size: 16px;
+        }
+
+    .pg-efetuado-img-check img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/*FIM TELA SUCESSO NO PAGAMENTO*/
