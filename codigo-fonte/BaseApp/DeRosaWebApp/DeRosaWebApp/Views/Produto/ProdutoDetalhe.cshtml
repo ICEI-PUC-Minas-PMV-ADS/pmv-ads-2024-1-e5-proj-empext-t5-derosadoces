@@ -2,7 +2,7 @@
 @using System.Globalization;
 @model ProdutoDetalheViewModel
 
-<div class="product-details-container">
+<div class="product-details-container" style="padding: 0 auto;"> 
     <div class="product-image">
         @if (Model.Produto.Value.ImagemUrl.Contains("www") || Model.Produto.Value.ImagemUrl.Contains("https") || Model.Produto.Value.ImagemUrl.Contains("http"))
         {
@@ -15,8 +15,8 @@
 
     </div>
     <div class="product-details">
-        <h1 class="product-title">@Model.Produto.Value.Nome</h1>
-        <p class="product-description">@Model.Produto.Value.DescricaoCurta</p>
+        <h1 class="product-title" style="">@Model.Produto.Value.Nome</h1>
+        <p class="card-text fs-7 fst-italic" style="font-family:'Linux Libertine G';">@Model.Produto.Value.DescricaoCurta</p>
         @if (Model.Produto.Value.Promocional)
         {
             <h2 class="product-price">R$@Model.Produto.Value.PrecoSecundario.ToString("F2", CultureInfo.InvariantCulture)</h2>
