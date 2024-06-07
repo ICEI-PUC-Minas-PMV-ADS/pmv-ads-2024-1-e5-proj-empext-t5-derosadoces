@@ -88,7 +88,7 @@
     </dd>
 
     </dl> *@
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="Index" class="create-button">Voltar para a lista</a>
 
 </div>
 
@@ -145,7 +145,7 @@
     </table>
     <form asp-action="Delete">
         <input type="hidden" asp-for="@Model._Produto.Cod_Produto" />
-        <input type="submit" value="Deletar" class="btn btn-danger" />
+        <input type="submit" value="Deletar" class="create-button" />
     </form>
 
 

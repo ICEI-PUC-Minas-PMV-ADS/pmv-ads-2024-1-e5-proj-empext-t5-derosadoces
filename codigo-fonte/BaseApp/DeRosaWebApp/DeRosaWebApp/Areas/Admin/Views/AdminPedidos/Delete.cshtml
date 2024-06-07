@@ -71,7 +71,7 @@
 
     <form asp-area="Admin" asp-controller="AdminPedidos" asp-action="DeleteConfirmed" asp-route-id="@Model.Cod_Pedido" method="post">
         <input type="hidden" asp-for="Cod_Pedido" />
-        <input type="submit" value="Deletar" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-secondary">Voltar para a lista</a>
+        <input type="submit" value="Deletar" class="create-button" />
+        <a asp-action="Index" class="create-button">Voltar para a lista</a>
     </form>
 </div>

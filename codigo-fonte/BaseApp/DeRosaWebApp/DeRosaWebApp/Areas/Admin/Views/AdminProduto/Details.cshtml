@@ -93,7 +93,7 @@
     </dl> *@
 </div>
 <div>
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="Index" class="create-button">Voltar para a lista</a>
 </div>
 
 <div class="tab-detail">
@@ -147,7 +147,7 @@
             <td>@Html.DisplayFor(model => model._Categoria.IdCategoria)</td>
         </tr>
     </table>
-    <a asp-action="Edit" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a>
+    <a class="create-button" asp-action="Edit" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a>
 </div>
 
 <style>

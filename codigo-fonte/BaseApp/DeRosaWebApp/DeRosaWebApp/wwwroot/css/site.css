@@ -838,7 +838,7 @@ p {
 
 .admin .table {
     width: auto;
-    margin: 20px;
+    margin: 20px auto;
     border-collapse: collapse;
     font-family: 'Montserrat', monospace;
     font-size: 14px;
@@ -969,7 +969,7 @@ p {
     display: inline-block;
     margin-left: 30px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: rgb(48, 48, 48);
     color: white;
     border: none;
     border-radius: 5px;
@@ -977,11 +977,12 @@ p {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    width:auto;
+    width: auto;
 }
 
     .create-button:hover {
-        background-color: #0056b3;
+        background-color: rgb(225, 191, 56);
+        color: white;
     }
 
 @media (max-width: 768px) {
@@ -1311,6 +1312,21 @@ h2 {
     text-align: center;
 }
 
+.radio-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .radio-container input[type="radio"] {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .radio-container label {
+        margin: 0;
+    }
+
 @media (max-width: 768px) {
     .Admin-pedidos-titulo {
         font-size: 1.5em;
@@ -1363,7 +1379,10 @@ input[type="range"] {
     -webkit-appearance: none; /* Remove a aparência padrão no WebKit */
     appearance: none;
     margin: 10px 0; /* Fornece um espaçamento uniforme */
+
+
 }
+
 @media (max-width: 375px){
     input[type="range"] {
         width: 30%;

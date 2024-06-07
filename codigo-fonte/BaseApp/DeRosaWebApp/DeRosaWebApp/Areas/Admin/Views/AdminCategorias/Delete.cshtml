@@ -10,7 +10,7 @@
     <hr />
 
     <div class="cat-detail-btns">
-        <a asp-action="Index">Voltar para a lista</a>
+        <a asp-action="Index" class="create-button">Voltar para a lista</a>
     </div>
 
     @*  <dl class="row">
@@ -44,7 +44,7 @@
                 <td>
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="IdCategoria" />
-                        <input type="submit" value="Deletar" class="btn" />
+                        <input type="submit" value="Deletar" class="create-button" />
                     </form>
                 </td>
             </tr>

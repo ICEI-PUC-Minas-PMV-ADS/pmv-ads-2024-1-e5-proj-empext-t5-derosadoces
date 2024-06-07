@@ -24,7 +24,7 @@
 <hr />
 
 <div>
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="Index" class="create-button">Voltar para a lista</a>
 </div>
 
 <div class="row custom-product">
@@ -104,15 +104,16 @@
 
             <div class="form-group">
                 <label asp-for="@Model.Produto.ProdutoDaSemana" class="control-label">Produto da Semana</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="produtoSemanaSim" name="ProdutoSemana" value="1" checked>
-                    <label class="form-check-label" for="produtoSemanaSim">Sim</label>
+                <div class="radio-container">
+                    <input type="radio" id="produtoSemanaSim" name="ProdutoSemana" value="1" checked>
+                    <label for="produtoSemanaSim">Sim</label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="produtoSemanaNao" name="ProdutoSemana" value="0">
-                    <label class="form-check-label" for="produtoSemanaNao">Não</label>
+                <div class="radio-container">
+                    <input type="radio" id="produtoSemanaNao" name="ProdutoSemana" value="0">
+                    <label for="produtoSemanaNao">Não</label>
                 </div>
             </div>
+
 
 
 

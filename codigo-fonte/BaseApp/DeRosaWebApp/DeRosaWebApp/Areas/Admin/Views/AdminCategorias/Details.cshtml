@@ -9,7 +9,7 @@
     <h4 class="cat-title"> Detalhes categoria</h4>
     <hr />
     <div>
-        <a asp-action="Index">Voltar para a lista</a>
+        <a asp-action="Index" class="create-button">Voltar para a lista</a>
     </div>
     @* <dl class="row custom-cat-detail">
     <dt class="col-sm-2">
@@ -40,7 +40,7 @@
             <tr>
                 <td>@Html.DisplayFor(model => model.CategoriaNome)</td>
                 <td>@Html.DisplayFor(model => model.IdCategoria)</td>
-                <td><a asp-action="Edit" asp-route-id="@Model?.IdCategoria" class="btn">Edit</a> </td>
+                <td><a asp-action="Edit" asp-route-id="@Model?.IdCategoria" class="create-button">Edit</a> </td>
             </tr>
         </table>
 
