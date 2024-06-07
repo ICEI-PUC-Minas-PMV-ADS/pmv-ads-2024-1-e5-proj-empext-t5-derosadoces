@@ -11,89 +11,9 @@
 <div>
     <h4 class="cat-title">Detalhes do produto</h4>
     <hr />
-    @* <dl class="row">
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.Cod_Produto)
-    </dt>
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model._Produto.Cod_Produto)
-    </dd>
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.Nome)
-    </dt>
-    <dd class = "col-sm-10">
-    @Html.DisplayFor(model => model._Produto.Nome)
-    </dd>
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.Preco)
-    </dt>
-    <dd class = "col-sm-10">
-    @Model._Produto.Preco.ToString("F2",CultureInfo.InvariantCulture)
-    </dd>
-
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.EmEstoque)
-    </dt>
-    <dd class = "col-sm-10">
-    @Html.DisplayFor(model => model._Produto.EmEstoque)
-    </dd>
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.ImagemUrl)
-    </dt>
-    <dd class = "col-sm-10">
-    <img src="@Model._Produto.ImagemUrl" alt="imagem_produto_@Model._Produto.Nome" />
-    </dd>
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.DescricaoCurta)
-    </dt>
-    <dd class = "col-sm-10">
-    @Html.DisplayFor(model => model._Produto.DescricaoCurta)
-    </dd>
-
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.PrecoSecundario)
-    </dt>
-
-    <dd class = "col-sm-10">
-    @Model._Produto.PrecoSecundario.ToString("F2",CultureInfo.InvariantCulture)
-    </dd>
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.Indisponivel)
-    </dt>
-
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model._Produto.Indisponivel)
-    </dd>
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.EstoqueAgendamento)
-    </dt>
-
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model._Produto.EstoqueAgendamento)
-    </dd>
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model._Produto.Promocional)
-    </dt>
-
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model._Produto.Promocional)
-    </dd>
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model._Categoria.IdCategoria)
-    </dt>
-    <dd class = "col-sm-10">
-    @Html.DisplayFor(model => model._Categoria.IdCategoria)
-    </dd>
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model._Categoria.CategoriaNome)
-    </dt>
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model._Categoria.IdCategoria)
-    </dd>
-    </dl> *@
 </div>
-<div>
-    <a asp-action="Index" class="create-button">Voltar para a lista</a>
+<div class="btn-edit-div">
+    <a asp-action="Index" class="btn">Voltar </a>
 </div>
 
 <div class="tab-detail">
@@ -147,8 +67,11 @@
             <td>@Html.DisplayFor(model => model._Categoria.IdCategoria)</td>
         </tr>
     </table>
-    <a class="create-button" asp-action="Edit" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a>
+    <div class="btn-edit-div">
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?._Produto.Cod_Produto">Editar</a>
+    </div>
 </div>
+
 
 <style>
 

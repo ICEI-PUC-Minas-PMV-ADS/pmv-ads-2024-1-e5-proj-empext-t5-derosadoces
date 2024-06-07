@@ -8,25 +8,9 @@
 <div>
     <h4 class="cat-title"> Detalhes categoria</h4>
     <hr />
-    <div>
-        <a asp-action="Index" class="create-button">Voltar para a lista</a>
-    </div>
-    @* <dl class="row custom-cat-detail">
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.IdCategoria)
-    </dt>
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model.IdCategoria)
-    </dd>
-
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model.CategoriaNome)
-    </dt>
-    <dd class = "col-sm-10">
-    @Html.DisplayFor(model => model.CategoriaNome)
-    </dd>
-
-    </dl> *@
+    <div class="btn-edit-div">
+    <a asp-action="Index" class="btn">Voltar </a>
+</div>
 </div>
 
 <div class="custom-cat-detail">
@@ -40,14 +24,13 @@
             <tr>
                 <td>@Html.DisplayFor(model => model.CategoriaNome)</td>
                 <td>@Html.DisplayFor(model => model.IdCategoria)</td>
-                <td><a asp-action="Edit" asp-route-id="@Model?.IdCategoria" class="create-button">Edit</a> </td>
+                <td>
+                    <div class="btn-edit-div">
+                        <a asp-action="Edit" asp-route-id="@Model?.IdCategoria" class="btn">Edit</a> 
+                     </div>
+                </td>
             </tr>
-        </table>
-
-        @* <div class="cat-detail-btns">
-        <a asp-action="Index">Voltar para a lista</a>
-        </div> *@
-
+        </table
     </div>
 
 

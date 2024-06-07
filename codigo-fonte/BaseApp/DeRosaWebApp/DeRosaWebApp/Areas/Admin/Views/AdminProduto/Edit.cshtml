@@ -23,8 +23,8 @@
 
 <h4 class="cat-title">Editar produto</h4>
 <hr />
-<div class="icon-test">
-    <a class="create-button" asp-action="Index">Voltar para a lista</a>
+<div class="btn-edit-div">
+    <a asp-action="Index" class="btn">Voltar </a>
 </div>
 <div class="row custom-product">
 
@@ -54,15 +54,16 @@
                     @foreach (var image in Model.AvailableImages)
                     {
                         <img src="@Url.Content("~/Imagens/Produtos/" + image)" alt="@image" class="img-thumbnail img-selectable"
-                             data-image="@Url.Content("~/Imagens/Produtos/" + image)" style="width: 100px; height: auto; cursor: pointer;">
+                             data-image="@Url.Content("~/Imagens/Produtos/" + image)" style="width: 90px; height: auto; cursor: pointer;">
                     }
                 </div>
                 <input type="hidden" id="imagemUrlField" asp-for="@Model.Produto.ImagemUrl" />
 
                 <span asp-validation-for="@Model.Produto.ImagemUrl" class="text-danger"></span>
             </div>
-            <a class="btn btn-success" id="btnsmall" asp-area="Admin" asp-action="Index" asp-controller="AdminImagens">Ou adicione outra imagem</a>
-
+            <div class="custom-btn-add-img">
+                <a class="btn btn-success custom-btn-add" asp-area="Admin" asp-action="Index" asp-controller="AdminImagens">Ou adicione outra imagem</a>
+            </div>
             <div class="form-group">
                 <label asp-for="@Model.Produto.DescricaoCurta" class="control-label"></label>
                 <input asp-for="@Model.Produto.DescricaoCurta" class="form-control" />
@@ -110,7 +111,7 @@
 
 
             <div class="form-group">
-                <input type="submit" id="btnsmall" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>

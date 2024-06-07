@@ -1916,6 +1916,7 @@ input[type="range"] {
 
 .cat-title {
     margin-top: 15px;
+    margin-left: 18px;
     font-family: Montserrat;
 }
 
@@ -1927,26 +1928,12 @@ input[type="range"] {
     font-size: 0.8rem;
 }
 
-/*.custom-cat-edit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.custom-cat-detail {
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}*/
-
 .tab-detail {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
     flex-direction: column;
-    
 }
 
 
@@ -1954,14 +1941,13 @@ input[type="range"] {
     border-collapse: collapse;
     width: 30%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    font-size:1rem
+    font-size: 1rem
 }
 
     .table-cat-detail td, .table-cat-detail th {
         border: 1px solid #dddddd;
         text-align: center;
         padding: 8px;
-        
     }
 
     .table-cat-detail th {
@@ -1970,17 +1956,17 @@ input[type="range"] {
     }
 
 
-/*-------------------PRODUTOS-------------------------*/
+/*-------------------PRODUTOS------------------------- ALEX*/
+
 
 .custom-product {
+    display: flex;
     justify-content: center;
     margin-top: 10px;
     font-size: 0.8rem;
+    padding: 20px;
 }
 
-.picker-img-test {
-    width: 110%;
-}
 
 .custom-quant-edit {
     margin-top: 15px;
@@ -2012,21 +1998,18 @@ th {
     height: 40%;
 }
 
-/*.icon-test {
-    width: 80px;
-    height: 60px;
-    cursor: pointer;
+.form-group input[type=radio] {
+    width: auto !important;
 }
 
-.arrow-return {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 6px;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    margin-left: 20px;
-}*/
+.custom-btn-add-img {
+    text-align: center;
+}
+
+.btn-edit-div {
+    width: 200px;
+    text-align: center;
+}
 
 /*INICIO TELA MEUS CONTATOS*/
 

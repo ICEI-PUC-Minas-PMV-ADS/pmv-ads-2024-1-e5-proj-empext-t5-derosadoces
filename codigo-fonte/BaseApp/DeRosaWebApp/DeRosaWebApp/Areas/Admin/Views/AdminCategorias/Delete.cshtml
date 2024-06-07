@@ -9,25 +9,10 @@
     <h4 class="cat-title">Deletar categoria</h4>
     <hr />
 
-    <div class="cat-detail-btns">
-        <a asp-action="Index" class="create-button">Voltar para a lista</a>
+    <div class="btn-edit-div">
+        <a asp-action="Index" class="btn">Voltar </a>
     </div>
 
-    @*  <dl class="row">
-    <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.IdCategoria)
-    </dt>
-    <dd class="col-sm-10">
-    @Html.DisplayFor(model => model.IdCategoria)
-    </dd>
-    <dt class = "col-sm-2">
-    @Html.DisplayNameFor(model => model.CategoriaNome)
-    </dt>
-    <dd class = "col-sm-10">
-    @Html.DisplayFor(model => model.CategoriaNome)
-    </dd>
-
-    </dl> *@
 </div>
 
 <div class="custom-cat-detail">
@@ -42,23 +27,20 @@
                 <td>@Html.DisplayFor(model => model.CategoriaNome)</td>
                 <td>@Html.DisplayFor(model => model.IdCategoria)</td>
                 <td>
-                    <form asp-action="Delete">
-                        <input type="hidden" asp-for="IdCategoria" />
-                        <input type="submit" value="Deletar" class="create-button" />
-                    </form>
+                    <div class="btn-edit-div">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="IdCategoria" />
+                            <input type="submit" value="Deletar" class="btn" />
+                        </form>
+                    </div>
                 </td>
             </tr>
         </table>
-
-        @* <div class="cat-detail-btns">
-        <a asp-action="Index">Voltar para a lista</a>
-        </div> *@
     </div>
-</div>
 
-<style>
+    <style>
 
-    * {
-        font-family: Montserrat;
-    }
-</style>
+        * {
+            font-family: Montserrat;
+        }
+    </style>
