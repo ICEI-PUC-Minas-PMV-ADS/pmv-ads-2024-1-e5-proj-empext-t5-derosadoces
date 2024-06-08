@@ -167,10 +167,28 @@ Plano de Testes: Funcionalidade de Login
 
 |Caso de teste   | CT-17 - Teste Edição de Categoria.:
 |------|------------------------|
-|Requisitos associados | RF-15 A aplicação deve permitir somente ao administrador do site adicionar categorias de produtos
-|Objetivo do teste | O sistema deve permitir que o administrador adicione categorias de produtos. 
+|Requisitos associados | RF-16 A aplicação deve permitir somente ao administrador do site editar categorias de produtos
+|Objetivo do teste | O sistema deve permitir que o administrador edite categorias de produtos. 
 |Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Categorias. </li> <li> Clicar em Editar. </li> <li> Preencher o nome da categoria e clicar em Salvar. </li>
 |Critérios de Êxito | <ul> <li>O sistema deve editar categoria. </li>
+
+<br>
+
+|Caso de teste   | CT-18 - Teste Exclusão de Categoria.:
+|------|------------------------|
+|Requisitos associados | RF-17 A aplicação deve permitir somente ao administrador do site excluir categorias de produtos
+|Objetivo do teste | O sistema deve permitir que o administrador exclua categorias de produtos. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Categorias. </li> <li> Clicar em Deletar. </li> <li> Clicar em Deletar. </li>
+|Critérios de Êxito | <ul> <li>O sistema deve excluir a categoria. </li>
+
+<br>
+
+|Caso de teste   | CT-19 - Teste Conclusão do Pedido.:
+|------|------------------------|
+|Requisitos associados | RF-19 A aplicação deve permitir somente ao administrador do site relatar que um pedido já foi entregue ou concluído
+|Objetivo do teste | O sistema deve permitir que o administrador finalize ou conclua um pedido. 
+|Passos | <ol><li> Fazer Login como administrador. </li> <li> Acessar a página Área de administração. </li> <li> Clicar em Pedidos. </li> <li> Clicar em Editar. </li> <li> Marcar os campos Já foi Entregue ou Já foi Preparado. </li> <li> Clicar em Salvar. </li>
+|Critérios de Êxito | <ul> <li>O sistema deve mostrar que o pedido já foi preparado e/ou concluído. </li>
 
 <br>
 
@@ -178,7 +196,7 @@ Os testes unitários a serem realizados na aplicação são descritos a seguir.
 
 <br>
 
-|Caso de teste   | CT-0 - Teste de Cadastro de Novos Produtos:
+|Caso de teste   | CT-20 - Teste de Cadastro de Novos Produtos:
 |------|-----------------------------------------|
 |Requisitos associados | RF-01​2  A aplicação deve permitir somente ao administrador do site adicionar produtos para venda
 |Objetivo do teste | O sistema deve permitir cadastro de novos produtos. 
@@ -275,11 +293,27 @@ No primeiro momento foi retornado um erro, mostrado a seguir, mas o erro foi cor
 ![Figura 30](img/criarcategoria3.png)
 
 ### CT-17 - Teste Edição de Categoria
-![Figura 28](img/editarcategoria.png)
+![Figura 31](img/editarcategoria.png)
 
-![Figura 29](img/editarcategoria2.png)
+![Figura 32](img/editarcategoria2.png)
 
-![Figura 30](img/editarcategoria3.png)
+![Figura 33](img/editarcategoria3.png)
 
-### CT-0 - Teste Unitário de Adição de Novo Produto
-![Figura 1](img/testeUnitario.jpg)
+### CT-18 - Teste Exclusão de Categoria
+![Figura 34](img/deletarcategoria.png)
+
+![Figura 35](img/deletarcategoria2.png)
+
+![Figura 36](img/deletarcategoria3.png)
+
+### CT-19 - Teste Conclusão do Pedido
+![Figura 37](img/concluirpedido.png)
+
+![Figura 38](img/concluirpedido2.png)
+
+![Figura 39](img/concluirpedido3.png)
+
+![Figura 40](img/concluirpedido4.png)
+
+### CT-20 - Teste Unitário de Adição de Novo Produto
+![Figura 41](img/testeUnitario.jpg)
