@@ -19,6 +19,7 @@ namespace DeRosaWebApp.Repository.Interfaces
         Task<ActionResult<Produto>> AddTestProduct(Produto produto);
         Task<int> QuantidadeEmEstoque(int cod_produto);
         Task<int> QuantidadeEmEstoqueAgendamento(int cod_produto);
+        IQueryable<Produto> GetProdutosCategoriaPagination(int categoriaId);
         int VerifyQnt();
     }
 }

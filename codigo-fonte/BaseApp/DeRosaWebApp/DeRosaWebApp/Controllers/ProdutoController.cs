@@ -3,6 +3,8 @@ using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using DeRosaWebApp.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
+using System.Collections.Generic;
 
 namespace DeRosaWebApp.Controllers
 {
@@ -17,7 +19,7 @@ namespace DeRosaWebApp.Controllers
         {
             _produtos = produtos;
             _categorias = categorias;
-            _pedidoService = pedidoService; 
+            _pedidoService = pedidoService;
         }
         #endregion
         #region Produto Detalhe
@@ -35,41 +37,68 @@ namespace DeRosaWebApp.Controllers
         }
         #endregion
         #region Todos os produtos
-        public async Task<IActionResult> Produtos()
+        [Route("Produtos")]
+        [HttpGet]
+        public async Task<IActionResult> Produtos(string filter, int pageIndex = 1, string sort = "Nome")
         {
-            var produtos = await _produtos.GetAll();
-            var categorias = _categorias.GetAllCategorias();
-            if (produtos is not null && categorias is not null)
-            {
-                TodosProdutosViewModel todosProdutosViewModel = new TodosProdutosViewModel()
-                {
-                    _Produtos = produtos.Value,
-                    _Categorias = categorias
-                };
-                return View(todosProdutosViewModel);
-            }
-            ViewBag.Title = "Todos os Produtos";
-            return produtos.Result;
-        }
-        #endregion
-        #region Produto pela categoria
-        public async Task<IActionResult> ProdutoByCategoria(int cod_categoria)
-        {
-            var prodCatg = await _categorias.GetByCategoria(cod_categoria);
-            string categoriaNome = _categorias.GetNameById(cod_categoria);
-
+            var prodCatg = _produtos.PaginationProduct();
             var categorias = _categorias.GetAllCategorias();
             if (prodCatg is null)
             {
                 ModelState.AddModelError("Erro", "Nenhum produto com essa categoria");
             }
+
+            if (!string.IsNullOrWhiteSpace(filter))
+            {
+                prodCatg = prodCatg.Where(p => p.Nome.Contains(filter));
+            }
+            var model = await PagingList.CreateAsync(prodCatg, 5, pageIndex, sort, "Nome");
+            model.Action = "Produtos"; 
+            model.RouteValue = new RouteValueDictionary {
+            { "filter", filter },
+            { "sort", sort }
+            };
             TodosProdutosViewModel todosProdutosViewModel = new TodosProdutosViewModel()
             {
-                _Produtos = prodCatg.Value,
-                _Categorias = categorias
+                _Produtos = model,
+                _Categorias = categorias,
+                TotalRecordCount = model.Count
             };
-            ViewBag.Titulo = $"{categoriaNome}";
-            return View("Produtos",todosProdutosViewModel);
+            return View("Produtos", todosProdutosViewModel);
+        }
+        #endregion
+        #region Produto pela categoria
+        [Route("Produtos/Categoria/{cod_categoria}")]
+        public async Task<IActionResult> ProdutoByCategoria(int cod_categoria, string filter, int pageIndex = 1, string sort = "Nome")
+        {
+            var prodCatg = _produtos.GetProdutosCategoriaPagination(cod_categoria);
+            string categoriaNome = "";
+            var categorias = _categorias.GetAllCategorias();
+
+            if (prodCatg is null)
+            {
+                ModelState.AddModelError("Erro", "Nenhum produto com essa categoria");
+            }
+            if (cod_categoria == 0)
+            {
+                categoriaNome = "Produto não encontrado!";
+            }
+
+            if (!string.IsNullOrWhiteSpace(filter))
+            {
+                prodCatg = prodCatg.Where(p => p.Nome.Contains(filter));
+            }
+
+            var model = await PagingList.CreateAsync(prodCatg, 5, pageIndex, sort, "Nome");
+            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+            TodosProdutosViewModel todosProdutosViewModel = new TodosProdutosViewModel()
+            {
+                _Produtos = model,
+                _Categorias = categorias,
+                TotalRecordCount = model.Count
+            };
+
+            return View("Produtos", todosProdutosViewModel);
         }
     }
     #endregion

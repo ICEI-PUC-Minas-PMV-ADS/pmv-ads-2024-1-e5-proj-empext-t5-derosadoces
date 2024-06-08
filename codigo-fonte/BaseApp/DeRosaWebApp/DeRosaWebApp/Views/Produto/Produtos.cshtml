@@ -1,5 +1,6 @@
 ﻿@model TodosProdutosViewModel
 
+
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -64,31 +65,42 @@
         background: rgba(193, 157, 86, 1);
         height: 10px;
         width: 10px;
-        line-height:100px;
-        margin-top:-3px;
+        line-height: 100px;
+        margin-top: -3px;
     }
 
-    .category-link:hover{
+    .category-link:hover {
         color: rgba(193, 157, 86, 1);
     }
-
 </style>
 
 <div class="container-fluid mt-4">
     <div class="row">
         <div class="col-md-3 border-style">
-            <div class="list-group" id="list-tab" role="tablist" style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;text-align:start;">
-                <a
-                    id="todosProdutos"
+            <div class="form-container" style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;text-align:start;">
+                <form method="get" class="form-inline search-form" asp-controller="Produto" asp-action="Produtos">
+                    <input name="filter" class="form-control" placeholder="Pesquise um produto..." value="@Model._Produtos.RouteValue["Filter"]" />
+                    <button type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
+                    </button>
+                </form>
+                <div>
+                    <vc:pager paging-list="@Model._Produtos" asp-route-filter="@Model._Produtos.RouteValue["filter"]" asp-route-sort="@Model._Produtos.RouteValue["sort"]"></vc:pager>
+                </div>
+            </div>
+            <div class="list-group" id="list-tab" role="tablist" style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px;text-align:start;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                <h2 class="text-md-center fw-light" style="font-size: 20px; font-family:'Linux Libertine G';font-style: italic; margin-top: 6%">Categorias</h2>
+                <a id="todosProdutos"
                    asp-controller="Produto" asp-action="Produtos"
                    class="list-group-item list-group-item-action border-0 category-link"
                    style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px; padding: .5rem 5px; margin-left:10px; width:auto">Todos</a>
-                @foreach (Categoria categoria in Model._Categorias)
+                @foreach (var categoria in Model._Categorias)
                 {
-                        <a asp-controller="Produto" asp-action="ProdutoByCategoria" id="category_@categoria.IdCategoria" asp-route-cod_categoria="@categoria.IdCategoria"
-                           class="list-group-item list-group-item-action border-0 category-link"
-                           style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px; padding: .5rem 5px; margin-left:10px; width:auto">@categoria.CategoriaNome</a>
+                    <a asp-controller="Produto" asp-action="ProdutoByCategoria" id="category_@categoria.IdCategoria" asp-route-cod_categoria="@categoria.IdCategoria"
+                       class="list-group-item list-group-item-action border-0 category-link"
+                       style="background-color: rgba(251, 246, 235, 1); letter-spacing:3px; padding: .5rem 5px; margin-left:10px; width:auto">@categoria.CategoriaNome</a>
                 }
+                
                 <div class="custom-range" style="margin-top:20px; margin-left: 10px; font-size: 12px; white-space:nowrap;">
                     <label for="minPrice">Preço Mínimo:<span style="color:rgb(225, 191, 56);"> R$</span><span id="minPriceOutput" style="color:rgb(225, 191, 56);">0</span></label>
                     <input type="range" id="minPrice" name="minPreço" min="0" max="1000" value="0" style="background-color:rgb(225, 191, 56);">
@@ -96,6 +108,7 @@
                     <label for="maxPrice">Preço Máximo:<span style="color:rgb(225, 191, 56);"> R$</span><span id="maxPriceOutput" style="color:rgb(225, 191, 56);">1000</span></label>
                     <input type="range" id="maxPrice" name="maxPreço" min="0" max="1000" value="1000" style="color:rgb(225, 191, 56);">
                 </div>
+              
                 <div id="productContainer"></div>
 
             </div>
@@ -104,12 +117,13 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-all" role="tabpanel" aria-labelledby="list-all-list">
                     <!-- Atualização começa aqui -->
-                        <h2 class="text-md-center fw-light" style="font-size: 25px; font-family:'Linux Libertine G';font-style: italic;">@ViewBag.Titulo</h2>
+                    <h2 class="text-md-center fw-light" style="font-size: 25px; font-family:'Linux Libertine G';font-style: italic; margin-top: 2%">Nossos Produtos</h2>
                     <div class="product-grid">
 
                         @foreach (var produto in Model._Produtos)
                         {
-                            <div class="product-card" data-category="@produto.IdCategoria">
+
+                            <div class="product-card" data-category="@produto">
                                 <div class="card h-90 border-0">
                                     @if (produto.ImagemUrl.Contains("www") || produto.ImagemUrl.Contains("http") || produto.ImagemUrl.Contains("https"))
                                     {
@@ -140,6 +154,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         }
                     </div>
                 </div>

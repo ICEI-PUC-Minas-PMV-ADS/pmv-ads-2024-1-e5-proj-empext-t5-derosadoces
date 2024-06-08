@@ -3,6 +3,7 @@ using DeRosaWebApp.Models;
 using DeRosaWebApp.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
 using System.Data;
 
 namespace DeRosaWebApp.Areas.Admin.Controllers
@@ -23,10 +24,16 @@ namespace DeRosaWebApp.Areas.Admin.Controllers
 
         [HttpGet]
         [Route("{controller}")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string filter, int pageIndex = 1, string sort = "Nome")
         {
-            var pedidos = await _pedidoService.GetAll();
-            return View(pedidos.Value);
+            var list = _pedidoService.PaginationPedido();
+            if (!string.IsNullOrWhiteSpace(filter))
+            {
+                list = list.Where(p => p.Nome.Contains(filter));
+            }
+            var model = await PagingList.CreateAsync(list, 5, pageIndex, sort, "Nome");
+            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+            return View(model);
         }
 
         [HttpGet]

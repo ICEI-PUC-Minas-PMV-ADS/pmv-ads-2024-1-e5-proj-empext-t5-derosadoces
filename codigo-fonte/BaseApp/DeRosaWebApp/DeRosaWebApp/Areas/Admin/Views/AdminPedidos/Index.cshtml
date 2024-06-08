@@ -1,13 +1,26 @@
 ﻿@using DeRosaWebApp.Models;
 @using System.Globalization;
-@model IEnumerable<Pedido>
+@model ReflectionIT.Mvc.Paging.PagingList<DeRosaWebApp.Models.Pedido>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1 class="titulo-tabela">Pedidos</h1>
-
+<div class="center">
+    <div class="form-container">
+        <form method="get" class="form-inline search-form">
+            <input name="filter" class="form-control" placeholder="Pesquise um pedido..." value="@Model.RouteValue["Filter"]" />
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-search" aria-hidden="true">Procurar</span>
+            </button>
+        </form>
+        <p class="total-count">Total de pedidos: @Model.TotalRecordCount</p>
+        <div>
+            <vc:pager paging-list="@Model"></vc:pager>
+        </div>
+    </div>
+</div>
 <div class="container-fluid admin">
     <table class="table">
         <thead>

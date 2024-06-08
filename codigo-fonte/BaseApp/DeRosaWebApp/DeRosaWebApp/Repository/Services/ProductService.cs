@@ -214,6 +214,13 @@ namespace DeRosaWebApp.Repository.Services
             return produto;
         }
         #endregion
+        #region Get Produto Pela Categoria Paginação
+        public IQueryable<Produto> GetProdutosCategoriaPagination(int categoriaId)
+        {
+            var produto = _context.Produtos.Where(p => p.IdCategoria == categoriaId);
+            return produto;
+        }
+        #endregion
         #region Atualizar quantidade de produto
         public async Task<IActionResult> PatchQnt(Produto produto)
         {

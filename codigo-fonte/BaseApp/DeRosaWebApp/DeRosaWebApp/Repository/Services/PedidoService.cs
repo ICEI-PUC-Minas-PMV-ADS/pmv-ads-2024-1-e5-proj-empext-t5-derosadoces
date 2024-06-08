@@ -179,6 +179,13 @@ namespace DeRosaWebApp.Repository.Services
             }
         }
         #endregion
+        #region Pedidos Paginação
+        public IQueryable<Pedido> PaginationPedido()
+        {
+            var list = _context.Pedidos.AsNoTracking().AsQueryable();
+            return list;
+        }
+        #endregion
         #region Atualizar pedido
         public async Task<ActionResult<Pedido>> Update(int id, Pedido pedido)
         {
