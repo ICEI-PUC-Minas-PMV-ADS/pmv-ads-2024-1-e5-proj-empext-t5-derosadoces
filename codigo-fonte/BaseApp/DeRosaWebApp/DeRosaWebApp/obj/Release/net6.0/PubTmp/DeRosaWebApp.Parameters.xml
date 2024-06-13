@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="DeRosa" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="derosadoces-001-site1" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

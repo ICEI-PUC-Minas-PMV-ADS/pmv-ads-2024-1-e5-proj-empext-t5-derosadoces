@@ -399,116 +399,187 @@ p {
 /* FIM TELA HOME */
 
 
-.form-login{
-    width:100%;
-    margin-top:5rem;
-    height:auto;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.containerf {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.input-login {
-    width: 40%;
+.text-center {
+    text-align: center;
+}
+
+.imglogin {
+    max-width: 100%;
     height: auto;
-    margin: auto;
-}
-
-.input-senha-login{
-    display:flex;
-}
-
-.input-senha-login button{
-    border:none;
-    background:none
-}
-
-.btn-esqueci-senha {
-    border: none;
-    background: none;
-    color: red;
-    font-size: 0.8rem;
-    margin-top:10px;
-}
-
-.input-senha-login {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-    .input-senha-login .btn-toggle-password {
-        background: none;
-        border: none;
-        position: absolute;
-        right: 10px;
-        cursor: pointer;
-        padding: 0;
-    }
-
-        .input-senha-login .btn-toggle-password i {
-            font-size: 1.5em;
-        }
-@media (max-width: 768px) {
-
-    .imglogin {
-        height: 300px;
-        width: 300px;
-    }
-}
-
-/* TELA CADASTRO */
-
-.linha-vertical{
-    width:4px;
-    height:100px;
-    background-color:red;
 }
 
 .container-cadastro {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+    .container-cadastro h1 {
+        margin-bottom: 20px;
+    }
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro do contêiner */
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+.input-login {
     width: 100%;
-    height: 100%;
-    display:flex;
-    text-align:center;
-    flex-direction:column;
-    justify-content:center;
-    margin-top:20px;
+    max-width: 300px;
+    text-align: left; /* Alinha o texto dos inputs à esquerda */
 }
 
-.form-control{
+.input-senha-login {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    position: relative
+}
+
+    .input-senha-login input {
+        width: 100%;
+        padding-right: 40px;
+    }
+
+.btn-toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
     border: none;
-    border-radius:0;
-    border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
-.container-input{
-    margin:4px;
+.form-group-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-login {
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 48, 48);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Tamanho da fonte reduzido */
+    flex: 1;
+}
+
+    .btn-login:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+.btn-esqueci-senha {
+    text-align: right;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .btn-login {
+        width: 100%;
+        font-size: 14px; /* Mantendo o tamanho da fonte reduzido no mobile */
+    }
+}
+
+
+/* TELA CADASTRO */
+
+.containerf {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.imglogin {
+    max-width: 100%;
+    height: auto;
+}
+
+.container-cadastro {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .form-cadastro {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 10px;
+}
+
+.container-input {
     width: 100%;
 }
 
-.input-pequeno{
-    width:33%;
-    height:auto;
+.input-pequeno {
+    flex: 1 1 48%;
 }
 
-.btn-cadastrar-container{
-    width:100%;
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
+.btn-cadastrar-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.btn-cadastro{
-    font-size:1.2rem;
-    line-height:1.2rem;
-    width:40%;
+.btn-cadastro {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
 }
+
+    .btn-cadastro:hover {
+        background-color: rgb(225, 191, 56);
+        color: white;
+    }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .imglogin {
+        margin-bottom: 30px;
+    }
+    .form-cadastro {
+        flex-direction: column;
+    }
+
+    .input-pequeno {
+        flex: 1 1 100%;
+    }
+
+    .container-input {
+        margin-bottom: 10px;
+    }
+}
+
 
 /* FIM TELA CADASTRO*/
 
@@ -767,7 +838,7 @@ p {
 
 .admin .table {
     width: auto;
-    margin: 20px;
+    margin: 20px auto;
     border-collapse: collapse;
     font-family: 'Montserrat', monospace;
     font-size: 14px;
@@ -898,7 +969,7 @@ p {
     display: inline-block;
     margin-left: 30px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: rgb(48, 48, 48);
     color: white;
     border: none;
     border-radius: 5px;
@@ -906,11 +977,12 @@ p {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    width:auto;
+    width: auto;
 }
 
     .create-button:hover {
-        background-color: #0056b3;
+        background-color: rgb(225, 191, 56);
+        color: white;
     }
 
 @media (max-width: 768px) {
@@ -1240,6 +1312,21 @@ h2 {
     text-align: center;
 }
 
+.radio-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .radio-container input[type="radio"] {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .radio-container label {
+        margin: 0;
+    }
+
 @media (max-width: 768px) {
     .Admin-pedidos-titulo {
         font-size: 1.5em;
@@ -1292,7 +1379,10 @@ input[type="range"] {
     -webkit-appearance: none; /* Remove a aparência padrão no WebKit */
     appearance: none;
     margin: 10px 0; /* Fornece um espaçamento uniforme */
+
+
 }
+
 @media (max-width: 375px){
     input[type="range"] {
         width: 30%;
@@ -1653,7 +1743,7 @@ input[type="range"] {
     width: 100%;
     padding: 10px;
     font-size: 1.2em;
-    background-color: #007bff;
+    background-color: rgb(48, 48, 48);
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -1661,7 +1751,8 @@ input[type="range"] {
 }
 
     .payment-submit:hover {
-        background-color: #0056b3;
+        background-color: rgb(225, 191, 56);
+        color: white;
     }
 
 .payment-alternative {
@@ -1825,6 +1916,7 @@ input[type="range"] {
 
 .cat-title {
     margin-top: 15px;
+    margin-left: 18px;
     font-family: Montserrat;
 }
 
@@ -1836,26 +1928,12 @@ input[type="range"] {
     font-size: 0.8rem;
 }
 
-/*.custom-cat-edit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.custom-cat-detail {
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}*/
-
 .tab-detail {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
     flex-direction: column;
-    
 }
 
 
@@ -1863,14 +1941,13 @@ input[type="range"] {
     border-collapse: collapse;
     width: 30%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    font-size:1rem
+    font-size: 1rem
 }
 
     .table-cat-detail td, .table-cat-detail th {
         border: 1px solid #dddddd;
         text-align: center;
         padding: 8px;
-        
     }
 
     .table-cat-detail th {
@@ -1879,17 +1956,17 @@ input[type="range"] {
     }
 
 
-/*-------------------PRODUTOS-------------------------*/
+/*-------------------PRODUTOS------------------------- ALEX*/
+
 
 .custom-product {
+    display: flex;
     justify-content: center;
     margin-top: 10px;
     font-size: 0.8rem;
+    padding: 20px;
 }
 
-.picker-img-test {
-    width: 110%;
-}
 
 .custom-quant-edit {
     margin-top: 15px;
@@ -1921,21 +1998,18 @@ th {
     height: 40%;
 }
 
-/*.icon-test {
-    width: 80px;
-    height: 60px;
-    cursor: pointer;
+.form-group input[type=radio] {
+    width: auto !important;
 }
 
-.arrow-return {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 6px;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    margin-left: 20px;
-}*/
+.custom-btn-add-img {
+    text-align: center;
+}
+
+.btn-edit-div {
+    width: 200px;
+    text-align: center;
+}
 
 /*INICIO TELA MEUS CONTATOS*/
 
@@ -2228,3 +2302,38 @@ th {
 }
 
 /*FIM ESCOLHA DE ENDEREÇOS*/
+
+
+/*INICIO TELA SUCESSO NO PAGAMENTO*/
+
+/* Centralização e estilo geral */
+.pg-efetuado-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pg-efetuado-img-check {
+    margin-top: 20px;
+}
+
+/* Estilo responsivo para telas menores */
+@media (max-width: 768px) {
+    .pg-efetuado-container {
+        padding: 0 20px;
+    }
+
+        .pg-efetuado-container h1 {
+            font-size: 24px;
+        }
+
+        .pg-efetuado-container p {
+            font-size: 16px;
+        }
+
+    .pg-efetuado-img-check img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/*FIM TELA SUCESSO NO PAGAMENTO*/

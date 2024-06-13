@@ -101,6 +101,10 @@
       "PackagePath": "staticwebassets\\Imagens\\carrinho.png"
     },
     {
+      "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\check.svg",
+      "PackagePath": "staticwebassets\\Imagens\\check.svg"
+    },
+    {
       "Id": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\delete.svg",
       "PackagePath": "staticwebassets\\Imagens\\delete.svg"
     },

@@ -24,9 +24,9 @@ namespace DeRosaWebApp.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
+           //optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-G01SU5G;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
            //optionsBuilder.UseSqlServer(connectionString: @"Server=serverderosa.database.windows.net;Database=derosa;User Id=nends;Password=Derosa123+;");
-           //optionsBuilder.UseSqlServer(connectionString: @"Data Source=Erick_PC;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True");
+           optionsBuilder.UseSqlServer(connectionString: @"Data Source=SQL8006.site4now.net;Initial Catalog=db_aa9b15_derosa;User Id=db_aa9b15_derosa_admin;Password=derosa123");
         }                   // exemplo: connectionString: @"Data Source=DESKTOP-QG1NG7E;Database=DeRosaDb;Integrated Security=True; TrustServerCertificate=True"
     }
 }

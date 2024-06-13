@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vWbhyHWup0mTQuAvM+wTNX9h9D23siW6i/OuL7o0QQQ=",
+  "Hash": "JzWzUTS5Tfv51DpoxlznLg5sy0UN7LAnQeCQacHWqT8=",
   "Source": "DeRosaWebApp",
   "BasePath": "_content/DeRosaWebApp",
   "Mode": "Default",
@@ -1364,6 +1364,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagens\\carrinho.png"
+    },
+    {
+      "Identity": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\check.svg",
+      "SourceId": "DeRosaWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\",
+      "BasePath": "_content/DeRosaWebApp",
+      "RelativePath": "Imagens/check.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\check.svg"
     },
     {
       "Identity": "D:\\ferne\\Documents\\GitHub\\DeRosaDoces\\pmv-ads-2024-1-e5-proj-empext-t5-derosadoces\\codigo-fonte\\BaseApp\\DeRosaWebApp\\DeRosaWebApp\\wwwroot\\Imagens\\delete.svg",
